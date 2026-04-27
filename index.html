@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clara Ramalho — Estratégia Financeira & Inteligência de Dados</title>
+  <meta name="description" content="Consultoria financeira independente fee-based com ciência de dados aplicada. CVM nº 19 | CEA ANBIMA. Rio de Janeiro, atendimento nacional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            grafite: '#0b0f19',
+            marinho: '#111827',
+            'marinho-card': '#161d2e',
+            esmeralda: '#059669',
+            'esmeralda-light': '#10b981',
+            'esmeralda-glow': '#34d399',
+            cinza: '#f1f5f9',
+            'texto-dark': '#e2e8f0',
+            'texto-muted': '#94a3b8',
+            'borda': '#1e293b',
+          },
+          fontFamily: {
+            display: ['"DM Serif Display"', 'serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --grafite: #0b0f19;
+      --marinho: #111827;
+      --marinho-card: #161d2e;
+      --esmeralda: #059669;
+      --esmeralda-light: #10b981;
+      --esmeralda-glow: #34d399;
+      --cinza: #f1f5f9;
+      --texto-dark: #e2e8f0;
+      --texto-muted: #94a3b8;
+      --borda: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--grafite);
+      color: var(--texto-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── GRID ANIMADO DO HERO ── */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+      animation: gridDrift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes gridDrift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 30px 30px; }
+    }
+
+    /* ── GRADIENTE HERO ── */
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(5,150,105,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(17,24,39,0.8) 0%, transparent 60%),
+        linear-gradient(180deg, var(--grafite) 0%, #0d1520 100%);
+    }
+
+    /* ── GLASSMORPHISM ── */
+    .glass {
+      background: rgba(22, 29, 46, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(30, 41, 59, 0.8);
+    }
+
+    .glass-light {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,15,25,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,41,59,0.6);
+      transition: all 0.3s ease;
+    }
+
+    /* ── LINHA ESMERALDA ── */
+    .accent-line {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--esmeralda), var(--esmeralda-glow));
+      border-radius: 2px;
+    }
+
+    /* ── BOTÃO CTA PRIMÁRIO ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--esmeralda), var(--esmeralda-light));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(5,150,105,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(5,150,105,0.4);
+    }
+
+    /* ── BOTÃO SECUNDÁRIO ── */
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--texto-dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 13px 24px;
+      border-radius: 6px;
+      border: 1px solid rgba(148,163,184,0.25);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--esmeralda-light);
+      color: var(--esmeralda-glow);
+    }
+
+    /* ── CARDS DE SERVIÇO ── */
+    .service-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 36px 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--esmeralda), var(--esmeralda-glow));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
+
+    /* ── CARD ANALYTICS (GLASSMORPHISM) ── */
+    .analytics-card {
+      background: rgba(22, 29, 46, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(5,150,105,0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .analytics-card:hover {
+      border-color: rgba(5,150,105,0.5);
+      box-shadow: 0 0 40px rgba(5,150,105,0.1);
+    }
+
+    /* ── BADGE TÉCNICO ── */
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(5,150,105,0.1);
+      border: 1px solid rgba(5,150,105,0.25);
+      color: var(--esmeralda-glow);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── SELO CVM/CEA ── */
+    .credential-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--texto-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── NÚMERO DESTAQUE ── */
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 40%, var(--esmeralda-glow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── GRÁFICO SIMULADO ── */
+    .chart-bar {
+      background: linear-gradient(180deg, var(--esmeralda-light), var(--esmeralda));
+      border-radius: 3px 3px 0 0;
+      transition: height 1s ease;
+    }
+
+    /* ── LINHA DO TEMPO (ETL) ── */
+    .etl-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .etl-dot {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 50%;
+      background: rgba(5,150,105,0.15);
+      border: 1.5px solid var(--esmeralda);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--esmeralda-glow);
+    }
+
+    /* ── ANIMAÇÕES DE ENTRADA ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── CURSOR PERSONALIZADO ── */
+    .cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--esmeralda-light);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      mix-blend-mode: screen;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--grafite); }
+    ::-webkit-scrollbar-thumb { background: var(--esmeralda); border-radius: 2px; }
+
+    /* ── NAV LINK ── */
+    .nav-link {
+      color: var(--texto-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-link:hover { color: #fff; }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--esmeralda-light);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── SEÇÕES LIGHT ── */
+    .section-light { background: var(--cinza); }
+    .section-light .accent-line { background: linear-gradient(90deg, var(--esmeralda), var(--esmeralda-light)); }
+
+    /* ── TERMINAL VISUAL ── */
+    .terminal {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.8rem;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background: #161b22;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .terminal-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .terminal-body {
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+    .t-green  { color: #3fb950; }
+    .t-blue   { color: #58a6ff; }
+    .t-yellow { color: #e3b341; }
+    .t-muted  { color: #8b949e; }
+    .t-white  { color: #f0f6fc; }
+
+    /* ── QUOTE GRANDE ── */
+    .quote-display {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.25;
+      font-style: italic;
+    }
+
+    /* ── LINHA DIVISÓRIA ESMERALDA ── */
+    .divider-em {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--esmeralda), transparent);
+      margin: 0 auto;
+    }
+
+    /* ── FLOATING CTA (WA) ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      z-index: 99;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37,211,102,0.55);
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background: rgba(11,15,25,0.98);
+      border-top: 1px solid var(--borda);
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║            CURSOR DOT                ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║               NAVBAR                 ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<nav class="navbar">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#inicio" class="flex items-center gap-3 text-decoration-none">
+      <div style="width:32px;height:32px;background:linear-gradient(135deg,#059669,#34d399);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <polyline points="1,11 5,7 8,9 13,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="11" y1="3" x2="15" y2="3" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13" y1="1" x2="13" y2="5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.9rem;color:#f1f5f9;letter-spacing:0.01em;">Clara Ramalho</div>
+        <div style="font-size:0.68rem;color:#64748b;letter-spacing:0.05em;text-transform:uppercase;">Estratégia Financeira & Dados</div>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="desktop-nav flex items-center gap-8">
+      <a href="#metodologia" class="nav-link">Metodologia</a>
+      <a href="#servicos" class="nav-link">Serviços</a>
+      <a href="#analytics" class="nav-link">Análise de Dados</a>
+      <a href="#sobre" class="nav-link">Sobre</a>
+      <div class="flex items-center gap-3">
+        <span class="credential-badge">CVM nº 19</span>
+        <span class="credential-badge">CEA</span>
+      </div>
+      <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary" style="padding:10px 20px;font-size:0.82rem;">
+        Agendar Diagnóstico
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="mobileToggle" style="display:none;background:none;border:none;cursor:pointer;color:#e2e8f0;" class="md:hidden">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#metodologia" class="nav-link" onclick="closeMobileMenu()">Metodologia</a>
+    <a href="#servicos" class="nav-link" onclick="closeMobileMenu()">Serviços</a>
+    <a href="#analytics" class="nav-link" onclick="closeMobileMenu()">Análise de Dados</a>
+    <a href="#sobre" class="nav-link" onclick="closeMobileMenu()">Sobre</a>
+    <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary" style="width:fit-content;">Agendar Diagnóstico</a>
+  </div>
+</nav>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║              HERO SECTION            ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="inicio" style="min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--grafite);">
+  <div class="hero-gradient"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Detalhe decorativo -->
+  <div style="position:absolute;top:20%;right:5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(5,150,105,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 pt-28 pb-20 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Coluna texto -->
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.25);border-radius:100px;padding:6px 16px;margin-bottom:32px;" class="fade-up">
+          <span style="width:6px;height:6px;background:#10b981;border-radius:50%;display:inline-block;animation:pulse 2s infinite;"></span>
+          <span style="font-size:0.78rem;font-weight:500;color:#34d399;letter-spacing:0.04em;">Consultora Independente · Fee-Based · CVM nº 19</span>
+        </div>
+
+        <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.15;color:#f8fafc;margin-bottom:24px;" class="fade-up">
+          Sua vida financeira<br/>
+          não precisa de<br/>
+          <span style="font-style:italic;background:linear-gradient(135deg,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">palpites.</span><br/>
+          Precisa de dados.
+        </h1>
+
+        <p style="font-size:1.05rem;line-height:1.75;color:#94a3b8;margin-bottom:36px;max-width:500px;" class="fade-up">
+          Consultoria financeira independente e ciência de dados aplicada para otimizar seu patrimônio, eliminar ineficiências tributárias e tomar decisões com precisão técnica.
+        </p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;" class="fade-up">
+          <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+            Agendar Diagnóstico Técnico
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#analytics" class="btn-secondary">
+            Ver projetos de dados
+          </a>
+        </div>
+
+        <!-- Credenciais -->
+        <div style="display:flex;align-items:center;gap:12px;margin-top:40px;flex-wrap:wrap;" class="fade-up">
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(30,41,59,0.8);border-radius:8px;background:rgba(22,29,46,0.5);">
+            <div style="width:8px;height:8px;background:#059669;border-radius:50%;"></div>
+            <span style="font-size:0.75rem;font-weight:600;color:#cbd5e1;letter-spacing:0.05em;text-transform:uppercase;">CVM nº 19 · Resolução CVM nº 19</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(30,41,59,0.8);border-radius:8px;background:rgba(22,29,46,0.5);">
+            <div style="width:8px;height:8px;background:#059669;border-radius:50%;"></div>
+            <span style="font-size:0.75rem;font-weight:600;color:#cbd5e1;letter-spacing:0.05em;text-transform:uppercase;">CEA · ANBIMA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna terminal / visual -->
+      <div style="position:relative;" class="fade-up">
+        <div class="terminal" style="box-shadow:0 24px 80px rgba(0,0,0,0.5);">
+          <div class="terminal-header">
+            <div class="terminal-dot" style="background:#ff5f57;"></div>
+            <div class="terminal-dot" style="background:#febc2e;"></div>
+            <div class="terminal-dot" style="background:#28c840;"></div>
+            <span style="margin-left:12px;font-size:0.72rem;color:#8b949e;font-family:'DM Sans',sans-serif;">analise_patrimonio.py</span>
+          </div>
+          <div class="terminal-body">
+            <div><span class="t-muted"># Consolidação multibancária — ETL</span></div>
+            <div style="margin-top:8px;"><span class="t-blue">import</span> <span class="t-white">pandas</span> <span class="t-blue">as</span> <span class="t-white">pd</span></div>
+            <div><span class="t-blue">import</span> <span class="t-white">numpy</span> <span class="t-blue">as</span> <span class="t-white">np</span></div>
+            <div style="margin-top:12px;"><span class="t-muted"># Carregando extratos de múltiplas instituições</span></div>
+            <div><span class="t-white">df</span> <span class="t-yellow">=</span> <span class="t-white">pd.concat([banco_a, banco_b, corretora])</span></div>
+            <div style="margin-top:8px;"><span class="t-muted"># Identificando ineficiências no Tesouro</span></div>
+            <div><span class="t-white">ineficiencias</span> <span class="t-yellow">=</span> <span class="t-white">df[</span></div>
+            <div style="padding-left:16px;"><span class="t-white">df[</span><span class="t-green">'spread_real'</span><span class="t-white">]</span> <span class="t-yellow">&gt;</span> <span class="t-white">df[</span><span class="t-green">'benchmark_cdi'</span><span class="t-white">]</span></div>
+            <div><span class="t-white">]</span></div>
+            <div style="margin-top:12px;"><span class="t-green">print</span><span class="t-white">(</span><span class="t-green">f"</span><span class="t-yellow">{len(ineficiencias)}</span> <span class="t-green">oportunidades detectadas"</span><span class="t-white">)</span></div>
+            <div style="margin-top:8px;color:#3fb950;font-weight:500;">→ 7 oportunidades detectadas ✓</div>
+          </div>
+        </div>
+
+        <!-- Mini stat cards flutuantes -->
+        <div style="position:absolute;top:-20px;right:-20px;background:rgba(5,150,105,0.12);border:1px solid rgba(5,150,105,0.3);border-radius:10px;padding:14px 18px;backdrop-filter:blur(12px);">
+          <div style="font-size:0.65rem;color:#64748b;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">TIR real identificada</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#34d399;">+2.3%</div>
+          <div style="font-size:0.68rem;color:#10b981;">acima do benchmark</div>
+        </div>
+
+        <div style="position:absolute;bottom:-20px;left:-20px;background:rgba(22,29,46,0.9);border:1px solid rgba(30,41,59,0.9);border-radius:10px;padding:14px 18px;backdrop-filter:blur(12px);">
+          <div style="font-size:0.65rem;color:#64748b;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Patrimônio consolidado</div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:60px;height:4px;background:linear-gradient(90deg,#059669,#34d399);border-radius:2px;"></div>
+            <span style="font-size:0.75rem;color:#94a3b8;">3 bancos · 1 visão</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.4;">
+    <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;">scroll</span>
+    <div style="width:1px;height:40px;background:linear-gradient(180deg,#94a3b8,transparent);animation:scrollPulse 2s ease-in-out infinite;"></div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║        DIFERENCIAL METODOLÓGICO      ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="metodologia" class="section-light" style="padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div style="max-width:640px;margin-bottom:64px;" class="fade-up">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div class="accent-line" style="background:linear-gradient(90deg,#059669,#10b981);"></div>
+        <span style="font-size:0.75rem;font-weight:600;color:#059669;letter-spacing:0.08em;text-transform:uppercase;">Metodologia</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;color:#0f172a;margin-bottom:20px;">
+        Data-Driven Finance.<br/>
+        <span style="font-style:italic;color:#059669;">A ciência por trás da consultoria.</span>
+      </h2>
+      <p style="font-size:1rem;line-height:1.8;color:#475569;">
+        Enquanto o mercado foca em vender produtos, eu foco em processar informações. Utilizo engenharia de dados para consolidar seu patrimônio multibancário de forma manual e segura, garantindo independência total de instituições financeiras.
+      </p>
+    </div>
+
+    <!-- 3 Pilares -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Pilar 1 -->
+      <div class="service-card fade-up">
+        <div style="width:48px;height:48px;background:rgba(5,150,105,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="9" stroke="#059669" stroke-width="1.6"/>
+            <line x1="11" y1="6" x2="11" y2="16" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="6" y1="11" x2="16" y2="11" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="8" y1="8" x2="14" y2="14" stroke="#059669" stroke-width="1" stroke-linecap="round" stroke-dasharray="1 2"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;color:#0f172a;margin-bottom:12px;">Isenção de Comissões</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#64748b;">Meu único produto é o diagnóstico honesto do seu patrimônio. Zero vínculo com bancos ou gestoras. Você paga por uma taxa fixa — não por produto vendido.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:600;color:#059669;">
+          Fee-based 100%
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="service-card fade-up" style="transition-delay:0.1s;">
+        <div style="width:48px;height:48px;background:rgba(5,150,105,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1" stroke="#059669" stroke-width="1.6"/>
+            <rect x="12" y="3" width="7" height="7" rx="1" stroke="#059669" stroke-width="1.6"/>
+            <rect x="3" y="12" width="7" height="7" rx="1" stroke="#059669" stroke-width="1.6"/>
+            <path d="M12 15.5h7M15.5 12v7" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;color:#0f172a;margin-bottom:12px;">ETL Patrimonial</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#64748b;">Coleto, trato e integro dados de múltiplas instituições financeiras usando Python e SQL. Seu patrimônio vira uma base estruturada, não uma pilha de extratos PDF.</p>
+        <div style="margin-top:20px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tech-badge" style="background:rgba(5,150,105,0.08);border-color:rgba(5,150,105,0.2);color:#059669;">Python</span>
+          <span class="tech-badge" style="background:rgba(5,150,105,0.08);border-color:rgba(5,150,105,0.2);color:#059669;">SQL</span>
+          <span class="tech-badge" style="background:rgba(5,150,105,0.08);border-color:rgba(5,150,105,0.2);color:#059669;">ETL</span>
+        </div>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="service-card fade-up" style="transition-delay:0.2s;">
+        <div style="width:48px;height:48px;background:rgba(5,150,105,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="#059669" stroke-width="1.6"/>
+            <path d="M11 3a8 8 0 0 1 8 8" stroke="#059669" stroke-width="1.6" stroke-dasharray="3 2"/>
+            <circle cx="11" cy="11" r="3" stroke="#059669" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;color:#0f172a;margin-bottom:12px;">Visão 360° do Patrimônio</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#64748b;">Consolidação de renda variável, renda fixa, previdência, imóveis e investimentos no exterior em um único painel. Decisões baseadas na fotografia completa, não em fragmentos.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:600;color:#059669;">
+          Dashboard personalizado
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha ETL -->
+    <div style="margin-top:64px;padding:40px;background:#fff;border-radius:16px;border:1px solid #e2e8f0;" class="fade-up">
+      <div style="margin-bottom:28px;">
+        <div style="font-size:0.72rem;font-weight:600;color:#059669;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Pipeline de análise</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#0f172a;">Como funciona o processo técnico</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;">
+        <div class="etl-step">
+          <div class="etl-dot" style="background:rgba(5,150,105,0.1);border-color:#059669;color:#059669;">01</div>
+          <div>
+            <div style="font-weight:600;font-size:0.88rem;color:#0f172a;margin-bottom:4px;">Coleta</div>
+            <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Extratos, relatórios e posições de todas as instituições</div>
+          </div>
+        </div>
+        <div class="etl-step">
+          <div class="etl-dot" style="background:rgba(5,150,105,0.1);border-color:#059669;color:#059669;">02</div>
+          <div>
+            <div style="font-weight:600;font-size:0.88rem;color:#0f172a;margin-bottom:4px;">Tratamento</div>
+            <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Limpeza, padronização e integração via Python</div>
+          </div>
+        </div>
+        <div class="etl-step">
+          <div class="etl-dot" style="background:rgba(5,150,105,0.1);border-color:#059669;color:#059669;">03</div>
+          <div>
+            <div style="font-weight:600;font-size:0.88rem;color:#0f172a;margin-bottom:4px;">Análise</div>
+            <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Identificação de ineficiências, riscos e oportunidades</div>
+          </div>
+        </div>
+        <div class="etl-step">
+          <div class="etl-dot" style="background:rgba(5,150,105,0.1);border-color:#059669;color:#059669;">04</div>
+          <div>
+            <div style="font-weight:600;font-size:0.88rem;color:#0f172a;margin-bottom:4px;">Relatório</div>
+            <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Diagnóstico técnico com recomendações acionáveis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║           FEE-BASED SECTION          ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="servicos" style="padding:100px 0;background:var(--grafite);overflow:hidden;position:relative;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(5,150,105,0.06) 0%,transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div style="text-align:center;max-width:700px;margin:0 auto 80px;" class="fade-up">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;">
+        <div style="width:30px;height:1px;background:var(--esmeralda);"></div>
+        <span style="font-size:0.72rem;font-weight:600;color:var(--esmeralda);letter-spacing:0.1em;text-transform:uppercase;">Modelo de Atuação</span>
+        <div style="width:30px;height:1px;background:var(--esmeralda);"></div>
+      </div>
+
+      <div class="quote-display" style="color:#f8fafc;margin-bottom:24px;">
+        "Você paga pelo meu<br/>
+        <span style="color:var(--esmeralda-glow);font-style:italic;">cérebro,</span><br/>
+        não pelo meu produto."
+      </div>
+
+      <p style="font-size:1rem;line-height:1.8;color:var(--texto-muted);max-width:520px;margin:0 auto;">
+        A consultoria fee-based significa que meu único interesse é o resultado do seu patrimônio. Sem produtos para vender, sem comissões escondidas, sem conflito de interesse.
+      </p>
+    </div>
+
+    <!-- Comparativo -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+      <!-- Modelo tradicional -->
+      <div style="padding:36px;border:1px solid rgba(239,68,68,0.2);border-radius:12px;background:rgba(239,68,68,0.04);" class="fade-up">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div style="width:8px;height:8px;background:#ef4444;border-radius:50%;"></div>
+          <span style="font-size:0.78rem;font-weight:600;color:#ef4444;letter-spacing:0.05em;text-transform:uppercase;">Consultoria Tradicional</span>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-muted);line-height:1.5;">
+            <span style="color:#ef4444;margin-top:2px;flex-shrink:0;">✕</span>
+            Remunerada por comissão dos produtos vendidos
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-muted);line-height:1.5;">
+            <span style="color:#ef4444;margin-top:2px;flex-shrink:0;">✕</span>
+            Conflito de interesse estrutural com o banco/gestora
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-muted);line-height:1.5;">
+            <span style="color:#ef4444;margin-top:2px;flex-shrink:0;">✕</span>
+            Análise limitada ao portfólio da própria instituição
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-muted);line-height:1.5;">
+            <span style="color:#ef4444;margin-top:2px;flex-shrink:0;">✕</span>
+            Relatórios genéricos, sem modelagem de dados real
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modelo Clara -->
+      <div style="padding:36px;border:1px solid rgba(5,150,105,0.3);border-radius:12px;background:rgba(5,150,105,0.06);" class="fade-up" style="transition-delay:0.1s;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div style="width:8px;height:8px;background:var(--esmeralda);border-radius:50%;animation:pulse 2s infinite;"></div>
+          <span style="font-size:0.78rem;font-weight:600;color:var(--esmeralda-glow);letter-spacing:0.05em;text-transform:uppercase;">Clara Ramalho · Fee-Based</span>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-dark);line-height:1.5;">
+            <span style="color:var(--esmeralda-glow);margin-top:2px;flex-shrink:0;">✓</span>
+            Taxa fixa e transparente — sem surpresas
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-dark);line-height:1.5;">
+            <span style="color:var(--esmeralda-glow);margin-top:2px;flex-shrink:0;">✓</span>
+            Independência total de bancos e gestoras
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-dark);line-height:1.5;">
+            <span style="color:var(--esmeralda-glow);margin-top:2px;flex-shrink:0;">✓</span>
+            Visão 360° de todo o patrimônio multibancário
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--texto-dark);line-height:1.5;">
+            <span style="color:var(--esmeralda-glow);margin-top:2px;flex-shrink:0;">✓</span>
+            Análise técnica com Python, SQL e modelagem de dados
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="fade-up">
+      <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+        Quero uma análise independente
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║          VITRINE ANALYTICS           ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="analytics" class="section-light" style="padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:56px;flex-wrap:wrap;" class="fade-up">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div class="accent-line" style="background:linear-gradient(90deg,#059669,#10b981);"></div>
+          <span style="font-size:0.75rem;font-weight:600;color:#059669;letter-spacing:0.08em;text-transform:uppercase;">Portfólio de Pesquisa</span>
+        </div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.2;color:#0f172a;">
+          Análises que viram<br/>
+          <span style="font-style:italic;color:#059669;">decisões reais.</span>
+        </h2>
+      </div>
+      <a href="#contato" class="btn-secondary" style="border-color:#cbd5e1;color:#475569;white-space:nowrap;">Ver todos os projetos →</a>
+    </div>
+
+    <!-- Card em destaque -->
+    <div class="analytics-card fade-up" style="background:var(--marinho);border-color:rgba(5,150,105,0.2);margin-bottom:24px;">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <!-- Info -->
+        <div style="padding:48px 40px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+            <span style="background:rgba(5,150,105,0.15);border:1px solid rgba(5,150,105,0.3);color:var(--esmeralda-glow);font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Projeto em Destaque</span>
+            <span style="font-size:0.72rem;color:var(--texto-muted);">2014 – 2025</span>
+          </div>
+
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.7rem;line-height:1.25;color:#f8fafc;margin-bottom:16px;">
+            Ineficiências no<br/>
+            Tesouro Direto:<br/>
+            <span style="font-style:italic;color:var(--esmeralda-glow);">Uma análise técnica</span>
+          </h3>
+
+          <p style="font-size:0.9rem;line-height:1.75;color:var(--texto-muted);margin-bottom:28px;">
+            Como algoritmos de análise comportamental identificam o melhor momento para sua liquidez. Estudo com dados históricos de 10 anos de emissões do Tesouro IPCA+, Prefixado e Selic.
+          </p>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Pandas</span>
+            <span class="tech-badge">Análise Comportamental</span>
+            <span class="tech-badge">Tesouro Direto</span>
+          </div>
+
+          <a href="#contato" class="btn-primary" style="font-size:0.82rem;padding:11px 22px;">
+            Acessar Dashboard
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Gráfico visual simulado -->
+        <div style="padding:40px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(30,41,59,0.8);">
+          <div style="background:rgba(11,15,25,0.6);border:1px solid rgba(30,41,59,0.8);border-radius:12px;padding:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <span style="font-size:0.75rem;color:var(--texto-muted);">TIR Real · Tesouro IPCA+ (2014–2025)</span>
+              <span style="font-size:0.72rem;color:var(--esmeralda-glow);background:rgba(5,150,105,0.1);padding:3px 8px;border-radius:4px;">+11.2% pico</span>
+            </div>
+
+            <!-- Barras de gráfico -->
+            <div style="display:flex;align-items:flex-end;gap:6px;height:100px;">
+              <div class="chart-bar" style="flex:1;height:45%;opacity:0.6;"></div>
+              <div class="chart-bar" style="flex:1;height:60%;opacity:0.7;"></div>
+              <div class="chart-bar" style="flex:1;height:38%;opacity:0.6;"></div>
+              <div class="chart-bar" style="flex:1;height:55%;opacity:0.7;"></div>
+              <div class="chart-bar" style="flex:1;height:70%;opacity:0.8;"></div>
+              <div class="chart-bar" style="flex:1;height:48%;opacity:0.7;"></div>
+              <div class="chart-bar" style="flex:1;height:85%;"></div>
+              <div class="chart-bar" style="flex:1;height:90%;"></div>
+              <div class="chart-bar" style="flex:1;height:62%;opacity:0.8;"></div>
+              <div class="chart-bar" style="flex:1;height:74%;opacity:0.9;"></div>
+              <div class="chart-bar" style="flex:1;height:55%;opacity:0.7;"></div>
+            </div>
+
+            <!-- Eixo X -->
+            <div style="display:flex;justify-content:space-between;margin-top:8px;">
+              <span style="font-size:0.65rem;color:#475569;">2014</span>
+              <span style="font-size:0.65rem;color:#475569;">2018</span>
+              <span style="font-size:0.65rem;color:#475569;">2022</span>
+              <span style="font-size:0.65rem;color:#475569;">2025</span>
+            </div>
+
+            <!-- Stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(30,41,59,0.8);">
+              <div style="text-align:center;">
+                <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--esmeralda-glow);">87</div>
+                <div style="font-size:0.65rem;color:#475569;">emissões analisadas</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--esmeralda-glow);">10</div>
+                <div style="font-size:0.65rem;color:#475569;">anos de dados</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--esmeralda-glow);">3</div>
+                <div style="font-size:0.65rem;color:#475569;">tipos de título</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards menores -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="analytics-card fade-up" style="background:var(--marinho);padding:32px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <span style="background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.2);color:var(--esmeralda);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 9px;border-radius:4px;">Ferramenta</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M10 5l5 4-5 4" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#f8fafc;margin-bottom:10px;">Consolidador Multibancário</h4>
+        <p style="font-size:0.85rem;line-height:1.65;color:var(--texto-muted);">Dashboard em Streamlit para visualização de patrimônio consolidado com dados de múltiplas corretoras e bancos.</p>
+        <div style="display:flex;gap:6px;margin-top:16px;flex-wrap:wrap;">
+          <span class="tech-badge">Streamlit</span>
+          <span class="tech-badge">Python</span>
+        </div>
+      </div>
+
+      <div class="analytics-card fade-up" style="background:var(--marinho);padding:32px;transition-delay:0.1s;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <span style="background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.2);color:var(--esmeralda);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 9px;border-radius:4px;">Pesquisa</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M10 5l5 4-5 4" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#f8fafc;margin-bottom:10px;">Finanças Comportamentais & Vieses</h4>
+        <p style="font-size:0.85rem;line-height:1.65;color:var(--texto-muted);">Como vieses cognitivos afetam decisões de investimento e como neutralizá-los com métricas quantitativas.</p>
+        <div style="display:flex;gap:6px;margin-top:16px;flex-wrap:wrap;">
+          <span class="tech-badge">Behavioral Finance</span>
+          <span class="tech-badge">SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║          BIO & AUTORIDADE            ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="sobre" style="padding:100px 0;background:var(--grafite);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(5,150,105,0.3),transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Coluna foto -->
+      <div style="position:relative;" class="fade-up">
+        <!-- Placeholder elegante para foto -->
+        <div style="width:100%;max-width:440px;aspect-ratio:3/4;border-radius:16px;background:linear-gradient(135deg,var(--marinho-card),#1e293b);border:1px solid var(--borda);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <!-- Grade decorativa interna -->
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(5,150,105,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(5,150,105,0.04) 1px,transparent 1px);background-size:30px 30px;"></div>
+          <div style="text-align:center;position:relative;z-index:1;">
+            <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(5,150,105,0.3),rgba(5,150,105,0.1));border:2px solid rgba(5,150,105,0.3);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="7" stroke="#10b981" stroke-width="1.5"/><path d="M6 35c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-size:0.8rem;color:var(--texto-muted);">Foto profissional</div>
+            <div style="font-size:0.7rem;color:#475569;margin-top:4px;">substituir por sua foto</div>
+          </div>
+        </div>
+
+        <!-- Selos flutuantes -->
+        <div style="position:absolute;bottom:24px;right:-16px;background:var(--marinho-card);border:1px solid var(--borda);border-radius:12px;padding:16px 20px;backdrop-filter:blur(12px);">
+          <div style="font-size:0.65rem;color:var(--texto-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">Certificações</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:6px;height:6px;background:var(--esmeralda);border-radius:50%;flex-shrink:0;"></div>
+              <span style="font-size:0.78rem;font-weight:600;color:var(--texto-dark);">CVM nº 19 · Consultora Habilitada</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:6px;height:6px;background:var(--esmeralda);border-radius:50%;flex-shrink:0;"></div>
+              <span style="font-size:0.78rem;font-weight:600;color:var(--texto-dark);">CEA · Especialista ANBIMA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna texto -->
+      <div class="fade-up">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div class="accent-line"></div>
+          <span style="font-size:0.75rem;font-weight:600;color:var(--esmeralda);letter-spacing:0.08em;text-transform:uppercase;">Sobre Clara</span>
+        </div>
+
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.2;color:#f8fafc;margin-bottom:24px;">
+          Pesquisadora que<br/>
+          <span style="font-style:italic;color:var(--esmeralda-glow);">fala a língua dos dados</span><br/>
+          e dos investimentos.
+        </h2>
+
+        <p style="font-size:0.95rem;line-height:1.8;color:var(--texto-muted);margin-bottom:16px;">
+          Consultora de Investimentos Independente habilitada pela CVM e Especialista em Investimentos pela ANBIMA (CEA), combino rigor acadêmico de pesquisadora com aplicação prática em ciência de dados para oferecer consultoria verdadeiramente isenta.
+        </p>
+
+        <p style="font-size:0.95rem;line-height:1.8;color:var(--texto-muted);margin-bottom:32px;">
+          Minha abordagem trata o patrimônio como um problema de engenharia — estruturado, mensurável e otimizável. Sem palpites, sem viés de vendas, sem promessas irreais.
+        </p>
+
+        <!-- Stack técnica -->
+        <div style="margin-bottom:32px;">
+          <div style="font-size:0.72rem;font-weight:600;color:var(--texto-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">Stack Técnica</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">Pandas</span>
+            <span class="tech-badge">Streamlit</span>
+            <span class="tech-badge">Finanças Comportamentais</span>
+            <span class="tech-badge">Tesouro Direto</span>
+            <span class="tech-badge">ETL</span>
+            <span class="tech-badge">Renda Fixa</span>
+          </div>
+        </div>
+
+        <!-- Diferencial da escala -->
+        <div style="padding:20px 24px;border:1px solid rgba(5,150,105,0.2);border-radius:10px;background:rgba(5,150,105,0.05);">
+          <p style="font-size:0.88rem;line-height:1.7;color:var(--texto-dark);font-style:italic;">
+            "Grandes consultorias têm centenas de consultores. Você terá a minha atenção direta — e os meus algoritmos."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║              CONTATO                 ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<section id="contato" class="section-light" style="padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div style="text-align:center;max-width:600px;margin:0 auto 64px;" class="fade-up">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;">
+        <div class="accent-line" style="background:linear-gradient(90deg,#059669,#10b981);"></div>
+        <span style="font-size:0.75rem;font-weight:600;color:#059669;letter-spacing:0.08em;text-transform:uppercase;">Contato</span>
+        <div class="accent-line" style="background:linear-gradient(270deg,#059669,#10b981);"></div>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.2;color:#0f172a;margin-bottom:16px;">
+        Pronto para uma análise<br/>
+        <span style="font-style:italic;color:#059669;">baseada em dados reais?</span>
+      </h2>
+      <p style="font-size:0.95rem;line-height:1.7;color:#64748b;">Agende um diagnóstico técnico gratuito de 30 minutos. Sem compromisso, sem produto para vender.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/5521000000000" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:36px 24px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;text-decoration:none;transition:all 0.25s ease;text-align:center;" class="fade-up" onmouseover="this.style.borderColor='#059669';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="width:52px;height:52px;background:rgba(37,211,102,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.554 4.109 1.526 5.83L.057 23.927a.5.5 0 0 0 .615.616l6.097-1.469A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.64-.52-5.14-1.418l-.36-.213-3.792.914.935-3.78-.23-.377A9.959 9.959 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:0.9rem;color:#0f172a;margin-bottom:4px;">WhatsApp</div>
+          <div style="font-size:0.8rem;color:#64748b;">Resposta rápida</div>
+        </div>
+      </a>
+
+      <!-- E-mail -->
+      <a href="mailto:clara@clararamalho.com.br" style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:36px 24px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;text-decoration:none;transition:all 0.25s ease;text-align:center;" class="fade-up" style="transition-delay:0.1s;" onmouseover="this.style.borderColor='#059669';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="width:52px;height:52px;background:rgba(5,150,105,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="13" rx="2" stroke="#059669" stroke-width="1.6"/><path d="M2 8l9 6 9-6" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:0.9rem;color:#0f172a;margin-bottom:4px;">E-mail</div>
+          <div style="font-size:0.8rem;color:#64748b;">clara@clararamalho.com.br</div>
+        </div>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/clararamalho" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:36px 24px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;text-decoration:none;transition:all 0.25s ease;text-align:center;" class="fade-up" style="transition-delay:0.2s;" onmouseover="this.style.borderColor='#059669';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="width:52px;height:52px;background:rgba(10,102,194,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="18" rx="3" stroke="#0a66c2" stroke-width="1.6"/><path d="M6 9v7M6 6v.5" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round"/><path d="M10 16v-4c0-1.5 1-2 2-2s2 .5 2 2v4" stroke="#0a66c2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 12v4" stroke="#0a66c2" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:0.9rem;color:#0f172a;margin-bottom:4px;">LinkedIn</div>
+          <div style="font-size:0.8rem;color:#64748b;">Currículo & publicações</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║               FOOTER                 ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<footer style="background:var(--grafite);border-top:1px solid var(--borda);padding:60px 0 40px;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+      <!-- Marca -->
+      <div class="md:col-span-2">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div style="width:28px;height:28px;background:linear-gradient(135deg,#059669,#34d399);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><polyline points="1,11 5,7 8,9 13,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="11" y1="3" x2="15" y2="3" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="1" x2="13" y2="5" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.9rem;color:#f1f5f9;">Clara Ramalho</span>
+        </div>
+        <p style="font-size:0.82rem;line-height:1.7;color:#475569;max-width:320px;margin-bottom:16px;">
+          Estratégia Financeira & Inteligência de Dados.<br/>
+          Consultora CVM, CEA · Rio de Janeiro · Atendimento Nacional.
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="credential-badge">CVM nº 19</span>
+          <span class="credential-badge">CEA · ANBIMA</span>
+        </div>
+      </div>
+
+      <!-- Mapa do Site -->
+      <div>
+        <div style="font-size:0.72rem;font-weight:700;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Site</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#inicio" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Início</a>
+          <a href="#metodologia" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Metodologia</a>
+          <a href="#servicos" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Serviços</a>
+          <a href="#analytics" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Análise de Dados</a>
+          <a href="#sobre" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Sobre</a>
+          <a href="#contato" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Contato</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <div style="font-size:0.72rem;font-weight:700;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Legal & Social</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Política de Privacidade</a>
+          <a href="#" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Termos de Uso</a>
+          <a href="#" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">Currículo</a>
+          <a href="https://linkedin.com/in/clararamalho" target="_blank" style="font-size:0.83rem;color:#64748b;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#64748b'">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer Legal -->
+    <div style="padding:24px;border:1px solid rgba(30,41,59,0.8);border-radius:10px;background:rgba(22,29,46,0.4);margin-bottom:32px;">
+      <div style="font-size:0.7rem;font-weight:700;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">Disclaimer e Informações Legais</div>
+      <p style="font-size:0.73rem;line-height:1.7;color:#475569;">
+        <strong style="color:#64748b;">Clara Ramalho</strong> – Consultora de Investimentos Independente Habilitada pela Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19. Certificação: Especialista em Investimentos ANBIMA (CEA).
+        <strong style="color:#64748b;"> 1. Risco de Mercado:</strong> Investimentos em valores mobiliários envolvem riscos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.
+        <strong style="color:#64748b;"> 2. Caráter Informativo:</strong> O conteúdo deste site e das ferramentas digitais oferecidas possui caráter exclusivamente educativo e informativo. Não constitui recomendação direta de compra ou venda de ativos financeiros, nem garantia de resultados.
+        <strong style="color:#64748b;"> 3. Independência:</strong> A consultoria é exercida de forma isenta, buscando a melhor estratégia para o perfil e objetivos de cada cliente, sem vínculo de exclusividade com instituições financeiras que comprometam a imparcialidade das análises.
+        <strong style="color:#64748b;"> 4. Impostos e Taxas:</strong> As projeções e simulações podem não considerar custos operacionais, taxas e impostos específicos, que variam de acordo com a situação individual de cada investidor.
+        <strong style="color:#64748b;"> 5. Privacidade e Dados:</strong> A consolidação de dados patrimoniais é realizada mediante consentimento explícito do cliente, com absoluto respeito à LGPD. Esta consultoria não é uma instituição financeira de custódia.
+      </p>
+    </div>
+
+    <!-- Copyright -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:12px;">
+      <span style="font-size:0.75rem;color:#334155;">© 2026 Clara Ramalho – Estratégia Financeira & Inteligência de Dados. Todos os direitos reservados. Rio de Janeiro, RJ | Atendimento Nacional.</span>
+      <div style="display:flex;gap:8px;">
+        <!-- Logos texto CVM e ANBIMA como placeholders -->
+        <div style="padding:4px 10px;border:1px solid rgba(30,41,59,0.8);border-radius:4px;font-size:0.65rem;font-weight:700;color:#475569;letter-spacing:0.06em;">CVM</div>
+        <div style="padding:4px 10px;border:1px solid rgba(30,41,59,0.8);border-radius:4px;font-size:0.65rem;font-weight:700;color:#475569;letter-spacing:0.06em;">ANBIMA</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Flutuante -->
+<a href="https://wa.me/5521000000000" target="_blank" class="wa-float" title="Fale pelo WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.554 4.109 1.526 5.83L.057 23.927a.5.5 0 0 0 .615.616l6.097-1.469A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.64-.52-5.14-1.418l-.36-.213-3.792.914.935-3.78-.23-.377A9.959 9.959 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║              SCRIPTS                 ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<script>
+  /* ── Cursor dot ── */
+  const dot = document.getElementById('cursorDot');
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.left = mouseX - 4 + 'px';
+    dot.style.top  = mouseY - 4 + 'px';
+  });
+
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('mobileToggle');
+  const menu   = document.getElementById('mobileMenu');
+  toggle.style.display = 'block';
+
+  function closeMobileMenu() { menu.classList.remove('open'); }
+
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+  /* ── Scroll animations ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ── Navbar scroll effect ── */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      nav.style.borderBottomColor = 'rgba(30,41,59,0.9)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(30,41,59,0.6)';
+    }
+  });
+
+  /* ── Pulse animation ── */
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  /* ── Stagger hero fade-ups ── */
+  document.querySelectorAll('#inicio .fade-up').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+  });
+</script>
+
+</body>
+</html>
