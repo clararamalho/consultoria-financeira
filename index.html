@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clara Ramalho · Consultoria Financeira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==================== CORES ==================== */
+    :root {
+      --azul:       #0B1F3A;
+      --azul-medio: #1A3358;
+      --prata:      #C0C8D4;
+      --prata-clara:#E8EDF2;
+      --branco:     #FFFFFF;
+      --texto:      #2C3E50;
+      --texto-leve: #6B7A8D;
+      --accent:     #4A7DBF;
+    }
+
+    /* ==================== RESET ==================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ==================== HEADER / NAV ==================== */
+    /* EDITAR: nome da marca e links de navegação */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    header.scrolled {
+      background: rgba(11, 31, 58, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 32px rgba(11,31,58,0.18);
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--prata); font-weight: 300; }
+    nav { display: flex; gap: 2rem; }
+    nav a {
+      color: var(--prata-clara);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--branco); }
+
+    /* hamburger mobile */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--branco); border-radius: 2px; transition: 0.3s; }
+    .nav-mobile { display: none; }
+
+    /* ==================== HERO ==================== */
+    /* EDITAR: headline principal, subtítulo e texto do botão CTA */
+    #hero {
+      min-height: 100vh;
+      background: var(--azul);
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(74,125,191,0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(192,200,212,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Elemento decorativo geométrico */
+    .hero-geo {
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 520px; height: 520px;
+      border: 1px solid rgba(192,200,212,0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-geo::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border: 1px solid rgba(192,200,212,0.08);
+      border-radius: 50%;
+    }
+    .hero-content { position: relative; max-width: 680px; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--prata);
+      border: 1px solid rgba(192,200,212,0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+    .hero-content h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--branco);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--prata);
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: rgba(232,237,242,0.75);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--branco);
+      color: var(--azul);
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--prata-clara);
+      transform: translateY(-2px);
+    }
+
+    /* ==================== SEÇÃO GENÉRICA ==================== */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      color: var(--azul);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==================== SOBRE ==================== */
+    /* EDITAR: texto de apresentação e credenciais */
+    #sobre { background: var(--prata-clara); }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-texto p {
+      color: var(--texto-leve);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    .credenciais {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .badge {
+      background: var(--azul);
+      color: var(--prata-clara);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+    }
+    .sobre-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sobre-card {
+      background: var(--azul);
+      border-radius: 8px;
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
+    }
+    .sobre-card .numero {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1;
+    }
+    .sobre-card .numero span { font-size: 1.8rem; color: var(--prata); }
+    .sobre-card p {
+      color: var(--prata);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+    .sobre-card hr { border: none; border-top: 1px solid rgba(192,200,212,0.2); margin: 1.5rem 0; }
+
+    /* ==================== SERVIÇOS ==================== */
+    /* EDITAR: título, descrição e ícone de cada card de serviço */
+    #servicos { background: var(--branco); }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: var(--prata-clara);
+      border-radius: 8px;
+      padding: 2.2rem;
+      border: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      border-color: var(--prata);
+      box-shadow: 0 8px 32px rgba(11,31,58,0.08);
+      transform: translateY(-4px);
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      background: var(--azul);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .card-icon svg { width: 22px; height: 22px; stroke: var(--prata-clara); fill: none; stroke-width: 1.8; }
+    .card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 0.75rem;
+    }
+    .card p { font-size: 0.9rem; color: var(--texto-leve); line-height: 1.65; }
+
+    /* ==================== CONTATO ==================== */
+    /* EDITAR: link WhatsApp (wa.me/55...), e-mail (mailto:...) e LinkedIn */
+    #contato { background: var(--azul); }
+    #contato .section-label { color: var(--prata); }
+    #contato .section-title { color: var(--branco); }
+    #contato .subtitulo { color: rgba(232,237,242,0.65); max-width: 500px; margin-bottom: 3rem; font-size: 1rem; }
+    .contato-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-contato {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-contato svg { width: 18px; height: 18px; }
+    .btn-whatsapp { background: var(--branco); color: var(--azul); }
+    .btn-whatsapp:hover { background: var(--prata-clara); transform: translateY(-2px); }
+    .btn-email { background: transparent; color: var(--prata-clara); border: 1px solid rgba(192,200,212,0.35); }
+    .btn-email:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
+    .btn-linkedin { background: transparent; color: var(--prata-clara); border: 1px solid rgba(192,200,212,0.35); }
+    .btn-linkedin:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
+
+    /* ==================== FOOTER ==================== */
+    /* EDITAR: número de registro CVM */
+    footer {
+      background: #060F1D;
+      padding: 2rem;
+      text-align: center;
+      color: rgba(192,200,212,0.45);
+      font-size: 0.78rem;
+      line-height: 1.8;
+    }
+
+    /* ==================== ANIMAÇÕES ==================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ==================== RESPONSIVO ==================== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .nav-mobile {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--azul);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 99;
+      }
+      .nav-mobile a {
+        color: var(--branco);
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .nav-mobile .close-btn {
+        position: absolute;
+        top: 1.5rem; right: 2rem;
+        font-size: 2rem;
+        color: var(--prata);
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sobre-visual { display: none; }
+      .hero-geo { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <!-- EDITAR: nome/marca no .logo -->
+  <header id="header">
+    <a href="#hero" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="nav-mobile" id="navMobile" style="display:none;">
+    <button class="close-btn" id="closeNav">✕</button>
+    <a href="#sobre" class="nav-link-mobile">Sobre</a>
+    <a href="#servicos" class="nav-link-mobile">Serviços</a>
+    <a href="#contato" class="nav-link-mobile">Contato</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <!-- EDITAR: tag, headline (h1), subtítulo (p) e texto do botão -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-geo"></div>
+    <div class="hero-content">
+      <div class="hero-tag fade-in">Consultoria Financeira Independente</div>
+      <h1 class="fade-in fade-in-delay-1">
+        Clareza para as suas<br /><em>decisões financeiras.</em>
+      </h1>
+      <p class="fade-in fade-in-delay-2">
+        Planejamento personalizado para pessoas físicas e famílias que querem organizar o patrimônio, investir com critério e construir uma vida financeira sólida.
+      </p>
+      <a href="#contato" class="btn-primary fade-in fade-in-delay-3">Agende uma conversa</a>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE ==================== -->
+  <!-- EDITAR: texto dos parágrafos, badges de credenciais e números do card -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <p class="section-label fade-in">Sobre mim</p>
+          <h2 class="section-title fade-in fade-in-delay-1">Uma consultoria<br />feita para você.</h2>
+          <p class="fade-in fade-in-delay-2">
+            Sou Clara Ramalho, consultora financeira certificada com foco em planejamento patrimonial e educação financeira para pessoas físicas e famílias.
+          </p>
+          <p class="fade-in fade-in-delay-2">
+            Minha abordagem é independente — sem vínculo com bancos ou distribuidoras — o que garante recomendações alinhadas exclusivamente aos seus objetivos.
+          </p>
+          <p class="fade-in fade-in-delay-3">
+            Acredito que boas decisões financeiras começam por compreensão. Por isso, trabalho lado a lado com cada cliente para construir um plano que faça sentido na prática.
+          </p>
+          <div class="credenciais fade-in fade-in-delay-4">
+            <!-- EDITAR: ajuste as badges conforme suas certificações e número CVM -->
+            <span class="badge">CEA — ANBIMA</span>
+            <span class="badge">Registrada CVM</span>
+            <span class="badge">Consultora Independente</span>
+          </div>
+        </div>
+        <div class="sobre-visual fade-in fade-in-delay-2">
+          <div class="sobre-card">
+            <!-- EDITAR: número de anos de experiência -->
+            <div class="numero">5<span>+</span></div>
+            <p>anos de experiência em mercado financeiro</p>
+            <hr />
+            <!-- EDITAR: número de clientes atendidos -->
+            <div class="numero">80<span>+</span></div>
+            <p>famílias e investidores atendidos</p>
+            <hr />
+            <div class="numero">100<span>%</span></div>
+            <p>independente — sem conflito de interesses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVIÇOS ==================== -->
+  <!-- EDITAR: título, descrição e ícone de cada card -->
+  <section id="servicos">
+    <div class="container">
+      <p class="section-label fade-in">Serviços</p>
+      <h2 class="section-title fade-in fade-in-delay-1">Como posso<br />te ajudar.</h2>
+      <div class="servicos-grid">
+
+        <div class="card fade-in fade-in-delay-1">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3>Planejamento Financeiro</h3>
+          <p>Diagnóstico completo da sua situação financeira e construção de um plano personalizado para atingir seus objetivos de curto, médio e longo prazo.</p>
+        </div>
+
+        <div class="card fade-in fade-in-delay-2">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
+          </div>
+          <h3>Organização Patrimonial</h3>
+          <p>Mapeamento e estruturação do seu patrimônio para proteger o que você construiu, otimizar custos e planejar a transmissão com eficiência.</p>
+        </div>
+
+        <div class="card fade-in fade-in-delay-3">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3>Estratégia de Investimentos</h3>
+          <p>Recomendações de alocação alinhadas ao seu perfil de risco, horizonte de investimento e objetivos — sem viés de produto ou comissão.</p>
+        </div>
+
+        <div class="card fade-in fade-in-delay-4">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+          </div>
+          <h3>Educação Financeira</h3>
+          <p>Sessões dedicadas a desenvolver sua autonomia financeira: entenda produtos, impostos, riscos e tome decisões com confiança.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTATO ==================== -->
+  <!-- EDITAR: link WhatsApp → substitua 5521999999999 pelo seu número -->
+  <!-- EDITAR: link e-mail   → substitua seuemail@email.com pelo seu e-mail -->
+  <!-- EDITAR: link LinkedIn → substitua /in/clararamalho pelo seu perfil -->
+  <section id="contato">
+    <div class="container">
+      <p class="section-label fade-in">Contato</p>
+      <h2 class="section-title fade-in fade-in-delay-1">Vamos conversar<br />sobre o seu futuro.</h2>
+      <p class="subtitulo fade-in fade-in-delay-2">
+        A primeira conversa é sem compromisso. Entre em contato pelo canal de sua preferência e entendemos juntos como posso te ajudar.
+      </p>
+      <div class="contato-btns fade-in fade-in-delay-3">
+
+        <!-- EDITAR: substitua o número abaixo pelo seu WhatsApp (formato: 55 + DDD + número) -->
+        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20consultoria%20financeira."
+           class="btn-contato btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+
+        <!-- EDITAR: substitua seuemail@email.com pelo seu endereço de e-mail -->
+        <a href="mailto:seuemail@email.com" class="btn-contato btn-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-mail
+        </a>
+
+        <!-- EDITAR: substitua /in/clararamalho pelo seu perfil no LinkedIn -->
+        <a href="https://linkedin.com/in/clararamalho" class="btn-contato btn-linkedin" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <!-- EDITAR: número de registro CVM e ano -->
+  <footer>
+    <p>Clara Ramalho · Consultoria Financeira</p>
+    <!-- EDITAR: substitua XXXXXXXX pelo seu número de registro CVM -->
+    <p>Consultora de Valores Mobiliários · Registro CVM nº XXXXXXXX</p>
+    <p style="margin-top:0.5rem;">© 2025 Clara Ramalho. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Header com glassmorphism ao rolar
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Menu mobile
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('navMobile');
+    const closeNav  = document.getElementById('closeNav');
+    hamburger.addEventListener('click', () => navMobile.style.display = 'flex');
+    closeNav.addEventListener('click',  () => navMobile.style.display = 'none');
+    document.querySelectorAll('.nav-link-mobile').forEach(link => {
+      link.addEventListener('click', () => navMobile.style.display = 'none');
+    });
+
+    // Animações fade-in com Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
