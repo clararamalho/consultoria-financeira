@@ -1041,7 +1041,7 @@
       }
 
       function totalPosicoes() {
-        return Math.ceil(cards.length / visiveis());
+        return cards.length;
       }
 
       function criarDots() {
@@ -1057,7 +1057,7 @@
       function irPara(index) {
         atual = Math.max(0, Math.min(index, totalPosicoes() - 1));
         const cardWidth = cards[0].offsetWidth + 24;
-        track.style.transform = `translateX(-${atual * cardWidth * visiveis()}px)`;
+        track.style.transform = `translateX(-${atual * cardWidth}px)`;
         document.querySelectorAll('.carrossel-dots span').forEach((d, i) => {
           d.classList.toggle('ativo', i === atual);
         });
