@@ -31,6 +31,7 @@
     }
 
     /* ==================== HEADER / NAV ==================== */
+    /* EDITAR: nome da marca e links de navegação */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -74,6 +75,7 @@
     .nav-mobile { display: none; }
 
     /* ==================== HERO ==================== */
+    /* EDITAR: headline principal, subtítulo e texto do botão CTA */
     #hero {
       min-height: 100vh;
       background: var(--azul);
@@ -181,6 +183,7 @@
     }
 
     /* ==================== SOBRE ==================== */
+    /* EDITAR: texto de apresentação e credenciais */
     #sobre { background: var(--prata-clara); }
     .sobre-grid {
       display: grid;
@@ -238,6 +241,7 @@
     .sobre-card hr { border: none; border-top: 1px solid rgba(192,200,212,0.2); margin: 1.5rem 0; }
 
     /* ==================== SERVIÇOS ==================== */
+    /* EDITAR: título, descrição e ícone de cada card de serviço */
     #servicos { background: var(--branco); }
     .servicos-grid {
       display: grid;
@@ -275,6 +279,7 @@
     .card p { font-size: 0.9rem; color: var(--texto-leve); line-height: 1.65; }
 
     /* ==================== CONTATO ==================== */
+    /* EDITAR: link WhatsApp (wa.me/55...), e-mail (mailto:...) e LinkedIn */
     #contato { background: var(--azul); }
     #contato .section-label { color: var(--prata); }
     #contato .section-title { color: var(--branco); }
@@ -301,6 +306,7 @@
     .btn-linkedin:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
 
     /* ==================== FOOTER ==================== */
+    /* EDITAR: número de registro CVM */
     footer {
       background: #060F1D;
       padding: 2rem;
@@ -308,6 +314,155 @@
       color: rgba(192,200,212,0.45);
       font-size: 0.78rem;
       line-height: 1.8;
+    }
+
+    /* ==================== MODAL ==================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 15, 29, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--branco);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--texto-leve);
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--azul); }
+    .modal-titulo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 0.4rem;
+    }
+    .modal-subtitulo {
+      font-size: 0.875rem;
+      color: var(--texto-leve);
+      margin-bottom: 2rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--texto);
+      letter-spacing: 0.02em;
+    }
+    .form-group input,
+    .form-group textarea {
+      border: 1px solid var(--prata);
+      border-radius: 4px;
+      padding: 0.7rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--texto);
+      background: var(--branco);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74,125,191,0.12);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--prata-clara);
+      margin: 1.5rem 0;
+    }
+    .form-section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .btn-enviar {
+      width: 100%;
+      background: var(--azul);
+      color: var(--branco);
+      border: none;
+      padding: 0.95rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-enviar:hover { background: var(--azul-medio); transform: translateY(-1px); }
+    .btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-sucesso {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .form-sucesso .icone { font-size: 3rem; margin-bottom: 1rem; }
+    .form-sucesso h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      color: var(--azul);
+      margin-bottom: 0.5rem;
+    }
+    .form-sucesso p { color: var(--texto-leve); font-size: 0.9rem; }
+
+    /* Card clicável */
+    .card { cursor: pointer; }
+    .card:hover { border-color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .modal { padding: 1.5rem; }
     }
 
     /* ==================== ANIMAÇÕES ==================== */
@@ -363,6 +518,7 @@
 <body>
 
   <!-- ==================== HEADER ==================== -->
+  <!-- EDITAR: nome/marca no .logo -->
   <header id="header">
     <a href="#hero" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
     <nav>
@@ -384,6 +540,7 @@
   </div>
 
   <!-- ==================== HERO ==================== -->
+  <!-- EDITAR: tag, headline (h1), subtítulo (p) e texto do botão -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-geo"></div>
@@ -400,6 +557,7 @@
   </section>
 
   <!-- ==================== SOBRE ==================== -->
+  <!-- EDITAR: texto dos parágrafos, badges de credenciais e números do card -->
   <section id="sobre">
     <div class="container">
       <div class="sobre-grid">
@@ -424,12 +582,13 @@
         </div>
         <div class="sobre-visual fade-in fade-in-delay-2">
           <div class="sobre-card">
-            <div class="numero">12<span>+</span></div>
+            <!-- EDITAR: número de anos de experiência -->
+            <div class="numero">5<span>+</span></div>
             <p>anos de experiência em mercado financeiro</p>
             <hr />
             <!-- EDITAR: número de clientes atendidos -->
-            <div class="numero">104<span>+</span></div>
-            <p>estratégias de investimento personalizadas</p>
+            <div class="numero">80<span>+</span></div>
+            <p>famílias e investidores atendidos</p>
             <hr />
             <div class="numero">100<span>%</span></div>
             <p>independente — sem conflito de interesses</p>
@@ -440,13 +599,14 @@
   </section>
 
   <!-- ==================== SERVIÇOS ==================== -->
+  <!-- EDITAR: título, descrição e ícone de cada card -->
   <section id="servicos">
     <div class="container">
       <p class="section-label fade-in">Serviços</p>
       <h2 class="section-title fade-in fade-in-delay-1">Como posso<br />te ajudar.</h2>
       <div class="servicos-grid">
 
-        <div class="card fade-in fade-in-delay-1">
+        <div class="card fade-in fade-in-delay-1" onclick="abrirModal('planejamento')">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
           </div>
@@ -454,7 +614,7 @@
           <p>Diagnóstico completo da sua situação financeira e construção de um plano personalizado para atingir seus objetivos de curto, médio e longo prazo.</p>
         </div>
 
-        <div class="card fade-in fade-in-delay-2">
+        <div class="card fade-in fade-in-delay-2" onclick="abrirModal('patrimonial')">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
           </div>
@@ -462,7 +622,7 @@
           <p>Mapeamento e estruturação do seu patrimônio para proteger o que você construiu, otimizar custos e planejar a transmissão com eficiência.</p>
         </div>
 
-        <div class="card fade-in fade-in-delay-3">
+        <div class="card fade-in fade-in-delay-3" onclick="abrirModal('investimentos')">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
@@ -470,7 +630,7 @@
           <p>Recomendações de alocação alinhadas ao seu perfil de risco, horizonte de investimento e objetivos — sem viés de produto ou comissão.</p>
         </div>
 
-        <div class="card fade-in fade-in-delay-4">
+        <div class="card fade-in fade-in-delay-4" onclick="abrirModal('educacao')">
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
           </div>
@@ -483,6 +643,9 @@
   </section>
 
   <!-- ==================== CONTATO ==================== -->
+  <!-- EDITAR: link WhatsApp → substitua 5521999999999 pelo seu número -->
+  <!-- EDITAR: link e-mail   → substitua seuemail@email.com pelo seu e-mail -->
+  <!-- EDITAR: link LinkedIn → substitua /in/clararamalho pelo seu perfil -->
   <section id="contato">
     <div class="container">
       <p class="section-label fade-in">Contato</p>
@@ -492,18 +655,21 @@
       </p>
       <div class="contato-btns fade-in fade-in-delay-3">
 
-        <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria financeira."
+        <!-- EDITAR: substitua o número abaixo pelo seu WhatsApp (formato: 55 + DDD + número) -->
+        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20consultoria%20financeira."
            class="btn-contato btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
 
-        <a href="mailto:contato@clararamalho.com.br" class="btn-contato btn-email">
+        <!-- EDITAR: substitua seuemail@email.com pelo seu endereço de e-mail -->
+        <a href="mailto:seuemail@email.com" class="btn-contato btn-email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           E-mail
         </a>
 
-        <a href="https://linkedin.com/in/clararamalho/" class="btn-contato btn-linkedin" target="_blank" rel="noopener">
+        <!-- EDITAR: substitua /in/clararamalho pelo seu perfil no LinkedIn -->
+        <a href="https://linkedin.com/in/clararamalho" class="btn-contato btn-linkedin" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
@@ -512,15 +678,247 @@
     </div>
   </section>
 
+  <!-- ==================== MODAIS ==================== -->
+
+  <!-- Modal Planejamento Financeiro -->
+  <div class="modal-overlay" id="modal-planejamento">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
+      <p class="modal-titulo">Planejamento Financeiro</p>
+      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+      <div id="form-planejamento">
+        <p class="form-section-label">Dados de contato</p>
+        <div class="form-grid">
+          <div class="form-group"><label>Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" /></div>
+          <div class="form-group"><label>Sobrenome</label><input type="text" id="pf-sobrenome" placeholder="Seu sobrenome" /></div>
+          <div class="form-group"><label>E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" /></div>
+          <div class="form-group"><label>Telefone</label><input type="tel" id="pf-telefone" placeholder="(00) 00000-0000" /></div>
+        </div>
+        <hr class="form-divider" />
+        <p class="form-section-label">Diagnóstico inicial</p>
+        <div class="form-group full"><label>1. Qual é a sua idade e qual é a sua ocupação atual?</label><textarea id="pf-q1" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>2. Você tem dependentes financeiros? (filhos, pais, cônjuge)</label><textarea id="pf-q2" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>3. Qual é a sua renda mensal aproximada?</label><textarea id="pf-q3" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>4. Você sabe quanto gasta por mês? Tem controle das suas despesas?</label><textarea id="pf-q4" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>5. Você possui dívidas? Se sim, quais e em qual valor aproximado?</label><textarea id="pf-q5" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>6. Você já tem algum investimento ou reserva financeira?</label><textarea id="pf-q6" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>7. Quais são seus principais objetivos financeiros nos próximos 2 anos? E nos próximos 10 anos?</label><textarea id="pf-q7" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>8. Você está planejando alguma grande compra ou mudança de vida em breve? (imóvel, casamento, filhos, aposentadoria)</label><textarea id="pf-q8" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>9. Como você se sente em relação a riscos financeiros? Prefere segurança ou aceita alguma variação em busca de retorno maior?</label><textarea id="pf-q9" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>10. Você já tentou organizar suas finanças antes? O que funcionou ou não funcionou?</label><textarea id="pf-q10" placeholder="Sua resposta..."></textarea></div>
+        <button class="btn-enviar" onclick="enviarFormulario('planejamento')">Enviar</button>
+      </div>
+      <div class="form-sucesso" id="sucesso-planejamento">
+        <div class="icone">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Organização Patrimonial -->
+  <div class="modal-overlay" id="modal-patrimonial">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModal('patrimonial')">✕</button>
+      <p class="modal-titulo">Organização Patrimonial</p>
+      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+      <div id="form-patrimonial">
+        <p class="form-section-label">Dados de contato</p>
+        <div class="form-grid">
+          <div class="form-group"><label>Nome</label><input type="text" id="op-nome" placeholder="Seu nome" /></div>
+          <div class="form-group"><label>Sobrenome</label><input type="text" id="op-sobrenome" placeholder="Seu sobrenome" /></div>
+          <div class="form-group"><label>E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" /></div>
+          <div class="form-group"><label>Telefone</label><input type="tel" id="op-telefone" placeholder="(00) 00000-0000" /></div>
+        </div>
+        <hr class="form-divider" />
+        <p class="form-section-label">Diagnóstico inicial</p>
+        <div class="form-group full"><label>1. Quais tipos de bens você possui atualmente? (imóveis, veículos, investimentos, participações em empresas)</label><textarea id="op-q1" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>2. Esses bens estão registrados em seu nome, de terceiros ou de pessoa jurídica?</label><textarea id="op-q2" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>3. Você é casado(a)? Qual o regime de bens?</label><textarea id="op-q3" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>4. Tem sócios em algum negócio ou bem compartilhado?</label><textarea id="op-q4" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>5. Já pensou em como será a transmissão do seu patrimônio no futuro?</label><textarea id="op-q5" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>6. Você possui seguros de vida ou patrimoniais?</label><textarea id="op-q6" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>7. Tem filhos menores ou herdeiros que dependem do seu patrimônio?</label><textarea id="op-q7" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>8. Há alguma disputa, pendência jurídica ou dívida vinculada a algum bem?</label><textarea id="op-q8" placeholder="Sua resposta..."></textarea></div>
+        <button class="btn-enviar" onclick="enviarFormulario('patrimonial')">Enviar</button>
+      </div>
+      <div class="form-sucesso" id="sucesso-patrimonial">
+        <div class="icone">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Estratégia de Investimentos -->
+  <div class="modal-overlay" id="modal-investimentos">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModal('investimentos')">✕</button>
+      <p class="modal-titulo">Estratégia de Investimentos</p>
+      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+      <div id="form-investimentos">
+        <p class="form-section-label">Dados de contato</p>
+        <div class="form-grid">
+          <div class="form-group"><label>Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" /></div>
+          <div class="form-group"><label>Sobrenome</label><input type="text" id="ei-sobrenome" placeholder="Seu sobrenome" /></div>
+          <div class="form-group"><label>E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" /></div>
+          <div class="form-group"><label>Telefone</label><input type="tel" id="ei-telefone" placeholder="(00) 00000-0000" /></div>
+        </div>
+        <hr class="form-divider" />
+        <p class="form-section-label">Diagnóstico inicial</p>
+        <div class="form-group full"><label>1. Qual é o valor aproximado que você tem disponível para investir?</label><textarea id="ei-q1" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>2. Você já investe? Se sim, em quais produtos? (poupança, CDB, ações, fundos)</label><textarea id="ei-q2" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>3. Qual é o seu objetivo com os investimentos? (reserva, renda passiva, aposentadoria, crescimento de patrimônio)</label><textarea id="ei-q3" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>4. Em quanto tempo pretende utilizar esse dinheiro?</label><textarea id="ei-q4" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>5. Se seus investimentos caíssem 20% em um mês, qual seria sua reação?</label><textarea id="ei-q5" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>6. Você tem reserva de emergência separada dos investimentos?</label><textarea id="ei-q6" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>7. Já teve experiências negativas com investimentos? O que aconteceu?</label><textarea id="ei-q7" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>8. Você investe sozinho ou já teve assessoria anteriormente?</label><textarea id="ei-q8" placeholder="Sua resposta..."></textarea></div>
+        <button class="btn-enviar" onclick="enviarFormulario('investimentos')">Enviar</button>
+      </div>
+      <div class="form-sucesso" id="sucesso-investimentos">
+        <div class="icone">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Educação Financeira -->
+  <div class="modal-overlay" id="modal-educacao">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModal('educacao')">✕</button>
+      <p class="modal-titulo">Educação Financeira</p>
+      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+      <div id="form-educacao">
+        <p class="form-section-label">Dados de contato</p>
+        <div class="form-grid">
+          <div class="form-group"><label>Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" /></div>
+          <div class="form-group"><label>Sobrenome</label><input type="text" id="ef-sobrenome" placeholder="Seu sobrenome" /></div>
+          <div class="form-group"><label>E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" /></div>
+          <div class="form-group"><label>Telefone</label><input type="tel" id="ef-telefone" placeholder="(00) 00000-0000" /></div>
+        </div>
+        <hr class="form-divider" />
+        <p class="form-section-label">Diagnóstico inicial</p>
+        <div class="form-group full"><label>1. Como você descreveria sua relação atual com o dinheiro?</label><textarea id="ef-q1" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>2. Você tem o hábito de guardar parte da sua renda mensalmente?</label><textarea id="ef-q2" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>3. Quais são suas maiores dificuldades financeiras hoje?</label><textarea id="ef-q3" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>4. Você entende a diferença entre os principais tipos de investimento disponíveis no Brasil?</label><textarea id="ef-q4" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>5. Já fez algum curso ou leu algum livro sobre finanças? O que achou?</label><textarea id="ef-q5" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>6. O que te motivou a buscar educação financeira agora?</label><textarea id="ef-q6" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>7. Quais temas financeiros você sente mais dificuldade em entender?</label><textarea id="ef-q7" placeholder="Sua resposta..."></textarea></div>
+        <div class="form-group full"><label>8. Você tem algum objetivo financeiro específico que quer alcançar com mais conhecimento?</label><textarea id="ef-q8" placeholder="Sua resposta..."></textarea></div>
+        <button class="btn-enviar" onclick="enviarFormulario('educacao')">Enviar</button>
+      </div>
+      <div class="form-sucesso" id="sucesso-educacao">
+        <div class="icone">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== FOOTER ==================== -->
+  <!-- EDITAR: número de registro CVM e ano -->
   <footer>
     <p>Clara Ramalho · Consultoria Financeira</p>
-    <p>Consultora de Valores Mobiliários · Registro CVM nº 002883-5</p>
-    <p style="margin-top:0.5rem;">© 2026 Clara Ramalho. Todos os direitos reservados.</p>
+    <!-- EDITAR: substitua XXXXXXXX pelo seu número de registro CVM -->
+    <p>Consultora de Valores Mobiliários · Registro CVM nº XXXXXXXX</p>
+    <p style="margin-top:0.5rem;">© 2025 Clara Ramalho. Todos os direitos reservados.</p>
   </footer>
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
+    // ==================== MODAIS ====================
+    // EDITAR: substitua pela URL do seu Cloudflare Worker
+    const WORKER_URL = 'https://formulario-contato.m-clarard.workers.dev';
+
+    function abrirModal(tipo) {
+      document.getElementById('modal-' + tipo).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharModal(tipo) {
+      document.getElementById('modal-' + tipo).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Fecha modal ao clicar fora
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    const prefixos = {
+      planejamento: 'pf',
+      patrimonial: 'op',
+      investimentos: 'ei',
+      educacao: 'ef'
+    };
+
+    const titulos = {
+      planejamento: 'Planejamento Financeiro',
+      patrimonial: 'Organização Patrimonial',
+      investimentos: 'Estratégia de Investimentos',
+      educacao: 'Educação Financeira'
+    };
+
+    async function enviarFormulario(tipo) {
+      const p = prefixos[tipo];
+      const nome = document.getElementById(p + '-nome').value.trim();
+      const sobrenome = document.getElementById(p + '-sobrenome').value.trim();
+      const email = document.getElementById(p + '-email').value.trim();
+      const telefone = document.getElementById(p + '-telefone').value.trim();
+
+      if (!nome || !email) {
+        alert('Por favor, preencha pelo menos nome e e-mail.');
+        return;
+      }
+
+      // Coleta perguntas respondidas
+      const qtd = tipo === 'planejamento' ? 10 : 8;
+      let respostas = '';
+      for (let i = 1; i <= qtd; i++) {
+        const el = document.getElementById(p + '-q' + i);
+        if (el && el.value.trim()) {
+          respostas += `<p><strong>Pergunta ${i}:</strong> ${el.labels[0].textContent}<br/>${el.value.trim()}</p>`;
+        }
+      }
+
+      const btn = document.querySelector('#form-' + tipo + ' .btn-enviar');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome: nome + ' ' + sobrenome,
+            email,
+            telefone,
+            mensagem: `<h2>Serviço: ${titulos[tipo]}</h2>${respostas}`
+          })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('form-' + tipo).style.display = 'none';
+          document.getElementById('sucesso-' + tipo).style.display = 'block';
+        } else {
+          alert('Ocorreu um erro. Tente novamente.');
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled = false;
+        btn.textContent = 'Enviar';
+      }
+    }
+
+    // ==================== SCROLL / MENU ====================
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
