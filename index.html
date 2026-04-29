@@ -332,15 +332,18 @@
       transition: transform 0.4s ease;
     }
     .dep-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(192,200,212,0.15);
-      border-radius: 8px;
-      padding: 2rem;
-      min-width: calc(33.333% - 1rem);
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+     background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(192,200,212,0.15);
+    border-radius: 8px;
+    padding: 2rem;
+    width: calc(33.333% - 1rem);
+    min-width: calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-sizing: border-box;
     }
     .dep-aspas {
       font-family: 'Outfit', sans-serif;
@@ -1056,7 +1059,8 @@
 
       function irPara(index) {
         atual = Math.max(0, Math.min(index, totalPosicoes() - 1));
-        const cardWidth = cards[0].offsetWidth + 24;
+        const trackWidth = track.parentElement.offsetWidth;
+        const cardWidth = (trackWidth + 24) / visiveis();
         track.style.transform = `translateX(-${atual * cardWidth}px)`;
         document.querySelectorAll('.carrossel-dots span').forEach((d, i) => {
           d.classList.toggle('ativo', i === atual);
