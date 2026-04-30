@@ -266,6 +266,10 @@
           <input type="email" id="mc-email" placeholder="seu@email.com" />
         </div>
         <div class="form-group">
+          <label>Telefone</label>
+          <input type="tel" id="mc-telefone" placeholder="(00) 00000-0000" />
+        </div>
+        <div class="form-group">
           <label>Mensagem</label>
           <textarea id="mc-mensagem" placeholder="Como posso te ajudar?"></textarea>
         </div>
@@ -395,12 +399,13 @@
     async function enviarContato() {
       const nome     = document.getElementById('mc-nome').value.trim();
       const email    = document.getElementById('mc-email').value.trim();
+      const telefone = document.getElementById('mc-telefone').value.trim();
       const mensagem = document.getElementById('mc-mensagem').value.trim();
       const btn      = document.querySelector('#formContato .btn-enviar');
       if (!nome || !email || !mensagem) { alert('Por favor, preencha todos os campos.'); return; }
       btn.disabled = true; btn.textContent = 'Enviando...';
       try {
-        const res  = await fetch(WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nome, email, mensagem }) });
+        const res  = await fetch(WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nome, email, telefone, mensagem }) });
         const data = await res.json();
         if (data.ok) {
           document.getElementById('formContato').style.display   = 'none';
