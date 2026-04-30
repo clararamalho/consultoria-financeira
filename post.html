@@ -442,8 +442,7 @@
     async function carregarPost(slug) {
       try {
         // Busca o arquivo .md da pasta posts/
-        const base = window.location.origin;
-        const res = await fetch(`${base}/posts/${slug}.md`);
+        const res = await fetch(`https://raw.githubusercontent.com/clararamalho/consultoria-financeira/main/posts/${slug}.md`);
         if (!res.ok) throw new Error('not found');
         const texto = await res.text();
         renderizarPost(texto);
