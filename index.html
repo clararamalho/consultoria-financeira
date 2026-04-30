@@ -1224,7 +1224,6 @@
           </div>
           <div class="nl-form" id="nlForm">
             <div class="nl-inputs">
-              <input type="text" id="nl-nome" placeholder="Seu nome" autocomplete="given-name" />
               <input type="email" id="nl-email" placeholder="seu@email.com" autocomplete="email" />
               <button onclick="cadastrarNewsletter()">Quero receber</button>
             </div>
@@ -1647,7 +1646,7 @@
   
     <!-- ==================== NEWSLETTER ==================== -->
     async function cadastrarNewsletter() {
-      const nome  = document.getElementById('nl-nome').value.trim();
+      const nome  = '';
       const email = document.getElementById('nl-email').value.trim();
       const btn   = document.querySelector('.nl-inputs button');
     
