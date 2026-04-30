@@ -243,32 +243,66 @@
     }
     .sobre-visual {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      gap: 1.5rem;
+    }
+    .sobre-foto-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+    }
+    .sobre-foto-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -8px -8px 8px 8px;
+      border: 1px solid rgba(74,125,191,0.25);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+    .sobre-foto {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 24px 64px rgba(11,31,58,0.18);
     }
     .sobre-card {
       background: var(--azul);
       border-radius: 8px;
-      padding: 3rem 2.5rem;
+      padding: 1.5rem 2rem;
       width: 100%;
       max-width: 340px;
+      display: flex;
+      gap: 0;
       text-align: center;
+    }
+    .sobre-stat {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+    }
+    .sobre-stat + .sobre-stat {
+      border-left: 1px solid rgba(192,200,212,0.2);
     }
     .sobre-card .numero {
       font-family: 'Outfit', sans-serif;
-      font-size: 3.5rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: var(--branco);
       line-height: 1;
     }
-    .sobre-card .numero span { font-size: 1.8rem; color: var(--prata); }
+    .sobre-card .numero span { font-size: 1.2rem; color: var(--prata); }
     .sobre-card p {
       color: var(--prata);
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
+      font-size: 0.72rem;
+      margin-top: 0.4rem;
       font-weight: 300;
+      line-height: 1.4;
     }
-    .sobre-card hr { border: none; border-top: 1px solid rgba(192,200,212,0.2); margin: 1.5rem 0; }
+    .sobre-card hr { display: none; }
 
     /* ==================== SERVIÇOS ==================== */
     /* EDITAR: título, descrição e ícone de cada card de serviço */
@@ -974,7 +1008,8 @@
         border: none;
       }
       .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .sobre-visual { display: none; }
+      .sobre-visual { display: flex; }
+      .sobre-foto { max-width: 100%; aspect-ratio: 4 / 3; object-position: center 20%; }
       .hero-geo { display: none; }
     }
   </style>
@@ -1045,15 +1080,28 @@
           </div>
         </div>
         <div class="sobre-visual fade-in fade-in-delay-2">
+          <div class="sobre-foto-wrapper">
+            <img
+              src="assets/perfil_26.png"
+              alt="Clara Ramalho, consultora financeira independente"
+              class="sobre-foto"
+              loading="lazy"
+              width="340"
+            />
+          </div>
           <div class="sobre-card">
-            <div class="numero">12<span>+</span></div>
-            <p>anos de experiência em mercado financeiro</p>
-            <hr />
-            <div class="numero">127<span>+</span></div>
-            <p>estratégias de investimento personalizadas</p>
-            <hr />
-            <div class="numero">100<span>%</span></div>
-            <p>independente — sem conflito de interesses</p>
+            <div class="sobre-stat">
+              <div class="numero">12<span>+</span></div>
+              <p>anos de experiência</p>
+            </div>
+            <div class="sobre-stat">
+              <div class="numero">127<span>+</span></div>
+              <p>clientes atendidos</p>
+            </div>
+            <div class="sobre-stat">
+              <div class="numero">100<span>%</span></div>
+              <p>independente</p>
+            </div>
           </div>
         </div>
       </div>
