@@ -305,169 +305,233 @@
     .btn-linkedin { background: transparent; color: var(--prata-clara); border: 1px solid rgba(192,200,212,0.35); }
     .btn-linkedin:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
 
-    /* ==================== FOOTER ==================== */
-    /* EDITAR: número de registro CVM */
-    footer {
-      background: #060F1D;
-      padding: 2rem;
-      text-align: center;
-      color: rgba(192,200,212,0.45);
-      font-size: 0.78rem;
-      line-height: 1.8;
-    }
-
-     #depoimentos { padding: 6rem 2rem; }
- 
-  .carrossel-wrapper {
+    /* ── FOOTER ── */
+  footer {
+    background: #060F1D;
+    padding: 4rem 2rem 2.5rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-col-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(192,200,212,0.55);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
     display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .footer-col ul li a {
+    font-size: 0.85rem;
+    color: rgba(192,200,212,0.38);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-col ul li a:hover { color: rgba(192,200,212,0.8); }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(192,200,212,0.08);
+    margin: 2rem 0;
+  }
+  .footer-disclaimer { max-width: 820px; margin: 0 auto; }
+  .footer-disclaimer-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(192,200,212,0.45);
+    margin-bottom: 0.8rem;
+  }
+  .footer-disclaimer-intro {
+    font-size: 0.78rem;
+    color: rgba(192,200,212,0.38);
+    line-height: 1.75;
+    margin-bottom: 0.8rem;
+  }
+  .footer-disclaimer-intro strong { color: rgba(192,200,212,0.55); font-weight: 500; }
+  .footer-avisos-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(192,200,212,0.38);
+    margin-bottom: 0.5rem;
+  }
+  .footer-avisos {
+    list-style: none;
+    padding: 0;
+    counter-reset: aviso;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .footer-avisos li {
+    counter-increment: aviso;
+    font-size: 0.77rem;
+    color: rgba(192,200,212,0.32);
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  .footer-avisos li::before {
+    content: counter(aviso) ".";
+    position: absolute;
+    left: 0;
+    color: rgba(192,200,212,0.25);
+    font-size: 0.75rem;
+  }
+  .footer-avisos li strong { color: rgba(192,200,212,0.42); font-weight: 500; }
+  .footer-selos {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.75rem;
-  }
- 
-  .carrossel-track-outer {
-    overflow: hidden;
-    flex: 1;
-    /* Evita que o track vaze para fora */
-    min-width: 0;
-  }
- 
-  .carrossel-track {
-    display: flex;
     gap: 1.5rem;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* Impede quebra de linha e garante alinhamento */
-    will-change: transform;
+    margin: 1.5rem 0 1rem;
   }
- 
-  /* Cada card ocupa exatamente 1 "slot" — largura calculada via JS */
-  .dep-card {
-    background: rgba(255,255,255,0.06);
+  .footer-selo { height: 52px; width: auto; opacity: 0.75; transition: opacity 0.2s; }
+  .footer-selo:hover { opacity: 1; }
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.74rem;
+    color: rgba(192,200,212,0.25);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .footer-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-col:last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 400px) {
+    .footer-cols { grid-template-columns: 1fr; }
+    .footer-col:last-child { grid-column: auto; }
+  }
+
+    /* ==================== DEPOIMENTOS ==================== */
+    .carrossel-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .carrossel-track-outer {
+      overflow: hidden;
+      flex: 1;
+    }
+    .carrossel-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+    .dep-card {
+     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(192,200,212,0.15);
     border-radius: 8px;
     padding: 2rem;
+    width: calc(33.333% - 1rem);
+    min-width: calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
     flex-shrink: 0;
-    /* largura definida pelo JS — não colocar min-width aqui */
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     box-sizing: border-box;
-  }
- 
-  .dep-aspas {
-    font-family: 'Outfit', sans-serif;
-    font-size: 3.5rem;
-    color: var(--prata);
-    line-height: 0.5;
-    opacity: 0.5;
-  }
- 
-  .dep-texto {
-    color: rgba(232,237,242,0.85);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    flex: 1;
-  }
- 
-  .dep-autor {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
- 
-  .dep-inicial {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--azul-medio, #1A3358);
-    color: var(--branco);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
- 
-  .dep-autor strong {
-    display: block;
-    color: var(--branco);
-    font-size: 0.9rem;
-    font-family: 'Outfit', sans-serif;
-  }
- 
-  .dep-autor span {
-    display: block;
-    color: rgba(192,200,212,0.55);
-    font-size: 0.78rem;
-    line-height: 1.4;
-  }
- 
-  /* ── Botões de seta ── */
-  .carrossel-btn {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(192,200,212,0.2);
-    color: var(--prata, #C0C8D4);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.1rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-    /* SEMPRE visível — inclusive no mobile */
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
- 
-  .carrossel-btn:hover {
-    background: rgba(255,255,255,0.15);
-    transform: scale(1.08);
-  }
- 
-  .carrossel-btn:disabled {
-    opacity: 0.3 !important;
-    cursor: default;
-    transform: none;
-  }
- 
-  /* ── Dots ── */
-  .carrossel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-  }
- 
-  .carrossel-dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(192,200,212,0.25);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    display: inline-block;
-  }
- 
-  .carrossel-dots span.ativo {
-    background: var(--prata, #C0C8D4);
-    transform: scale(1.25);
-  }
- 
-  /* Mobile: setas um pouco menores para não comprimir o card */
-  @media (max-width: 480px) {
-    .carrossel-btn {
-      width: 34px;
-      height: 34px;
+    }
+    .dep-aspas {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      color: var(--prata);
+      line-height: 0.5;
+      opacity: 0.5;
+    }
+    .dep-texto {
+      color: rgba(232,237,242,0.85);
       font-size: 0.95rem;
+      line-height: 1.7;
+      flex: 1;
     }
-    .carrossel-wrapper {
+    .dep-autor {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: auto;
+    }
+    .dep-inicial {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--branco);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dep-autor strong {
+      display: block;
+      color: var(--branco);
+      font-size: 0.9rem;
+    }
+    .dep-autor span {
+      display: block;
+      color: var(--prata);
+      font-size: 0.75rem;
+    }
+    .carrossel-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(192,200,212,0.2);
+      color: var(--branco);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carrossel-btn:hover { background: rgba(255,255,255,0.15); }
+    .carrossel-dots {
+      display: flex;
+      justify-content: center;
       gap: 0.5rem;
+      margin-top: 2rem;
     }
-  }
+    .carrossel-dots span {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(192,200,212,0.3);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carrossel-dots span.ativo { background: var(--prata); }
+
+    @media (max-width: 900px) {
+      .dep-card { min-width: calc(50% - 0.75rem); }
+    }
+    @media (max-width: 600px) {
+      .dep-card { min-width: 100%; }
+      .carrossel-btn { display: none; }
+    }
 
     /* ==================== MODAL ==================== */
     .modal-overlay {
@@ -1064,113 +1128,113 @@
   </div>
 
   <!-- ==================== FOOTER ==================== -->
-  <!-- EDITAR: número de registro CVM e ano -->
-  <footer>
-    <p>Clara Ramalho · Consultoria Financeira</p>
-    <!-- EDITAR: substitua XXXXXXXX pelo seu número de registro CVM -->
-    <p>Consultora de Valores Mobiliários · Registro CVM nº 002883-5</p>
-    <p style="margin-top:0.5rem;">© 2025 Clara Ramalho. Todos os direitos reservados.</p>
-  </footer>
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-col-title">Mapa do Site</p>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Soluções & Produtos</p>
+        <ul>
+          <li><a href="#servicos">Planejamento Financeiro</a></li>
+          <li><a href="#servicos">Consultoria Financeira</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Legal & Social</p>
+        <ul>
+          <li><a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a></li>
+          <li><a href="termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a></li>
+          <li><a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-disclaimer">
+      <p class="footer-disclaimer-title">Disclaimer e Informações Legais</p>
+      <p class="footer-disclaimer-intro">
+        <strong>Clara Ramalho</strong> — Consultora de Investimentos Independente habilitada pela
+        Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19.
+        Certificação: Especialista em Investimentos ANBIMA (CEA).
+      </p>
+      <p class="footer-avisos-label">Avisos Importantes</p>
+      <ol class="footer-avisos">
+        <li><strong>Risco de Mercado:</strong> Investimentos em valores mobiliários envolvem riscos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.</li>
+        <li><strong>Caráter Informativo:</strong> O conteúdo deste site possui caráter exclusivamente educativo e informativo. Não constitui recomendação direta de compra ou venda de ativos financeiros, nem garantia de resultados.</li>
+        <li><strong>Independência:</strong> A consultoria é exercida de forma isenta, buscando a melhor estratégia para o perfil e objetivos de cada cliente, sem vínculo de exclusividade com instituições financeiras que comprometa a imparcialidade das análises.</li>
+        <li><strong>Impostos e Taxas:</strong> As projeções e simulações podem não considerar custos operacionais, taxas e impostos específicos, que variam de acordo com a situação individual de cada investidor.</li>
+      </ol>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-selos">
+      <img src="assets/selo-cvm.png" alt="CVM – Comissão de Valores Mobiliários" class="footer-selo" />
+      <img src="assets/selo-anbima-cea.jpg" alt="ANBIMA – Profissional CEA" class="footer-selo" />
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+    </div>
+
+  </div>
+</footer>
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
     // ==================== CARROSSEL DEPOIMENTOS ====================
-  (function () {
-    const track      = document.getElementById('carrosselTrack');
-    const dotsWrap   = document.getElementById('carrosselDots');
-    const btnPrev    = document.querySelector('.carrossel-btn.prev');
-    const btnNext    = document.querySelector('.carrossel-btn.next');
-    const cards      = Array.from(track.querySelectorAll('.dep-card'));
-    const GAP        = 24; // px — deve bater com o gap do CSS (1.5rem = 24px)
-    let atual = 0;
- 
-    /* Quantos cards mostrar por vez */
-    function visiveis() {
-      if (window.innerWidth <= 640) return 1;
-      if (window.innerWidth <= 960) return 2;
-      return 3;
-    }
- 
-    /* Total de posições de scroll */
-    function totalPos() {
-      return cards.length - visiveis() + 1;
-    }
- 
-    /* Define a largura de cada card com base no container */
-    function setCardWidths() {
-      const outerW = track.parentElement.offsetWidth;
-      const vis    = visiveis();
-      const w      = (outerW - GAP * (vis - 1)) / vis;
-      cards.forEach(c => { c.style.width = w + 'px'; });
-    }
- 
-    /* Navega para a posição index */
-    function irPara(index) {
-      const vis   = visiveis();
-      atual = Math.max(0, Math.min(index, totalPos() - 1));
- 
-      const cardW = cards[0].offsetWidth + GAP;
-      track.style.transform = `translateX(-${atual * cardW}px)`;
- 
-      /* Atualiza dots */
-      dotsWrap.querySelectorAll('span').forEach((d, i) => {
-        d.classList.toggle('ativo', i === atual);
-      });
- 
-      /* Habilita/desabilita setas */
-      btnPrev.disabled = atual === 0;
-      btnNext.disabled = atual >= totalPos() - 1;
-    }
- 
-    /* Cria dots */
-    function criarDots() {
-      dotsWrap.innerHTML = '';
-      const total = totalPos();
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('span');
-        if (i === 0) dot.classList.add('ativo');
-        dot.addEventListener('click', () => irPara(i));
-        dotsWrap.appendChild(dot);
+    (function() {
+      const track = document.getElementById('carrosselTrack');
+      const dotsContainer = document.getElementById('carrosselDots');
+      const cards = track.querySelectorAll('.dep-card');
+      let atual = 0;
+
+      function visiveis() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
       }
-    }
- 
-    /* Expõe para os onclick do HTML */
-    window.moverCarrossel = function (dir) { irPara(atual + dir); };
- 
-    /* ── Swipe por toque ── */
-    let touchStartX = 0;
-    let touchStartY = 0;
- 
-    track.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
- 
-    track.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      /* Só dispara se o movimento horizontal for maior que o vertical (scroll) */
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        irPara(atual + (dx < 0 ? 1 : -1));
+
+      function totalPosicoes() {
+        return cards.length;
       }
-    }, { passive: true });
- 
-    /* ── Init e resize ── */
-    function init() {
-      setCardWidths();
+
+      function criarDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalPosicoes(); i++) {
+          const dot = document.createElement('span');
+          if (i === atual) dot.classList.add('ativo');
+          dot.addEventListener('click', () => irPara(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function irPara(index) {
+        atual = Math.max(0, Math.min(index, totalPosicoes() - 1));
+        const trackWidth = track.parentElement.offsetWidth;
+        const cardWidth = (trackWidth + 24) / visiveis();
+        track.style.transform = `translateX(-${atual * cardWidth}px)`;
+        document.querySelectorAll('.carrossel-dots span').forEach((d, i) => {
+          d.classList.toggle('ativo', i === atual);
+        });
+      }
+
+      window.moverCarrossel = function(dir) { irPara(atual + dir); };
+
       criarDots();
-      irPara(0);
-    }
- 
-    init();
- 
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(init, 150);
-    });
- 
-  })();
+      window.addEventListener('resize', () => { atual = 0; criarDots(); irPara(0); });
+    })();
 
     // ==================== MODAIS ====================
     // EDITAR: substitua pela URL do seu Cloudflare Worker
