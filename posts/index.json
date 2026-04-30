@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "reserva-de-emergencia",
+    "titulo": "Como montar uma reserva de emergência",
+    "resumo": "Entenda quanto guardar, onde deixar esse dinheiro e por que esse é o primeiro passo para uma vida financeira sólida.",
+    "data": "2026-04-29",
+    "categoria": "Educação Financeira",
+    "categoria_id": "educacao"
+  },
+  {
+    "slug": "renda-fixa-ou-variavel",
+    "titulo": "Renda fixa ou variável: como escolher?",
+    "resumo": "A resposta depende do seu perfil, dos seus objetivos e do momento de vida. Veja como pensar essa decisão sem pressão.",
+    "data": "2026-04-15",
+    "categoria": "Investimentos",
+    "categoria_id": "investimentos"
+  },
+  {
+    "slug": "erros-financeiros",
+    "titulo": "5 erros financeiros mais comuns — e como evitá-los",
+    "resumo": "Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais.",
+    "data": "2026-04-01",
+    "categoria": "Planejamento",
+    "categoria_id": "planejamento"
+  }
+]

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post · Clara Ramalho Consultoria Financeira</title>
+  <meta name="description" content="" id="metaDesc" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Marked.js para renderizar Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --azul:       #0B1F3A;
+      --azul-medio: #1A3358;
+      --prata:      #C0C8D4;
+      --prata-clara:#E8EDF2;
+      --branco:     #FFFFFF;
+      --texto:      #2C3E50;
+      --texto-leve: #6B7A8D;
+      --accent:     #4A7DBF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--azul);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .logo span { color: var(--prata); font-weight: 300; }
+    .header-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .header-nav a {
+      color: var(--prata-clara);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--branco); }
+
+    /* ── HERO DO POST ── */
+    .post-hero {
+      background: var(--azul);
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .post-hero-inner {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .post-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .post-breadcrumb a {
+      color: rgba(192,200,212,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-breadcrumb a:hover { color: var(--prata); }
+    .post-breadcrumb span { color: rgba(192,200,212,0.35); }
+    .post-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(74,125,191,0.15);
+      padding: 0.25rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .post-titulo {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--branco);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .post-resumo {
+      font-size: 1rem;
+      color: rgba(232,237,242,0.65);
+      max-width: 600px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .post-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: rgba(192,200,212,0.55);
+    }
+    .post-meta-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── CONTEÚDO ── */
+    .post-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 6rem;
+    }
+
+    /* Tipografia do conteúdo markdown */
+    .post-content h1,
+    .post-content h2,
+    .post-content h3,
+    .post-content h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--azul);
+      line-height: 1.3;
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .post-content h2 { font-size: 1.5rem; font-weight: 600; }
+    .post-content h3 { font-size: 1.2rem; font-weight: 600; }
+    .post-content h4 { font-size: 1rem; font-weight: 600; }
+    .post-content p {
+      font-size: 1rem;
+      color: var(--texto);
+      margin-bottom: 1.3rem;
+      line-height: 1.85;
+    }
+    .post-content ul,
+    .post-content ol {
+      margin: 1rem 0 1.3rem 1.5rem;
+    }
+    .post-content li {
+      font-size: 1rem;
+      color: var(--texto);
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+    }
+    .post-content strong { color: var(--azul); font-weight: 600; }
+    .post-content em { color: var(--texto-leve); }
+    .post-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--prata-clara);
+      border-radius: 0 6px 6px 0;
+    }
+    .post-content blockquote p {
+      color: var(--azul);
+      font-style: italic;
+      margin: 0;
+    }
+    .post-content hr {
+      border: none;
+      border-top: 1px solid var(--prata-clara);
+      margin: 2.5rem 0;
+    }
+    .post-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .post-content a:hover { color: var(--azul); }
+    .post-content code {
+      background: var(--prata-clara);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.88rem;
+      color: var(--azul);
+    }
+
+    /* ── DIVISOR ── */
+    .post-divider {
+      border: none;
+      border-top: 1px solid var(--prata-clara);
+      margin: 3rem 0;
+    }
+
+    /* ── CTA NEWSLETTER ── */
+    .post-cta {
+      background: var(--azul);
+      border-radius: 10px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .post-cta h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: 0.5rem;
+    }
+    .post-cta p {
+      font-size: 0.9rem;
+      color: rgba(232,237,242,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .cta-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 420px;
+      margin: 0 auto 0.8rem;
+    }
+    .cta-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(192,200,212,0.2);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--branco);
+      outline: none;
+    }
+    .cta-form input::placeholder { color: rgba(192,200,212,0.45); }
+    .cta-form button {
+      background: var(--branco);
+      color: var(--azul);
+      border: none;
+      padding: 0.75rem 1.3rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cta-form button:hover { background: var(--prata-clara); }
+    .cta-lgpd {
+      font-size: 0.7rem;
+      color: rgba(192,200,212,0.35);
+    }
+    .cta-sucesso {
+      display: none;
+      color: var(--branco);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    /* ── VOLTAR ── */
+    .post-voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--texto-leve);
+      text-decoration: none;
+      border-bottom: 1px solid var(--prata);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .post-voltar:hover {
+      color: var(--azul);
+      border-color: var(--azul);
+    }
+
+    /* ── LOADING / ERRO ── */
+    .post-loading {
+      text-align: center;
+      padding: 6rem 2rem;
+      color: var(--texto-leve);
+      font-size: 0.95rem;
+    }
+    .post-erro {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .post-erro h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      color: var(--azul);
+      margin-bottom: 0.75rem;
+    }
+    .post-erro p { color: var(--texto-leve); margin-bottom: 1.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060F1D;
+      padding: 2rem;
+      text-align: center;
+      color: rgba(192,200,212,0.35);
+      font-size: 0.78rem;
+      line-height: 1.8;
+    }
+    footer a {
+      color: rgba(192,200,212,0.45);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--prata); }
+
+    @media (max-width: 600px) {
+      .post-hero { padding: 3rem 1.5rem 2.5rem; }
+      .post-container { padding: 2.5rem 1.5rem 5rem; }
+      .cta-form { flex-direction: column; }
+      .post-cta { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+    <div class="header-nav">
+      <a href="blog.html">← Newsletter</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+  </header>
+
+  <!-- HERO do post — preenchido via JS -->
+  <div class="post-hero" id="postHero" style="display:none;">
+    <div class="post-hero-bg"></div>
+    <div class="post-hero-inner">
+      <div class="post-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <a href="blog.html">Newsletter</a>
+        <span>›</span>
+        <span id="breadcrumbTitulo"></span>
+      </div>
+      <span class="post-tag" id="postTag"></span>
+      <h1 class="post-titulo" id="postTitulo"></h1>
+      <p class="post-resumo" id="postResumo"></p>
+      <div class="post-meta">
+        <div class="post-meta-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span id="postData"></span>
+        </div>
+        <div class="post-meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="postLeitura"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div class="post-loading" id="postLoading">Carregando...</div>
+
+  <!-- ERRO -->
+  <div class="post-erro" id="postErro" style="display:none;">
+    <div style="max-width:500px; margin:0 auto;">
+      <h2>Post não encontrado</h2>
+      <p>O conteúdo que você está procurando não existe ou foi removido.</p>
+      <a href="blog.html" class="post-voltar">← Voltar para a Newsletter</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div class="post-container" id="postContainer" style="display:none;">
+    <div class="post-content" id="postContent"></div>
+
+    <hr class="post-divider" />
+
+    <!-- CTA Newsletter -->
+    <div class="post-cta">
+      <h3>Gostou do conteúdo?</h3>
+      <p>Receba a newsletter quinzenal direto no seu e-mail.</p>
+      <div id="ctaForm">
+        <div class="cta-form">
+          <input type="email" id="cta-email" placeholder="seu@email.com" />
+          <button onclick="cadastrarCTA()">Quero receber</button>
+        </div>
+        <p class="cta-lgpd">Sem spam. Cancele quando quiser.</p>
+      </div>
+      <div class="cta-sucesso" id="ctaSucesso">✓ Cadastro confirmado! Até a próxima edição.</div>
+    </div>
+
+    <a href="blog.html" class="post-voltar">← Voltar para a Newsletter</a>
+  </div>
+
+  <footer>
+    <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+    <p style="margin-top:0.4rem;">
+      <a href="index.html">Voltar ao site</a>
+      &nbsp;·&nbsp;
+      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>
+      &nbsp;·&nbsp;
+      <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
+    </p>
+  </footer>
+
+  <script>
+    // Lê o slug da URL
+    const params = new URLSearchParams(window.location.search);
+    const slug   = params.get('slug');
+
+    if (!slug) {
+      mostrarErro();
+    } else {
+      carregarPost(slug);
+    }
+
+    async function carregarPost(slug) {
+      try {
+        // Busca o arquivo .md da pasta posts/
+        const res = await fetch(`posts/${slug}.md`);
+        if (!res.ok) throw new Error('not found');
+        const texto = await res.text();
+        renderizarPost(texto);
+      } catch {
+        mostrarErro();
+      }
+    }
+
+    function parseFrontmatter(texto) {
+      // Extrai frontmatter entre --- e ---
+      const match = texto.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match) return { meta: {}, conteudo: texto };
+
+      const meta = {};
+      match[1].split('\n').forEach(linha => {
+        const [chave, ...valor] = linha.split(':');
+        if (chave && valor.length) {
+          meta[chave.trim()] = valor.join(':').trim().replace(/^"|"$/g, '');
+        }
+      });
+      return { meta, conteudo: match[2] };
+    }
+
+    function estimarLeitura(texto) {
+      const palavras = texto.trim().split(/\s+/).length;
+      const minutos  = Math.ceil(palavras / 200);
+      return `${minutos} min de leitura`;
+    }
+
+    function formatarData(dataStr) {
+      if (!dataStr) return '';
+      const [ano, mes, dia] = dataStr.split('-');
+      const meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+      return `${parseInt(dia)} ${meses[parseInt(mes)-1]} ${ano}`;
+    }
+
+    function renderizarPost(texto) {
+      const { meta, conteudo } = parseFrontmatter(texto);
+
+      // Preenche título da página
+      if (meta.titulo) document.title = `${meta.titulo} · Clara Ramalho`;
+      if (meta.resumo) document.getElementById('metaDesc').content = meta.resumo;
+
+      // Preenche hero
+      document.getElementById('postTag').textContent       = meta.categoria || 'Newsletter';
+      document.getElementById('postTitulo').textContent    = meta.titulo    || '';
+      document.getElementById('postResumo').textContent    = meta.resumo    || '';
+      document.getElementById('postData').textContent      = formatarData(meta.data);
+      document.getElementById('postLeitura').textContent   = estimarLeitura(conteudo);
+      document.getElementById('breadcrumbTitulo').textContent = meta.titulo || 'Post';
+
+      // Renderiza markdown
+      document.getElementById('postContent').innerHTML = marked.parse(conteudo);
+
+      // Mostra tudo
+      document.getElementById('postLoading').style.display  = 'none';
+      document.getElementById('postHero').style.display     = 'block';
+      document.getElementById('postContainer').style.display = 'block';
+    }
+
+    function mostrarErro() {
+      document.getElementById('postLoading').style.display = 'none';
+      document.getElementById('postErro').style.display    = 'block';
+    }
+
+    // Cadastro CTA
+    async function cadastrarCTA() {
+      const email = document.getElementById('cta-email').value.trim();
+      const btn   = document.querySelector('.cta-form button');
+      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+      btn.disabled = true;
+      btn.textContent = 'Cadastrando...';
+      // EDITAR: substitua pelo endpoint do Resend quando integrar
+      await new Promise(r => setTimeout(r, 1000));
+      document.getElementById('ctaForm').style.display   = 'none';
+      document.getElementById('ctaSucesso').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
