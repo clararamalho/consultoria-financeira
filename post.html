@@ -20,33 +20,11 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--branco);
-      color: var(--texto);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--branco); color: var(--texto); line-height: 1.8; overflow-x: hidden; }
 
     /* ── HEADER ── */
-    header {
-      background: var(--azul);
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--branco);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
+    header { background: var(--azul); padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--branco); text-decoration: none; letter-spacing: 0.01em; }
     .logo span { color: var(--prata); font-weight: 300; }
     .header-nav { display: flex; gap: 1.5rem; align-items: center; }
     .header-nav a { color: var(--prata-clara); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
@@ -54,29 +32,14 @@
 
     /* ── HERO ── */
     .post-hero { background: var(--azul); padding: 4rem 2rem 3.5rem; position: relative; overflow: hidden; }
-    .post-hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .post-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%); pointer-events: none; }
     .post-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
     .post-breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.8rem; }
     .post-breadcrumb a { color: rgba(192,200,212,0.6); text-decoration: none; transition: color 0.2s; }
     .post-breadcrumb a:hover { color: var(--prata); }
     .post-breadcrumb span { color: rgba(192,200,212,0.35); }
-    .post-tag {
-      display: inline-block;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); background: rgba(74,125,191,0.15);
-      padding: 0.25rem 0.8rem; border-radius: 100px; margin-bottom: 1rem;
-    }
-    .post-titulo {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600;
-      color: var(--branco); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em;
-    }
+    .post-tag { display: inline-block; font-family: 'Outfit', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: rgba(74,125,191,0.15); padding: 0.25rem 0.8rem; border-radius: 100px; margin-bottom: 1rem; }
+    .post-titulo { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: var(--branco); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
     .post-resumo { font-size: 1rem; color: rgba(232,237,242,0.65); max-width: 600px; font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; }
     .post-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
     .post-meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: rgba(192,200,212,0.55); }
@@ -84,10 +47,7 @@
 
     /* ── CONTEÚDO ── */
     .post-container { max-width: 760px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
-    .post-content h1, .post-content h2, .post-content h3, .post-content h4 {
-      font-family: 'Outfit', sans-serif; color: var(--azul); line-height: 1.3;
-      margin-top: 2.5rem; margin-bottom: 0.8rem;
-    }
+    .post-content h1, .post-content h2, .post-content h3, .post-content h4 { font-family: 'Outfit', sans-serif; color: var(--azul); line-height: 1.3; margin-top: 2.5rem; margin-bottom: 0.8rem; }
     .post-content h2 { font-size: 1.5rem; font-weight: 600; }
     .post-content h3 { font-size: 1.2rem; font-weight: 600; }
     .post-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.3rem; line-height: 1.85; }
@@ -95,10 +55,7 @@
     .post-content li { font-size: 1rem; color: var(--texto); margin-bottom: 0.5rem; line-height: 1.75; }
     .post-content strong { color: var(--azul); font-weight: 600; }
     .post-content em { color: var(--texto-leve); }
-    .post-content blockquote {
-      border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
-      margin: 1.5rem 0; background: var(--prata-clara); border-radius: 0 6px 6px 0;
-    }
+    .post-content blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--prata-clara); border-radius: 0 6px 6px 0; }
     .post-content blockquote p { color: var(--azul); font-style: italic; margin: 0; }
     .post-content hr { border: none; border-top: 1px solid var(--prata-clara); margin: 2.5rem 0; }
     .post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
@@ -110,12 +67,7 @@
 
     /* ── NAVEGAÇÃO PREV/NEXT ── */
     .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem; }
-    .post-nav-item {
-      background: var(--prata-clara); border-radius: 8px; padding: 1.2rem 1.5rem;
-      text-decoration: none; color: inherit; border: 1px solid transparent;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      display: flex; flex-direction: column; gap: 0.3rem;
-    }
+    .post-nav-item { background: var(--prata-clara); border-radius: 8px; padding: 1.2rem 1.5rem; text-decoration: none; color: inherit; border: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 0.3rem; }
     .post-nav-item:hover { border-color: var(--prata); box-shadow: 0 4px 16px rgba(11,31,58,0.08); transform: translateY(-2px); }
     .post-nav-item.next { text-align: right; }
     .post-nav-label { font-family: 'Outfit', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-leve); }
@@ -144,12 +96,7 @@
     .post-erro p { color: var(--texto-leve); margin-bottom: 1.5rem; }
 
     /* ── MODAL DE CONTATO ── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(6,15,29,0.75);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      z-index: 200; display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-    }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(6,15,29,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal { background: var(--branco); border-radius: 10px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; transform: translateY(20px); transition: transform 0.3s ease; }
     .modal-overlay.open .modal { transform: translateY(0); }
@@ -170,6 +117,26 @@
     .form-sucesso h3 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--azul); margin-bottom: 0.5rem; }
     .form-sucesso p { color: var(--texto-leve); font-size: 0.9rem; }
 
+    /* ── POPUP NEWSLETTER ── */
+    .popup-overlay { position: fixed; inset: 0; background: rgba(6,15,29,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+    .popup-overlay.open { opacity: 1; pointer-events: all; }
+    .popup-box { background: var(--azul); border-radius: 12px; padding: 2rem 2rem 1.5rem; width: 100%; max-width: 360px; position: relative; transform: translateY(20px); transition: transform 0.4s ease; box-shadow: 0 24px 64px rgba(6,15,29,0.4); }
+    .popup-overlay.open .popup-box { transform: translateY(0); }
+    .popup-close { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.08); border: none; color: rgba(192,200,212,0.6); width: 28px; height: 28px; border-radius: 50%; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; line-height: 1; }
+    .popup-close:hover { background: rgba(255,255,255,0.15); color: var(--branco); }
+    .popup-icone { font-size: 1.8rem; margin-bottom: 0.8rem; opacity: 0.8; }
+    .popup-titulo { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--branco); line-height: 1.3; margin-bottom: 0.5rem; }
+    .popup-texto { font-size: 0.85rem; color: rgba(232,237,242,0.65); line-height: 1.6; margin-bottom: 1.2rem; }
+    .popup-inputs { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.6rem; }
+    .popup-inputs input { background: rgba(255,255,255,0.08); border: 1px solid rgba(192,200,212,0.2); border-radius: 4px; padding: 0.7rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--branco); outline: none; transition: border-color 0.2s; width: 100%; }
+    .popup-inputs input::placeholder { color: rgba(192,200,212,0.45); }
+    .popup-inputs input:focus { border-color: rgba(192,200,212,0.5); }
+    .popup-inputs button { background: var(--branco); color: var(--azul); border: none; padding: 0.75rem; border-radius: 4px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: background 0.2s; width: 100%; }
+    .popup-inputs button:hover { background: var(--prata-clara); }
+    .popup-inputs button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .popup-lgpd { font-size: 0.7rem; color: rgba(192,200,212,0.35); text-align: center; }
+    .popup-sucesso { display: none; color: var(--branco); font-family: 'Outfit', sans-serif; font-size: 0.95rem; text-align: center; padding: 0.5rem 0; }
+
     /* ── FOOTER ── */
     footer { background: #060F1D; padding: 2rem; text-align: center; color: rgba(192,200,212,0.35); font-size: 0.78rem; line-height: 1.8; }
     footer a { color: rgba(192,200,212,0.45); text-decoration: none; }
@@ -184,6 +151,10 @@
       .post-nav-item.next { text-align: left; }
       .modal { padding: 1.5rem; }
     }
+    @media (max-width: 480px) {
+      .popup-overlay { padding: 1rem; align-items: center; justify-content: center; }
+      .popup-box { max-width: 100%; border-radius: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -192,7 +163,7 @@
     <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
     <div class="header-nav">
       <a href="blog.html">Newsletter</a>
-      <a href="index.html">Site</a>
+      <a href="index.html">← Site</a>
     </div>
   </header>
 
@@ -283,6 +254,26 @@
     </div>
   </div>
 
+  <!-- POPUP NEWSLETTER -->
+  <div class="popup-overlay" id="popupNewsletter">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose" aria-label="Fechar">✕</button>
+      <div class="popup-icone">✉</div>
+      <h3 class="popup-titulo">Conteúdo como esse, quinzenalmente.</h3>
+      <p class="popup-texto">Sem enrolação. Educação financeira e análise de mercado direto na sua caixa de entrada.</p>
+      <div id="popupForm">
+        <div class="popup-inputs">
+          <input type="email" id="popup-email" placeholder="seu@email.com" autocomplete="email" />
+          <button onclick="cadastrarPopup()">Quero receber</button>
+        </div>
+        <p class="popup-lgpd">Sem spam. Cancele quando quiser.</p>
+      </div>
+      <div class="popup-sucesso" id="popupSucesso">
+        ✓ Cadastro confirmado! Até a próxima edição.
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
     <p style="margin-top:0.4rem;">
@@ -348,7 +339,6 @@
       document.getElementById('breadcrumbTitulo').textContent = meta.titulo    || 'Post';
       document.getElementById('postContent').innerHTML        = marked.parse(conteudo);
 
-      // Intercepta links de contato → abre modal
       document.querySelectorAll('.post-content a').forEach(a => {
         const href = a.getAttribute('href') || '';
         if (href.includes('contato')) {
@@ -423,6 +413,54 @@
       await new Promise(r => setTimeout(r, 1000));
       document.getElementById('ctaForm').style.display    = 'none';
       document.getElementById('ctaSucesso').style.display = 'block';
+    }
+
+    // ── Popup newsletter ──
+    (function () {
+      const overlay     = document.getElementById('popupNewsletter');
+      const btnClose    = document.getElementById('popupClose');
+      const STORAGE_KEY = 'nl_popup_fechado';
+
+      if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+      function abrirPopup() {
+        overlay.classList.add('open');
+        window.removeEventListener('scroll', onScroll);
+      }
+
+      function fecharPopup() {
+        overlay.classList.remove('open');
+        sessionStorage.setItem(STORAGE_KEY, '1');
+      }
+
+      function onScroll() {
+        const scrolled = window.scrollY + window.innerHeight;
+        const total    = document.documentElement.scrollHeight;
+        if (scrolled / total >= 0.5) abrirPopup();
+      }
+
+      btnClose.addEventListener('click', fecharPopup);
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) fecharPopup();
+      });
+
+      setTimeout(() => {
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }, 1000);
+    })();
+
+    async function cadastrarPopup() {
+      const email = document.getElementById('popup-email').value.trim();
+      const btn   = document.querySelector('.popup-inputs button');
+      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+      btn.disabled = true; btn.textContent = 'Cadastrando...';
+      await new Promise(r => setTimeout(r, 1000));
+      document.getElementById('popupForm').style.display    = 'none';
+      document.getElementById('popupSucesso').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('popupNewsletter').classList.remove('open');
+        sessionStorage.setItem('nl_popup_fechado', '1');
+      }, 2500);
     }
   </script>
 </body>
