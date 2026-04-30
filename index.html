@@ -1530,6 +1530,7 @@
     // ==================== MODAIS ====================
     // EDITAR: substitua pela URL do seu Cloudflare Worker
     const WORKER_URL = 'https://formulario-contato.m-clarard.workers.dev';
+    const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
 
     function abrirModal(tipo) {
       document.getElementById('modal-' + tipo).classList.add('open');
@@ -1645,23 +1646,45 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   
     <!-- ==================== NEWSLETTER ==================== -->
-        async function cadastrarNewsletter() {
-        const nome  = document.getElementById('nl-nome').value.trim();
-        const email = document.getElementById('nl-email').value.trim();
-        const btn   = document.querySelector('.nl-inputs button');
+    async function cadastrarNewsletter() {
+      const nome  = document.getElementById('nl-nome').value.trim();
+      const email = document.getElementById('nl-email').value.trim();
+      const btn   = document.querySelector('.nl-inputs button');
     
-        if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-    
-        btn.disabled = true;
-        btn.textContent = 'Cadastrando...';
-    
-        // EDITAR: substitua pela URL do seu Worker/endpoint do Resend
-        // Por enquanto simula sucesso após 1s
-        await new Promise(r => setTimeout(r, 1000));
-    
-        document.getElementById('nlForm').style.display = 'none';
-        document.getElementById('nlSucesso').style.display = 'block';
+      if (!email) {
+        alert('Por favor, informe seu e-mail.');
+        return;
       }
+    
+      btn.disabled    = true;
+      btn.textContent = 'Cadastrando...';
+    
+      try {
+        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ nome, email }),
+        });
+        const data = await res.json();
+    
+        if (data.ok) {
+          document.getElementById('nlForm').style.display    = 'none';
+          document.getElementById('nlSucesso').style.display = 'block';
+          // Atualiza a mensagem de sucesso para orientar sobre o e-mail de confirmação
+          document.querySelector('#nlSucesso h3').textContent = 'Quase lá!';
+          document.querySelector('#nlSucesso p').textContent  =
+            'Enviamos um e-mail de confirmação. Clique no link para ativar seu cadastro.';
+        } else {
+          alert(data.error || 'Ocorreu um erro. Tente novamente.');
+          btn.disabled    = false;
+          btn.textContent = 'Quero receber';
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled    = false;
+        btn.textContent = 'Quero receber';
+      }
+    }
   
   </script>
 

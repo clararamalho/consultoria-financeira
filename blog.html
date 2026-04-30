@@ -172,6 +172,7 @@
 
   <script>
     const REPO_RAW   = 'https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main';
+    const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
     let todosPosts = [];
 
     function formatarData(d) {
@@ -264,12 +265,38 @@
     async function cadastrarBlog() {
       const email = document.getElementById('nl-email-blog').value.trim();
       const btn   = document.querySelector('.nl-form-inline button');
-      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      btn.disabled = true;
+    
+      if (!email) {
+        alert('Por favor, informe seu e-mail.');
+        return;
+      }
+    
+      btn.disabled    = true;
       btn.textContent = 'Cadastrando...';
-      await new Promise(r => setTimeout(r, 1000));
-      document.getElementById('nlFormBlog').style.display   = 'none';
-      document.getElementById('nlSucessoBlog').style.display = 'block';
+    
+      try {
+        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ nome: '', email }),
+        });
+        const data = await res.json();
+    
+        if (data.ok) {
+          document.getElementById('nlFormBlog').style.display    = 'none';
+          document.getElementById('nlSucessoBlog').style.display = 'block';
+          document.getElementById('nlSucessoBlog').textContent   =
+            '✓ Verifique seu e-mail para confirmar o cadastro!';
+        } else {
+          alert(data.error || 'Ocorreu um erro. Tente novamente.');
+          btn.disabled    = false;
+          btn.textContent = 'Quero receber';
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled    = false;
+        btn.textContent = 'Quero receber';
+      }
     }
 
     carregarPosts();

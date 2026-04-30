@@ -286,6 +286,7 @@
   <script>
     const WORKER_URL = 'https://formulario-contato.m-clarard.workers.dev';
     const REPO_RAW   = 'https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main';
+    const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
 
     const params = new URLSearchParams(window.location.search);
     const slug   = params.get('slug');
@@ -408,11 +409,38 @@
     async function cadastrarCTA() {
       const email = document.getElementById('cta-email').value.trim();
       const btn   = document.querySelector('.cta-form button');
-      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      btn.disabled = true; btn.textContent = 'Cadastrando...';
-      await new Promise(r => setTimeout(r, 1000));
-      document.getElementById('ctaForm').style.display    = 'none';
-      document.getElementById('ctaSucesso').style.display = 'block';
+    
+      if (!email) {
+        alert('Por favor, informe seu e-mail.');
+        return;
+      }
+    
+      btn.disabled    = true;
+      btn.textContent = 'Cadastrando...';
+    
+      try {
+        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ nome: '', email }),
+        });
+        const data = await res.json();
+    
+        if (data.ok) {
+          document.getElementById('ctaForm').style.display    = 'none';
+          document.getElementById('ctaSucesso').style.display = 'block';
+          document.getElementById('ctaSucesso').textContent   =
+            '✓ Verifique seu e-mail para confirmar o cadastro!';
+        } else {
+          alert(data.error || 'Ocorreu um erro. Tente novamente.');
+          btn.disabled    = false;
+          btn.textContent = 'Quero receber';
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled    = false;
+        btn.textContent = 'Quero receber';
+      }
     }
 
     // ── Popup newsletter ──
@@ -452,15 +480,42 @@
     async function cadastrarPopup() {
       const email = document.getElementById('popup-email').value.trim();
       const btn   = document.querySelector('.popup-inputs button');
-      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      btn.disabled = true; btn.textContent = 'Cadastrando...';
-      await new Promise(r => setTimeout(r, 1000));
-      document.getElementById('popupForm').style.display    = 'none';
-      document.getElementById('popupSucesso').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('popupNewsletter').classList.remove('open');
-        sessionStorage.setItem('nl_popup_fechado', '1');
-      }, 2500);
+    
+      if (!email) {
+        alert('Por favor, informe seu e-mail.');
+        return;
+      }
+    
+      btn.disabled    = true;
+      btn.textContent = 'Cadastrando...';
+    
+      try {
+        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ nome: '', email }),
+        });
+        const data = await res.json();
+    
+        if (data.ok) {
+          document.getElementById('popupForm').style.display    = 'none';
+          document.getElementById('popupSucesso').style.display = 'block';
+          document.getElementById('popupSucesso').textContent   =
+            '✓ Verifique seu e-mail para confirmar o cadastro!';
+          setTimeout(() => {
+            document.getElementById('popupNewsletter').classList.remove('open');
+            sessionStorage.setItem('nl_popup_fechado', '1');
+          }, 3000);
+        } else {
+          alert(data.error || 'Ocorreu um erro. Tente novamente.');
+          btn.disabled    = false;
+          btn.textContent = 'Quero receber';
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled    = false;
+        btn.textContent = 'Quero receber';
+      }
     }
   </script>
 </body>
