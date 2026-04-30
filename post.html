@@ -442,7 +442,8 @@
     async function carregarPost(slug) {
       try {
         // Busca o arquivo .md da pasta posts/
-        const res = await fetch(`/posts/${slug}.md`);
+        const base = window.location.origin;
+        const res = await fetch(`${base}/posts/${slug}.md`);
         if (!res.ok) throw new Error('not found');
         const texto = await res.text();
         renderizarPost(texto);
