@@ -6,7 +6,6 @@
   <title>Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <!-- Marked.js para renderizar Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -50,291 +49,130 @@
     }
     .logo span { color: var(--prata); font-weight: 300; }
     .header-nav { display: flex; gap: 1.5rem; align-items: center; }
-    .header-nav a {
-      color: var(--prata-clara);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
+    .header-nav a { color: var(--prata-clara); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .header-nav a:hover { color: var(--branco); }
 
-    /* ── HERO DO POST ── */
-    .post-hero {
-      background: var(--azul);
-      padding: 4rem 2rem 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
+    /* ── HERO ── */
+    .post-hero { background: var(--azul); padding: 4rem 2rem 3.5rem; position: relative; overflow: hidden; }
     .post-hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .post-hero-inner {
-      position: relative;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .post-breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.8rem;
-    }
-    .post-breadcrumb a {
-      color: rgba(192,200,212,0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .post-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .post-breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.8rem; }
+    .post-breadcrumb a { color: rgba(192,200,212,0.6); text-decoration: none; transition: color 0.2s; }
     .post-breadcrumb a:hover { color: var(--prata); }
     .post-breadcrumb span { color: rgba(192,200,212,0.35); }
     .post-tag {
       display: inline-block;
       font-family: 'Outfit', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(74,125,191,0.15);
-      padding: 0.25rem 0.8rem;
-      border-radius: 100px;
-      margin-bottom: 1rem;
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); background: rgba(74,125,191,0.15);
+      padding: 0.25rem 0.8rem; border-radius: 100px; margin-bottom: 1rem;
     }
     .post-titulo {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 600;
-      color: var(--branco);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600;
+      color: var(--branco); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em;
     }
-    .post-resumo {
-      font-size: 1rem;
-      color: rgba(232,237,242,0.65);
-      max-width: 600px;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .post-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: rgba(192,200,212,0.55);
-    }
-    .post-meta-item svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .post-resumo { font-size: 1rem; color: rgba(232,237,242,0.65); max-width: 600px; font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; }
+    .post-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .post-meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: rgba(192,200,212,0.55); }
+    .post-meta-item svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
     /* ── CONTEÚDO ── */
-    .post-container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 3.5rem 2rem 6rem;
-    }
-
-    /* Tipografia do conteúdo markdown */
-    .post-content h1,
-    .post-content h2,
-    .post-content h3,
-    .post-content h4 {
-      font-family: 'Outfit', sans-serif;
-      color: var(--azul);
-      line-height: 1.3;
-      margin-top: 2.5rem;
-      margin-bottom: 0.8rem;
+    .post-container { max-width: 760px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
+    .post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+      font-family: 'Outfit', sans-serif; color: var(--azul); line-height: 1.3;
+      margin-top: 2.5rem; margin-bottom: 0.8rem;
     }
     .post-content h2 { font-size: 1.5rem; font-weight: 600; }
     .post-content h3 { font-size: 1.2rem; font-weight: 600; }
-    .post-content h4 { font-size: 1rem; font-weight: 600; }
-    .post-content p {
-      font-size: 1rem;
-      color: var(--texto);
-      margin-bottom: 1.3rem;
-      line-height: 1.85;
-    }
-    .post-content ul,
-    .post-content ol {
-      margin: 1rem 0 1.3rem 1.5rem;
-    }
-    .post-content li {
-      font-size: 1rem;
-      color: var(--texto);
-      margin-bottom: 0.5rem;
-      line-height: 1.75;
-    }
+    .post-content p { font-size: 1rem; color: var(--texto); margin-bottom: 1.3rem; line-height: 1.85; }
+    .post-content ul, .post-content ol { margin: 1rem 0 1.3rem 1.5rem; }
+    .post-content li { font-size: 1rem; color: var(--texto); margin-bottom: 0.5rem; line-height: 1.75; }
     .post-content strong { color: var(--azul); font-weight: 600; }
     .post-content em { color: var(--texto-leve); }
     .post-content blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      background: var(--prata-clara);
-      border-radius: 0 6px 6px 0;
+      border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+      margin: 1.5rem 0; background: var(--prata-clara); border-radius: 0 6px 6px 0;
     }
-    .post-content blockquote p {
-      color: var(--azul);
-      font-style: italic;
-      margin: 0;
-    }
-    .post-content hr {
-      border: none;
-      border-top: 1px solid var(--prata-clara);
-      margin: 2.5rem 0;
-    }
-    .post-content a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .post-content blockquote p { color: var(--azul); font-style: italic; margin: 0; }
+    .post-content hr { border: none; border-top: 1px solid var(--prata-clara); margin: 2.5rem 0; }
+    .post-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
     .post-content a:hover { color: var(--azul); }
-    .post-content code {
-      background: var(--prata-clara);
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      font-size: 0.88rem;
-      color: var(--azul);
-    }
+    .post-content code { background: var(--prata-clara); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.88rem; color: var(--azul); }
 
     /* ── DIVISOR ── */
-    .post-divider {
-      border: none;
-      border-top: 1px solid var(--prata-clara);
-      margin: 3rem 0;
+    .post-divider { border: none; border-top: 1px solid var(--prata-clara); margin: 3rem 0; }
+
+    /* ── NAVEGAÇÃO PREV/NEXT ── */
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem; }
+    .post-nav-item {
+      background: var(--prata-clara); border-radius: 8px; padding: 1.2rem 1.5rem;
+      text-decoration: none; color: inherit; border: 1px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      display: flex; flex-direction: column; gap: 0.3rem;
     }
+    .post-nav-item:hover { border-color: var(--prata); box-shadow: 0 4px 16px rgba(11,31,58,0.08); transform: translateY(-2px); }
+    .post-nav-item.next { text-align: right; }
+    .post-nav-label { font-family: 'Outfit', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-leve); }
+    .post-nav-titulo { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--azul); line-height: 1.3; }
 
     /* ── CTA NEWSLETTER ── */
-    .post-cta {
-      background: var(--azul);
-      border-radius: 10px;
-      padding: 2.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .post-cta h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--branco);
-      margin-bottom: 0.5rem;
-    }
-    .post-cta p {
-      font-size: 0.9rem;
-      color: rgba(232,237,242,0.6);
-      margin-bottom: 1.5rem;
-    }
-    .cta-form {
-      display: flex;
-      gap: 0.75rem;
-      max-width: 420px;
-      margin: 0 auto 0.8rem;
-    }
-    .cta-form input {
-      flex: 1;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(192,200,212,0.2);
-      border-radius: 4px;
-      padding: 0.75rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: var(--branco);
-      outline: none;
-    }
+    .post-cta { background: var(--azul); border-radius: 10px; padding: 2.5rem; text-align: center; margin-bottom: 3rem; }
+    .post-cta h3 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--branco); margin-bottom: 0.5rem; }
+    .post-cta p { font-size: 0.9rem; color: rgba(232,237,242,0.6); margin-bottom: 1.5rem; }
+    .cta-form { display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto 0.8rem; }
+    .cta-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(192,200,212,0.2); border-radius: 4px; padding: 0.75rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--branco); outline: none; }
     .cta-form input::placeholder { color: rgba(192,200,212,0.45); }
-    .cta-form button {
-      background: var(--branco);
-      color: var(--azul);
-      border: none;
-      padding: 0.75rem 1.3rem;
-      border-radius: 4px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
+    .cta-form button { background: var(--branco); color: var(--azul); border: none; padding: 0.75rem 1.3rem; border-radius: 4px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
     .cta-form button:hover { background: var(--prata-clara); }
-    .cta-lgpd {
-      font-size: 0.7rem;
-      color: rgba(192,200,212,0.35);
-    }
-    .cta-sucesso {
-      display: none;
-      color: var(--branco);
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      padding: 1rem;
-    }
+    .cta-lgpd { font-size: 0.7rem; color: rgba(192,200,212,0.35); }
+    .cta-sucesso { display: none; color: var(--branco); font-family: 'Outfit', sans-serif; font-size: 1rem; padding: 1rem; }
 
     /* ── VOLTAR ── */
-    .post-voltar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--texto-leve);
-      text-decoration: none;
-      border-bottom: 1px solid var(--prata);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .post-voltar:hover {
-      color: var(--azul);
-      border-color: var(--azul);
-    }
+    .post-voltar { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 500; color: var(--texto-leve); text-decoration: none; border-bottom: 1px solid var(--prata); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .post-voltar:hover { color: var(--azul); border-color: var(--azul); }
 
     /* ── LOADING / ERRO ── */
-    .post-loading {
-      text-align: center;
-      padding: 6rem 2rem;
-      color: var(--texto-leve);
-      font-size: 0.95rem;
-    }
-    .post-erro {
-      text-align: center;
-      padding: 6rem 2rem;
-    }
-    .post-erro h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
-      color: var(--azul);
-      margin-bottom: 0.75rem;
-    }
+    .post-loading { text-align: center; padding: 6rem 2rem; color: var(--texto-leve); font-size: 0.95rem; }
+    .post-erro { text-align: center; padding: 6rem 2rem; }
+    .post-erro h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--azul); margin-bottom: 0.75rem; }
     .post-erro p { color: var(--texto-leve); margin-bottom: 1.5rem; }
 
+    /* ── MODAL DE CONTATO ── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(6,15,29,0.75);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      z-index: 200; display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--branco); border-radius: 10px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; transform: translateY(20px); transition: transform 0.3s ease; }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; color: var(--texto-leve); cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .modal-close:hover { color: var(--azul); }
+    .modal-titulo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--azul); margin-bottom: 0.4rem; }
+    .modal-subtitulo { font-size: 0.875rem; color: var(--texto-leve); margin-bottom: 2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--texto); letter-spacing: 0.02em; }
+    .form-group input, .form-group textarea { border: 1px solid var(--prata); border-radius: 4px; padding: 0.7rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--texto); background: var(--branco); transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(74,125,191,0.12); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-enviar { width: 100%; background: var(--azul); color: var(--branco); border: none; padding: 0.95rem; border-radius: 4px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s, transform 0.2s; margin-top: 0.5rem; }
+    .btn-enviar:hover { background: var(--azul-medio); transform: translateY(-1px); }
+    .btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-sucesso { display: none; text-align: center; padding: 2rem 0; }
+    .form-sucesso .icone { font-size: 3rem; margin-bottom: 1rem; }
+    .form-sucesso h3 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--azul); margin-bottom: 0.5rem; }
+    .form-sucesso p { color: var(--texto-leve); font-size: 0.9rem; }
+
     /* ── FOOTER ── */
-    footer {
-      background: #060F1D;
-      padding: 2rem;
-      text-align: center;
-      color: rgba(192,200,212,0.35);
-      font-size: 0.78rem;
-      line-height: 1.8;
-    }
-    footer a {
-      color: rgba(192,200,212,0.45);
-      text-decoration: none;
-    }
+    footer { background: #060F1D; padding: 2rem; text-align: center; color: rgba(192,200,212,0.35); font-size: 0.78rem; line-height: 1.8; }
+    footer a { color: rgba(192,200,212,0.45); text-decoration: none; }
     footer a:hover { color: var(--prata); }
 
     @media (max-width: 600px) {
@@ -342,6 +180,9 @@
       .post-container { padding: 2.5rem 1.5rem 5rem; }
       .cta-form { flex-direction: column; }
       .post-cta { padding: 2rem 1.5rem; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav-item.next { text-align: left; }
+      .modal { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -355,15 +196,12 @@
     </div>
   </header>
 
-  <!-- HERO do post — preenchido via JS -->
   <div class="post-hero" id="postHero" style="display:none;">
     <div class="post-hero-bg"></div>
     <div class="post-hero-inner">
       <div class="post-breadcrumb">
-        <a href="index.html">Início</a>
-        <span>›</span>
-        <a href="blog.html">Newsletter</a>
-        <span>›</span>
+        <a href="index.html">Início</a><span>›</span>
+        <a href="blog.html">Newsletter</a><span>›</span>
         <span id="breadcrumbTitulo"></span>
       </div>
       <span class="post-tag" id="postTag"></span>
@@ -382,10 +220,8 @@
     </div>
   </div>
 
-  <!-- LOADING -->
   <div class="post-loading" id="postLoading">Carregando...</div>
 
-  <!-- ERRO -->
   <div class="post-erro" id="postErro" style="display:none;">
     <div style="max-width:500px; margin:0 auto;">
       <h2>Post não encontrado</h2>
@@ -394,13 +230,11 @@
     </div>
   </div>
 
-  <!-- CONTEÚDO -->
   <div class="post-container" id="postContainer" style="display:none;">
     <div class="post-content" id="postContent"></div>
-
     <hr class="post-divider" />
-
-    <!-- CTA Newsletter -->
+    <div class="post-nav" id="postNav"></div>
+    <hr class="post-divider" />
     <div class="post-cta">
       <h3>Gostou do conteúdo?</h3>
       <p>Receba a newsletter quinzenal direto no seu e-mail.</p>
@@ -413,94 +247,131 @@
       </div>
       <div class="cta-sucesso" id="ctaSucesso">✓ Cadastro confirmado! Até a próxima edição.</div>
     </div>
-
     <a href="blog.html" class="post-voltar">← Voltar para a Newsletter</a>
+  </div>
+
+  <!-- MODAL DE CONTATO -->
+  <div class="modal-overlay" id="modalContato">
+    <div class="modal">
+      <button class="modal-close" onclick="fecharModalContato()">✕</button>
+      <p class="modal-titulo">Entre em contato</p>
+      <p class="modal-subtitulo">Preencha o formulário e retornarei em breve.</p>
+      <div id="formContato">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="mc-nome" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="mc-email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea id="mc-mensagem" placeholder="Como posso te ajudar?"></textarea>
+        </div>
+        <button class="btn-enviar" onclick="enviarContato()">Enviar mensagem</button>
+      </div>
+      <div class="form-sucesso" id="sucessoContato">
+        <div class="icone">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      </div>
+    </div>
   </div>
 
   <footer>
     <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
     <p style="margin-top:0.4rem;">
-      <a href="index.html">Voltar ao site</a>
-      &nbsp;·&nbsp;
-      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>
-      &nbsp;·&nbsp;
+      <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp;
+      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> &nbsp;·&nbsp;
       <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
     </p>
   </footer>
 
   <script>
-    // Lê o slug da URL
+    const WORKER_URL = 'https://formulario-contato.m-clarard.workers.dev';
+    const REPO_RAW   = 'https://raw.githubusercontent.com/clararamalho/consultoria-financeira/main';
+
     const params = new URLSearchParams(window.location.search);
     const slug   = params.get('slug');
+    let todosOsPosts = [];
 
-    if (!slug) {
-      mostrarErro();
-    } else {
-      carregarPost(slug);
-    }
+    if (!slug) { mostrarErro(); } else { iniciar(); }
 
-    async function carregarPost(slug) {
+    async function iniciar() {
       try {
-        // Busca o arquivo .md da pasta posts/
-        const res = await fetch(`https://raw.githubusercontent.com/clararamalho/consultoria-financeira/main/posts/${slug}.md`);
-        if (!res.ok) throw new Error('not found');
-        const texto = await res.text();
-        renderizarPost(texto);
-      } catch {
-        mostrarErro();
-      }
+        const [resPosts, resMd] = await Promise.all([
+          fetch(`${REPO_RAW}/posts/index.json`),
+          fetch(`${REPO_RAW}/posts/${slug}.md`)
+        ]);
+        if (!resMd.ok) throw new Error('not found');
+        todosOsPosts = resPosts.ok ? await resPosts.json() : [];
+        renderizarPost(await resMd.text());
+        renderizarNav();
+      } catch { mostrarErro(); }
     }
 
     function parseFrontmatter(texto) {
-      // Extrai frontmatter entre --- e ---
       const match = texto.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
       if (!match) return { meta: {}, conteudo: texto };
-
       const meta = {};
       match[1].split('\n').forEach(linha => {
         const [chave, ...valor] = linha.split(':');
-        if (chave && valor.length) {
-          meta[chave.trim()] = valor.join(':').trim().replace(/^"|"$/g, '');
-        }
+        if (chave && valor.length) meta[chave.trim()] = valor.join(':').trim().replace(/^"|"$/g, '');
       });
       return { meta, conteudo: match[2] };
     }
 
     function estimarLeitura(texto) {
-      const palavras = texto.trim().split(/\s+/).length;
-      const minutos  = Math.ceil(palavras / 200);
-      return `${minutos} min de leitura`;
+      return `${Math.ceil(texto.trim().split(/\s+/).length / 200)} min de leitura`;
     }
 
-    function formatarData(dataStr) {
-      if (!dataStr) return '';
-      const [ano, mes, dia] = dataStr.split('-');
-      const meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-      return `${parseInt(dia)} ${meses[parseInt(mes)-1]} ${ano}`;
+    function formatarData(d) {
+      if (!d) return '';
+      const [ano, mes, dia] = d.split('-');
+      return `${parseInt(dia)} ${'jan fev mar abr mai jun jul ago set out nov dez'.split(' ')[parseInt(mes)-1]} ${ano}`;
     }
 
     function renderizarPost(texto) {
       const { meta, conteudo } = parseFrontmatter(texto);
-
-      // Preenche título da página
       if (meta.titulo) document.title = `${meta.titulo} · Clara Ramalho`;
       if (meta.resumo) document.getElementById('metaDesc').content = meta.resumo;
+      document.getElementById('postTag').textContent          = meta.categoria || 'Newsletter';
+      document.getElementById('postTitulo').textContent       = meta.titulo    || '';
+      document.getElementById('postResumo').textContent       = meta.resumo    || '';
+      document.getElementById('postData').textContent         = formatarData(meta.data);
+      document.getElementById('postLeitura').textContent      = estimarLeitura(conteudo);
+      document.getElementById('breadcrumbTitulo').textContent = meta.titulo    || 'Post';
+      document.getElementById('postContent').innerHTML        = marked.parse(conteudo);
 
-      // Preenche hero
-      document.getElementById('postTag').textContent       = meta.categoria || 'Newsletter';
-      document.getElementById('postTitulo').textContent    = meta.titulo    || '';
-      document.getElementById('postResumo').textContent    = meta.resumo    || '';
-      document.getElementById('postData').textContent      = formatarData(meta.data);
-      document.getElementById('postLeitura').textContent   = estimarLeitura(conteudo);
-      document.getElementById('breadcrumbTitulo').textContent = meta.titulo || 'Post';
+      // Intercepta links de contato → abre modal
+      document.querySelectorAll('.post-content a').forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (href.includes('contato')) {
+          a.href = '#';
+          a.addEventListener('click', e => { e.preventDefault(); abrirModalContato(); });
+        }
+      });
 
-      // Renderiza markdown
-      document.getElementById('postContent').innerHTML = marked.parse(conteudo);
-
-      // Mostra tudo
-      document.getElementById('postLoading').style.display  = 'none';
-      document.getElementById('postHero').style.display     = 'block';
+      document.getElementById('postLoading').style.display   = 'none';
+      document.getElementById('postHero').style.display      = 'block';
       document.getElementById('postContainer').style.display = 'block';
+    }
+
+    function renderizarNav() {
+      const idx  = todosOsPosts.findIndex(p => p.slug === slug);
+      const prev = todosOsPosts[idx + 1];
+      const next = todosOsPosts[idx - 1];
+      const nav  = document.getElementById('postNav');
+      if (!prev && !next) { nav.style.display = 'none'; return; }
+      nav.innerHTML = `
+        ${prev ? `<a href="post.html?slug=${prev.slug}" class="post-nav-item prev">
+          <span class="post-nav-label">← Anterior</span>
+          <span class="post-nav-titulo">${prev.titulo}</span></a>` : '<div></div>'}
+        ${next ? `<a href="post.html?slug=${next.slug}" class="post-nav-item next">
+          <span class="post-nav-label">Próximo →</span>
+          <span class="post-nav-titulo">${next.titulo}</span></a>` : '<div></div>'}
+      `;
     }
 
     function mostrarErro() {
@@ -508,19 +379,46 @@
       document.getElementById('postErro').style.display    = 'block';
     }
 
-    // Cadastro CTA
+    // ── Modal contato ──
+    function abrirModalContato() {
+      document.getElementById('modalContato').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharModalContato() {
+      document.getElementById('modalContato').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalContato').addEventListener('click', e => {
+      if (e.target === document.getElementById('modalContato')) fecharModalContato();
+    });
+
+    async function enviarContato() {
+      const nome     = document.getElementById('mc-nome').value.trim();
+      const email    = document.getElementById('mc-email').value.trim();
+      const mensagem = document.getElementById('mc-mensagem').value.trim();
+      const btn      = document.querySelector('#formContato .btn-enviar');
+      if (!nome || !email || !mensagem) { alert('Por favor, preencha todos os campos.'); return; }
+      btn.disabled = true; btn.textContent = 'Enviando...';
+      try {
+        const res  = await fetch(WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nome, email, mensagem }) });
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('formContato').style.display   = 'none';
+          document.getElementById('sucessoContato').style.display = 'block';
+        } else { alert('Ocorreu um erro. Tente novamente.'); btn.disabled = false; btn.textContent = 'Enviar mensagem'; }
+      } catch { alert('Erro de conexão. Tente novamente.'); btn.disabled = false; btn.textContent = 'Enviar mensagem'; }
+    }
+
+    // ── CTA newsletter ──
     async function cadastrarCTA() {
       const email = document.getElementById('cta-email').value.trim();
       const btn   = document.querySelector('.cta-form button');
       if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      btn.disabled = true;
-      btn.textContent = 'Cadastrando...';
-      // EDITAR: substitua pelo endpoint do Resend quando integrar
+      btn.disabled = true; btn.textContent = 'Cadastrando...';
       await new Promise(r => setTimeout(r, 1000));
-      document.getElementById('ctaForm').style.display   = 'none';
+      document.getElementById('ctaForm').style.display    = 'none';
       document.getElementById('ctaSucesso').style.display = 'block';
     }
   </script>
-
 </body>
 </html>
