@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmação de cadastro · Clara Ramalho Consultoria Financeira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azul:       #0B1F3A;
+      --prata:      #C0C8D4;
+      --prata-clara:#E8EDF2;
+      --branco:     #FFFFFF;
+      --texto:      #2C3E50;
+      --texto-leve: #6B7A8D;
+      --accent:     #4A7DBF;
+      --verde:      #2ECC8A;
+      --vermelho:   #E05555;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--azul);
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .logo span { color: var(--prata); font-weight: 300; }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--branco);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+    }
+
+    /* ── ESTADOS ── */
+    .estado { display: none; }
+    .estado.ativo { display: block; }
+
+    /* Loading */
+    #estado-loading .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--prata-clara);
+      border-top-color: var(--azul);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #estado-loading p {
+      font-size: 0.95rem;
+      color: var(--texto-leve);
+    }
+
+    /* Sucesso */
+    #estado-sucesso .icone {
+      width: 64px;
+      height: 64px;
+      background: rgba(46,204,138,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    #estado-sucesso .icone svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--verde);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    #estado-sucesso h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+    #estado-sucesso .nome-destaque {
+      color: var(--accent);
+    }
+    #estado-sucesso p {
+      font-size: 0.95rem;
+      color: var(--texto-leve);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-voltar {
+      display: inline-block;
+      background: var(--azul);
+      color: var(--branco);
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-voltar:hover {
+      background: #1A3358;
+      transform: translateY(-2px);
+    }
+
+    /* Erro */
+    #estado-erro .icone {
+      width: 64px;
+      height: 64px;
+      background: rgba(224,85,85,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    #estado-erro .icone svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--vermelho);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    #estado-erro h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 0.75rem;
+    }
+    #estado-erro p {
+      font-size: 0.9rem;
+      color: var(--texto-leve);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-secundario {
+      display: inline-block;
+      color: var(--accent);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-bottom: 1px solid var(--prata);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secundario:hover {
+      color: var(--azul);
+      border-color: var(--azul);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(192,200,212,0.4);
+    }
+    footer a {
+      color: rgba(192,200,212,0.5);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--prata); }
+
+    @media (max-width: 520px) {
+      .card { padding: 2.5rem 1.5rem; border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+  </header>
+
+  <main>
+    <div class="card">
+
+      <!-- Loading -->
+      <div class="estado ativo" id="estado-loading">
+        <div class="spinner"></div>
+        <p>Confirmando seu cadastro...</p>
+      </div>
+
+      <!-- Sucesso -->
+      <div class="estado" id="estado-sucesso">
+        <div class="icone">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1>Cadastro <span class="nome-destaque" id="nomeDestaque">confirmado!</span></h1>
+        <p id="mensagemSucesso">
+          Seu e-mail foi confirmado e você está inscrito na newsletter.<br />
+          A próxima edição chega direto na sua caixa de entrada.
+        </p>
+        <a href="index.html" class="btn-voltar">Voltar para o site →</a>
+      </div>
+
+      <!-- Erro -->
+      <div class="estado" id="estado-erro">
+        <div class="icone">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <h1>Link inválido ou expirado</h1>
+        <p id="mensagemErro">
+          O link de confirmação é válido por 24 horas. Pode ser que ele já tenha expirado ou que seu cadastro já tenha sido confirmado.
+        </p>
+        <a href="index.html#newsletter" class="btn-secundario">Fazer novo cadastro →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Clara Ramalho · Consultoria Financeira</p>
+    <p style="margin-top:0.3rem;">
+      <a href="politica-de-privacidade.html">Política de Privacidade</a>
+    </p>
+  </footer>
+
+  <script>
+    const WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
+
+    async function confirmar() {
+      const params = new URLSearchParams(window.location.search);
+      const token  = params.get('token');
+
+      if (!token) {
+        mostrarErro('Token ausente na URL.');
+        return;
+      }
+
+      try {
+        const res  = await fetch(`${WORKER_URL}/confirmar?token=${encodeURIComponent(token)}`);
+        const data = await res.json();
+
+        if (data.ok) {
+          mostrarSucesso(data.nome);
+        } else {
+          mostrarErro(data.error || 'Erro desconhecido.');
+        }
+      } catch {
+        mostrarErro('Erro de conexão. Tente novamente.');
+      }
+    }
+
+    function mostrarSucesso(nome) {
+      document.getElementById('estado-loading').classList.remove('ativo');
+      document.getElementById('estado-sucesso').classList.add('ativo');
+
+      if (nome) {
+        const primeiroNome = nome.split(' ')[0];
+        document.getElementById('nomeDestaque').textContent = `confirmado, ${primeiroNome}!`;
+      }
+    }
+
+    function mostrarErro(mensagem) {
+      document.getElementById('estado-loading').classList.remove('ativo');
+      document.getElementById('estado-erro').classList.add('ativo');
+      if (mensagem) {
+        document.getElementById('mensagemErro').textContent = mensagem;
+      }
+    }
+
+    confirmar();
+  </script>
+
+</body>
+</html>
