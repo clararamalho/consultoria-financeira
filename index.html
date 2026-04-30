@@ -316,114 +316,158 @@
       line-height: 1.8;
     }
 
-    /* ==================== DEPOIMENTOS ==================== */
-    .carrossel-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .carrossel-track-outer {
-      overflow: hidden;
-      flex: 1;
-    }
-    .carrossel-track {
-      display: flex;
-      gap: 1.5rem;
-      transition: transform 0.4s ease;
-    }
-    .dep-card {
-     background: rgba(255,255,255,0.06);
+     #depoimentos { padding: 6rem 2rem; }
+ 
+  .carrossel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+ 
+  .carrossel-track-outer {
+    overflow: hidden;
+    flex: 1;
+    /* Evita que o track vaze para fora */
+    min-width: 0;
+  }
+ 
+  .carrossel-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Impede quebra de linha e garante alinhamento */
+    will-change: transform;
+  }
+ 
+  /* Cada card ocupa exatamente 1 "slot" — largura calculada via JS */
+  .dep-card {
+    background: rgba(255,255,255,0.06);
     border: 1px solid rgba(192,200,212,0.15);
     border-radius: 8px;
     padding: 2rem;
-    width: calc(33.333% - 1rem);
-    min-width: calc(33.333% - 1rem);
-    max-width: calc(33.333% - 1rem);
     flex-shrink: 0;
+    /* largura definida pelo JS — não colocar min-width aqui */
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     box-sizing: border-box;
-    }
-    .dep-aspas {
-      font-family: 'Outfit', sans-serif;
-      font-size: 3.5rem;
-      color: var(--prata);
-      line-height: 0.5;
-      opacity: 0.5;
-    }
-    .dep-texto {
-      color: rgba(232,237,242,0.85);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      flex: 1;
-    }
-    .dep-autor {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-top: auto;
-    }
-    .dep-inicial {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--branco);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .dep-autor strong {
-      display: block;
-      color: var(--branco);
-      font-size: 0.9rem;
-    }
-    .dep-autor span {
-      display: block;
-      color: var(--prata);
-      font-size: 0.75rem;
-    }
+  }
+ 
+  .dep-aspas {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    color: var(--prata);
+    line-height: 0.5;
+    opacity: 0.5;
+  }
+ 
+  .dep-texto {
+    color: rgba(232,237,242,0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+ 
+  .dep-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+ 
+  .dep-inicial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--azul-medio, #1A3358);
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+ 
+  .dep-autor strong {
+    display: block;
+    color: var(--branco);
+    font-size: 0.9rem;
+    font-family: 'Outfit', sans-serif;
+  }
+ 
+  .dep-autor span {
+    display: block;
+    color: rgba(192,200,212,0.55);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+ 
+  /* ── Botões de seta ── */
+  .carrossel-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(192,200,212,0.2);
+    color: var(--prata, #C0C8D4);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    /* SEMPRE visível — inclusive no mobile */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+ 
+  .carrossel-btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.08);
+  }
+ 
+  .carrossel-btn:disabled {
+    opacity: 0.3 !important;
+    cursor: default;
+    transform: none;
+  }
+ 
+  /* ── Dots ── */
+  .carrossel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+ 
+  .carrossel-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(192,200,212,0.25);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+ 
+  .carrossel-dots span.ativo {
+    background: var(--prata, #C0C8D4);
+    transform: scale(1.25);
+  }
+ 
+  /* Mobile: setas um pouco menores para não comprimir o card */
+  @media (max-width: 480px) {
     .carrossel-btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(192,200,212,0.2);
-      color: var(--branco);
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 34px;
+      height: 34px;
+      font-size: 0.95rem;
     }
-    .carrossel-btn:hover { background: rgba(255,255,255,0.15); }
-    .carrossel-dots {
-      display: flex;
-      justify-content: center;
+    .carrossel-wrapper {
       gap: 0.5rem;
-      margin-top: 2rem;
     }
-    .carrossel-dots span {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(192,200,212,0.3);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .carrossel-dots span.ativo { background: var(--prata); }
-
-    @media (max-width: 900px) {
-      .dep-card { min-width: calc(50% - 0.75rem); }
-    }
-    @media (max-width: 600px) {
-      .dep-card { min-width: 100%; }
-      .carrossel-btn { display: none; }
-    }
+  }
 
     /* ==================== MODAL ==================== */
     .modal-overlay {
@@ -1031,47 +1075,102 @@
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
     // ==================== CARROSSEL DEPOIMENTOS ====================
-    (function() {
-      const track = document.getElementById('carrosselTrack');
-      const dotsContainer = document.getElementById('carrosselDots');
-      const cards = track.querySelectorAll('.dep-card');
-      let atual = 0;
-
-      function visiveis() {
-        if (window.innerWidth <= 600) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 3;
+  (function () {
+    const track      = document.getElementById('carrosselTrack');
+    const dotsWrap   = document.getElementById('carrosselDots');
+    const btnPrev    = document.querySelector('.carrossel-btn.prev');
+    const btnNext    = document.querySelector('.carrossel-btn.next');
+    const cards      = Array.from(track.querySelectorAll('.dep-card'));
+    const GAP        = 24; // px — deve bater com o gap do CSS (1.5rem = 24px)
+    let atual = 0;
+ 
+    /* Quantos cards mostrar por vez */
+    function visiveis() {
+      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 960) return 2;
+      return 3;
+    }
+ 
+    /* Total de posições de scroll */
+    function totalPos() {
+      return cards.length - visiveis() + 1;
+    }
+ 
+    /* Define a largura de cada card com base no container */
+    function setCardWidths() {
+      const outerW = track.parentElement.offsetWidth;
+      const vis    = visiveis();
+      const w      = (outerW - GAP * (vis - 1)) / vis;
+      cards.forEach(c => { c.style.width = w + 'px'; });
+    }
+ 
+    /* Navega para a posição index */
+    function irPara(index) {
+      const vis   = visiveis();
+      atual = Math.max(0, Math.min(index, totalPos() - 1));
+ 
+      const cardW = cards[0].offsetWidth + GAP;
+      track.style.transform = `translateX(-${atual * cardW}px)`;
+ 
+      /* Atualiza dots */
+      dotsWrap.querySelectorAll('span').forEach((d, i) => {
+        d.classList.toggle('ativo', i === atual);
+      });
+ 
+      /* Habilita/desabilita setas */
+      btnPrev.disabled = atual === 0;
+      btnNext.disabled = atual >= totalPos() - 1;
+    }
+ 
+    /* Cria dots */
+    function criarDots() {
+      dotsWrap.innerHTML = '';
+      const total = totalPos();
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('span');
+        if (i === 0) dot.classList.add('ativo');
+        dot.addEventListener('click', () => irPara(i));
+        dotsWrap.appendChild(dot);
       }
-
-      function totalPosicoes() {
-        return cards.length;
+    }
+ 
+    /* Expõe para os onclick do HTML */
+    window.moverCarrossel = function (dir) { irPara(atual + dir); };
+ 
+    /* ── Swipe por toque ── */
+    let touchStartX = 0;
+    let touchStartY = 0;
+ 
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+ 
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      /* Só dispara se o movimento horizontal for maior que o vertical (scroll) */
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        irPara(atual + (dx < 0 ? 1 : -1));
       }
-
-      function criarDots() {
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < totalPosicoes(); i++) {
-          const dot = document.createElement('span');
-          if (i === atual) dot.classList.add('ativo');
-          dot.addEventListener('click', () => irPara(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      function irPara(index) {
-        atual = Math.max(0, Math.min(index, totalPosicoes() - 1));
-        const trackWidth = track.parentElement.offsetWidth;
-        const cardWidth = (trackWidth + 24) / visiveis();
-        track.style.transform = `translateX(-${atual * cardWidth}px)`;
-        document.querySelectorAll('.carrossel-dots span').forEach((d, i) => {
-          d.classList.toggle('ativo', i === atual);
-        });
-      }
-
-      window.moverCarrossel = function(dir) { irPara(atual + dir); };
-
+    }, { passive: true });
+ 
+    /* ── Init e resize ── */
+    function init() {
+      setCardWidths();
       criarDots();
-      window.addEventListener('resize', () => { atual = 0; criarDots(); irPara(0); });
-    })();
+      irPara(0);
+    }
+ 
+    init();
+ 
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 150);
+    });
+ 
+  })();
 
     // ==================== MODAIS ====================
     // EDITAR: substitua pela URL do seu Cloudflare Worker
