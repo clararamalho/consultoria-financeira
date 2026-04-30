@@ -419,7 +419,7 @@
     (function () {
       const overlay     = document.getElementById('popupNewsletter');
       const btnClose    = document.getElementById('popupClose');
-      const STORAGE_KEY = 'nl_popup_fechado';
+      const STORAGE_KEY = `nl_popup_${slug}`;
 
       if (sessionStorage.getItem(STORAGE_KEY)) return;
 
