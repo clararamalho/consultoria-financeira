@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsletter · Clara Ramalho Consultoria Financeira</title>
+  <meta name="description" content="Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação." />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azul:       #0B1F3A;
+      --azul-medio: #1A3358;
+      --prata:      #C0C8D4;
+      --prata-clara:#E8EDF2;
+      --branco:     #FFFFFF;
+      --texto:      #2C3E50;
+      --texto-leve: #6B7A8D;
+      --accent:     #4A7DBF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11,31,58,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 32px rgba(11,31,58,0.18);
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .logo span { color: var(--prata); font-weight: 300; }
+    .header-nav { display: flex; gap: 2rem; align-items: center; }
+    .header-nav a {
+      color: var(--prata-clara);
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--branco); }
+    .btn-voltar {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--prata);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-voltar:hover { color: var(--branco); }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--azul);
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .page-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--prata);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .page-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--branco);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .page-title em {
+      font-style: normal;
+      color: var(--prata);
+    }
+    .page-subtitulo {
+      font-size: 1rem;
+      color: rgba(232,237,242,0.65);
+      max-width: 480px;
+      font-weight: 300;
+    }
+
+    /* ── FILTROS ── */
+    .filtros-wrap {
+      background: var(--prata-clara);
+      border-bottom: 1px solid rgba(192,200,212,0.4);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+    }
+    .filtros {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filtro-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(11,31,58,0.15);
+      background: transparent;
+      color: var(--texto-leve);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filtro-btn:hover,
+    .filtro-btn.ativo {
+      background: var(--azul);
+      color: var(--branco);
+      border-color: var(--azul);
+    }
+
+    /* ── GRID DE POSTS ── */
+    .posts-section {
+      padding: 4rem 2rem 6rem;
+    }
+    .posts-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .post-card {
+      background: var(--branco);
+      border: 1px solid var(--prata-clara);
+      border-radius: 8px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-card:hover {
+      border-color: var(--prata);
+      box-shadow: 0 8px 32px rgba(11,31,58,0.08);
+      transform: translateY(-3px);
+    }
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .post-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(74,125,191,0.08);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+    .post-data {
+      font-size: 0.75rem;
+      color: var(--texto-leve);
+    }
+    .post-card h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--azul);
+      line-height: 1.35;
+    }
+    .post-card p {
+      font-size: 0.88rem;
+      color: var(--texto-leve);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .post-ler {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.4rem;
+      transition: color 0.2s;
+    }
+    .post-card:hover .post-ler { color: var(--azul); }
+
+    /* Post em destaque (primeiro) */
+    .post-card.destaque {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2.5rem;
+      background: var(--prata-clara);
+    }
+    .post-card.destaque h2 {
+      font-size: 1.4rem;
+    }
+    .post-card.destaque p {
+      font-size: 0.95rem;
+    }
+    .destaque-left { display: flex; flex-direction: column; gap: 0.8rem; }
+    .destaque-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .destaque-visual {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 4/3;
+      background: var(--azul);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .destaque-visual svg {
+      width: 64px;
+      height: 64px;
+      stroke: rgba(192,200,212,0.3);
+      fill: none;
+      stroke-width: 1;
+    }
+
+    /* ── FORMULÁRIO ── */
+    .nl-section {
+      background: var(--azul);
+      padding: 5rem 2rem;
+    }
+    .nl-box {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .nl-box h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .nl-box p {
+      color: rgba(232,237,242,0.6);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .nl-form-inline {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+    }
+    .nl-form-inline input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(192,200,212,0.2);
+      border-radius: 4px;
+      padding: 0.8rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--branco);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-form-inline input::placeholder { color: rgba(192,200,212,0.4); }
+    .nl-form-inline input:focus { border-color: rgba(192,200,212,0.5); }
+    .nl-form-inline button {
+      background: var(--branco);
+      color: var(--azul);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .nl-form-inline button:hover { background: var(--prata-clara); }
+    .nl-lgpd-blog {
+      font-size: 0.72rem;
+      color: rgba(192,200,212,0.35);
+      line-height: 1.65;
+    }
+    .nl-lgpd-blog a { color: rgba(192,200,212,0.5); text-decoration: underline; }
+    .nl-sucesso-blog {
+      display: none;
+      color: var(--branco);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      padding: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060F1D;
+      padding: 2rem;
+      text-align: center;
+      color: rgba(192,200,212,0.35);
+      font-size: 0.78rem;
+      line-height: 1.8;
+      font-family: 'Inter', sans-serif;
+    }
+    footer a {
+      color: rgba(192,200,212,0.45);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--prata); }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 900px) {
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+      .post-card.destaque { grid-template-columns: 1fr; }
+      .destaque-right { display: none; }
+    }
+    @media (max-width: 600px) {
+      .posts-grid { grid-template-columns: 1fr; }
+      .nl-form-inline { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+    <div class="header-nav">
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#contato">Contato</a>
+      <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <span class="page-label">Newsletter</span>
+      <h1 class="page-title">Conteúdo para quem quer<br /><em>entender o próprio dinheiro.</em></h1>
+      <p class="page-subtitulo">Quinzenal. Sem enrolação. Educação financeira, análise de mercado e novidades direto no seu e-mail.</p>
+    </div>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filtros-wrap">
+    <div class="filtros">
+      <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
+      <button class="filtro-btn" onclick="filtrar('educacao', this)">Educação Financeira</button>
+      <button class="filtro-btn" onclick="filtrar('investimentos', this)">Investimentos</button>
+      <button class="filtro-btn" onclick="filtrar('planejamento', this)">Planejamento</button>
+      <button class="filtro-btn" onclick="filtrar('mercado', this)">Mercado</button>
+    </div>
+  </div>
+
+  <!-- POSTS -->
+  <section class="posts-section">
+    <div class="posts-container">
+      <div class="posts-grid" id="postsGrid">
+
+        <!-- POST DESTAQUE -->
+        <a href="post.html?slug=reserva-de-emergencia" class="post-card destaque" data-categoria="educacao">
+          <div class="destaque-left">
+            <div class="post-card-meta">
+              <span class="post-tag">Educação Financeira</span>
+              <span class="post-data">29 abr 2026</span>
+            </div>
+            <h2>Como montar uma reserva de emergência</h2>
+            <p>Entenda quanto guardar, onde deixar esse dinheiro e por que esse é o primeiro passo para uma vida financeira sólida. A reserva de emergência não é opcional — é a base de tudo.</p>
+            <span class="post-ler">Ler mais →</span>
+          </div>
+          <div class="destaque-right">
+            <div class="destaque-visual">
+              <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"/><path d="M32 18v14l8 8"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- POST 2 -->
+        <a href="post.html?slug=renda-fixa-ou-variavel" class="post-card" data-categoria="investimentos">
+          <div class="post-card-meta">
+            <span class="post-tag">Investimentos</span>
+            <span class="post-data">15 abr 2026</span>
+          </div>
+          <h2>Renda fixa ou variável: como escolher?</h2>
+          <p>A resposta depende do seu perfil, dos seus objetivos e do momento de vida. Veja como pensar essa decisão sem pressão.</p>
+          <span class="post-ler">Ler mais →</span>
+        </a>
+
+        <!-- POST 3 -->
+        <a href="post.html?slug=erros-financeiros" class="post-card" data-categoria="planejamento">
+          <div class="post-card-meta">
+            <span class="post-tag">Planejamento</span>
+            <span class="post-data">01 abr 2026</span>
+          </div>
+          <h2>5 erros financeiros mais comuns — e como evitá-los</h2>
+          <p>Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais.</p>
+          <span class="post-ler">Ler mais →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section class="nl-section">
+    <div class="nl-box">
+      <h2>Receba quinzenalmente<br />no seu e-mail.</h2>
+      <p>Cadastre-se e receba conteúdo direto na sua caixa de entrada. Cancele quando quiser.</p>
+      <div id="nlFormBlog">
+        <div class="nl-form-inline">
+          <input type="email" id="nl-email-blog" placeholder="seu@email.com" autocomplete="email" />
+          <button onclick="cadastrarBlog()">Quero receber</button>
+        </div>
+        <p class="nl-lgpd-blog">
+          Ao se cadastrar, você concorda em receber nossa newsletter quinzenal.
+          Dados protegidos conforme nossa
+          <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.
+        </p>
+      </div>
+      <div class="nl-sucesso-blog" id="nlSucessoBlog">
+        ✓ Cadastro confirmado! Você receberá nossa próxima edição em breve.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+    <p style="margin-top:0.4rem;">
+      <a href="index.html">Voltar ao site</a>
+      &nbsp;·&nbsp;
+      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>
+      &nbsp;·&nbsp;
+      <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
+    </p>
+  </footer>
+
+  <script>
+    // Filtros por categoria
+    function filtrar(cat, btn) {
+      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+      document.querySelectorAll('.post-card').forEach(card => {
+        if (cat === 'todos' || card.dataset.categoria === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Cadastro newsletter
+    async function cadastrarBlog() {
+      const email = document.getElementById('nl-email-blog').value.trim();
+      const btn   = document.querySelector('.nl-form-inline button');
+      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+      btn.disabled = true;
+      btn.textContent = 'Cadastrando...';
+      // EDITAR: substitua pela URL do seu endpoint Resend
+      await new Promise(r => setTimeout(r, 1000));
+      document.getElementById('nlFormBlog').style.display = 'none';
+      document.getElementById('nlSucessoBlog').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
