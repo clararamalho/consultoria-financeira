@@ -441,87 +441,220 @@
     .sobre-stat p { font-size: 0.65rem; color: var(--ink-3); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.3; }
 
     /* ── SERVIÇOS ── */
-    #servicos { background: var(--white); }
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1px;
-      margin-top: 3rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--border);
-    }
-    .card {
+    #servicos {
       background: var(--white);
       padding: 0;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      display: flex;
-      flex-direction: column;
+      padding-bottom: 6rem;
     }
-    .card[data-active="false"] { opacity: 0.55; }
-    .card[data-active="false"]:hover { opacity: 0.82; }
-    .card-header {
+    .servicos-header {
+      padding: 5rem 1.25rem 0;
+    }
+
+    /* ── BARRA STICKY DE ABAS ── */
+    .servicos-tabs-wrap {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 90;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-2);
       display: flex;
+      justify-content: center;
+      padding: 0.75rem 1.25rem;
+      margin-top: 3rem;
+    }
+    .servicos-tabs {
+      display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1.4rem 1.6rem;
+      gap: 0.25rem;
+      position: relative;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.25rem;
+    }
+    /* indicador deslizante */
+    .tab-indicator {
+      position: absolute;
+      top: 0.25rem; bottom: 0.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      box-shadow: 0 1px 6px rgba(26,42,108,0.06);
+      transition: left 0.3s cubic-bezier(.22,.61,.36,1), width 0.3s cubic-bezier(.22,.61,.36,1);
+      pointer-events: none;
+    }
+    .tab-btn {
+      position: relative;
+      z-index: 1;
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      background: none;
+      border: none;
+      padding: 0.4rem 1.1rem;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+    .tab-btn.active { color: var(--ink); font-weight: 400; }
+    .tab-btn:hover:not(.active) { color: var(--ink-2); }
+
+    /* ── BLOCOS DE SERVIÇO ── */
+    .servico-bloco {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
       border-bottom: 1px solid var(--border-2);
     }
-    .card-icon {
-      width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-icon svg { width: 18px; height: 18px; stroke: var(--ciano); fill: none; stroke-width: 1.6; }
-    .card-tag {
+    .servico-bloco:last-child { border-bottom: none; }
+
+    .servico-bloco.reverse { direction: rtl; }
+    .servico-bloco.reverse > * { direction: ltr; }
+
+    .servico-texto { display: flex; flex-direction: column; gap: 1.25rem; }
+    .servico-label {
       font-size: 0.68rem;
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink-3);
       font-family: monospace;
     }
-    .card-body {
-      padding: 1.4rem 1.6rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-body h3 {
-      font-size: 1rem;
-      font-weight: 400;
+    .servico-titulo {
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 300;
       color: var(--ink);
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
     }
-    .card-body p {
-      font-size: 0.85rem;
+    .servico-desc {
+      font-size: 0.95rem;
       font-weight: 300;
       color: var(--ink-2);
-      line-height: 1.7;
-      flex: 1;
+      line-height: 1.8;
+      max-width: 440px;
     }
-    .card-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      font-size: 0.82rem;
+    .servico-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    .servico-badge {
+      font-size: 0.7rem;
       font-weight: 400;
       color: var(--ink-2);
       border: 1px solid var(--border);
-      padding: 0.45rem 0.9rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      background: var(--white);
+    }
+    .servico-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 0.65rem 1.2rem;
       border-radius: var(--radius);
       background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
       cursor: pointer;
+      font-family: 'Inter', sans-serif;
       transition: background 0.2s, border-color 0.2s;
+      overflow: hidden;
       width: fit-content;
-      text-decoration: none;
+      margin-top: 0.5rem;
     }
-    .card-btn:hover { background: var(--surface-2); border-color: transparent; }
-    .card-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.2; stroke-linecap: square; }
+    .servico-cta:hover { background: var(--surface-2); border-color: transparent; }
+    .servico-cta-arrow {
+      display: flex; overflow: hidden;
+      width: 14px; height: 14px; position: relative;
+    }
+    .servico-cta-arrow svg {
+      position: absolute; width: 14px; height: 14px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .servico-cta-arrow svg:nth-child(1) { transform: translateX(0); opacity: 1; }
+    .servico-cta-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
+    .servico-cta:hover .servico-cta-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
+    .servico-cta:hover .servico-cta-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
+
+    /* ── MOCKUPS VISUAIS ── */
+    .servico-mockup {
+      background: var(--off-white);
+      border: 1px solid var(--border-2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 280px;
+      justify-content: center;
+    }
+    .mock-label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      font-family: monospace;
+    }
+    /* mockup cards internos */
+    .mock-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .mock-card-left { display: flex; align-items: center; gap: 0.65rem; }
+    .mock-icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--ciano-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mock-icon svg { width: 14px; height: 14px; stroke: var(--ciano); fill: none; stroke-width: 1.8; stroke-linecap: round; }
+    .mock-card-title { font-size: 0.8rem; font-weight: 400; color: var(--ink); }
+    .mock-card-sub { font-size: 0.7rem; font-weight: 300; color: var(--ink-3); margin-top: 0.1rem; }
+    .mock-pill {
+      font-size: 0.65rem;
+      font-weight: 400;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .mock-pill.green { background: var(--green-light); color: var(--green); }
+    .mock-pill.blue  { background: var(--ciano-light); color: var(--ciano); }
+    /* barra de progresso */
+    .mock-bar-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+    .mock-bar-row { display: flex; align-items: center; gap: 0.75rem; }
+    .mock-bar-label { font-size: 0.72rem; font-weight: 300; color: var(--ink-2); width: 80px; flex-shrink: 0; }
+    .mock-bar-track { flex: 1; height: 5px; background: var(--surface-2); border-radius: 100px; overflow: hidden; }
+    .mock-bar-fill { height: 100%; border-radius: 100px; background: var(--ciano); }
+    .mock-bar-val { font-size: 0.7rem; font-weight: 400; color: var(--ink-2); width: 32px; text-align: right; }
+
+    /* responsive serviços */
+    @media (max-width: 860px) {
+      .servico-bloco { grid-template-columns: 1fr; gap: 2.5rem; }
+      .servico-bloco.reverse { direction: ltr; }
+    }
 
     /* ── DEPOIMENTOS ── estilo Moment: carrossel com cards grandes, inativos a 60% */
     #depoimentos { background: var(--off-white); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
@@ -955,7 +1088,6 @@
     @media (max-width: 540px) {
       #hero h1 { font-size: 2rem; }
       .stat-num { font-size: 2.2rem; }
-      .servicos-grid { grid-template-columns: 1fr; }
       .nl-grid { grid-template-columns: 1fr; }
       .nl-card:last-child { display: flex; }
       .fg { grid-template-columns: 1fr; }
@@ -1331,69 +1463,174 @@
 
 <!-- ==================== SERVIÇOS ==================== -->
 <section id="servicos" data-navbar-theme="light">
-  <div class="container">
+
+  <!-- Cabeçalho da seção -->
+  <div class="servicos-header container">
     <span class="s-label fi-anim">Serviços</span>
     <h2 class="s-title fi-anim d1">Como posso<br />te ajudar.</h2>
-    <div class="servicos-grid fi-anim d2">
+  </div>
 
-      <div class="card" data-active="true" onclick="abrirModal('planejamento')">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          </div>
-          <span class="card-tag">Planejamento</span>
-        </div>
-        <div class="card-body">
-          <h3>Planejamento Financeiro</h3>
-          <p>Diagnóstico completo da sua situação financeira e construção de um plano personalizado para atingir seus objetivos de curto, médio e longo prazo.</p>
-          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
-        </div>
-      </div>
-
-      <div class="card" data-active="false" onclick="abrirModal('patrimonial')">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
-          </div>
-          <span class="card-tag">Patrimônio</span>
-        </div>
-        <div class="card-body">
-          <h3>Organização Patrimonial</h3>
-          <p>Mapeamento e estruturação do seu patrimônio para proteger o que você construiu, otimizar custos e planejar a transmissão com eficiência.</p>
-          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
-        </div>
-      </div>
-
-      <div class="card" data-active="false" onclick="abrirModal('investimentos')">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <span class="card-tag">Investimentos</span>
-        </div>
-        <div class="card-body">
-          <h3>Estratégia de Investimentos</h3>
-          <p>Recomendações de alocação alinhadas ao seu perfil de risco, horizonte de investimento e objetivos — sem viés de produto ou comissão.</p>
-          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
-        </div>
-      </div>
-
-      <div class="card" data-active="false" onclick="abrirModal('educacao')">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <span class="card-tag">Educação</span>
-        </div>
-        <div class="card-body">
-          <h3>Educação Financeira</h3>
-          <p>Cursos dedicados a desenvolver sua autonomia financeira: entenda produtos, impostos, riscos e tome decisões com confiança.</p>
-          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
-        </div>
-      </div>
-
+  <!-- Barra sticky de abas — inspirada no Moment -->
+  <div class="servicos-tabs-wrap">
+    <div class="servicos-tabs" id="servicosTabs" role="tablist">
+      <span class="tab-indicator" id="tabIndicator"></span>
+      <button class="tab-btn active" data-tab="educar"   role="tab" aria-selected="true">Educar</button>
+      <button class="tab-btn"        data-tab="planejar" role="tab" aria-selected="false">Planejar</button>
+      <button class="tab-btn"        data-tab="investir" role="tab" aria-selected="false">Investir</button>
     </div>
   </div>
+
+  <!-- ── BLOCO: EDUCAR ── -->
+  <div class="servico-bloco" id="bloco-educar">
+    <div class="servico-texto fi-anim">
+      <span class="servico-label">Educar</span>
+      <h3 class="servico-titulo">Autonomia financeira começa pelo conhecimento.</h3>
+      <p class="servico-desc">Conteúdo estruturado para quem quer entender de verdade: produtos financeiros, impostos, riscos, planejamento do dia a dia. Sem jargão, sem enrolação.</p>
+      <div class="servico-badges">
+        <span class="servico-badge">Educação Financeira</span>
+        <span class="servico-badge">Newsletter quinzenal</span>
+        <span class="servico-badge">Materiais exclusivos</span>
+      </div>
+      <button class="servico-cta" onclick="abrirModal('educacao')">
+        Começar agora
+        <span class="servico-cta-arrow">
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </button>
+    </div>
+    <div class="servico-mockup fi-anim d1">
+      <span class="mock-label">Módulos · Educação Financeira</span>
+      <div class="mock-card">
+        <div class="mock-card-left">
+          <div class="mock-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+          <div><div class="mock-card-title">Renda fixa e variável</div><div class="mock-card-sub">Como escolher sem ansiedade</div></div>
+        </div>
+        <span class="mock-pill green">Concluído</span>
+      </div>
+      <div class="mock-card">
+        <div class="mock-card-left">
+          <div class="mock-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+          <div><div class="mock-card-title">Reserva de emergência</div><div class="mock-card-sub">Quanto guardar e onde</div></div>
+        </div>
+        <span class="mock-pill green">Concluído</span>
+      </div>
+      <div class="mock-card">
+        <div class="mock-card-left">
+          <div class="mock-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div><div class="mock-card-title">IR e come-cotas</div><div class="mock-card-sub">Entendendo a tributação</div></div>
+        </div>
+        <span class="mock-pill blue">Em andamento</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BLOCO: PLANEJAR ── -->
+  <div class="servico-bloco reverse" id="bloco-planejar">
+    <div class="servico-texto fi-anim">
+      <span class="servico-label">Planejar</span>
+      <h3 class="servico-titulo">Um plano feito para a sua vida, não para a média.</h3>
+      <p class="servico-desc">Diagnóstico completo da sua situação financeira e construção de um plano personalizado — incluindo estruturação do seu patrimônio para proteger o que você construiu e planejar a transmissão com eficiência.</p>
+      <div class="servico-badges">
+        <span class="servico-badge">Planejamento Financeiro</span>
+        <span class="servico-badge">Organização Patrimonial</span>
+        <span class="servico-badge">Metas de curto e longo prazo</span>
+      </div>
+      <button class="servico-cta" onclick="abrirModal('planejamento')">
+        Fazer diagnóstico
+        <span class="servico-cta-arrow">
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </button>
+    </div>
+    <div class="servico-mockup fi-anim d1">
+      <span class="mock-label">Metas · Planejamento</span>
+      <div class="mock-bar-wrap">
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Reserva</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:100%"></div></div>
+          <span class="mock-bar-val">100%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Aposentadoria</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:42%"></div></div>
+          <span class="mock-bar-val">42%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Imóvel</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:27%"></div></div>
+          <span class="mock-bar-val">27%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Viagem</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:68%"></div></div>
+          <span class="mock-bar-val">68%</span>
+        </div>
+      </div>
+      <div class="mock-card" style="margin-top:0.25rem;">
+        <div class="mock-card-left">
+          <div class="mock-icon"><svg viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
+          <div><div class="mock-card-title">Organização Patrimonial</div><div class="mock-card-sub">Incluso no Planejamento</div></div>
+        </div>
+        <span class="mock-pill green">Incluso</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BLOCO: INVESTIR ── -->
+  <div class="servico-bloco" id="bloco-investir">
+    <div class="servico-texto fi-anim">
+      <span class="servico-label">Investir</span>
+      <h3 class="servico-titulo">Recomendações alinhadas ao seu perfil, sem viés.</h3>
+      <p class="servico-desc">Estratégia de alocação construída para os seus objetivos e horizonte de investimento — sem vínculo com bancos, sem comissão por produto. Só o que faz sentido para você.</p>
+      <div class="servico-badges">
+        <span class="servico-badge">Estratégia de Investimentos</span>
+        <span class="servico-badge">Sem viés de produto</span>
+        <span class="servico-badge">Consultoria independente</span>
+      </div>
+      <button class="servico-cta" onclick="abrirModal('investimentos')">
+        Montar estratégia
+        <span class="servico-cta-arrow">
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" stroke="currentColor" fill="none"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </button>
+    </div>
+    <div class="servico-mockup fi-anim d1">
+      <span class="mock-label">Alocação · Carteira atual</span>
+      <div class="mock-bar-wrap">
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Renda Fixa</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:55%"></div></div>
+          <span class="mock-bar-val">55%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Ações BR</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:20%"></div></div>
+          <span class="mock-bar-val">20%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Exterior</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:15%"></div></div>
+          <span class="mock-bar-val">15%</span>
+        </div>
+        <div class="mock-bar-row">
+          <span class="mock-bar-label">Alternativos</span>
+          <div class="mock-bar-track"><div class="mock-bar-fill" style="width:10%"></div></div>
+          <span class="mock-bar-val">10%</span>
+        </div>
+      </div>
+      <div class="mock-card" style="margin-top:0.25rem;">
+        <div class="mock-card-left">
+          <div class="mock-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div><div class="mock-card-title">Perfil moderado</div><div class="mock-card-sub">Horizonte 10+ anos</div></div>
+        </div>
+        <span class="mock-pill blue">Ativo</span>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ==================== DEPOIMENTOS ==================== -->
@@ -1719,6 +1956,115 @@
 
 <!-- ==================== JS ==================== -->
 <script>
+  // ── SERVIÇOS: ABAS STICKY (inspirado no Moment) ──
+  (function() {
+    const tabs      = document.querySelectorAll('.tab-btn');
+    const blocos    = ['educar','planejar','investir'].map(id => document.getElementById('bloco-' + id));
+    const indicator = document.getElementById('tabIndicator');
+    const tabsWrap  = document.getElementById('servicosTabs');
+    if (!tabs.length || !indicator || !tabsWrap) return;
+
+    // Move o indicador para a aba ativa
+    function moveIndicator(btn) {
+      const wrapRect = tabsWrap.getBoundingClientRect();
+      const btnRect  = btn.getBoundingClientRect();
+      indicator.style.left  = (btnRect.left - wrapRect.left - 4) + 'px';
+      indicator.style.width = btnRect.width + 'px';
+    }
+
+    // Ativa uma aba
+    function setActive(tabId, animate) {
+      tabs.forEach(t => {
+        const isActive = t.dataset.tab === tabId;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) {
+          if (!animate) {
+            indicator.style.transition = 'none';
+            requestAnimationFrame(() => {
+              moveIndicator(t);
+              requestAnimationFrame(() => {
+                indicator.style.transition = '';
+              });
+            });
+          } else {
+            moveIndicator(t);
+          }
+        }
+      });
+    }
+
+    // Inicializa o indicador sem animação
+    setActive('educar', false);
+
+    // Click nas abas → scroll suave para o bloco
+    // Bloqueia o observer durante o scroll programático para não sobrescrever a aba
+    let scrollingTo = null;
+    let scrollTimer = null;
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        setActive(id, true);
+        const bloco = document.getElementById('bloco-' + id);
+        if (!bloco) return;
+
+        // Medições ao vivo no momento do click
+        const hdrH  = document.getElementById('hdr')?.offsetHeight || 56;
+        const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
+        const offset = hdrH + tabsH + 8;
+
+        // offsetTop absoluto do bloco na página (não relativo à viewport)
+        const blocoTop = bloco.getBoundingClientRect().top + window.scrollY;
+        const target   = blocoTop - offset;
+
+        // Bloqueia o observer para não interferir durante o scroll
+        scrollingTo = id;
+        clearTimeout(scrollTimer);
+
+        window.scrollTo({ top: target, behavior: 'smooth' });
+
+        // Libera o observer após o scroll terminar (~700ms é suficiente)
+        scrollTimer = setTimeout(() => { scrollingTo = null; }, 800);
+      });
+    });
+
+    // Scroll listener: detecta qual bloco está visível e ativa a aba correta
+    function detectBlocoAtivo() {
+      if (scrollingTo !== null) return; // ignora durante scroll programático
+
+      const hdrH  = document.getElementById('hdr')?.offsetHeight || 56;
+      const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
+      const offset = hdrH + tabsH;
+
+      // Linha de referência: logo abaixo da barra sticky
+      const linha = offset + 32;
+
+      // Percorre os blocos de baixo para cima e pega o primeiro
+      // cujo topo já passou a linha de referência
+      let ativo = null;
+      blocos.forEach(bloco => {
+        if (!bloco) return;
+        const rect = bloco.getBoundingClientRect();
+        if (rect.top <= linha) {
+          ativo = bloco.id.replace('bloco-', '');
+        }
+      });
+
+      if (ativo) setActive(ativo, true);
+    }
+
+    window.addEventListener('scroll', detectBlocoAtivo, { passive: true });
+    // Roda uma vez para estado inicial
+    detectBlocoAtivo();
+
+    // Reposiciona no resize
+    window.addEventListener('resize', () => {
+      const active = tabsWrap.querySelector('.tab-btn.active');
+      if (active) moveIndicator(active);
+    }, { passive: true });
+  })();
+
   // ── NAV DROPDOWN (inspirado no Moment index.js) ──
   (function() {
     const btn   = document.getElementById('navServicosBtn');
