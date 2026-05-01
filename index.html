@@ -7,1540 +7,1314 @@
   <meta name="description" content="Consultoria financeira independente para pessoas físicas. Planejamento, investimentos e organização patrimonial com clareza e sem jargão. Atendimento nacional." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clararamalho.com.br/" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Clara Ramalho · Consultoria Financeira" />
   <meta property="og:description" content="Consultoria financeira independente para pessoas físicas. Planejamento, investimentos e organização patrimonial com clareza e sem jargão." />
   <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
   <meta property="og:url" content="https://clararamalho.com.br/" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Clara Ramalho · Consultoria Financeira" />
   <meta property="og:locale" content="pt_BR" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Clara Ramalho · Consultoria Financeira" />
-  <meta name="twitter:description" content="Consultoria financeira independente para pessoas físicas. Planejamento, investimentos e organização patrimonial com clareza e sem jargão." />
-  <meta name="twitter:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
-
-  <!-- Analytics -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ==================== FONTES ==================== */
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/outfit-v15-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/outfit-v15-latin-regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/outfit-v15-latin-500.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/outfit-v15-latin-600.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/outfit-v15-latin-700.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/inter-v20-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/inter-v20-latin-500.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/inter-v20-latin-600.woff2') format('woff2'); }
-    /* ==================== CORES ==================== */
+    /* ── TOKENS ── */
     :root {
-      --azul:       #0B1F3A;
-      --azul-medio: #1A3358;
-      --prata:      #C0C8D4;
-      --prata-clara:#E8EDF2;
-      --branco:     #FFFFFF;
-      --texto:      #2C3E50;
-      --texto-leve: #6B7A8D;
-      --accent:     #4A7DBF;
+      --white:       #FFFFFF;
+      --off-white:   #F7F8FC;
+      --surface-2:   #EDEEF5;
+      --border:      rgba(26,42,108,0.1);
+      --border-2:    rgba(26,42,108,0.06);
+      --ink:         #1A2A6C;   /* azul escuro — texto primário */
+      --ink-2:       #5A6785;   /* texto secundário */
+      --ink-3:       #9AA3B8;   /* texto terciário */
+      --ciano:       #00B4D8;   /* accent principal */
+      --ciano-light: rgba(0,180,216,0.1);
+      --green:       #22C55E;
+      --green-light: rgba(34,197,94,0.1);
+      --magenta:     #D63384;
+      --orange:      #F59E0B;
+      --radius:      0.625rem;
+      --max:         1220px;
+      --nav-h:       56px;
     }
 
-
-    /* ── VOLTAR AO TOPO ── */
-    #voltarTopo {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 44px;
-      height: 44px;
-      background: var(--azul);
-      border: 1px solid rgba(192,200,212,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
-      z-index: 200;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    }
-    #voltarTopo.visivel {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    #voltarTopo:hover { background: #1A3358; }
-    #voltarTopo svg {
-      width: 18px;
-      height: 18px;
-      stroke: #fff;
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    /* ==================== RESET ==================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--branco);
-      color: var(--texto);
-      line-height: 1.7;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ==================== HEADER / NAV ==================== */
-    /* EDITAR: nome da marca e links de navegação */
+    /* ── HEADER ── */
     header {
-      position: fixed;
+      position: sticky;
       top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
       z-index: 100;
-      padding: 1.2rem 2rem;
       display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
+    .header-inner {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+      gap: 2rem;
     }
-    header.scrolled {
-      background: rgba(11, 31, 58, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 32px rgba(11,31,58,0.18);
-    }
-    .logo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--branco);
-      letter-spacing: 0.01em;
-      text-decoration: none;
-    }
-    .logo span { color: var(--prata); font-weight: 300; }
-    nav { display: flex; gap: 2rem; }
-    nav a {
-      color: var(--prata-clara);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--branco); }
-
-    /* hamburger mobile */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--branco); border-radius: 2px; transition: 0.3s; }
-    .nav-mobile { display: none; }
-
-    /* ==================== HERO ==================== */
-    /* EDITAR: headline principal, subtítulo e texto do botão CTA */
-    #hero {
-      min-height: 100vh;
-      background: var(--azul);
+    .header-left {
       display: flex;
       align-items: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
+      gap: 0.15rem;
+    }
+
+    .logo {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      padding-right: 1.25rem;
+      border-right: 1px solid var(--border);
+      margin-right: 0.5rem;
+      white-space: nowrap;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+    }
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      text-decoration: none;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--ink); background: var(--surface-2); }
+
+    /* CTA nav — estilo Moment: borda fina, seta animada */
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--ink) !important;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem !important;
+      border-radius: var(--radius);
+      background: var(--white) !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: background 0.2s, border-color 0.2s !important;
       overflow: hidden;
     }
-    .hero-bg {
+    .nav-cta:hover { background: var(--surface-2) !important; border-color: transparent !important; }
+    .nav-cta-arrow {
+      display: flex;
+      overflow: hidden;
+      width: 14px; height: 14px;
+      position: relative;
+    }
+    .nav-cta-arrow svg {
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(74,125,191,0.13) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(192,200,212,0.07) 0%, transparent 60%);
+      width: 14px; height: 14px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-cta-arrow svg:nth-child(1) { transform: translateX(0); opacity: 1; }
+    .nav-cta-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
+    .nav-cta:hover .nav-cta-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
+    .nav-cta:hover .nav-cta-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
+
+    /* hamburger mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4.5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span { width: 20px; height: 1.5px; background: var(--ink); display: block; transition: 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 9rem 1.25rem 10rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    /* linhas radiais decorativas inspiradas no Moment */
+    .hero-lines {
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
       pointer-events: none;
+      z-index: 0;
     }
-    /* Elemento decorativo geométrico */
-    .hero-geo {
-      position: absolute;
-      right: -80px; top: 50%;
-      transform: translateY(-50%);
-      width: 520px; height: 520px;
-      border: 1px solid rgba(192,200,212,0.12);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero-geo::before {
-      content: '';
-      position: absolute;
-      inset: 40px;
-      border: 1px solid rgba(192,200,212,0.08);
-      border-radius: 50%;
-    }
-    .hero-content { position: relative; max-width: 680px; }
+    .hero-lines svg { width: 100%; height: 100%; }
+
+    .hero-content { position: relative; z-index: 1; }
+
     .hero-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--prata);
-      border: 1px solid rgba(192,200,212,0.3);
-      padding: 0.35rem 1rem;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-    }
-    .hero-content h1 {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 600;
-      color: var(--branco);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    .hero-content h1 em {
-      font-style: normal;
-      color: var(--prata);
-    }
-    .hero-content p {
-      font-size: 1.1rem;
-      color: rgba(232,237,242,0.75);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--branco);
-      color: var(--azul);
-      padding: 0.9rem 2.2rem;
-      border-radius: 4px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover {
-      background: var(--prata-clara);
-      transform: translateY(-2px);
+      color: var(--ink-3);
+      margin-bottom: 1.75rem;
+      font-family: monospace;
     }
 
-    /* ==================== SEÇÃO GENÉRICA ==================== */
-    section { padding: 6rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 500;
+    #hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      max-width: 720px;
+      margin: 0 auto 1.25rem;
+      text-wrap: balance;
+    }
+
+    #hero p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      max-width: 400px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    /* botão hero — estilo Moment grande */
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      overflow: hidden;
+    }
+    .btn-hero:hover { background: var(--surface-2); border-color: transparent; }
+    .btn-hero-arrow {
+      display: flex;
+      overflow: hidden;
+      width: 14px; height: 14px;
+      position: relative;
+    }
+    .btn-hero-arrow svg {
+      position: absolute;
+      width: 14px; height: 14px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .btn-hero-arrow svg:nth-child(1) { transform: translateX(0); opacity: 1; }
+    .btn-hero-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
+    .btn-hero:hover .btn-hero-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
+    .btn-hero:hover .btn-hero-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
+
+    /* ── STATS ── */
+    #stats {
+      padding: 4rem 1.25rem 5rem;
+      border-top: 1px solid var(--border-2);
+      background: var(--white);
+    }
+    .stats-label {
+      font-size: 0.68rem;
+      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
+      color: var(--ink-3);
+      font-family: monospace;
+      text-align: center;
+      margin-bottom: 3rem;
     }
-    .section-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 600;
-      color: var(--azul);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
+    .stats-row {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1;
+      min-width: 140px;
+      position: relative;
+    }
+    .stat-num {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .stat-num sup {
+      font-size: 0.45em;
+      vertical-align: super;
+      color: var(--ciano);
+      font-weight: 400;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      margin-top: 0.75rem;
+      line-height: 1.4;
+      max-width: 120px;
     }
 
-    /* ==================== SOBRE ==================== */
-    /* EDITAR: texto de apresentação e credenciais */
-    #sobre { background: var(--prata-clara); }
+    /* ── SEÇÃO GENÉRICA ── */
+    section { padding: 5rem 1.25rem; }
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .s-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      font-family: monospace;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .s-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 600px;
+    }
+
+    /* ── SOBRE ── */
+    #sobre { background: var(--off-white); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
     .sobre-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 7rem;
       align-items: center;
+      margin-top: 3rem;
     }
     .sobre-texto p {
-      color: var(--texto-leve);
-      margin-bottom: 1.2rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
     }
     .credenciais {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.5rem;
       margin-top: 2rem;
     }
     .badge {
-      background: var(--azul);
-      color: var(--prata-clara);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      padding: 0.4rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.8rem;
       border-radius: 100px;
+      background: var(--white);
     }
-    .sobre-visual {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .sobre-foto-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-    }
-    .sobre-foto-wrapper::before {
+    .sobre-foto-wrap { position: relative; }
+    .sobre-foto-wrap::before {
       content: '';
       position: absolute;
       inset: -8px -8px 8px 8px;
-      border: 1px solid rgba(74,125,191,0.25);
-      border-radius: 16px;
+      border: 1px solid var(--ciano);
+      opacity: 0.15;
+      border-radius: 14px;
       pointer-events: none;
     }
     .sobre-foto {
       width: 100%;
-      max-width: 340px;
-      aspect-ratio: 3 / 4;
+      max-width: 320px;
+      aspect-ratio: 3/4;
       object-fit: cover;
       object-position: center top;
-      border-radius: 12px;
+      border-radius: 10px;
       display: block;
-      box-shadow: 0 24px 64px rgba(11,31,58,0.18);
+      border: 1px solid var(--border);
     }
-    .sobre-card {
-      background: var(--azul);
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      width: 100%;
-      max-width: 340px;
+    .sobre-stats {
       display: flex;
       gap: 0;
-      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      margin-top: 1.25rem;
+      max-width: 320px;
+      overflow: hidden;
     }
     .sobre-stat {
       flex: 1;
-      padding: 0.5rem 0.75rem;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      border-right: 1px solid var(--border-2);
     }
-    .sobre-stat + .sobre-stat {
-      border-left: 1px solid rgba(192,200,212,0.2);
-    }
-    .sobre-card .numero {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--branco);
+    .sobre-stat:last-child { border-right: none; }
+    .sobre-stat .n {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.03em;
       line-height: 1;
     }
-    .sobre-card .numero span { font-size: 1.2rem; color: var(--prata); }
-    .sobre-card p {
-      color: var(--prata);
-      font-size: 0.72rem;
-      margin-top: 0.4rem;
-      font-weight: 300;
-      line-height: 1.4;
-    }
-    .sobre-card hr { display: none; }
+    .sobre-stat .n em { font-style: normal; color: var(--ciano); font-size: 0.8em; }
+    .sobre-stat p { font-size: 0.65rem; color: var(--ink-3); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.3; }
 
-    /* ==================== SERVIÇOS ==================== */
-    /* EDITAR: título, descrição e ícone de cada card de serviço */
-    #servicos { background: var(--branco); }
+    /* ── SERVIÇOS ── */
+    #servicos { background: var(--white); }
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+      gap: 1px;
       margin-top: 3rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
     }
     .card {
-      background: var(--prata-clara);
-      border-radius: 8px;
-      padding: 2.2rem;
-      border: 1px solid transparent;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      background: var(--white);
+      padding: 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      display: flex;
+      flex-direction: column;
     }
-    .card:hover {
-      border-color: var(--prata);
-      box-shadow: 0 8px 32px rgba(11,31,58,0.08);
-      transform: translateY(-4px);
+    .card[data-active="false"] { opacity: 0.55; }
+    .card[data-active="false"]:hover { opacity: 0.82; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border-2);
     }
     .card-icon {
-      width: 44px; height: 44px;
-      background: var(--azul);
-      border-radius: 8px;
+      width: 32px; height: 32px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem;
+      flex-shrink: 0;
     }
-    .card-icon svg { width: 22px; height: 22px; stroke: var(--prata-clara); fill: none; stroke-width: 1.8; }
-    .card h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--azul);
-      margin-bottom: 0.75rem;
-    }
-    .card p { font-size: 0.9rem; color: var(--texto-leve); line-height: 1.65; }
-
-    /* ──────────────── NEWSLETTER ────────────────────── */
-    .nl-subtitulo {
-      color: var(--texto-leve);
-      font-size: 1rem;
-      max-width: 520px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-    .nl-header { margin-bottom: 3rem; }
-  
-    /* Grid de cards */
-    .nl-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .nl-card {
-      background: var(--prata-clara);
-      border-radius: 8px;
-      padding: 1.8rem;
-      border: 1px solid transparent;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    }
-    .nl-card:hover {
-      border-color: var(--prata);
-      box-shadow: 0 8px 32px rgba(11,31,58,0.08);
-      transform: translateY(-3px);
-    }
-    .nl-card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-    .nl-tag {
-      font-family: 'Outfit', sans-serif;
+    .card-icon svg { width: 18px; height: 18px; stroke: var(--ciano); fill: none; stroke-width: 1.6; }
+    .card-tag {
       font-size: 0.68rem;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(74,125,191,0.1);
-      padding: 0.25rem 0.7rem;
-      border-radius: 100px;
+      color: var(--ink-3);
+      font-family: monospace;
     }
-    .nl-data {
-      font-size: 0.75rem;
-      color: var(--texto-leve);
-    }
-    .nl-card h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--azul);
-      line-height: 1.35;
-    }
-    .nl-card p {
-      font-size: 0.88rem;
-      color: var(--texto-leve);
-      line-height: 1.65;
+    .card-body {
+      padding: 1.4rem 1.6rem;
       flex: 1;
-    }
-    .nl-btn {
-      display: inline-block;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      margin-top: 0.4rem;
-      transition: color 0.2s;
-    }
-    .nl-btn:hover { color: var(--azul); }
-  
-    /* Ver todos */
-    .nl-ver-todos {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .nl-ver-todos-btn {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--texto-leve);
-      text-decoration: none;
-      border-bottom: 1px solid var(--prata);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .nl-ver-todos-btn:hover {
-      color: var(--azul);
-      border-color: var(--azul);
-    }
-  
-    /* Formulário */
-    .nl-form-wrapper {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .nl-form-box {
-      background: var(--azul);
-      border-radius: 10px;
-      padding: 2.8rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .nl-form-texto h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--branco);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .nl-form-texto p {
-      font-size: 0.88rem;
-      color: rgba(232,237,242,0.65);
-      line-height: 1.65;
-    }
-    .nl-inputs {
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
-      margin-bottom: 0.8rem;
     }
-    .nl-inputs input {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(192,200,212,0.2);
-      border-radius: 4px;
-      padding: 0.75rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: var(--branco);
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
+    .card-body h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
     }
-    .nl-inputs input::placeholder { color: rgba(192,200,212,0.45); }
-    .nl-inputs input:focus {
-      border-color: rgba(192,200,212,0.5);
-      background: rgba(255,255,255,0.12);
-    }
-    .nl-inputs button {
-      background: var(--branco);
-      color: var(--azul);
-      border: none;
-      padding: 0.85rem;
-      border-radius: 4px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .nl-inputs button:hover {
-      background: var(--prata-clara);
-      transform: translateY(-1px);
-    }
-    .nl-inputs button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .nl-lgpd {
-      font-size: 0.72rem;
-      color: rgba(192,200,212,0.4);
-      line-height: 1.65;
-    }
-    .nl-lgpd a {
-      color: rgba(192,200,212,0.6);
-      text-decoration: underline;
-    }
-  
-    /* Sucesso */
-    .nl-sucesso {
-      text-align: center;
-      padding: 1rem 0;
-    }
-    .nl-sucesso-icone {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      color: var(--branco);
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-    }
-    .nl-sucesso h3 {
-      font-family: 'Outfit', sans-serif;
-      color: var(--branco);
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-    .nl-sucesso p {
-      color: rgba(232,237,242,0.6);
-      font-size: 0.88rem;
-    }
-  
-    /* Responsivo */
-    @media (max-width: 900px) {
-      .nl-grid { grid-template-columns: 1fr 1fr; }
-      .nl-card:last-child { display: none; }
-    }
-    @media (max-width: 640px) {
-      .nl-grid { grid-template-columns: 1fr; }
-      .nl-card:last-child { display: flex; }
-      .nl-form-box {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-    }
-
-    /* ==================== CONTATO ==================== */
-    /* EDITAR: link WhatsApp (wa.me/55...), e-mail (mailto:...) e LinkedIn */
-    #contato { background: var(--azul); }
-    #contato .section-label { color: var(--prata); }
-    #contato .section-title { color: var(--branco); }
-    #contato .subtitulo { color: rgba(232,237,242,0.65); max-width: 500px; margin-bottom: 3rem; font-size: 1rem; }
-    .contato-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .btn-contato {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 4px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-contato svg { width: 18px; height: 18px; }
-    .btn-whatsapp { background: var(--branco); color: var(--azul); }
-    .btn-whatsapp:hover { background: var(--prata-clara); transform: translateY(-2px); }
-    .btn-email { background: transparent; color: var(--prata-clara); border: 1px solid rgba(192,200,212,0.35); }
-    .btn-email:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
-    .btn-linkedin { background: transparent; color: var(--prata-clara); border: 1px solid rgba(192,200,212,0.35); }
-    .btn-linkedin:hover { background: rgba(192,200,212,0.08); transform: translateY(-2px); }
-
-    /* ── FOOTER ── */
-  footer {
-    background: #060F1D;
-    padding: 4rem 2rem 2.5rem;
-    font-family: 'Inter', sans-serif;
-  }
-  .footer-inner {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .footer-cols {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-  .footer-col-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(192,200,212,0.55);
-    margin-bottom: 1rem;
-  }
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-  .footer-col ul li a {
-    font-size: 0.85rem;
-    color: rgba(192,200,212,0.38);
-    text-decoration: none;
-    transition: color 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-  .footer-col ul li a:hover { color: rgba(192,200,212,0.8); }
-  .footer-divider {
-    border: none;
-    border-top: 1px solid rgba(192,200,212,0.08);
-    margin: 2rem 0;
-  }
-  .footer-disclaimer { max-width: 820px; margin: 0 auto; }
-  .footer-disclaimer-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(192,200,212,0.45);
-    margin-bottom: 0.8rem;
-  }
-  .footer-disclaimer-intro {
-    font-size: 0.78rem;
-    color: rgba(192,200,212,0.38);
-    line-height: 1.75;
-    margin-bottom: 0.8rem;
-  }
-  .footer-disclaimer-intro strong { color: rgba(192,200,212,0.55); font-weight: 500; }
-  .footer-avisos-label {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: rgba(192,200,212,0.38);
-    margin-bottom: 0.5rem;
-  }
-  .footer-avisos {
-    list-style: none;
-    padding: 0;
-    counter-reset: aviso;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .footer-avisos li {
-    counter-increment: aviso;
-    font-size: 0.77rem;
-    color: rgba(192,200,212,0.32);
-    padding-left: 1.4rem;
-    position: relative;
-    line-height: 1.7;
-  }
-  .footer-avisos li::before {
-    content: counter(aviso) ".";
-    position: absolute;
-    left: 0;
-    color: rgba(192,200,212,0.25);
-    font-size: 0.75rem;
-  }
-  .footer-avisos li strong { color: rgba(192,200,212,0.42); font-weight: 500; }
-  .footer-selos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin: 1.5rem 0 1rem;
-  }
-  .footer-selo { height: 52px; width: auto; opacity: 0.75; transition: opacity 0.2s; }
-  .footer-selo:hover { opacity: 1; }
-  .footer-bottom {
-    text-align: center;
-    font-size: 0.74rem;
-    color: rgba(192,200,212,0.25);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-  }
-  @media (max-width: 640px) {
-    .footer-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .footer-col:last-child { grid-column: 1 / -1; }
-  }
-  @media (max-width: 400px) {
-    .footer-cols { grid-template-columns: 1fr; }
-    .footer-col:last-child { grid-column: auto; }
-  }
-
-    /* ==================== DEPOIMENTOS ==================== */
-    .carrossel-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .carrossel-track-outer {
-      overflow: hidden;
-      flex: 1;
-    }
-    .carrossel-track {
-      display: flex;
-      gap: 1.5rem;
-      transition: transform 0.4s ease;
-    }
-    .dep-card {
-     background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(192,200,212,0.15);
-    border-radius: 8px;
-    padding: 2rem;
-    width: calc(33.333% - 1rem);
-    min-width: calc(33.333% - 1rem);
-    max-width: calc(33.333% - 1rem);
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    box-sizing: border-box;
-    }
-    .dep-aspas {
-      font-family: 'Outfit', sans-serif;
-      font-size: 3.5rem;
-      color: var(--prata);
-      line-height: 0.5;
-      opacity: 0.5;
-    }
-    .dep-texto {
-      color: rgba(232,237,242,0.85);
-      font-size: 0.95rem;
+    .card-body p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--ink-2);
       line-height: 1.7;
       flex: 1;
     }
-    .dep-autor {
-      display: flex;
+    .card-btn {
+      display: inline-flex;
       align-items: center;
-      gap: 0.8rem;
-      margin-top: auto;
-    }
-    .dep-inicial {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--branco);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .dep-autor strong {
-      display: block;
-      color: var(--branco);
-      font-size: 0.9rem;
-    }
-    .dep-autor span {
-      display: block;
-      color: var(--prata);
-      font-size: 0.75rem;
-    }
-    .carrossel-btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(192,200,212,0.2);
-      color: var(--branco);
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .carrossel-btn:hover { background: rgba(255,255,255,0.15); }
-    .carrossel-dots {
-      display: flex;
-      justify-content: center;
       gap: 0.5rem;
-      margin-top: 2rem;
-    }
-    .carrossel-dots span {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(192,200,212,0.3);
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-2);
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius);
+      background: var(--white);
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, border-color 0.2s;
+      width: fit-content;
+      text-decoration: none;
     }
-    .carrossel-dots span.ativo { background: var(--prata); }
+    .card-btn:hover { background: var(--surface-2); border-color: transparent; }
+    .card-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.2; stroke-linecap: square; }
 
-    @media (max-width: 900px) {
-      .dep-card { min-width: calc(50% - 0.75rem); }
-    }
-    @media (max-width: 600px) {
-      .dep-card { min-width: 100%; }
-      .carrossel-btn { display: none; }
-    }
-
-    /* ==================== MODAL ==================== */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(6, 15, 29, 0.75);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      z-index: 200;
+    /* ── DEPOIMENTOS ── estilo Moment: carrossel com cards grandes, inativos a 60% */
+    #depoimentos { background: var(--off-white); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
+    .dep-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
     }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .modal {
-      background: var(--branco);
-      border-radius: 10px;
-      width: 100%;
-      max-width: 640px;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 2.5rem;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
-    .modal-overlay.open .modal { transform: translateY(0); }
-    .modal-close {
-      position: absolute;
-      top: 1.2rem; right: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--texto-leve);
+    .dep-controls { display: flex; gap: 0.5rem; }
+    .dep-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
       cursor: pointer;
-      line-height: 1;
-      transition: color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      color: var(--ink-2);
     }
-    .modal-close:hover { color: var(--azul); }
-    .modal-titulo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--azul);
-      margin-bottom: 0.4rem;
+    .dep-btn[data-active="true"] { color: var(--ink); }
+    .dep-btn[data-active="false"] { opacity: 0.4; pointer-events: none; }
+    .dep-btn:hover { background: var(--surface-2); transform: translateY(-1px); box-shadow: 0 5px 12px rgba(0,0,0,0.06); }
+    .dep-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 0.8; stroke-linecap: square; }
+
+    .dep-track-wrap {
+      overflow: hidden;
+      margin: 0 -1.25rem;
+      padding: 0 1.25rem 1.5rem;
+      mask: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 4%, rgba(0,0,0,1) 96%, rgba(0,0,0,0) 100%);
+      -webkit-mask: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 4%, rgba(0,0,0,1) 96%, rgba(0,0,0,0) 100%);
     }
-    .modal-subtitulo {
-      font-size: 0.875rem;
-      color: var(--texto-leve);
-      margin-bottom: 2rem;
+    .dep-track {
+      display: flex;
+      gap: 1.25rem;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
     }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-group {
+    .dep-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      width: calc(100vw - 2.5rem);
+      max-width: 760px;
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
+      transition: opacity 0.4s ease, box-shadow 0.6s ease;
+      overflow: hidden;
     }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label {
-      font-size: 0.8rem;
+    .dep-card[data-active="true"] {
+      opacity: 1;
+      box-shadow: 0 30px 60px -20px rgba(26,42,108,0.08), 0 10px 30px -10px rgba(26,42,108,0.05);
+    }
+    .dep-card[data-active="false"] { opacity: 0.55; cursor: pointer; }
+    .dep-card[data-active="false"]:hover { opacity: 0.8; }
+    .dep-card-header {
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid var(--border-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dep-inicial {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--ciano-light);
+      color: var(--ciano);
+      font-size: 0.85rem;
       font-weight: 500;
-      color: var(--texto);
-      letter-spacing: 0.02em;
+      display: flex; align-items: center; justify-content: center;
     }
-    .form-group input,
-    .form-group textarea {
-      border: 1px solid var(--prata);
-      border-radius: 4px;
-      padding: 0.7rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: var(--texto);
-      background: var(--branco);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      width: 100%;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74,125,191,0.12);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    .form-divider {
-      border: none;
-      border-top: 1px solid var(--prata-clara);
-      margin: 1.5rem 0;
-    }
-    .form-section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
+    .dep-card-metric {
+      font-size: 0.68rem;
+      font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--ink-3);
+      font-family: monospace;
+      border: 1px solid var(--border-2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+    }
+    .dep-card-body { padding: 1.75rem 2rem 1.5rem; }
+    .dep-quote-mark {
+      font-size: 3.5rem;
+      line-height: 0.5;
+      color: var(--ink);
+      opacity: 0.08;
+      font-family: Georgia, serif;
       margin-bottom: 1rem;
     }
-    .btn-enviar {
-      width: 100%;
-      background: var(--azul);
-      color: var(--branco);
-      border: none;
-      padding: 0.95rem;
-      border-radius: 4px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
+    .dep-texto {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.75;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+    .dep-autor {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-2);
+    }
+    .dep-autor strong { color: var(--ink); font-weight: 500; }
+
+    .dep-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+    }
+    .dep-dots span {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--border);
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
-      margin-top: 0.5rem;
     }
-    .btn-enviar:hover { background: var(--azul-medio); transform: translateY(-1px); }
-    .btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .form-sucesso {
+    .dep-dots span.on { background: var(--ink-2); transform: scale(1.4); }
+
+    /* ── NEWSLETTER ── */
+    #newsletter { background: var(--white); }
+    .nl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin: 3rem 0 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+    .nl-card {
+      background: var(--white);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.2s;
+    }
+    .nl-card:hover { background: var(--off-white); }
+    .nl-card-meta { display: flex; align-items: center; justify-content: space-between; }
+    .nl-tag {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ciano);
+      font-family: monospace;
+    }
+    .nl-data { font-size: 0.72rem; color: var(--ink-3); }
+    .nl-card h3 {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+    .nl-card p { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.65; flex: 1; }
+    .nl-link {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--ink-2);
+      text-decoration: none;
+      margin-top: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .nl-link:hover { color: var(--ink); }
+
+    .nl-ver-mais { margin-bottom: 3rem; }
+    .nl-ver-mais a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nl-ver-mais a:hover { color: var(--ink); }
+
+    /* box cadastro */
+    .nl-box {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .nl-box-txt h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .nl-box-txt p { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.4); }
+    .nl-form { display: flex; flex-direction: column; gap: 0.6rem; }
+    .nl-form input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 0.8rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .nl-form input:focus { border-color: rgba(255,255,255,0.3); }
+    .nl-form button {
+      background: var(--white);
+      color: var(--ink);
+      border: none;
+      padding: 0.8rem;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nl-form button:hover { background: var(--off-white); }
+    .nl-lgpd { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.25); line-height: 1.6; }
+    .nl-lgpd a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+    #nlSucesso { display: none; text-align: center; }
+    #nlSucesso .check { font-size: 2rem; margin-bottom: 0.75rem; }
+    #nlSucesso h3 { font-size: 0.95rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
+    #nlSucesso p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+    /* ── CONTATO ── */
+    #contato { background: var(--off-white); border-top: 1px solid var(--border-2); }
+    .contato-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+    .btn-c {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      text-decoration: none;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--ink);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .btn-c svg { width: 16px; height: 16px; }
+    .btn-c:hover { background: var(--surface-2); border-color: transparent; transform: translateY(-1px); box-shadow: 0 5px 16px rgba(26,42,108,0.07); }
+    .btn-c-primary { background: var(--ink); color: var(--white); border-color: transparent; }
+    .btn-c-primary:hover { background: #243580; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3.5rem 1.25rem 2rem;
+    }
+    .footer-inner { max-width: var(--max); margin: 0 auto; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .fc-title {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ciano);
+      margin-bottom: 0.9rem;
+      font-family: monospace;
+    }
+    .footer-cols ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-cols ul li a {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-cols ul li a:hover { color: rgba(255,255,255,0.75); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 2rem 0; }
+    .footer-disclaimer { max-width: 820px; margin: 0 auto; }
+    .footer-disclaimer-title {
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.7rem; font-family: monospace;
+    }
+    .footer-disclaimer p {
+      font-size: 0.75rem; font-weight: 300;
+      color: rgba(255,255,255,0.22); line-height: 1.75; margin-bottom: 0.7rem;
+    }
+    .footer-disclaimer p strong { color: rgba(255,255,255,0.38); font-weight: 400; }
+    .footer-avisos { list-style: none; counter-reset: av; display: flex; flex-direction: column; gap: 0.25rem; }
+    .footer-avisos li {
+      counter-increment: av; font-size: 0.73rem; font-weight: 300;
+      color: rgba(255,255,255,0.18); padding-left: 1.3rem; position: relative; line-height: 1.7;
+    }
+    .footer-avisos li::before { content: counter(av) "."; position: absolute; left: 0; color: rgba(255,255,255,0.14); }
+    .footer-avisos li strong { color: rgba(255,255,255,0.3); font-weight: 400; }
+    .footer-selos {
+      display: flex; justify-content: center; align-items: center;
+      gap: 1.5rem; margin: 1.5rem 0 1rem;
+    }
+    .footer-selo { height: 46px; width: auto; opacity: 0.4; filter: brightness(0) invert(1); transition: opacity 0.2s; }
+    .footer-selo:hover { opacity: 0.8; }
+    .footer-bottom { text-align: center; font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.18); }
+
+    /* ── MODAIS ── */
+    .modal-overlay {
       display: none;
-      text-align: center;
-      padding: 2rem 0;
+      position: fixed; inset: 0;
+      background: rgba(10,16,50,0.6);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
     }
-    .form-sucesso .icone { font-size: 3rem; margin-bottom: 1rem; }
-    .form-sucesso h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      color: var(--azul);
-      margin-bottom: 0.5rem;
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      max-width: 620px; width: 100%;
+      max-height: 88vh; overflow-y: auto;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(26,42,108,0.15);
     }
-    .form-sucesso p { color: var(--texto-leve); font-size: 0.9rem; }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; font-size: 1.1rem;
+      color: var(--ink-3); cursor: pointer;
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--surface-2); }
+    .modal-titulo { font-size: 1.2rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+    .modal-sub { font-size: 0.85rem; font-weight: 300; color: var(--ink-2); margin-bottom: 1.75rem; }
+    .fsl { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ciano); margin-bottom: 0.8rem; font-family: monospace; }
+    .fg { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .fi { display: flex; flex-direction: column; gap: 0.3rem; }
+    .fi.full { grid-column: 1/-1; }
+    .fi label { font-size: 0.75rem; font-weight: 400; color: var(--ink); }
+    .fi input, .fi textarea {
+      background: var(--off-white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.65rem 0.85rem;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 300;
+      color: var(--ink); outline: none; resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .fi input:focus, .fi textarea:focus { border-color: var(--ciano); }
+    .fi textarea { min-height: 72px; }
+    .fdiv { border: none; border-top: 1px solid var(--border-2); margin: 1.25rem 0 0.75rem; }
+    .btn-enviar {
+      width: 100%; background: var(--ink); color: var(--white);
+      border: none; padding: 0.85rem; border-radius: var(--radius);
+      font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 400;
+      cursor: pointer; margin-top: 0.75rem; transition: background 0.2s;
+    }
+    .btn-enviar:hover { background: #243580; }
+    .btn-enviar:disabled { opacity: 0.4; cursor: not-allowed; }
+    .form-ok { display: none; text-align: center; padding: 1.5rem 0; }
+    .form-ok .ico { font-size: 2rem; margin-bottom: 0.75rem; }
+    .form-ok h3 { font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+    .form-ok p { font-size: 0.85rem; font-weight: 300; color: var(--ink-2); }
 
-    /* Card clicável */
-    .card { cursor: pointer; }
-    .card:hover { border-color: var(--accent); }
+    /* ── VOLTAR AO TOPO ── */
+    #top-btn {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      width: 40px; height: 40px;
+      background: var(--ink); border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; visibility: hidden; transform: translateY(10px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      z-index: 300;
+      box-shadow: 0 4px 16px rgba(26,42,108,0.2);
+    }
+    #top-btn.on { opacity: 1; visibility: visible; transform: translateY(0); }
+    #top-btn svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    @media (max-width: 600px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .modal { padding: 1.5rem; }
+    /* ── FADE IN ── */
+    .fi-anim { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fi-anim.vis { opacity: 1; transform: translateY(0); }
+    .fi-anim.d1 { transition-delay: 0.08s; }
+    .fi-anim.d2 { transition-delay: 0.16s; }
+    .fi-anim.d3 { transition-delay: 0.24s; }
+    .fi-anim.d4 { transition-delay: 0.32s; }
+
+    /* ── MOBILE NAV ── */
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0;
+      background: var(--white); z-index: 500;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a { font-size: 1.5rem; font-weight: 300; color: var(--ink); text-decoration: none; }
+    .mobile-close {
+      position: absolute; top: 1rem; right: 1.25rem;
+      font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer;
     }
 
-    /* ==================== ANIMAÇÕES ==================== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
-
-    /* ==================== RESPONSIVO ==================== */
-    @media (max-width: 768px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
       nav { display: none; }
       .hamburger { display: flex; }
-      .nav-mobile {
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: var(--azul);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        z-index: 99;
-      }
-      .nav-mobile a {
-        color: var(--branco);
-        font-family: 'Outfit', sans-serif;
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-decoration: none;
-        letter-spacing: 0.04em;
-      }
-      .nav-mobile .close-btn {
-        position: absolute;
-        top: 1.5rem; right: 2rem;
-        font-size: 2rem;
-        color: var(--prata);
-        cursor: pointer;
-        background: none;
-        border: none;
-      }
+      #hero { padding: 7rem 1.25rem 8rem; }
+      .stats-row { gap: 2.5rem; }
       .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .sobre-visual { display: flex; }
-      .sobre-foto { max-width: 100%; aspect-ratio: 4 / 3; object-position: center 20%; }
-      .hero-geo { display: none; }
+      .sobre-foto-wrap { display: flex; flex-direction: column; align-items: center; }
+      .dep-card { width: calc(100vw - 2.5rem); max-width: 100%; }
+      .nl-grid { grid-template-columns: 1fr 1fr; }
+      .nl-card:last-child { display: none; }
+      .nl-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-col:last-child { grid-column: 1/-1; }
+      .dep-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    @media (max-width: 540px) {
+      #hero h1 { font-size: 2rem; }
+      .stat-num { font-size: 2.2rem; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .nl-grid { grid-template-columns: 1fr; }
+      .nl-card:last-child { display: flex; }
+      .fg { grid-template-columns: 1fr; }
+      .contato-btns { flex-direction: column; }
+      .btn-c { justify-content: center; }
+      .footer-cols { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== HEADER ==================== -->
-  <!-- EDITAR: nome/marca no .logo -->
-  <header id="header">
-    <a href="#hero" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMobile">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <!-- Menu mobile -->
-  <div class="nav-mobile" id="navMobile" style="display:none;">
-    <button class="close-btn" id="closeNav">✕</button>
-    <a href="#sobre" class="nav-link-mobile">Sobre</a>
-    <a href="#servicos" class="nav-link-mobile">Serviços</a>
-    <a href="#contato" class="nav-link-mobile">Contato</a>
-  </div>
-
-  <!-- ==================== HERO ==================== -->
-  <!-- EDITAR: tag, headline (h1), subtítulo (p) e texto do botão -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-geo"></div>
-    <div class="hero-content">
-      <div class="hero-tag fade-in">Consultoria Financeira Independente</div>
-      <h1 class="fade-in fade-in-delay-1">
-        Segurança para as suas<br /><em>decisões financeiras.</em>
-      </h1>
-      <p class="fade-in fade-in-delay-2">
-        Planejamento personalizado para pessoas físicas e famílias que querem organizar o patrimônio, investir com critério e construir uma vida financeira sólida.
-      </p>
-      <a href="#contato" class="btn-primary fade-in fade-in-delay-3">Agende uma conversa</a>
+<!-- ==================== HEADER ==================== -->
+<header id="hdr">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="#hero" class="logo">Clara Ramalho</a>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="blog.html">Blog</a>
+      </nav>
     </div>
-  </section>
+    <div class="header-right">
+      <a href="#contato" class="nav-cta">
+        Agendar conversa
+        <span class="nav-cta-arrow">
+          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-  <!-- ==================== SOBRE ==================== -->
-  <!-- EDITAR: texto dos parágrafos, badges de credenciais e números do card -->
-  <section id="sobre">
-    <div class="container">
-      <div class="sobre-grid">
-        <div class="sobre-texto">
-          <p class="section-label fade-in">Sobre mim</p>
-          <h2 class="section-title fade-in fade-in-delay-1">Uma consultoria<br />feita para você.</h2>
-          <p class="fade-in fade-in-delay-2">
-            Sou Clara Ramalho, consultora financeira certificada com foco em planejamento patrimonial e educação financeira para pessoas físicas e famílias.
-          </p>
-          <p class="fade-in fade-in-delay-2">
-            Minha abordagem é independente — sem vínculo com bancos ou distribuidoras — o que garante recomendações alinhadas exclusivamente aos seus objetivos.
-          </p>
-          <p class="fade-in fade-in-delay-3">
-            Acredito que boas decisões financeiras começam por compreensão. Por isso, trabalho lado a lado com cada cliente para construir um plano que faça sentido na prática.
-          </p>
-          <div class="credenciais fade-in fade-in-delay-4">
-            <!-- EDITAR: ajuste as badges conforme suas certificações e número CVM -->
-            <span class="badge">CEA — ANBIMA</span>
-            <span class="badge">Registrada CVM</span>
-            <span class="badge">Consultora Independente</span>
-          </div>
+<div class="mobile-overlay" id="mob">
+  <button class="mobile-close" id="mobClose">✕</button>
+  <a href="#sobre">Sobre</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <a href="#newsletter">Newsletter</a>
+  <a href="blog.html">Blog</a>
+  <a href="#contato">Contato</a>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section id="hero">
+  <div class="hero-lines" aria-hidden="true">
+    <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .rl { stroke: rgba(26,42,108,0.045); stroke-width: 1; transform-origin: 450px 450px; animation: pulse-line 2.5s ease infinite; }
+          @keyframes pulse-line { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+        </style>
+      </defs>
+      <g id="radials">
+        <!-- 36 linhas radiais -->
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="animation-delay:0s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(10deg);animation-delay:.07s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(20deg);animation-delay:.14s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(30deg);animation-delay:.21s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(40deg);animation-delay:.28s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(50deg);animation-delay:.35s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(60deg);animation-delay:.42s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(70deg);animation-delay:.49s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(80deg);animation-delay:.56s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(90deg);animation-delay:.63s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(100deg);animation-delay:.70s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(110deg);animation-delay:.77s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(120deg);animation-delay:.84s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(130deg);animation-delay:.91s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(140deg);animation-delay:.98s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(150deg);animation-delay:1.05s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(160deg);animation-delay:1.12s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(170deg);animation-delay:1.19s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(180deg);animation-delay:1.26s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(190deg);animation-delay:1.33s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(200deg);animation-delay:1.40s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(210deg);animation-delay:1.47s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(220deg);animation-delay:1.54s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(230deg);animation-delay:1.61s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(240deg);animation-delay:1.68s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(250deg);animation-delay:1.75s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(260deg);animation-delay:1.82s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(270deg);animation-delay:1.89s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(280deg);animation-delay:1.96s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(290deg);animation-delay:2.03s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(300deg);animation-delay:2.10s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(310deg);animation-delay:2.17s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(320deg);animation-delay:2.24s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(330deg);animation-delay:2.31s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(340deg);animation-delay:2.38s"/>
+        <line class="rl" x1="450" y1="450" x2="450" y2="0" style="transform:rotate(350deg);animation-delay:2.45s"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-tag">Consultoria Financeira Independente</p>
+    <h1>Segurança para as suas decisões financeiras.</h1>
+    <p>Planejamento personalizado para pessoas físicas e famílias que querem organizar o patrimônio, investir com critério e construir uma vida financeira sólida.</p>
+    <a href="#contato" class="btn-hero">
+      Agende uma conversa
+      <span class="btn-hero-arrow">
+        <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== STATS ==================== -->
+<section id="stats">
+  <p class="stats-label">Experiência comprovada</p>
+  <div class="stats-row container">
+    <div class="stat fi-anim">
+      <div class="stat-num">12<sup>+</sup></div>
+      <p class="stat-label">anos de experiência</p>
+    </div>
+    <div class="stat fi-anim d1">
+      <div class="stat-num">127<sup>+</sup></div>
+      <p class="stat-label">clientes atendidos</p>
+    </div>
+    <div class="stat fi-anim d2">
+      <div class="stat-num">100<sup>%</sup></div>
+      <p class="stat-label">independente de bancos e distribuidoras</p>
+    </div>
+    <div class="stat fi-anim d3">
+      <div class="stat-num">CEA</div>
+      <p class="stat-label">certificação ANBIMA · registrada CVM</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SOBRE ==================== -->
+<section id="sobre">
+  <div class="container">
+    <span class="s-label fi-anim">Sobre mim</span>
+    <h2 class="s-title fi-anim d1">Uma consultoria<br />feita para você.</h2>
+    <div class="sobre-grid">
+      <div class="sobre-texto">
+        <p class="fi-anim d1">Sou Clara Ramalho, consultora financeira certificada com foco em planejamento patrimonial e educação financeira para pessoas físicas e famílias.</p>
+        <p class="fi-anim d2">Minha abordagem é independente — sem vínculo com bancos ou distribuidoras — o que garante recomendações alinhadas exclusivamente aos seus objetivos.</p>
+        <p class="fi-anim d3">Acredito que boas decisões financeiras começam por compreensão. Por isso, trabalho lado a lado com cada cliente para construir um plano que faça sentido na prática.</p>
+        <div class="credenciais fi-anim d4">
+          <span class="badge">CEA — ANBIMA</span>
+          <span class="badge">Registrada CVM</span>
+          <span class="badge">Consultora Independente</span>
         </div>
-        <div class="sobre-visual fade-in fade-in-delay-2">
-          <div class="sobre-foto-wrapper">
-            <picture>
-              <source srcset="assets/perfil_26.webp" type="image/webp" />
-              <img
-                src="assets/perfil_26.png"
-                alt="Clara Ramalho, consultora financeira independente"
-                class="sobre-foto"
-                loading="lazy"
-                width="340"
-              />
-            </picture>
+      </div>
+      <div class="sobre-foto-wrap fi-anim d2">
+        <picture>
+          <source srcset="assets/perfil_26.webp" type="image/webp" />
+          <img src="assets/perfil_26.png" alt="Clara Ramalho, consultora financeira independente" class="sobre-foto" loading="lazy" width="320" />
+        </picture>
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <div class="n">12<em>+</em></div>
+            <p>anos de experiência</p>
           </div>
-          <div class="sobre-card">
-            <div class="sobre-stat">
-              <div class="numero">12<span>+</span></div>
-              <p>anos de experiência</p>
-            </div>
-            <div class="sobre-stat">
-              <div class="numero">127<span>+</span></div>
-              <p>clientes atendidos</p>
-            </div>
-            <div class="sobre-stat">
-              <div class="numero">100<span>%</span></div>
-              <p>independente</p>
-            </div>
+          <div class="sobre-stat">
+            <div class="n">127<em>+</em></div>
+            <p>clientes atendidos</p>
+          </div>
+          <div class="sobre-stat">
+            <div class="n">100<em>%</em></div>
+            <p>independente</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ==================== SERVIÇOS ==================== -->
-  <!-- EDITAR: título, descrição e ícone de cada card -->
-  <section id="servicos">
-    <div class="container">
-      <p class="section-label fade-in">Serviços</p>
-      <h2 class="section-title fade-in fade-in-delay-1">Como posso<br />te ajudar.</h2>
-      <div class="servicos-grid">
+<!-- ==================== SERVIÇOS ==================== -->
+<section id="servicos">
+  <div class="container">
+    <span class="s-label fi-anim">Serviços</span>
+    <h2 class="s-title fi-anim d1">Como posso<br />te ajudar.</h2>
+    <div class="servicos-grid fi-anim d2">
 
-        <div class="card fade-in fade-in-delay-1" onclick="abrirModal('planejamento')">
+      <div class="card" data-active="true" onclick="abrirModal('planejamento')">
+        <div class="card-header">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           </div>
+          <span class="card-tag">Planejamento</span>
+        </div>
+        <div class="card-body">
           <h3>Planejamento Financeiro</h3>
           <p>Diagnóstico completo da sua situação financeira e construção de um plano personalizado para atingir seus objetivos de curto, médio e longo prazo.</p>
+          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
         </div>
+      </div>
 
-        <div class="card fade-in fade-in-delay-2" onclick="abrirModal('patrimonial')">
+      <div class="card" data-active="false" onclick="abrirModal('patrimonial')">
+        <div class="card-header">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
           </div>
+          <span class="card-tag">Patrimônio</span>
+        </div>
+        <div class="card-body">
           <h3>Organização Patrimonial</h3>
           <p>Mapeamento e estruturação do seu patrimônio para proteger o que você construiu, otimizar custos e planejar a transmissão com eficiência.</p>
+          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
         </div>
+      </div>
 
-        <div class="card fade-in fade-in-delay-3" onclick="abrirModal('investimentos')">
+      <div class="card" data-active="false" onclick="abrirModal('investimentos')">
+        <div class="card-header">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
+          <span class="card-tag">Investimentos</span>
+        </div>
+        <div class="card-body">
           <h3>Estratégia de Investimentos</h3>
           <p>Recomendações de alocação alinhadas ao seu perfil de risco, horizonte de investimento e objetivos — sem viés de produto ou comissão.</p>
+          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
         </div>
+      </div>
 
-        <div class="card fade-in fade-in-delay-4" onclick="abrirModal('educacao')">
+      <div class="card" data-active="false" onclick="abrirModal('educacao')">
+        <div class="card-header">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
+          <span class="card-tag">Educação</span>
+        </div>
+        <div class="card-body">
           <h3>Educação Financeira</h3>
           <p>Cursos dedicados a desenvolver sua autonomia financeira: entenda produtos, impostos, riscos e tome decisões com confiança.</p>
+          <button class="card-btn">Saiba mais <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DEPOIMENTOS ==================== -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="dep-header">
+      <div>
+        <span class="s-label fi-anim">Depoimentos</span>
+        <h2 class="s-title fi-anim d1">O que dizem sobre<br />meu trabalho.</h2>
+      </div>
+      <div class="dep-controls">
+        <button class="dep-btn" id="depPrev" data-active="false" aria-label="Anterior">
+          <svg viewBox="0 0 18 18"><path d="M10.125 3.375L15.75 9M15.75 9L10.125 14.625M15.75 9H2.25" stroke-linecap="square" stroke-width=".77"/></svg>
+        </button>
+        <button class="dep-btn" id="depNext" data-active="true" aria-label="Próximo">
+          <svg viewBox="0 0 18 18"><path d="M7.875 3.375L2.25 9M2.25 9L7.875 14.625M2.25 9H15.75" stroke-linecap="square" stroke-width=".77"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="dep-track-wrap">
+      <div class="dep-track" id="depTrack">
+
+        <div class="dep-card" data-active="true">
+          <div class="dep-card-header">
+            <div class="dep-inicial">P</div>
+            <span class="dep-card-metric">Planejamento Financeiro · MDS 26.1</span>
+          </div>
+          <div class="dep-card-body">
+            <div class="dep-quote-mark">"</div>
+            <blockquote class="dep-texto">A sua didática para o tema das finanças foi muito acolhedora e norteadora. Espero trabalharmos juntas novamente.</blockquote>
+            <p class="dep-autor"><strong>Paula C.</strong> — Curso de Planejamento Financeiro</p>
+          </div>
+        </div>
+
+        <div class="dep-card" data-active="false">
+          <div class="dep-card-header">
+            <div class="dep-inicial">T</div>
+            <span class="dep-card-metric">Planejamento Financeiro · MDS 26.1</span>
+          </div>
+          <div class="dep-card-body">
+            <div class="dep-quote-mark">"</div>
+            <blockquote class="dep-texto">Que aula excelente. Fez muito sentido tudo isso e com muita sensibilidade. Me sinto verdadeiramente acolhida e consciente.</blockquote>
+            <p class="dep-autor"><strong>Tainá</strong> — Curso de Planejamento Financeiro</p>
+          </div>
+        </div>
+
+        <div class="dep-card" data-active="false">
+          <div class="dep-card-header">
+            <div class="dep-inicial">C</div>
+            <span class="dep-card-metric">Consultoria Financeira</span>
+          </div>
+          <div class="dep-card-body">
+            <div class="dep-quote-mark">"</div>
+            <blockquote class="dep-texto">Seu trabalho é transformador!</blockquote>
+            <p class="dep-autor"><strong>Cliente</strong> — Consultoria Financeira</p>
+          </div>
         </div>
 
       </div>
     </div>
-  </section>
+    <div class="dep-dots" id="depDots"></div>
+  </div>
+</section>
 
-  <!-- ==================== DEPOIMENTOS ==================== -->
-  <!-- EDITAR: frases, nomes e contexto de cada depoimento -->
-  <section id="depoimentos" style="background: var(--azul); padding: 6rem 2rem;">
-    <div class="container">
-      <p class="section-label fade-in" style="color: var(--prata);">Depoimentos</p>
-      <h2 class="section-title fade-in fade-in-delay-1" style="color: var(--branco); margin-bottom: 3rem;">O que dizem sobre<br />meu trabalho.</h2>
+<!-- ==================== NEWSLETTER ==================== -->
+<section id="newsletter">
+  <div class="container">
+    <span class="s-label fi-anim">Newsletter</span>
+    <h2 class="s-title fi-anim d1">Conteúdo para quem quer<br />entender o próprio dinheiro.</h2>
+    <p style="font-size:.9rem;font-weight:300;color:var(--ink-2);margin-top:.5rem;" class="fi-anim d2">Quinzenal. Sem enrolação.</p>
 
-      <div class="carrossel-wrapper">
-        <button class="carrossel-btn prev" onclick="moverCarrossel(-1)">&#8592;</button>
-        <div class="carrossel-track-outer">
-          <div class="carrossel-track" id="carrosselTrack">
-
-            <!-- DEPOIMENTO 1 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">A sua didática para o tema das finanças foi muito acolhedora e norteadora. Espero trabalharmos juntas novamente.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">P</div>
-                <div>
-                  <strong>Paula C.</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEPOIMENTO 2 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">Que aula excelente. Fez muito sentido tudo isso e com muita sensibilidade. Me sinto verdadeiramente acolhida e consciente.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">T</div>
-                <div>
-                  <strong>Tainá</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEPOIMENTO 3 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">Seu trabalho é transformador! Deixou uma semente para que eu possa estabelecer estratégias e criar possibilidades para realizações.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">D</div>
-                <div>
-                  <strong>Dayana G.</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEPOIMENTO 4 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">Suas aulas foram excelentes. Quando tiver uma segunda edição vou super recomendar.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">T</div>
-                <div>
-                  <strong>Tainá</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEPOIMENTO 5 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">Esse curso e a professora têm que voltar.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">R</div>
-                <div>
-                  <strong>Rosana</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- DEPOIMENTO 6 -->
-            <div class="dep-card">
-              <div class="dep-aspas">"</div>
-              <p class="dep-texto">Estou assistindo as aulas e minha companheira estava ao lado, agora não quer perder. Você é muito cuidadosa.</p>
-              <div class="dep-autor">
-                <div class="dep-inicial">C</div>
-                <div>
-                  <strong>Claudia</strong>
-                  <span>Curso de Planejamento Financeiro · MDS 26.1</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <button class="carrossel-btn next" onclick="moverCarrossel(1)">&#8594;</button>
+    <div class="nl-grid fi-anim d2">
+      <div class="nl-card">
+        <div class="nl-card-meta"><span class="nl-tag">Endividamento</span><span class="nl-data">30 abr 2026</span></div>
+        <h3>80% das famílias brasileiras estão endividadas — e os juros altos explicam boa parte disso</h3>
+        <p>O endividamento das famílias atingiu nível recorde em março de 2026. Entenda as causas, quem é mais afetado e o que fazer para sair desse ciclo.</p>
+        <a href="post.html?slug=endividamento-do-brasileiro" class="nl-link">Ler mais <svg viewBox="0 0 14 14" width="11" height="11" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></a>
       </div>
-
-      <!-- Indicadores -->
-      <div class="carrossel-dots" id="carrosselDots"></div>
-    </div>
-  </section>
-
-   <!-- ==================== SEÇÃO NEWSLETTER ==================== -->
-    
-  <section id="newsletter" style="background: var(--branco); padding: 6rem 2rem;">
-    <div class="container">
-  
-      <!-- Cabeçalho -->
-      <div class="nl-header fade-in">
-        <p class="section-label">Newsletter</p>
-        <h2 class="section-title">Conteúdo para quem quer<br /><em style="font-style:normal; color: var(--accent);">entender o próprio dinheiro.</em></h2>
-        <p class="nl-subtitulo">Quinzenal. Sem enrolação. Educação financeira, análise de mercado e novidades direto no seu e-mail.</p>
+      <div class="nl-card">
+        <div class="nl-card-meta"><span class="nl-tag">Investimentos</span><span class="nl-data">15 abr 2026</span></div>
+        <h3>Renda fixa ou variável? Como pensar essa decisão sem ansiedade</h3>
+        <p>A escolha entre renda fixa e variável depende de objetivos, prazo e perfil. Veja como pensar essa decisão sem pressão.</p>
+        <a href="post.html?slug=renda-fixa-ou-variavel" class="nl-link">Ler mais <svg viewBox="0 0 14 14" width="11" height="11" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></a>
       </div>
-  
-      <!-- Cards dos posts recentes -->
-      <div class="nl-grid" id="nlPostsGrid">
-        <!-- Posts carregados via JS a partir de posts/index.json -->
-        <!-- Enquanto carrega, mostra placeholder -->
-        <div class="nl-card nl-placeholder fade-in fade-in-delay-1">
-          <div class="nl-card-meta"><span class="nl-tag">Educação Financeira</span><span class="nl-data">29 abr 2026</span></div>
-          <h3>Como montar uma reserva de emergência</h3>
-          <p>Entenda quanto guardar, onde deixar esse dinheiro e por que esse é o primeiro passo para uma vida financeira sólida.</p>
-          <a href="post.html?slug=reserva-de-emergencia" class="nl-btn">Ler mais →</a>
-        </div>
-        <div class="nl-card nl-placeholder fade-in fade-in-delay-2">
-          <div class="nl-card-meta"><span class="nl-tag">Investimentos</span><span class="nl-data">15 abr 2026</span></div>
-          <h3>Renda fixa ou variável: como escolher?</h3>
-          <p>A resposta depende do seu perfil, dos seus objetivos e do momento de vida. Veja como pensar essa decisão sem pressão.</p>
-          <a href="post.html?slug=renda-fixa-ou-variavel" class="nl-btn">Ler mais →</a>
-        </div>
-        <div class="nl-card nl-placeholder fade-in fade-in-delay-3">
-          <div class="nl-card-meta"><span class="nl-tag">Planejamento</span><span class="nl-data">01 abr 2026</span></div>
-          <h3>5 erros financeiros mais comuns — e como evitá-los</h3>
-          <p>Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais.</p>
-          <a href="post.html?slug=erros-financeiros" class="nl-btn">Ler mais →</a>
-        </div>
-      </div>
-  
-      <!-- Link para o blog completo -->
-      <div class="nl-ver-todos fade-in">
-        <a href="blog.html" class="nl-ver-todos-btn">Ver todos os posts →</a>
-      </div>
-  
-      <!-- Formulário de cadastro -->
-      <div class="nl-form-wrapper fade-in">
-        <div class="nl-form-box">
-          <div class="nl-form-texto">
-            <h3>Receba quinzenalmente.</h3>
-            <p>Cadastre-se e receba conteúdo direto no seu e-mail. Cancele quando quiser.</p>
-          </div>
-          <div class="nl-form" id="nlForm">
-            <div class="nl-inputs">
-              <label for="nl-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">E-mail</label>
-              <input type="email" id="nl-email" placeholder="seu@email.com" autocomplete="email" />
-              <button onclick="cadastrarNewsletter()">Quero receber</button>
-            </div>
-            <p class="nl-lgpd">
-              Ao se cadastrar, você concorda em receber nossa newsletter quinzenal.
-              Seus dados são protegidos conforme nossa
-              <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.
-              Cancele a qualquer momento.
-            </p>
-          </div>
-          <div class="nl-sucesso" id="nlSucesso" style="display:none;">
-            <div class="nl-sucesso-icone">✓</div>
-            <h3>Cadastro confirmado!</h3>
-            <p>Você receberá nossa próxima edição em breve.</p>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </section>
-
-  <!-- ==================== CONTATO ==================== -->
-  <section id="contato">
-    <div class="container">
-      <p class="section-label fade-in">Contato</p>
-      <h2 class="section-title fade-in fade-in-delay-1">Vamos conversar<br />sobre o seu futuro.</h2>
-      <p class="subtitulo fade-in fade-in-delay-2">
-        A primeira conversa é sem compromisso. Entre em contato pelo canal de sua preferência e entendemos juntos como posso te ajudar.
-      </p>
-      <div class="contato-btns fade-in fade-in-delay-3">
-
-        <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria."
-           class="btn-contato btn-whatsapp" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-
-        <a href="mailto:contato@clararamalho.com.br" class="btn-contato btn-email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          E-mail
-        </a>
-
-        <a href="https://www.linkedin.com/in/clararamalho/" class="btn-contato btn-linkedin" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-
+      <div class="nl-card">
+        <div class="nl-card-meta"><span class="nl-tag">Planejamento</span><span class="nl-data">01 abr 2026</span></div>
+        <h3>5 erros financeiros mais comuns — e como evitá-los</h3>
+        <p>Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais.</p>
+        <a href="post.html?slug=erros-financeiros" class="nl-link">Ler mais <svg viewBox="0 0 14 14" width="11" height="11" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></a>
       </div>
     </div>
-  </section>
 
-  <!-- ==================== MODAIS ==================== -->
+    <div class="nl-ver-mais fi-anim">
+      <a href="blog.html">Ver todos os posts →</a>
+    </div>
 
-  <!-- Modal Planejamento Financeiro -->
-  <div class="modal-overlay" id="modal-planejamento">
-    <div class="modal">
-      <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
-      <p class="modal-titulo">Planejamento Financeiro</p>
-      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
-      <div id="form-planejamento">
-        <p class="form-section-label">Dados de contato</p>
-        <div class="form-grid">
-          <div class="form-group"><label for="pf-nome">Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" /></div>
-          <div class="form-group"><label for="pf-sobrenome">Sobrenome</label><input type="text" id="pf-sobrenome" placeholder="Seu sobrenome" /></div>
-          <div class="form-group"><label for="pf-email">E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" /></div>
-          <div class="form-group"><label for="pf-telefone">Telefone</label><input type="tel" id="pf-telefone" placeholder="(00) 00000-0000" /></div>
-        </div>
-        <hr class="form-divider" />
-        <p class="form-section-label">Diagnóstico inicial</p>
-        <div class="form-group full"><label for="pf-q1">1. Qual é a sua idade e qual é a sua ocupação atual?</label><textarea id="pf-q1" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q2">2. Você tem dependentes financeiros? (filhos, pais, cônjuge)</label><textarea id="pf-q2" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q3">3. Qual é a sua renda mensal aproximada?</label><textarea id="pf-q3" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q4">4. Você sabe quanto gasta por mês? Tem controle das suas despesas?</label><textarea id="pf-q4" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q5">5. Você possui dívidas? Se sim, quais e em qual valor aproximado?</label><textarea id="pf-q5" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q6">6. Você já tem algum investimento ou reserva financeira?</label><textarea id="pf-q6" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q7">7. Quais são seus principais objetivos financeiros nos próximos 2 anos? E nos próximos 10 anos?</label><textarea id="pf-q7" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q8">8. Você está planejando alguma grande compra ou mudança de vida em breve? (imóvel, casamento, filhos, aposentadoria)</label><textarea id="pf-q8" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q9">9. Como você se sente em relação a riscos financeiros? Prefere segurança ou aceita alguma variação em busca de retorno maior?</label><textarea id="pf-q9" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="pf-q10">10. Você já tentou organizar suas finanças antes? O que funcionou ou não funcionou?</label><textarea id="pf-q10" placeholder="Sua resposta..."></textarea></div>
-        <button class="btn-enviar" onclick="enviarFormulario('planejamento')">Enviar</button>
+    <div class="nl-box fi-anim d1">
+      <div class="nl-box-txt">
+        <h3>Receba quinzenalmente.</h3>
+        <p>Cadastre-se e receba conteúdo direto no seu e-mail. Cancele quando quiser.</p>
       </div>
-      <div class="form-sucesso" id="sucesso-planejamento">
-        <div class="icone">✅</div>
-        <h3>Mensagem enviada!</h3>
-        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
+      <div>
+        <div id="nlForm">
+          <div class="nl-form">
+            <input type="email" id="nlEmail" placeholder="seu@email.com" autocomplete="email" />
+            <button onclick="cadastrarNewsletter()">Quero receber</button>
+          </div>
+          <p class="nl-lgpd" style="margin-top:.6rem;">Ao se cadastrar, você concorda com nossa <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>. Cancele a qualquer momento.</p>
+        </div>
+        <div id="nlSucesso">
+          <div class="check">✓</div>
+          <h3>Cadastro confirmado!</h3>
+          <p>Você receberá nossa próxima edição em breve.</p>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Modal Organização Patrimonial -->
-  <div class="modal-overlay" id="modal-patrimonial">
-    <div class="modal">
-      <button class="modal-close" onclick="fecharModal('patrimonial')">✕</button>
-      <p class="modal-titulo">Organização Patrimonial</p>
-      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
-      <div id="form-patrimonial">
-        <p class="form-section-label">Dados de contato</p>
-        <div class="form-grid">
-          <div class="form-group"><label for="op-nome">Nome</label><input type="text" id="op-nome" placeholder="Seu nome" /></div>
-          <div class="form-group"><label for="op-sobrenome">Sobrenome</label><input type="text" id="op-sobrenome" placeholder="Seu sobrenome" /></div>
-          <div class="form-group"><label for="op-email">E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" /></div>
-          <div class="form-group"><label for="op-telefone">Telefone</label><input type="tel" id="op-telefone" placeholder="(00) 00000-0000" /></div>
-        </div>
-        <hr class="form-divider" />
-        <p class="form-section-label">Diagnóstico inicial</p>
-        <div class="form-group full"><label for="op-q1">1. Quais tipos de bens você possui atualmente? (imóveis, veículos, investimentos, participações em empresas)</label><textarea id="op-q1" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q2">2. Esses bens estão registrados em seu nome, de terceiros ou de pessoa jurídica?</label><textarea id="op-q2" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q3">3. Você é casado(a)? Qual o regime de bens?</label><textarea id="op-q3" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q4">4. Tem sócios em algum negócio ou bem compartilhado?</label><textarea id="op-q4" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q5">5. Já pensou em como será a transmissão do seu patrimônio no futuro?</label><textarea id="op-q5" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q6">6. Você possui seguros de vida ou patrimoniais?</label><textarea id="op-q6" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q7">7. Tem filhos menores ou herdeiros que dependem do seu patrimônio?</label><textarea id="op-q7" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="op-q8">8. Há alguma disputa, pendência jurídica ou dívida vinculada a algum bem?</label><textarea id="op-q8" placeholder="Sua resposta..."></textarea></div>
-        <button class="btn-enviar" onclick="enviarFormulario('patrimonial')">Enviar</button>
-      </div>
-      <div class="form-sucesso" id="sucesso-patrimonial">
-        <div class="icone">✅</div>
-        <h3>Mensagem enviada!</h3>
-        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
-      </div>
+<!-- ==================== CONTATO ==================== -->
+<section id="contato">
+  <div class="container">
+    <span class="s-label fi-anim">Contato</span>
+    <h2 class="s-title fi-anim d1">Vamos conversar<br />sobre o seu futuro.</h2>
+    <p style="font-size:.95rem;font-weight:300;color:var(--ink-2);margin-top:.75rem;max-width:460px;line-height:1.8;" class="fi-anim d2">A primeira conversa é sem compromisso. Entre em contato pelo canal de sua preferência e entendemos juntos como posso te ajudar.</p>
+    <div class="contato-btns fi-anim d3">
+      <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="btn-c btn-c-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:contato@clararamalho.com.br" class="btn-c">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-mail
+      </a>
+      <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" class="btn-c">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
+</section>
 
-  <!-- Modal Estratégia de Investimentos -->
-  <div class="modal-overlay" id="modal-investimentos">
-    <div class="modal">
-      <button class="modal-close" onclick="fecharModal('investimentos')">✕</button>
-      <p class="modal-titulo">Estratégia de Investimentos</p>
-      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
-      <div id="form-investimentos">
-        <p class="form-section-label">Dados de contato</p>
-        <div class="form-grid">
-          <div class="form-group"><label for="ei-nome">Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" /></div>
-          <div class="form-group"><label for="ei-sobrenome">Sobrenome</label><input type="text" id="ei-sobrenome" placeholder="Seu sobrenome" /></div>
-          <div class="form-group"><label for="ei-email">E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" /></div>
-          <div class="form-group"><label for="ei-telefone">Telefone</label><input type="tel" id="ei-telefone" placeholder="(00) 00000-0000" /></div>
-        </div>
-        <hr class="form-divider" />
-        <p class="form-section-label">Diagnóstico inicial</p>
-        <div class="form-group full"><label for="ei-q1">1. Qual é o valor aproximado que você tem disponível para investir?</label><textarea id="ei-q1" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q2">2. Você já investe? Se sim, em quais produtos? (poupança, CDB, ações, fundos)</label><textarea id="ei-q2" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q3">3. Qual é o seu objetivo com os investimentos? (reserva, renda passiva, aposentadoria, crescimento de patrimônio)</label><textarea id="ei-q3" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q4">4. Em quanto tempo pretende utilizar esse dinheiro?</label><textarea id="ei-q4" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q5">5. Se seus investimentos caíssem 20% em um mês, qual seria sua reação?</label><textarea id="ei-q5" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q6">6. Você tem reserva de emergência separada dos investimentos?</label><textarea id="ei-q6" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q7">7. Já teve experiências negativas com investimentos? O que aconteceu?</label><textarea id="ei-q7" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ei-q8">8. Você investe sozinho ou já teve assessoria anteriormente?</label><textarea id="ei-q8" placeholder="Sua resposta..."></textarea></div>
-        <button class="btn-enviar" onclick="enviarFormulario('investimentos')">Enviar</button>
-      </div>
-      <div class="form-sucesso" id="sucesso-investimentos">
-        <div class="icone">✅</div>
-        <h3>Mensagem enviada!</h3>
-        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Educação Financeira -->
-  <div class="modal-overlay" id="modal-educacao">
-    <div class="modal">
-      <button class="modal-close" onclick="fecharModal('educacao')">✕</button>
-      <p class="modal-titulo">Educação Financeira</p>
-      <p class="modal-subtitulo">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
-      <div id="form-educacao">
-        <p class="form-section-label">Dados de contato</p>
-        <div class="form-grid">
-          <div class="form-group"><label for="ef-nome">Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" /></div>
-          <div class="form-group"><label for="ef-sobrenome">Sobrenome</label><input type="text" id="ef-sobrenome" placeholder="Seu sobrenome" /></div>
-          <div class="form-group"><label for="ef-email">E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" /></div>
-          <div class="form-group"><label for="ef-telefone">Telefone</label><input type="tel" id="ef-telefone" placeholder="(00) 00000-0000" /></div>
-        </div>
-        <hr class="form-divider" />
-        <p class="form-section-label">Diagnóstico inicial</p>
-        <div class="form-group full"><label for="ef-q1">1. Como você descreveria sua relação atual com o dinheiro?</label><textarea id="ef-q1" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q2">2. Você tem o hábito de guardar parte da sua renda mensalmente?</label><textarea id="ef-q2" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q3">3. Quais são suas maiores dificuldades financeiras hoje?</label><textarea id="ef-q3" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q4">4. Você entende a diferença entre os principais tipos de investimento disponíveis no Brasil?</label><textarea id="ef-q4" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q5">5. Já fez algum curso ou leu algum livro sobre finanças? O que achou?</label><textarea id="ef-q5" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q6">6. O que te motivou a buscar educação financeira agora?</label><textarea id="ef-q6" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q7">7. Quais temas financeiros você sente mais dificuldade em entender?</label><textarea id="ef-q7" placeholder="Sua resposta..."></textarea></div>
-        <div class="form-group full"><label for="ef-q8">8. Você tem algum objetivo financeiro específico que quer alcançar com mais conhecimento?</label><textarea id="ef-q8" placeholder="Sua resposta..."></textarea></div>
-        <button class="btn-enviar" onclick="enviarFormulario('educacao')">Enviar</button>
-      </div>
-      <div class="form-sucesso" id="sucesso-educacao">
-        <div class="icone">✅</div>
-        <h3>Mensagem enviada!</h3>
-        <p>Obrigada pelo seu contato. Retornarei em breve.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== FOOTER ==================== -->
+<!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-inner">
-
     <div class="footer-cols">
       <div class="footer-col">
-        <p class="footer-col-title">Mapa do Site</p>
+        <p class="fc-title">Mapa do site</p>
         <ul>
           <li><a href="#hero">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
@@ -1551,7 +1325,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <p class="footer-col-title">Soluções & Produtos</p>
+        <p class="fc-title">Soluções</p>
         <ul>
           <li><a href="#servicos">Planejamento Financeiro</a></li>
           <li><a href="#servicos">Consultoria Financeira</a></li>
@@ -1559,10 +1333,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <p class="footer-col-title">Legal & Social</p>
+        <p class="fc-title">Legal & Social</p>
         <ul>
-          <li><a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a></li>
-          <li><a href="termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a></li>
+          <li><a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a></li>
+          <li><a href="termos-de-uso.html" target="_blank">Termos de Uso</a></li>
           <li><a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
@@ -1571,24 +1345,19 @@
     <div class="footer-selos">
       <picture>
         <source srcset="assets/selo-cvm.webp" type="image/webp" />
-        <img src="assets/selo-cvm.png" alt="CVM – Comissão de Valores Mobiliários" class="footer-selo" width="171" height="91" loading="lazy" />
+        <img src="assets/selo-cvm.png" alt="CVM" class="footer-selo" width="171" height="91" loading="lazy" />
       </picture>
       <picture>
         <source srcset="assets/selo-anbima-cea.webp" type="image/webp" />
-        <img src="assets/selo-anbima-cea.jpg" alt="ANBIMA – Profissional CEA" class="footer-selo" width="91" height="91" loading="lazy" />
+        <img src="assets/selo-anbima-cea.jpg" alt="ANBIMA CEA" class="footer-selo" width="91" height="91" loading="lazy" />
       </picture>
     </div>
 
     <hr class="footer-divider" />
-
     <div class="footer-disclaimer">
       <p class="footer-disclaimer-title">Disclaimer e Informações Legais</p>
-      <p class="footer-disclaimer-intro">
-        <strong>Clara Ramalho</strong> — Consultora de Investimentos Independente habilitada pela
-        Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19/2021.
-        Certificação: Especialista em Investimentos ANBIMA (CEA).
-      </p>
-      <p class="footer-avisos-label">Avisos Importantes</p>
+      <p><strong>Clara Ramalho</strong> — Consultora de Investimentos Independente habilitada pela Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19/2021. Certificação: Especialista em Investimentos ANBIMA (CEA).</p>
+      <p class="footer-disclaimer-title" style="margin-top:1rem;">Avisos Importantes</p>
       <ol class="footer-avisos">
         <li><strong>Risco de Mercado:</strong> Investimentos em valores mobiliários envolvem riscos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.</li>
         <li><strong>Caráter Informativo:</strong> O conteúdo deste site possui caráter exclusivamente educativo e informativo. Não constitui recomendação direta de compra ou venda de ativos financeiros, nem garantia de resultados.</li>
@@ -1596,233 +1365,238 @@
         <li><strong>Impostos e Taxas:</strong> As projeções e simulações podem não considerar custos operacionais, taxas e impostos específicos, que variam de acordo com a situação individual de cada investidor.</li>
       </ol>
     </div>
-
     <hr class="footer-divider" />
-
-    <div class="footer-bottom">
-      <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
-    </div>
-
+    <p class="footer-bottom">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
   </div>
 </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <script>
-    // ==================== CARROSSEL DEPOIMENTOS ====================
-    (function() {
-      const track = document.getElementById('carrosselTrack');
-      const dotsContainer = document.getElementById('carrosselDots');
-      const cards = track.querySelectorAll('.dep-card');
-      let atual = 0;
+<button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
-      function visiveis() {
-        if (window.innerWidth <= 600) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 3;
-      }
+<!-- ==================== MODAIS ==================== -->
+<div class="modal-overlay" id="modal-planejamento">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
+    <p class="modal-titulo">Planejamento Financeiro</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-planejamento">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="pf-nome">Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" /></div>
+        <div class="fi"><label for="pf-sob">Sobrenome</label><input type="text" id="pf-sob" placeholder="Seu sobrenome" /></div>
+        <div class="fi"><label for="pf-email">E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" /></div>
+        <div class="fi"><label for="pf-tel">Telefone</label><input type="tel" id="pf-tel" placeholder="(00) 00000-0000" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="pf-q1">1. Qual é a sua idade e qual é a sua ocupação atual?</label><textarea id="pf-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q2">2. Você tem dependentes financeiros? (filhos, pais, cônjuge)</label><textarea id="pf-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q3">3. Qual é a sua renda mensal aproximada?</label><textarea id="pf-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q4">4. Você sabe quanto gasta por mês? Tem controle das suas despesas?</label><textarea id="pf-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q5">5. Você possui dívidas? Se sim, quais e em qual valor aproximado?</label><textarea id="pf-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q6">6. Você já tem algum investimento ou reserva financeira?</label><textarea id="pf-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q7">7. Quais são seus principais objetivos financeiros nos próximos 2 anos? E nos próximos 10 anos?</label><textarea id="pf-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q8">8. Você está planejando alguma grande compra ou mudança de vida em breve? (imóvel, casamento, filhos, aposentadoria)</label><textarea id="pf-q8" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q9">9. Como você se sente em relação a riscos financeiros? Prefere segurança ou aceita alguma variação em busca de retorno maior?</label><textarea id="pf-q9" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q10">10. Você já tentou organizar suas finanças antes? O que funcionou ou não funcionou?</label><textarea id="pf-q10" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('planejamento')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-planejamento"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
 
-      function totalPosicoes() {
-        return cards.length;
-      }
+<div class="modal-overlay" id="modal-patrimonial">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('patrimonial')">✕</button>
+    <p class="modal-titulo">Organização Patrimonial</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-patrimonial">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="op-nome">Nome</label><input type="text" id="op-nome" placeholder="Seu nome" /></div>
+        <div class="fi"><label for="op-sob">Sobrenome</label><input type="text" id="op-sob" placeholder="Seu sobrenome" /></div>
+        <div class="fi"><label for="op-email">E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" /></div>
+        <div class="fi"><label for="op-tel">Telefone</label><input type="tel" id="op-tel" placeholder="(00) 00000-0000" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="op-q1">1. Quais tipos de bens você possui atualmente? (imóveis, veículos, investimentos, participações em empresas)</label><textarea id="op-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q2">2. Esses bens estão registrados em seu nome, de terceiros ou de pessoa jurídica?</label><textarea id="op-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q3">3. Você é casado(a)? Se sim, qual o regime de bens?</label><textarea id="op-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q4">4. Você tem herdeiros ou dependentes que devem ser considerados no planejamento?</label><textarea id="op-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q5">5. Existe algum planejamento de transmissão de patrimônio (testamento, doação, holding)?</label><textarea id="op-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q6">6. Você tem alguma preocupação específica com a proteção do seu patrimônio?</label><textarea id="op-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q7">7. Há alguma situação fiscal ou tributária relevante que você gostaria de otimizar?</label><textarea id="op-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q8">8. Há alguma disputa, pendência jurídica ou dívida vinculada a algum bem?</label><textarea id="op-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('patrimonial')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-patrimonial"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
 
-      function criarDots() {
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < totalPosicoes(); i++) {
-          const dot = document.createElement('span');
-          if (i === atual) dot.classList.add('ativo');
-          dot.addEventListener('click', () => irPara(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
+<div class="modal-overlay" id="modal-investimentos">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('investimentos')">✕</button>
+    <p class="modal-titulo">Estratégia de Investimentos</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-investimentos">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ei-nome">Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" /></div>
+        <div class="fi"><label for="ei-sob">Sobrenome</label><input type="text" id="ei-sob" placeholder="Seu sobrenome" /></div>
+        <div class="fi"><label for="ei-email">E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" /></div>
+        <div class="fi"><label for="ei-tel">Telefone</label><input type="tel" id="ei-tel" placeholder="(00) 00000-0000" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="ei-q1">1. Qual é o valor aproximado que você tem disponível para investir?</label><textarea id="ei-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q2">2. Você já investe? Se sim, em quais produtos? (poupança, CDB, ações, fundos)</label><textarea id="ei-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q3">3. Qual é o seu objetivo com os investimentos? (reserva, renda passiva, aposentadoria, crescimento de patrimônio)</label><textarea id="ei-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q4">4. Em quanto tempo pretende utilizar esse dinheiro?</label><textarea id="ei-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q5">5. Se seus investimentos caíssem 20% em um mês, qual seria sua reação?</label><textarea id="ei-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q6">6. Você tem reserva de emergência separada dos investimentos?</label><textarea id="ei-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q7">7. Já teve experiências negativas com investimentos? O que aconteceu?</label><textarea id="ei-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q8">8. Você investe sozinho ou já teve assessoria anteriormente?</label><textarea id="ei-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('investimentos')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-investimentos"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
 
-      function irPara(index) {
-        atual = Math.max(0, Math.min(index, totalPosicoes() - 1));
-        const trackWidth = track.parentElement.offsetWidth;
-        const cardWidth = (trackWidth + 24) / visiveis();
-        track.style.transform = `translateX(-${atual * cardWidth}px)`;
-        document.querySelectorAll('.carrossel-dots span').forEach((d, i) => {
-          d.classList.toggle('ativo', i === atual);
-        });
-      }
+<div class="modal-overlay" id="modal-educacao">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('educacao')">✕</button>
+    <p class="modal-titulo">Educação Financeira</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-educacao">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ef-nome">Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" /></div>
+        <div class="fi"><label for="ef-sob">Sobrenome</label><input type="text" id="ef-sob" placeholder="Seu sobrenome" /></div>
+        <div class="fi"><label for="ef-email">E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" /></div>
+        <div class="fi"><label for="ef-tel">Telefone</label><input type="tel" id="ef-tel" placeholder="(00) 00000-0000" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="ef-q1">1. Como você descreveria sua relação atual com o dinheiro?</label><textarea id="ef-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q2">2. Você tem o hábito de guardar parte da sua renda mensalmente?</label><textarea id="ef-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q3">3. Quais são os principais desafios financeiros que você enfrenta hoje?</label><textarea id="ef-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q4">4. Você já fez algum curso ou leu livros sobre finanças? O que achou?</label><textarea id="ef-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q5">5. O que te motivou a buscar educação financeira agora?</label><textarea id="ef-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q6">6. Você prefere aprender de forma individual ou em grupo?</label><textarea id="ef-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q7">7. Qual é o seu nível de conhecimento sobre investimentos? (iniciante, intermediário, avançado)</label><textarea id="ef-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q8">8. Você tem algum objetivo financeiro específico que quer alcançar com mais conhecimento?</label><textarea id="ef-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('educacao')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-educacao"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
 
-      window.moverCarrossel = function(dir) { irPara(atual + dir); };
+<!-- ==================== JS ==================== -->
+<script>
+  // header scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 10);
+    document.getElementById('top-btn').classList.toggle('on', window.scrollY > 400);
+  }, { passive: true });
 
-      criarDots();
-      window.addEventListener('resize', () => { atual = 0; criarDots(); irPara(0); });
-    })();
+  // mobile nav
+  const mob = document.getElementById('mob');
+  document.getElementById('hbg').addEventListener('click', () => mob.classList.add('open'));
+  document.getElementById('mobClose').addEventListener('click', () => mob.classList.remove('open'));
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
 
-    // ==================== MODAIS ====================
-    // EDITAR: substitua pela URL do seu Cloudflare Worker
-    const WORKER_URL = 'https://formulario-contato.m-clarard.workers.dev';
-    const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
+  // fade in
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fi-anim').forEach(el => io.observe(el));
 
-    function abrirModal(tipo) {
-      document.getElementById('modal-' + tipo).classList.add('open');
-      document.body.style.overflow = 'hidden';
+  // serviços — hover para ativar card
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => c.addEventListener('mouseenter', () => {
+    cards.forEach(x => x.setAttribute('data-active', 'false'));
+    c.setAttribute('data-active', 'true');
+  }));
+
+  // depoimentos carrossel
+  (function() {
+    const track = document.getElementById('depTrack');
+    const dots = document.getElementById('depDots');
+    const cards = [...track.querySelectorAll('.dep-card')];
+    const btnP = document.getElementById('depPrev');
+    const btnN = document.getElementById('depNext');
+    let cur = 0;
+
+    function render() {
+      const w = track.parentElement.offsetWidth;
+      track.style.transform = `translateX(-${cur * (w + 20)}px)`;
+      cards.forEach((c, i) => c.setAttribute('data-active', i === cur ? 'true' : 'false'));
+      btnP.setAttribute('data-active', cur > 0 ? 'true' : 'false');
+      btnN.setAttribute('data-active', cur < cards.length - 1 ? 'true' : 'false');
+      dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('on', i === cur));
     }
-    function fecharModal(tipo) {
-      document.getElementById('modal-' + tipo).classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    // Fecha modal ao clicar fora
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          overlay.classList.remove('open');
-          document.body.style.overflow = '';
-        }
-      });
+
+    cards.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.addEventListener('click', () => { cur = i; render(); });
+      dots.appendChild(d);
     });
 
-    const prefixos = {
-      planejamento: 'pf',
-      patrimonial: 'op',
-      investimentos: 'ei',
-      educacao: 'ef'
-    };
+    btnP.addEventListener('click', () => { if (cur > 0) { cur--; render(); } });
+    btnN.addEventListener('click', () => { if (cur < cards.length - 1) { cur++; render(); } });
+    cards.forEach((c, i) => c.addEventListener('click', () => { cur = i; render(); }));
+    window.addEventListener('resize', render);
+    render();
+  })();
 
-    const titulos = {
-      planejamento: 'Planejamento Financeiro',
-      patrimonial: 'Organização Patrimonial',
-      investimentos: 'Estratégia de Investimentos',
-      educacao: 'Educação Financeira'
-    };
+  // modais
+  const WORKER = 'https://formulario-contato.m-clarard.workers.dev';
+  const NL_WORKER = 'https://newsletter-cadastro.m-clarard.workers.dev';
 
-    async function enviarFormulario(tipo) {
-      const p = prefixos[tipo];
-      const nome = document.getElementById(p + '-nome').value.trim();
-      const sobrenome = document.getElementById(p + '-sobrenome').value.trim();
-      const email = document.getElementById(p + '-email').value.trim();
-      const telefone = document.getElementById(p + '-telefone').value.trim();
+  function abrirModal(t) {
+    document.getElementById('modal-' + t).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function fecharModal(t) {
+    document.getElementById('modal-' + t).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(o => {
+    o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; } });
+  });
 
-      if (!nome || !email) {
-        alert('Por favor, preencha pelo menos nome e e-mail.');
-        return;
-      }
+  const PRE = { planejamento: 'pf', patrimonial: 'op', investimentos: 'ei', educacao: 'ef' };
+  const TIT = { planejamento: 'Planejamento Financeiro', patrimonial: 'Organização Patrimonial', investimentos: 'Estratégia de Investimentos', educacao: 'Educação Financeira' };
+  const QTD = { planejamento: 10, patrimonial: 8, investimentos: 8, educacao: 8 };
 
-      // Coleta perguntas respondidas
-      const qtd = tipo === 'planejamento' ? 10 : 8;
-      let respostas = '';
-      for (let i = 1; i <= qtd; i++) {
-        const el = document.getElementById(p + '-q' + i);
-        if (el && el.value.trim()) {
-          respostas += `<p><strong>Pergunta ${i}:</strong> ${el.labels[0].textContent}<br/>${el.value.trim()}</p>`;
-        }
-      }
-
-      const btn = document.querySelector('#form-' + tipo + ' .btn-enviar');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-
-      try {
-        const res = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            nome: nome + ' ' + sobrenome,
-            email,
-            telefone,
-            mensagem: `<h2>Serviço: ${titulos[tipo]}</h2>${respostas}`
-          })
-        });
-        const data = await res.json();
-        if (data.ok) {
-          document.getElementById('form-' + tipo).style.display = 'none';
-          document.getElementById('sucesso-' + tipo).style.display = 'block';
-        } else {
-          alert('Ocorreu um erro. Tente novamente.');
-          btn.disabled = false;
-          btn.textContent = 'Enviar';
-        }
-      } catch {
-        alert('Erro de conexão. Tente novamente.');
-        btn.disabled = false;
-        btn.textContent = 'Enviar';
-      }
+  async function enviarFormulario(tipo) {
+    const p = PRE[tipo];
+    const nome = document.getElementById(p + '-nome').value.trim();
+    const email = document.getElementById(p + '-email').value.trim();
+    if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); return; }
+    const sob = document.getElementById(p + '-sob').value.trim();
+    const tel = document.getElementById(p + '-tel').value.trim();
+    const respostas = {};
+    for (let i = 1; i <= QTD[tipo]; i++) {
+      const el = document.getElementById(p + '-q' + i);
+      if (el) respostas['q' + i] = el.value.trim();
     }
+    const btn = document.querySelector('#form-' + tipo + ' .btn-enviar');
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    try {
+      const r = await fetch(WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ tipo: TIT[tipo], nome, sobrenome: sob, email, telefone: tel, respostas }) });
+      if (r.ok) { document.getElementById('form-' + tipo).style.display = 'none'; document.getElementById('ok-' + tipo).style.display = 'block'; }
+      else throw new Error();
+    } catch { alert('Erro ao enviar. Tente novamente.'); btn.disabled = false; btn.textContent = 'Enviar'; }
+  }
 
-    // ==================== SCROLL / MENU ====================
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // Menu mobile
-    const hamburger = document.getElementById('hamburger');
-    const navMobile = document.getElementById('navMobile');
-    const closeNav  = document.getElementById('closeNav');
-    hamburger.addEventListener('click', () => navMobile.style.display = 'flex');
-    closeNav.addEventListener('click',  () => navMobile.style.display = 'none');
-    document.querySelectorAll('.nav-link-mobile').forEach(link => {
-      link.addEventListener('click', () => navMobile.style.display = 'none');
-    });
-
-    // Animações fade-in com Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ── VOLTAR AO TOPO ──
-    (function() {
-      const btn = document.getElementById('voltarTopo');
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('visivel', window.scrollY > 400);
-      }, { passive: true });
-    })();
-  
-    <!-- ==================== NEWSLETTER ==================== -->
-    async function cadastrarNewsletter() {
-      const email = document.getElementById('nl-email').value.trim();
-      const btn   = document.querySelector('.nl-inputs button');
-    
-      if (!email) {
-        alert('Por favor, informe seu e-mail.');
-        return;
-      }
-    
-      btn.disabled    = true;
-      btn.textContent = 'Cadastrando...';
-    
-      try {
-        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ nome, email }),
-        });
-        const data = await res.json();
-    
-        if (data.ok) {
-          document.getElementById('nlForm').style.display    = 'none';
-          document.getElementById('nlSucesso').style.display = 'block';
-          document.querySelector('#nlSucesso h3').textContent = 'Quase lá!';
-          document.querySelector('#nlSucesso p').textContent  =
-            'Enviamos um e-mail de confirmação. Clique no link para ativar seu cadastro. Não encontrou? Verifique a caixa de spam.';
-        } else {
-          alert(data.error || 'Ocorreu um erro. Tente novamente.');
-          btn.disabled    = false;
-          btn.textContent = 'Quero receber';
-        }
-        
-      } catch {
-        alert('Erro de conexão. Tente novamente.');
-        btn.disabled    = false;
-        btn.textContent = 'Quero receber';
-      }
-    }
-  
-  </script>
-
-
-  <!-- Botão voltar ao topo -->
-  <button id="voltarTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
+  async function cadastrarNewsletter() {
+    const email = document.getElementById('nlEmail').value.trim();
+    if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+    const btn = document.querySelector('#nlForm button');
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    try {
+      const r = await fetch(NL_WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+      if (r.ok) { document.getElementById('nlForm').style.display = 'none'; document.getElementById('nlSucesso').style.display = 'block'; }
+      else throw new Error();
+    } catch { alert('Erro ao cadastrar. Tente novamente.'); btn.disabled = false; btn.textContent = 'Quero receber'; }
+  }
+</script>
 </body>
 </html>

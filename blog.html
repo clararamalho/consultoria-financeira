@@ -5,452 +5,420 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Newsletter · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Newsletter · Clara Ramalho Consultoria Financeira" />
+  <meta property="og:description" content="Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação." />
+  <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://clararamalho.com.br/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/outfit-v15-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/outfit-v15-latin-regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/outfit-v15-latin-500.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/outfit-v15-latin-600.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/outfit-v15-latin-700.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/inter-v20-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/inter-v20-latin-500.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/inter-v20-latin-600.woff2') format('woff2'); }
-
-
-    /* ── BUSCA ── */
-    .busca-wrap {
-      background: var(--prata-clara);
-      border-bottom: 1px solid rgba(192,200,212,0.4);
-      padding: 0.75rem 2rem;
-      position: sticky;
-      top: 64px;
-      z-index: 51;
-    }
-    .busca-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .busca-input {
-      width: 100%;
-      padding: 0.55rem 1rem 0.55rem 2.4rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      color: var(--texto);
-      background: var(--branco);
-      border: 1px solid rgba(192,200,212,0.5);
-      border-radius: 6px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .busca-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74,125,191,0.1);
-    }
-    .busca-input::placeholder { color: var(--texto-leve); opacity: 0.6; }
-    .busca-icone {
-      position: absolute;
-      left: 0.75rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 15px;
-      height: 15px;
-      stroke: var(--texto-leve);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      pointer-events: none;
-    }
-    .busca-vazia {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--texto-leve);
-      font-size: 0.92rem;
-      display: none;
-    }
-    /* ── VOLTAR AO TOPO ── */
-    #voltarTopo {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 44px;
-      height: 44px;
-      background: var(--azul);
-      border: 1px solid rgba(192,200,212,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
-      z-index: 200;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    }
-    #voltarTopo.visivel {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    #voltarTopo:hover { background: #1A3358; }
-    #voltarTopo svg {
-      width: 18px;
-      height: 18px;
-      stroke: #fff;
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
     :root {
-      --azul:       #0B1F3A;
-      --azul-medio: #1A3358;
-      --prata:      #C0C8D4;
-      --prata-clara:#E8EDF2;
-      --branco:     #FFFFFF;
-      --texto:      #2C3E50;
-      --texto-leve: #6B7A8D;
-      --accent:     #4A7DBF;
+      --white:     #FFFFFF;
+      --off:       #F7F8FC;
+      --surface-2: #EDEEF5;
+      --border:    rgba(26,42,108,0.1);
+      --border-2:  rgba(26,42,108,0.06);
+      --ink:       #1A2A6C;
+      --ink-2:     #5A6785;
+      --ink-3:     #9AA3B8;
+      --ciano:     #00B4D8;
+      --radius:    0.625rem;
+      --max:       1220px;
+      --nav-h:     56px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--branco); color: var(--texto); line-height: 1.7; overflow-x: hidden; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
-    /* ── HEADER ── */
+    /* HEADER */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(11,31,58,0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 32px rgba(11,31,58,0.18);
+      position: sticky; top: 0; left: 0; right: 0; height: var(--nav-h);
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); z-index: 100;
+      display: flex; align-items: center; padding: 0 1.25rem; transition: box-shadow 0.3s;
     }
-    .logo { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--branco); text-decoration: none; letter-spacing: 0.01em; }
-    .logo span { color: var(--prata); font-weight: 300; }
-    .header-nav { display: flex; gap: 2rem; align-items: center; }
-    .header-nav a { color: var(--prata-clara); text-decoration: none; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
-    .header-nav a:hover { color: var(--branco); }
+    header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
+    .hdr-inner { width: 100%; max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .hdr-left { display: flex; align-items: center; gap: 0.15rem; }
+    .hdr-logo { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding-right: 1.25rem; border-right: 1px solid var(--border); margin-right: 0.5rem; white-space: nowrap; }
+    .hdr-nav { display: flex; align-items: center; gap: 0.15rem; }
+    .hdr-nav a { font-size: 0.85rem; font-weight: 300; color: var(--ink-2); text-decoration: none; padding: 0.35rem 0.9rem; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
+    .hdr-nav a:hover, .hdr-nav a.active { color: var(--ink); background: var(--off); }
+    .hdr-right { display: flex; align-items: center; gap: 0.75rem; }
+    .hdr-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 300; color: var(--ink); border: 1px solid var(--border); padding: 0.35rem 0.9rem; border-radius: var(--radius); background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.03); text-decoration: none; transition: background 0.2s, border-color 0.2s; overflow: hidden; }
+    .hdr-cta:hover { background: var(--off); border-color: transparent; }
+    .hdr-cta-arrow { display: flex; overflow: hidden; width: 14px; height: 14px; position: relative; }
+    .hdr-cta-arrow svg { position: absolute; width: 14px; height: 14px; transition: transform 0.3s, opacity 0.3s; }
+    .hdr-cta-arrow svg:nth-child(1) { transform: translateX(0); opacity: 1; }
+    .hdr-cta-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
+    .hdr-cta:hover .hdr-cta-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
+    .hdr-cta:hover .hdr-cta-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
+    .hdr-hbg { display: none; flex-direction: column; gap: 4.5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hdr-hbg span { width: 20px; height: 1.5px; background: var(--ink); display: block; }
+    .mob-ov { display: none; position: fixed; inset: 0; background: var(--white); z-index: 500; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mob-ov.open { display: flex; }
+    .mob-ov a { font-size: 1.5rem; font-weight: 300; color: var(--ink); text-decoration: none; }
+    .mob-cls { position: absolute; top: 1rem; right: 1.25rem; font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer; }
 
-    /* ── HERO ── */
-    .page-hero { background: var(--azul); padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,125,191,0.12) 0%, transparent 70%); pointer-events: none; }
-    .page-hero-content { position: relative; max-width: 1100px; margin: 0 auto; }
-    .page-label { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--prata); margin-bottom: 1rem; display: block; }
-    .page-title { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: var(--branco); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .page-title em { font-style: normal; color: var(--prata); }
-    .page-subtitulo { font-size: 1rem; color: rgba(232,237,242,0.65); max-width: 480px; font-weight: 300; }
+    /* HERO */
+    .blog-hero { padding: 3rem 1.25rem 2.5rem; border-bottom: 1px solid var(--border-2); }
+    .blog-hero-inner { max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-family: monospace; margin-bottom: 1.5rem; display: block; }
+    .blog-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--ink); letter-spacing: -0.03em; line-height: 1.12; max-width: 600px; }
+    .blog-hero-sub { font-size: 0.9rem; font-weight: 300; color: var(--ink-2); margin-top: 0.6rem; line-height: 1.7; }
 
-    /* ── FILTROS ── */
-    .filtros-wrap { background: var(--prata-clara); border-bottom: 1px solid rgba(192,200,212,0.4); padding: 1rem 2rem; position: sticky; top: 64px; z-index: 50; }
-    .filtros { max-width: 1100px; margin: 0 auto; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filtro-btn { font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; padding: 0.35rem 1rem; border-radius: 100px; border: 1px solid rgba(11,31,58,0.15); background: transparent; color: var(--texto-leve); cursor: pointer; transition: all 0.2s; }
-    .filtro-btn:hover, .filtro-btn.ativo { background: var(--azul); color: var(--branco); border-color: var(--azul); }
+    /* CONTROLS */
+    .blog-controls { position: sticky; top: var(--nav-h); z-index: 90; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-2); padding: 0.75rem 1.25rem; }
+    .blog-controls-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .busca-wrap { position: relative; flex: 1; min-width: 180px; }
+    .busca-icone { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: var(--ink-3); fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+    .busca-input { width: 100%; padding: 0.5rem 0.9rem 0.5rem 2.2rem; font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 300; color: var(--ink); background: var(--off); border: 1px solid var(--border); border-radius: var(--radius); outline: none; transition: border-color 0.2s; }
+    .busca-input:focus { border-color: var(--ciano); }
+    .busca-input::placeholder { color: var(--ink-3); }
+    .filtros { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .filtro-btn { font-size: 0.75rem; font-weight: 300; padding: 0.3rem 0.85rem; border-radius: 100px; border: 1px solid var(--border); background: var(--white); color: var(--ink-2); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .filtro-btn:hover { color: var(--ink); background: var(--off); }
+    .filtro-btn.ativo { background: var(--ink); color: var(--white); border-color: var(--ink); }
 
-    /* ── GRID DE POSTS ── */
-    .posts-section { padding: 4rem 2rem 6rem; }
-    .posts-container { max-width: 1100px; margin: 0 auto; }
-    .posts-loading { text-align: center; padding: 4rem; color: var(--texto-leve); font-size: 0.95rem; }
-    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-    .posts-vazio { text-align: center; padding: 3rem; color: var(--texto-leve); grid-column: 1/-1; }
+    /* POSTS */
+    .posts-section { padding: 3rem 1.25rem 6rem; }
+    .posts-container { max-width: var(--max); margin: 0 auto; }
+    .posts-loading { text-align: center; padding: 5rem 1rem; font-size: 0.75rem; font-weight: 400; color: var(--ink-3); font-family: monospace; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    /* Cards */
-    .post-card { background: var(--branco); border: 1px solid var(--prata-clara); border-radius: 8px; padding: 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; text-decoration: none; color: inherit; }
-    .post-card:hover { border-color: var(--prata); box-shadow: 0 8px 32px rgba(11,31,58,0.08); transform: translateY(-3px); }
-    .post-card-meta { display: flex; align-items: center; justify-content: space-between; }
-    .post-tag { font-family: 'Outfit', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: rgba(74,125,191,0.08); padding: 0.25rem 0.7rem; border-radius: 100px; }
-    .post-data { font-size: 0.75rem; color: var(--texto-leve); }
-    .post-card h2 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--azul); line-height: 1.35; }
-    .post-card p { font-size: 0.88rem; color: var(--texto-leve); line-height: 1.65; flex: 1; }
-    .post-ler { font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--accent); margin-top: 0.4rem; transition: color 0.2s; }
-    .post-card:hover .post-ler { color: var(--azul); }
+    /* destaque */
+    .post-destaque { display: flex; flex-direction: row; border: 1px solid var(--border); border-radius: var(--radius); background: var(--white); overflow: hidden; margin-bottom: 1.25rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: box-shadow 0.4s; min-height: 320px; }
+    .post-destaque:hover { box-shadow: 0 30px 60px -20px rgba(26,42,108,0.1), 0 8px 24px -8px rgba(26,42,108,0.06); }
+    .post-destaque-body { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; padding: 2.5rem 2.8rem; flex: 1; }
+    .post-cat { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-family: monospace; margin-bottom: 1rem; display: block; }
+    .post-destaque-body h2 { font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 300; color: var(--ink); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .post-destaque-body p { font-size: 0.9rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; }
+    .post-link { font-size: 0.85rem; font-weight: 300; color: var(--ink); position: relative; display: inline-block; }
+    .post-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px; background: var(--ink-3); opacity: 0.4; transition: opacity 0.3s; }
+    .post-destaque:hover .post-link::after, .post-card:hover .post-link::after { opacity: 1; }
+    .post-destaque-img { width: 40%; flex-shrink: 0; padding: 0.75rem 0.75rem 0.75rem 0; }
+    .post-destaque-img-inner { width: 100%; height: 100%; border-radius: calc(var(--radius) - 2px); border: 1px solid var(--border-2); background: var(--off); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .post-destaque-img-inner svg { width: 40px; height: 40px; stroke: var(--border); fill: none; stroke-width: 1; }
 
-    /* Destaque */
-    .post-card.destaque { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2.5rem; background: var(--prata-clara); }
-    .post-card.destaque h2 { font-size: 1.4rem; }
-    .post-card.destaque p { font-size: 0.95rem; }
-    .destaque-left { display: flex; flex-direction: column; gap: 0.8rem; }
-    .destaque-right { display: flex; align-items: center; justify-content: center; }
-    .destaque-visual { width: 100%; max-width: 280px; aspect-ratio: 4/3; background: var(--azul); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-    .destaque-visual svg { width: 64px; height: 64px; stroke: rgba(192,200,212,0.3); fill: none; stroke-width: 1; }
+    /* grid */
+    .posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--border); }
+    .post-card { background: var(--white); text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: background 0.2s; }
+    .post-card:hover { background: var(--off); }
+    .post-card-body { display: flex; flex-direction: column; justify-content: space-between; padding: 1.6rem; height: 100%; gap: 0.75rem; }
+    .post-card h2 { font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.4; letter-spacing: -0.01em; flex: 1; }
+    .post-card p { font-size: 0.83rem; font-weight: 300; color: var(--ink-2); line-height: 1.65; }
+    .post-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
+    .post-data { font-size: 0.65rem; color: var(--ink-3); font-family: monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+    .posts-vazio { text-align: center; padding: 4rem 1rem; font-size: 0.85rem; font-weight: 300; color: var(--ink-3); }
+    .busca-vazia { display: none; }
 
-    /* ── FORMULÁRIO ── */
-    .nl-section { background: var(--azul); padding: 5rem 2rem; }
-    .nl-box { max-width: 700px; margin: 0 auto; text-align: center; }
-    .nl-box h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--branco); margin-bottom: 0.75rem; line-height: 1.2; }
-    .nl-box p { color: rgba(232,237,242,0.6); font-size: 0.95rem; margin-bottom: 2rem; }
-    .nl-form-inline { display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto 1rem; }
-    .nl-form-inline input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(192,200,212,0.2); border-radius: 4px; padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--branco); outline: none; transition: border-color 0.2s; }
-    .nl-form-inline input::placeholder { color: rgba(192,200,212,0.4); }
-    .nl-form-inline input:focus { border-color: rgba(192,200,212,0.5); }
-    .nl-form-inline button { background: var(--branco); color: var(--azul); border: none; padding: 0.8rem 1.5rem; border-radius: 4px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
-    .nl-form-inline button:hover { background: var(--prata-clara); }
-    .nl-lgpd-blog { font-size: 0.72rem; color: rgba(192,200,212,0.35); line-height: 1.65; }
-    .nl-lgpd-blog a { color: rgba(192,200,212,0.5); text-decoration: underline; }
-    .nl-sucesso-blog { display: none; color: var(--branco); font-family: 'Outfit', sans-serif; font-size: 1.1rem; padding: 1.5rem; }
+    /* NL */
+    .nl-section { background: var(--ink); padding: 5rem 1.25rem; }
+    .nl-box { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .nl-box-txt h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; color: var(--white); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.6rem; }
+    .nl-box-txt p { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.4); }
+    .nl-form { display: flex; flex-direction: column; gap: 0.6rem; }
+    .nl-form input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--white); outline: none; transition: border-color 0.2s; }
+    .nl-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .nl-form input:focus { border-color: rgba(255,255,255,0.3); }
+    .nl-form button { background: var(--white); color: var(--ink); border: none; padding: 0.8rem; border-radius: var(--radius); font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 400; cursor: pointer; transition: background 0.2s; }
+    .nl-form button:hover { background: var(--off); }
+    .nl-lgpd-blog { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.25); line-height: 1.6; }
+    .nl-lgpd-blog a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+    .nl-sucesso-blog { display: none; color: var(--white); font-size: 0.9rem; font-weight: 300; line-height: 1.6; }
 
-    /* ── FOOTER ── */
-    footer { background: #060F1D; padding: 2rem; text-align: center; color: rgba(192,200,212,0.35); font-size: 0.78rem; line-height: 1.8; }
-    footer a { color: rgba(192,200,212,0.45); text-decoration: none; }
-    footer a:hover { color: var(--prata); }
+    /* FOOTER */
+    footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 1.25rem; text-align: center; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.2); line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: rgba(255,255,255,0.7); }
 
-    @media (max-width: 900px) {
-      .posts-grid { grid-template-columns: 1fr 1fr; }
-      .post-card.destaque { grid-template-columns: 1fr; }
-      .destaque-right { display: none; }
+    /* VOLTAR AO TOPO */
+    #voltarTopo { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; background: var(--ink); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s, visibility 0.3s, transform 0.3s; z-index: 300; box-shadow: 0 4px 16px rgba(26,42,108,0.2); }
+    #voltarTopo.visivel { opacity: 1; visibility: visible; transform: translateY(0); }
+    #voltarTopo svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    @media (max-width: 860px) {
+      .hdr-nav { display: none; }
+      .hdr-hbg { display: flex; }
+      .post-destaque { flex-direction: column; min-height: auto; }
+      .post-destaque-img { width: 100%; height: 180px; padding: 0.75rem 0.75rem 0; }
+      .post-destaque-body { padding: 1.8rem; }
+      .nl-box { grid-template-columns: 1fr; gap: 2rem; }
     }
     @media (max-width: 600px) {
       .posts-grid { grid-template-columns: 1fr; }
-      .nl-form-inline { flex-direction: column; }
+      .blog-controls-inner { flex-direction: column; align-items: flex-start; }
+      .busca-wrap { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
-    <div class="header-nav">
-      <a href="index.html#servicos">Serviços</a>
-      <a href="index.html#contato">Contato</a>
-      <a href="index.html">← Site</a>
-    </div>
-  </header>
+<div class="mob-ov" id="mobNav">
+  <button class="mob-cls" id="mobClose">✕</button>
+  <a href="index.html">Início</a>
+  <a href="index.html#sobre">Sobre</a>
+  <a href="index.html#servicos">Serviços</a>
+  <a href="index.html#depoimentos">Depoimentos</a>
+  <a href="blog.html">Newsletter</a>
+  <a href="index.html#contato">Contato</a>
+</div>
 
-  <div class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="page-hero-content">
-      <span class="page-label">Newsletter</span>
-      <h1 class="page-title">Conteúdo para quem quer<br /><em>entender o próprio dinheiro.</em></h1>
-      <p class="page-subtitulo">Quinzenal. Sem enrolação. Educação financeira, análise de mercado e novidades direto no seu e-mail.</p>
+<header id="hdrMain">
+  <div class="hdr-inner">
+    <div class="hdr-left">
+      <a href="index.html" class="hdr-logo">Clara Ramalho</a>
+      <nav class="hdr-nav">
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#depoimentos">Depoimentos</a>
+        <a href="blog.html" class="active">Newsletter</a>
+      </nav>
+    </div>
+    <div class="hdr-right">
+      <a href="index.html#contato" class="hdr-cta">
+        Agendar conversa
+        <span class="hdr-cta-arrow">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </a>
+      <button class="hdr-hbg" id="hdrHbg" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
+</header>
 
-  <div class="busca-wrap">
-    <div class="busca-inner">
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="breadcrumb">Newsletter</span>
+    <h1>Conteúdo para quem quer<br />entender o próprio dinheiro.</h1>
+    <p class="blog-hero-sub">Quinzenal. Sem enrolação. Educação financeira, análise de mercado e novidades direto no seu e-mail.</p>
+  </div>
+</div>
+
+<div class="blog-controls">
+  <div class="blog-controls-inner">
+    <div class="busca-wrap">
       <svg class="busca-icone" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input
-        type="search"
-        id="buscaInput"
-        class="busca-input"
-        placeholder="Buscar posts..."
-        autocomplete="off"
-        oninput="buscar(this.value)"
-      />
+      <input type="search" id="buscaInput" class="busca-input" placeholder="Buscar posts..." autocomplete="off" oninput="buscar(this.value)" />
     </div>
-  </div>
-
-  <div class="filtros-wrap">
     <div class="filtros" id="filtrosContainer">
       <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
     </div>
   </div>
+</div>
 
-  <section class="posts-section">
-    <div class="posts-container">
-      <div class="posts-loading" id="postsLoading">Carregando posts...</div>
-      <div class="posts-grid" id="postsGrid" style="display:none;"></div>
-      <div class="busca-vazia" id="buscaVazia">Nenhum post encontrado para "<span id="buscaTermo"></span>".</div>
-    </div>
-  </section>
+<section class="posts-section">
+  <div class="posts-container">
+    <div class="posts-loading" id="postsLoading">Carregando posts...</div>
+    <div id="postsDestaque"></div>
+    <div class="posts-grid" id="postsGrid" style="display:none;"></div>
+    <div class="busca-vazia posts-vazio" id="buscaVazia">Nenhum post encontrado para "<span id="buscaTermo"></span>".</div>
+  </div>
+</section>
 
-  <section class="nl-section">
-    <div class="nl-box">
+<section class="nl-section">
+  <div class="nl-box">
+    <div class="nl-box-txt">
       <h2>Receba quinzenalmente<br />no seu e-mail.</h2>
       <p>Cadastre-se e receba conteúdo direto na sua caixa de entrada. Cancele quando quiser.</p>
+    </div>
+    <div>
       <div id="nlFormBlog">
-        <div class="nl-form-inline">
+        <div class="nl-form">
           <label for="nl-email-blog" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">E-mail</label>
           <input type="email" id="nl-email-blog" placeholder="seu@email.com" autocomplete="email" />
           <button onclick="cadastrarBlog()">Quero receber</button>
         </div>
-        <p class="nl-lgpd-blog">
-          Ao se cadastrar, você concorda em receber nossa newsletter quinzenal.
-          Dados protegidos conforme nossa
+        <p class="nl-lgpd-blog" style="margin-top:0.6rem;">
+          Ao se cadastrar, você concorda com nossa
           <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.
+          Cancele a qualquer momento.
         </p>
       </div>
-      <div class="nl-sucesso-blog" id="nlSucessoBlog">
-        ✓ Cadastro confirmado! Você receberá nossa próxima edição em breve.
-      </div>
+      <div class="nl-sucesso-blog" id="nlSucessoBlog"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
-    <p style="margin-top:0.4rem;">
-      <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp;
-      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> &nbsp;·&nbsp;
-      <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
-    </p>
-  </footer>
+<footer>
+  <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+  <p style="margin-top:0.3rem;">
+    <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp;
+    <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> &nbsp;·&nbsp;
+    <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
+  </p>
+</footer>
 
-  <script>
-    const REPO_RAW   = 'https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main';
-    const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
-    let todosPosts = [];
+<button id="voltarTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
-    function formatarData(d) {
-      if (!d) return '';
-      const [ano, mes, dia] = d.split('-');
-      return `${parseInt(dia)} ${'jan fev mar abr mai jun jul ago set out nov dez'.split(' ')[parseInt(mes)-1]} ${ano}`;
+<script>
+  // header
+  const hdr = document.getElementById('hdrMain');
+  const mob = document.getElementById('mobNav');
+  document.getElementById('hdrHbg').addEventListener('click', () => mob.classList.add('open'));
+  document.getElementById('mobClose').addEventListener('click', () => mob.classList.remove('open'));
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+  window.addEventListener('scroll', () => {
+    document.getElementById('voltarTopo').classList.toggle('visivel', window.scrollY > 400);
+  }, { passive: true });
+
+  // posts
+  const REPO_RAW = 'https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main';
+  const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
+  let todosPosts = [];
+
+  function formatarData(d) {
+    if (!d) return '';
+    const [ano, mes, dia] = d.split('-');
+    return `${parseInt(dia)} ${'jan fev mar abr mai jun jul ago set out nov dez'.split(' ')[parseInt(mes)-1]} ${ano}`;
+  }
+
+  async function carregarPosts() {
+    try {
+      const res = await fetch(`${REPO_RAW}/posts/index.json`);
+      if (!res.ok) throw new Error('erro');
+      todosPosts = await res.json();
+      construirFiltros();
+      renderizarPosts(todosPosts);
+    } catch {
+      document.getElementById('postsLoading').textContent = 'Não foi possível carregar os posts.';
+    }
+  }
+
+  function construirFiltros() {
+    const nomes = {
+      educacao: 'Educação Financeira',
+      investimentos: 'Investimentos',
+      planejamento: 'Planejamento',
+      mercado: 'Mercado',
+      economia: 'Economia'
+    };
+    const categorias = [...new Set(todosPosts.map(p => p.categoria_id))];
+    const container  = document.getElementById('filtrosContainer');
+    categorias.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className   = 'filtro-btn';
+      btn.textContent = nomes[cat] || cat;
+      btn.onclick     = () => filtrar(cat, btn);
+      container.appendChild(btn);
+    });
+  }
+
+  function renderizarPosts(posts) {
+    document.getElementById('postsLoading').style.display = 'none';
+    document.getElementById('buscaVazia').style.display   = 'none';
+    const destDiv = document.getElementById('postsDestaque');
+    const grid    = document.getElementById('postsGrid');
+
+    if (posts.length === 0) {
+      destDiv.innerHTML  = '<div class="posts-vazio">Nenhum post encontrado nessa categoria.</div>';
+      grid.style.display = 'none';
+      grid.innerHTML     = '';
+      return;
     }
 
-    async function carregarPosts() {
-      try {
-        const res = await fetch(`${REPO_RAW}/posts/index.json`);
-        if (!res.ok) throw new Error('erro');
-        todosPosts = await res.json();
-        construirFiltros();
-        renderizarPosts(todosPosts);
-      } catch {
-        document.getElementById('postsLoading').textContent = 'Não foi possível carregar os posts.';
-      }
-    }
+    // destaque — estilo Moment blog
+    const p0 = posts[0];
+    destDiv.innerHTML = `
+      <a href="post.html?slug=${p0.slug}" class="post-destaque">
+        <div class="post-destaque-body">
+          <div>
+            <span class="post-cat">${p0.categoria || ''}</span>
+            <h2>${p0.titulo}</h2>
+            <p>${p0.resumo || ''}</p>
+          </div>
+          <span class="post-link">Ler mais</span>
+        </div>
+        <div class="post-destaque-img">
+          <div class="post-destaque-img-inner">
+            <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="4"/><line x1="8" y1="24" x2="56" y2="24"/><line x1="20" y1="8" x2="20" y2="24"/><line x1="44" y1="8" x2="44" y2="24"/></svg>
+          </div>
+        </div>
+      </a>`;
 
-    function construirFiltros() {
-      const nomes = {
-        educacao: 'Educação Financeira',
-        investimentos: 'Investimentos',
-        planejamento: 'Planejamento',
-        mercado: 'Mercado',
-        economia: 'Economia'
-      };
-      const categorias = [...new Set(todosPosts.map(p => p.categoria_id))];
-      const container  = document.getElementById('filtrosContainer');
-      categorias.forEach(cat => {
-        const btn = document.createElement('button');
-        btn.className   = 'filtro-btn';
-        btn.textContent = nomes[cat] || cat;
-        btn.onclick     = () => filtrar(cat, btn);
-        container.appendChild(btn);
+    const restantes = posts.slice(1);
+    if (restantes.length === 0) { grid.style.display = 'none'; grid.innerHTML = ''; return; }
+
+    grid.style.display = 'grid';
+    grid.innerHTML = restantes.map(p => `
+      <a href="post.html?slug=${p.slug}" class="post-card">
+        <div class="post-card-body">
+          <div>
+            <span class="post-cat">${p.categoria || ''}</span>
+            <h2>${p.titulo}</h2>
+            <p>${p.resumo || ''}</p>
+          </div>
+          <div class="post-card-footer">
+            <span class="post-link">Ler mais</span>
+            <span class="post-data">${formatarData(p.data)}</span>
+          </div>
+        </div>
+      </a>`).join('');
+  }
+
+  function filtrar(cat, btn) {
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    document.getElementById('buscaInput').value = '';
+    const filtrados = cat === 'todos' ? todosPosts : todosPosts.filter(p => p.categoria_id === cat);
+    renderizarPosts(filtrados);
+  }
+
+  function buscar(termo) {
+    const t = termo.trim().toLowerCase();
+    const filtrados = todosPosts.filter(p =>
+      p.titulo.toLowerCase().includes(t) ||
+      (p.resumo || '').toLowerCase().includes(t) ||
+      (p.categoria || '').toLowerCase().includes(t)
+    );
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    document.querySelector('.filtro-btn').classList.add('ativo');
+    if (t && filtrados.length === 0) {
+      document.getElementById('postsDestaque').innerHTML = '';
+      document.getElementById('postsGrid').style.display = 'none';
+      document.getElementById('buscaVazia').style.display = 'block';
+      document.getElementById('buscaTermo').textContent = termo.trim();
+    } else {
+      document.getElementById('buscaVazia').style.display = 'none';
+      renderizarPosts(t ? filtrados : todosPosts);
+    }
+  }
+
+  async function cadastrarBlog() {
+    const email = document.getElementById('nl-email-blog').value.trim();
+    const btn   = document.querySelector('.nl-form button');
+    if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+    btn.disabled = true; btn.textContent = 'Cadastrando...';
+    try {
+      const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: '', email }),
       });
-    }
-
-    function renderizarPosts(posts) {
-      const grid = document.getElementById('postsGrid');
-      document.getElementById('postsLoading').style.display = 'none';
-      grid.style.display = 'grid';
-
-      if (posts.length === 0) {
-        grid.innerHTML = '<p class="posts-vazio">Nenhum post encontrado nessa categoria.</p>';
-        return;
-      }
-
-      grid.innerHTML = posts.map((post, i) => {
-        if (i === 0) {
-          return `
-            <a href="post.html?slug=${post.slug}" class="post-card destaque">
-              <div class="destaque-left">
-                <div class="post-card-meta">
-                  <span class="post-tag">${post.categoria}</span>
-                  <span class="post-data">${formatarData(post.data)}</span>
-                </div>
-                <h2>${post.titulo}</h2>
-                <p>${post.resumo}</p>
-                <span class="post-ler">Ler mais →</span>
-              </div>
-              <div class="destaque-right">
-                <div class="destaque-visual">
-                  <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"/><path d="M32 18v14l8 8"/></svg>
-                </div>
-              </div>
-            </a>`;
-        }
-        return `
-          <a href="post.html?slug=${post.slug}" class="post-card">
-            <div class="post-card-meta">
-              <span class="post-tag">${post.categoria}</span>
-              <span class="post-data">${formatarData(post.data)}</span>
-            </div>
-            <h2>${post.titulo}</h2>
-            <p>${post.resumo}</p>
-            <span class="post-ler">Ler mais →</span>
-          </a>`;
-      }).join('');
-    }
-
-    function filtrar(cat, btn) {
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
-      btn.classList.add('ativo');
-      const filtrados = cat === 'todos' ? todosPosts : todosPosts.filter(p => p.categoria_id === cat);
-      renderizarPosts(filtrados);
-    }
-
-    async function cadastrarBlog() {
-      const email = document.getElementById('nl-email-blog').value.trim();
-      const btn   = document.querySelector('.nl-form-inline button');
-    
-      if (!email) {
-        alert('Por favor, informe seu e-mail.');
-        return;
-      }
-    
-      btn.disabled    = true;
-      btn.textContent = 'Cadastrando...';
-    
-      try {
-        const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ nome: '', email }),
-        });
-        const data = await res.json();
-    
-        if (data.ok) {
-          document.getElementById('nlFormBlog').style.display    = 'none';
-          document.getElementById('nlSucessoBlog').style.display = 'block';
-          document.getElementById('nlSucessoBlog').innerHTML     =
-            '✓ Verifique seu e-mail para confirmar o cadastro!<br><span style="font-size:0.82rem;opacity:0.75;">Não encontrou? Verifique a caixa de spam.</span>';
-        } else {
-          alert(data.error || 'Ocorreu um erro. Tente novamente.');
-          btn.disabled    = false;
-          btn.textContent = 'Quero receber';
-        }
-      } catch {
-        alert('Erro de conexão. Tente novamente.');
-        btn.disabled    = false;
-        btn.textContent = 'Quero receber';
-      }
-    }
-
-
-    // ── BUSCA ──
-    function buscar(termo) {
-      const t = termo.trim().toLowerCase();
-      const filtrados = todosPosts.filter(p =>
-        p.titulo.toLowerCase().includes(t) ||
-        (p.resumo  || '').toLowerCase().includes(t) ||
-        (p.categoria || '').toLowerCase().includes(t)
-      );
-
-      // Reset filtros de categoria
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
-      document.querySelector('.filtro-btn').classList.add('ativo');
-
-      if (t && filtrados.length === 0) {
-        document.getElementById('postsGrid').style.display = 'none';
-        document.getElementById('buscaVazia').style.display = 'block';
-        document.getElementById('buscaTermo').textContent = termo.trim();
+      const data = await res.json();
+      if (data.ok) {
+        document.getElementById('nlFormBlog').style.display    = 'none';
+        document.getElementById('nlSucessoBlog').style.display = 'block';
+        document.getElementById('nlSucessoBlog').innerHTML =
+          '✓ Verifique seu e-mail para confirmar o cadastro!<br><span style="font-size:0.8rem;opacity:0.6;">Não encontrou? Verifique a caixa de spam.</span>';
       } else {
-        document.getElementById('buscaVazia').style.display = 'none';
-        renderizarPosts(t ? filtrados : todosPosts);
+        alert(data.error || 'Ocorreu um erro. Tente novamente.');
+        btn.disabled = false; btn.textContent = 'Quero receber';
       }
+    } catch {
+      alert('Erro de conexão. Tente novamente.');
+      btn.disabled = false; btn.textContent = 'Quero receber';
     }
+  }
 
-    carregarPosts();
-
-    // ── VOLTAR AO TOPO ──
-    (function() {
-      const btn = document.getElementById('voltarTopo');
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('visivel', window.scrollY > 400);
-      }, { passive: true });
-    })();
-  </script>
-
-
-  <!-- Botão voltar ao topo -->
-  <button id="voltarTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
+  carregarPosts();
+</script>
 </body>
 </html>
