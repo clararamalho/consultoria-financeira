@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="" id="linkCanonical" />
-
-  <!-- Open Graph (preenchido dinamicamente pelo JS) -->
-  <meta property="og:title" content="" id="ogTitle" />
-  <meta property="og:description" content="" id="ogDesc" />
-  <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.png" id="ogImage" />
-  <meta property="og:url" content="" id="ogUrl" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Clara Ramalho · Consultoria Financeira" />
-  <meta property="og:locale" content="pt_BR" />
-
-  <!-- Twitter Card (preenchido dinamicamente pelo JS) -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="" id="twTitle" />
-  <meta name="twitter:description" content="" id="twDesc" />
-  <meta name="twitter:image" content="https://clararamalho.com.br/assets/og-cover.png" />
-
-  <!-- Analytics -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/outfit-v15-latin-300.woff2') format('woff2'); }
@@ -362,20 +341,7 @@
     function renderizarPost(texto) {
       const { meta, conteudo } = parseFrontmatter(texto);
       if (meta.titulo) document.title = `${meta.titulo} · Clara Ramalho`;
-      if (meta.resumo) document.getElementById('metaDesc').setAttribute('content', meta.resumo);
-
-      // Open Graph + Twitter Card dinâmicos
-      const pageUrl = `https://clararamalho.com.br/post.html?slug=${slug}`;
-      document.getElementById('linkCanonical').setAttribute('href', pageUrl);
-      document.getElementById('ogTitle').setAttribute('content', meta.titulo ? `${meta.titulo} · Clara Ramalho` : 'Clara Ramalho · Consultoria Financeira');
-      document.getElementById('ogDesc').setAttribute('content', meta.resumo || '');
-      document.getElementById('ogUrl').setAttribute('content', pageUrl);
-      document.getElementById('twTitle').setAttribute('content', meta.titulo ? `${meta.titulo} · Clara Ramalho` : 'Clara Ramalho · Consultoria Financeira');
-      document.getElementById('twDesc').setAttribute('content', meta.resumo || '');
-      if (meta.imagem) {
-        document.getElementById('ogImage').setAttribute('content', `https://clararamalho.com.br/${meta.imagem}`);
-        document.querySelector('meta[name="twitter\\:image"]').setAttribute('content', `https://clararamalho.com.br/${meta.imagem}`);
-      }
+      if (meta.resumo) document.getElementById('metaDesc').content = meta.resumo;
       document.getElementById('postTag').textContent          = meta.categoria || 'Newsletter';
       document.getElementById('postTitulo').textContent       = meta.titulo    || '';
       document.getElementById('postResumo').textContent       = meta.resumo    || '';
