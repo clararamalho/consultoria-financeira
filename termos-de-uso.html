@@ -19,7 +19,7 @@
       <a href="index.html" class="header-logo">Clara Ramalho <span class="dot">·</span></a>
       <div class="header-nav-links">
         <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#servicos">Servicos</a>
+        <a href="index.html#servicos">Serviços</a>
         <a href="index.html#depoimentos">Depoimentos</a>
         <a href="blog.html">Newsletter</a>
       </div>
@@ -39,21 +39,21 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-close" id="mobileClose">&#x2715;</button>
     <a href="index.html#sobre">Sobre</a>
-    <a href="index.html#servicos">Servicos</a>
+    <a href="index.html#servicos">Serviços</a>
     <a href="index.html#depoimentos">Depoimentos</a>
     <a href="blog.html">Newsletter</a>
-    <a href="index.html#contato" class="mobile-cta">Agendar conversa</a>
+    <a href="index.html#contato" class="mobile-cta">Agendar conversa →</a>
   </div>
 
   <section class="page-hero">
     <span class="page-categoria" id="pageCategoria">Legal &amp; Compliance</span>
-    <h1 class="page-titulo" id="pageTitulo">Termos de Uso e Isencao de Responsabilidade</h1>
-    <p class="page-meta" id="pageAtualizacao">Ultima atualizacao: maio de 2026</p>
+    <h1 class="page-titulo" id="pageTitulo">Termos de Uso e Isenção de Responsabilidade</h1>
+    <p class="page-meta" id="pageAtualizacao">Última atualização: maio de 2026</p>
   </section>
 
   <div class="legal-tabs">
     <div class="legal-tabs-inner">
-      <a href="politica-de-privacidade.html" class="legal-tab">Politica de Privacidade</a>
+      <a href="politica-de-privacidade.html" class="legal-tab">Política de Privacidade</a>
       <a href="termos-de-uso.html" class="legal-tab ativo">Termos de Uso</a>
     </div>
   </div>
@@ -64,15 +64,142 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="footer-copy">2026 Clara Ramalho Consultoria Financeira Rio de Janeiro RJ Atendimento Nacional</p>
+      <p class="footer-copy">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
       <nav class="footer-links">
         <a href="index.html">Site</a>
-        <a href="politica-de-privacidade.html">Politica de Privacidade</a>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
       </nav>
     </div>
   </footer>
 
-  <script src="legal.js"></script>
-  <script>initLegal('content/termos.md');</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── HEADER / MENU ──
+  window.addEventListener('scroll', function () {
+    var h = document.getElementById('siteHeader');
+    if (h) h.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  var hamburger   = document.getElementById('hamburger');
+  var mobileMenu  = document.getElementById('mobileMenu');
+  var mobileClose = document.getElementById('mobileClose');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('open');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+  }
+  if (mobileClose) {
+    mobileClose.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ── MARKDOWN LOADER ──
+  function parseFrontmatter(raw) {
+    var first  = raw.indexOf('---');
+    var second = raw.indexOf('---', first + 3);
+    if (first === -1 || second === -1) return { meta: {}, body: raw };
+    var yaml = raw.slice(first + 3, second).trim();
+    var body = raw.slice(second + 3).trim();
+    var meta = {};
+    yaml.split('\n').forEach(function (line) {
+      var colon = line.indexOf(':');
+      if (colon === -1) return;
+      var key = line.slice(0, colon).trim();
+      var val = line.slice(colon + 1).trim().replace(/^['"]|['"]$/g, '');
+      meta[key] = val;
+    });
+    return { meta: meta, body: body };
+  }
+
+  function renderInline(text) {
+    return text
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  }
+
+  function renderBlocks(text) {
+    var html = '', lines = text.split('\n'), i = 0, inUl = false, inOl = false;
+    function closeList() {
+      if (inUl) { html += '</ul>'; inUl = false; }
+      if (inOl) { html += '</ol>'; inOl = false; }
+    }
+    while (i < lines.length) {
+      var line = lines[i].trimEnd();
+      if (!line.trim()) { closeList(); i++; continue; }
+      if (/^[-*] /.test(line)) {
+        if (!inUl) { closeList(); html += '<ul>'; inUl = true; }
+        html += '<li>' + renderInline(line.replace(/^[-*] /, '')) + '</li>';
+        i++; continue;
+      }
+      if (/^\d+\. /.test(line)) {
+        if (!inOl) { closeList(); html += '<ol>'; inOl = true; }
+        html += '<li>' + renderInline(line.replace(/^\d+\. /, '')) + '</li>';
+        i++; continue;
+      }
+      closeList();
+      html += '<p>' + renderInline(line) + '</p>';
+      i++;
+    }
+    closeList();
+    return html;
+  }
+
+  function mdToHtml(md) {
+    var sections = [], current = null, counter = 0;
+    var lines = md.split('\n'), i = 0, introLines = [];
+    while (i < lines.length && !lines[i].startsWith('## ')) { introLines.push(lines[i]); i++; }
+    while (i < lines.length) {
+      var line = lines[i];
+      if (line.startsWith('## ')) {
+        if (current) sections.push(current);
+        counter++;
+        current = { num: (counter < 10 ? '0' : '') + counter, titulo: line.slice(3).trim(), conteudo: [] };
+      } else if (current) {
+        current.conteudo.push(line);
+      }
+      i++;
+    }
+    if (current) sections.push(current);
+    var html = '', introMd = introLines.join('\n').trim();
+    if (introMd) html += '<p class="legal-intro">' + renderInline(introMd) + '</p>';
+    sections.forEach(function (sec) {
+      html += '<div class="legal-secao"><div class="legal-secao-header">';
+      html += '<span class="legal-secao-num">' + sec.num + '</span>';
+      html += '<h2>' + renderInline(sec.titulo) + '</h2></div>';
+      html += renderBlocks(sec.conteudo.join('\n')) + '</div>';
+    });
+    return html;
+  }
+
+  fetch('content/termos.md')
+    .then(function (r) { if (!r.ok) throw new Error('nao encontrado'); return r.text(); })
+    .then(function (raw) {
+      var p = parseFrontmatter(raw), meta = p.meta, body = p.body;
+      var elT = document.getElementById('pageTitulo');
+      var elC = document.getElementById('pageCategoria');
+      var elD = document.getElementById('pageAtualizacao');
+      var elB = document.getElementById('legalBody');
+      if (elT && meta.titulo)      elT.textContent = meta.titulo;
+      if (elC && meta.categoria)   elC.textContent = meta.categoria;
+      if (elD && meta.atualizacao) elD.textContent = 'Ultima atualizacao: ' + meta.atualizacao;
+      if (elB)                     elB.innerHTML   = mdToHtml(body);
+    })
+    .catch(function (err) { console.warn('[legal]', err.message); });
+
+});
+</script>
 </body>
 </html>
