@@ -1,0 +1,27 @@
+# Fontes — cache longo (1 ano), imutáveis
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imagens — cache longo (1 ano)
+/assets/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — sem cache (sempre atualizado)
+/*.html
+  Cache-Control: no-cache, must-revalidate
+
+# Sitemap e robots — cache curto (1 dia)
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400

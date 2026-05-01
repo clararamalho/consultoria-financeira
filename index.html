@@ -1025,9 +1025,9 @@
       <a href="#servicos">Serviços</a>
       <a href="#contato">Contato</a>
     </nav>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </header>
 
   <!-- Menu mobile -->
@@ -1081,13 +1081,16 @@
         </div>
         <div class="sobre-visual fade-in fade-in-delay-2">
           <div class="sobre-foto-wrapper">
-            <img
-              src="assets/perfil_26.png"
-              alt="Clara Ramalho, consultora financeira independente"
-              class="sobre-foto"
-              loading="lazy"
-              width="340"
-            />
+            <picture>
+              <source srcset="assets/perfil_26.webp" type="image/webp" />
+              <img
+                src="assets/perfil_26.png"
+                alt="Clara Ramalho, consultora financeira independente"
+                class="sobre-foto"
+                loading="lazy"
+                width="340"
+              />
+            </picture>
           </div>
           <div class="sobre-card">
             <div class="sobre-stat">
@@ -1740,7 +1743,7 @@
         const res  = await fetch(`${NEWSLETTER_WORKER_URL}/cadastrar`, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ email }),
+          body:    JSON.stringify({ nome, email }),
         });
         const data = await res.json();
     
