@@ -398,8 +398,8 @@
         if (data.ok) {
           document.getElementById('nlFormBlog').style.display    = 'none';
           document.getElementById('nlSucessoBlog').style.display = 'block';
-          document.getElementById('nlSucessoBlog').textContent   =
-            '✓ Verifique seu e-mail para confirmar o cadastro!';
+          document.getElementById('nlSucessoBlog').innerHTML     =
+            '✓ Verifique seu e-mail para confirmar o cadastro!<br><span style="font-size:0.82rem;opacity:0.75;">Não encontrou? Verifique a caixa de spam.</span>';
         } else {
           alert(data.error || 'Ocorreu um erro. Tente novamente.');
           btn.disabled    = false;

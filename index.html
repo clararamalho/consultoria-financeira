@@ -1801,15 +1801,15 @@
         if (data.ok) {
           document.getElementById('nlForm').style.display    = 'none';
           document.getElementById('nlSucesso').style.display = 'block';
-          // Atualiza a mensagem de sucesso para orientar sobre o e-mail de confirmação
           document.querySelector('#nlSucesso h3').textContent = 'Quase lá!';
           document.querySelector('#nlSucesso p').textContent  =
-            'Enviamos um e-mail de confirmação. Clique no link para ativar seu cadastro.';
+            'Enviamos um e-mail de confirmação. Clique no link para ativar seu cadastro. Não encontrou? Verifique a caixa de spam.';
         } else {
           alert(data.error || 'Ocorreu um erro. Tente novamente.');
           btn.disabled    = false;
           btn.textContent = 'Quero receber';
         }
+        
       } catch {
         alert('Erro de conexão. Tente novamente.');
         btn.disabled    = false;
