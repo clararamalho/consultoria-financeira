@@ -1,0 +1,51 @@
+# .github/workflows/newsletter.yml
+#
+# Dispara automaticamente a newsletter quando um novo post
+# com o campo `edicao` no frontmatter é adicionado ao repositório.
+#
+# Secrets necessários no GitHub (Settings → Secrets → Actions):
+#   RESEND_API_KEY      → chave da API do Resend
+#   RESEND_AUDIENCE_ID  → ID da audience no Resend
+
+name: Disparar Newsletter
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'posts/**.md'
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # precisa do commit anterior para comparar
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm install gray-matter marked
+
+      - name: Detectar posts novos com `edicao`
+        id: detect
+        run: |
+          # Lista arquivos .md adicionados neste push
+          ADDED=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'posts/*.md')
+          echo "Posts adicionados: $ADDED"
+          echo "files=$ADDED" >> $GITHUB_OUTPUT
+
+      - name: Enviar newsletter
+        if: steps.detect.outputs.files != ''
+        env:
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
+          ADDED_FILES:        ${{ steps.detect.outputs.files }}
+        run: node scripts/send-newsletter.js

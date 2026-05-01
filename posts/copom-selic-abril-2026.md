@@ -4,6 +4,7 @@ resumo: "A Selic caiu de 14,75% para 14,5% ao ano. A decisão foi unânime, mas 
 data: "2026-04-30"
 categoria: "Economia"
 categoria_id: "economia"
+edicao: 1
 ---
 
 O Banco Central cortou hoje a taxa básica de juros do Brasil — a Selic — de **14,75% para
