@@ -1,7 +1,7 @@
 # .github/workflows/newsletter.yml
 #
-# Dispara automaticamente a newsletter quando um novo post
-# com o campo `edicao` no frontmatter é adicionado ao repositório.
+# Disparo MANUAL da newsletter via GitHub Actions.
+# Para enviar: Actions → Disparar Newsletter → Run workflow
 #
 # Secrets necessários no GitHub (Settings → Secrets → Actions):
 #   RESEND_API_KEY      → chave da API do Resend
@@ -10,11 +10,7 @@
 name: Disparar Newsletter
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'posts/**.md'
+  workflow_dispatch:
 
 jobs:
   newsletter:
