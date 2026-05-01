@@ -15,6 +15,95 @@
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/inter-v20-latin-500.woff2') format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/inter-v20-latin-600.woff2') format('woff2'); }
+
+
+    /* ── BUSCA ── */
+    .busca-wrap {
+      background: var(--prata-clara);
+      border-bottom: 1px solid rgba(192,200,212,0.4);
+      padding: 0.75rem 2rem;
+      position: sticky;
+      top: 64px;
+      z-index: 51;
+    }
+    .busca-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .busca-input {
+      width: 100%;
+      padding: 0.55rem 1rem 0.55rem 2.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--texto);
+      background: var(--branco);
+      border: 1px solid rgba(192,200,212,0.5);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .busca-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74,125,191,0.1);
+    }
+    .busca-input::placeholder { color: var(--texto-leve); opacity: 0.6; }
+    .busca-icone {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      stroke: var(--texto-leve);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      pointer-events: none;
+    }
+    .busca-vazia {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--texto-leve);
+      font-size: 0.92rem;
+      display: none;
+    }
+    /* ── VOLTAR AO TOPO ── */
+    #voltarTopo {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--azul);
+      border: 1px solid rgba(192,200,212,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      z-index: 200;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    #voltarTopo.visivel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #voltarTopo:hover { background: #1A3358; }
+    #voltarTopo svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     :root {
       --azul:       #0B1F3A;
       --azul-medio: #1A3358;
@@ -135,6 +224,20 @@
     </div>
   </div>
 
+  <div class="busca-wrap">
+    <div class="busca-inner">
+      <svg class="busca-icone" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input
+        type="search"
+        id="buscaInput"
+        class="busca-input"
+        placeholder="Buscar posts..."
+        autocomplete="off"
+        oninput="buscar(this.value)"
+      />
+    </div>
+  </div>
+
   <div class="filtros-wrap">
     <div class="filtros" id="filtrosContainer">
       <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
@@ -145,6 +248,7 @@
     <div class="posts-container">
       <div class="posts-loading" id="postsLoading">Carregando posts...</div>
       <div class="posts-grid" id="postsGrid" style="display:none;"></div>
+      <div class="busca-vazia" id="buscaVazia">Nenhum post encontrado para "<span id="buscaTermo"></span>".</div>
     </div>
   </section>
 
@@ -308,8 +412,45 @@
       }
     }
 
+
+    // ── BUSCA ──
+    function buscar(termo) {
+      const t = termo.trim().toLowerCase();
+      const filtrados = todosPosts.filter(p =>
+        p.titulo.toLowerCase().includes(t) ||
+        (p.resumo  || '').toLowerCase().includes(t) ||
+        (p.categoria || '').toLowerCase().includes(t)
+      );
+
+      // Reset filtros de categoria
+      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+      document.querySelector('.filtro-btn').classList.add('ativo');
+
+      if (t && filtrados.length === 0) {
+        document.getElementById('postsGrid').style.display = 'none';
+        document.getElementById('buscaVazia').style.display = 'block';
+        document.getElementById('buscaTermo').textContent = termo.trim();
+      } else {
+        document.getElementById('buscaVazia').style.display = 'none';
+        renderizarPosts(t ? filtrados : todosPosts);
+      }
+    }
+
     carregarPosts();
+
+    // ── VOLTAR AO TOPO ──
+    (function() {
+      const btn = document.getElementById('voltarTopo');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visivel', window.scrollY > 400);
+      }, { passive: true });
+    })();
   </script>
 
+
+  <!-- Botão voltar ao topo -->
+  <button id="voltarTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 </body>
 </html>

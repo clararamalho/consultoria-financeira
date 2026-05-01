@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada · Clara Ramalho Consultoria Financeira</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
+
+  <style>
+    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/outfit-v15-latin-300.woff2') format('woff2'); }
+    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/outfit-v15-latin-600.woff2') format('woff2'); }
+    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/outfit-v15-latin-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/inter-v20-latin-300.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); }
+
+    :root {
+      --azul:        #0B1F3A;
+      --prata:       #C0C8D4;
+      --prata-clara: #E8EDF2;
+      --branco:      #FFFFFF;
+      --texto:       #2C3E50;
+      --texto-leve:  #6B7A8D;
+      --accent:      #4A7DBF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--azul);
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Fundo decorativo */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(74,125,191,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(192,200,212,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .geo {
+      position: fixed;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 420px; height: 420px;
+      border: 1px solid rgba(192,200,212,0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .geo::before {
+      content: '';
+      position: absolute;
+      inset: 50px;
+      border: 1px solid rgba(192,200,212,0.05);
+      border-radius: 50%;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      z-index: 1;
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .logo span { color: var(--prata); font-weight: 300; }
+
+    /* Main */
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--branco);
+      border-radius: 12px;
+      padding: 3.5rem 3rem;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+    }
+
+    .numero-404 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 6rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--prata-clara);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .numero-404::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--azul), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--texto-leve);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .btns {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--azul);
+      color: var(--branco);
+      padding: 0.85rem 1.8rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: #1A3358;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--accent);
+      padding: 0.85rem 1.8rem;
+      border-radius: 5px;
+      border: 1px solid rgba(74,125,191,0.3);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(192,200,212,0.4);
+    }
+    footer a { color: rgba(192,200,212,0.5); text-decoration: none; }
+    footer a:hover { color: var(--prata); }
+
+    @media (max-width: 520px) {
+      .card { padding: 2.5rem 1.5rem; }
+      .numero-404 { font-size: 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="geo"></div>
+
+  <header>
+    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="numero-404">404</div>
+      <h1>Página não encontrada</h1>
+      <p>O endereço que você acessou não existe ou foi movido.<br />Veja por onde quer continuar:</p>
+      <div class="btns">
+        <a href="index.html" class="btn-primary">Ir para o início →</a>
+        <a href="blog.html" class="btn-secondary">Ver newsletter</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Clara Ramalho · Consultoria Financeira</p>
+  </footer>
+
+</body>
+</html>
