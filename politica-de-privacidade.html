@@ -6,8 +6,6 @@
   <title>Política de Privacidade · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="Política de Privacidade e Proteção de Dados Pessoais — Clara Ramalho Consultoria Financeira." />
   <meta name="robots" content="noindex, nofollow" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Política de Privacidade · Clara Ramalho Consultoria Financeira" />
   <meta property="og:description" content="Política de Privacidade e Proteção de Dados Pessoais — Clara Ramalho Consultoria Financeira." />
   <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
@@ -15,275 +13,275 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Clara Ramalho · Consultoria Financeira" />
   <meta property="og:locale" content="pt_BR" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Política de Privacidade · Clara Ramalho Consultoria Financeira" />
   <meta name="twitter:description" content="Política de Privacidade e Proteção de Dados Pessoais — Clara Ramalho Consultoria Financeira." />
   <meta name="twitter:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
-
-  <!-- Analytics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
 
   <style>
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/outfit-v15-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/outfit-v15-latin-600.woff2') format('woff2'); }
-    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/outfit-v15-latin-700.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/inter-v20-latin-300.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/inter-v20-latin-500.woff2') format('woff2'); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --azul:        #0B1F3A;
-      --azul-medio:  #1A3358;
-      --prata:       #C0C8D4;
-      --prata-clara: #E8EDF2;
-      --branco:      #FFFFFF;
-      --texto:       #2C3E50;
-      --texto-leve:  #6B7A8D;
-      --accent:      #4A7DBF;
+      --azul:        #1A2A6C;
+      --ciano:       #00B4D8;
+      --branco:      #ffffff;
+      --cinza-bg:    #F7F8FC;
+      --cinza-borda: #E8EAED;
+      --texto:       #111318;
+      --texto-leve:  #6B7280;
+      --texto-muito-leve: #9CA3AF;
+      --radius:      0.625rem;
+      --max-w:       1220px;
+      --header-h:    56px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--azul);
+      font-weight: 300;
       color: var(--texto);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.7;
-    }
-
-    /* ── HEADER ── */
-    header {
-      padding: 1.4rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 860px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .logo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--branco);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .logo span { color: var(--prata); font-weight: 300; }
-    .btn-voltar-header {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      color: var(--prata);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    .btn-voltar-header:hover { opacity: 1; }
-
-    /* ── MAIN ── */
-    main {
-      flex: 1;
-      padding: 2rem 1.5rem 4rem;
-      max-width: 860px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    /* ── HERO DA PÁGINA ── */
-    .page-hero {
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(192,200,212,0.15);
-    }
-    .page-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .page-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      color: var(--branco);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-    .page-meta {
-      font-size: 0.82rem;
-      color: rgba(192,200,212,0.5);
-    }
-
-    /* ── CONTEÚDO ── */
-    .content {
       background: var(--branco);
-      border-radius: 12px;
-      padding: 3rem 3.5rem;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; text-decoration: none; }
 
-    .secao {
-      margin-bottom: 2.5rem;
+    /* HEADER */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--header-h);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cinza-borda);
+      transition: box-shadow 0.3s ease;
     }
-    .secao:last-child { margin-bottom: 0; }
+    .site-header.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+    .header-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem;
+      height: 100%; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
+    }
+    .header-left { display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; }
+    .header-logo { font-size: 0.9375rem; font-weight: 500; color: var(--texto); letter-spacing: -0.01em; white-space: nowrap; }
+    .header-logo .dot { color: var(--ciano); }
+    .header-sep { width: 1px; height: 1.1rem; background: var(--cinza-borda); flex-shrink: 0; }
+    .header-nav { display: flex; align-items: center; gap: 0.25rem; }
+    .header-nav a {
+      font-size: 0.875rem; font-weight: 300; color: var(--texto-leve);
+      padding: 0.375rem 0.875rem; border-radius: 0.375rem;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .header-nav a:hover { color: var(--texto); background: var(--cinza-bg); }
+    .header-cta { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.375rem 0.875rem; border: 1px solid var(--cinza-borda);
+      border-radius: var(--radius); font-size: 0.875rem; font-weight: 300;
+      color: var(--texto); background: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease; cursor: pointer; white-space: nowrap;
+    }
+    .btn-cta:hover { background: var(--cinza-bg); border-color: transparent; }
+    .btn-cta svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1; transition: transform 0.2s ease; }
+    .btn-cta:hover svg { transform: translateX(2px); }
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center; align-items: center;
+      width: 2.25rem; height: 2.25rem; background: none; border: none;
+      cursor: pointer; gap: 5px; padding: 0.25rem; margin-left: 0.5rem;
+    }
+    .hamburger span { display: block; width: 15px; height: 1px; background: var(--texto); transition: transform 0.25s ease, opacity 0.25s ease; }
+    .hamburger.open span:first-child { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:last-child  { transform: translateY(-6px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: var(--header-h); left: 0; right: 0; bottom: 0;
+      background: var(--branco); z-index: 99; padding: 2rem 1.5rem; overflow-y: auto;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 1rem 0; font-size: 1.125rem; font-weight: 300; color: var(--texto); border-bottom: 1px solid var(--cinza-borda); }
+    .mobile-menu .mobile-cta { margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 1px solid var(--cinza-borda); border-radius: var(--radius); font-size: 0.9375rem; }
+    @media (max-width: 768px) { .header-nav, .header-sep, .header-cta { display: none; } .hamburger { display: flex; } }
 
-    .secao-titulo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--azul);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--prata-clara);
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-    }
-    .secao-num {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: rgba(74,125,191,0.08);
-      padding: 0.2rem 0.55rem;
-      border-radius: 100px;
-      flex-shrink: 0;
-    }
+    /* BREADCRUMB */
+    .breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 3rem 1.25rem 0; }
+    .breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; list-style: none; }
+    .breadcrumb li { display: flex; align-items: center; gap: 0.375rem; }
+    .breadcrumb a, .breadcrumb span { font-size: 0.6875rem; font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texto-muito-leve); }
+    .breadcrumb a:hover { color: var(--texto-leve); }
 
-    .secao p {
-      font-size: 0.92rem;
-      color: var(--texto-leve);
-      margin-bottom: 0.9rem;
-    }
-    .secao p:last-child { margin-bottom: 0; }
+    /* HERO */
+    .page-hero { max-width: var(--max-w); margin: 0 auto; padding: 2.5rem 1.25rem 0; }
+    .page-categoria { display: inline-block; font-size: 0.6875rem; font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ciano); margin-bottom: 1.25rem; }
+    .page-titulo { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; color: var(--texto); text-wrap: balance; max-width: 48rem; margin-bottom: 0.875rem; }
+    .page-meta { font-size: 0.75rem; font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.07em; color: var(--texto-muito-leve); }
 
-    .secao ul, .secao ol {
-      padding-left: 1.4rem;
-      margin-top: 0.5rem;
-    }
-    .secao ul { list-style: none; padding-left: 0; }
-    .secao ul li {
-      font-size: 0.92rem;
-      color: var(--texto-leve);
-      padding: 0.5rem 0 0.5rem 1.2rem;
-      position: relative;
-      border-bottom: 1px solid var(--prata-clara);
-    }
-    .secao ul li:last-child { border-bottom: none; }
-    .secao ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-    .secao ol {
-      list-style: none;
-      padding-left: 0;
-      counter-reset: item;
-    }
-    .secao ol li {
-      font-size: 0.92rem;
-      color: var(--texto-leve);
-      padding: 0.6rem 0 0.6rem 2.2rem;
-      position: relative;
-      border-bottom: 1px solid var(--prata-clara);
-      counter-increment: item;
-    }
-    .secao ol li:last-child { border-bottom: none; }
-    .secao ol li::before {
-      content: counter(item);
-      position: absolute;
-      left: 0;
-      top: 0.6rem;
-      width: 1.5rem;
-      height: 1.5rem;
-      background: rgba(74,125,191,0.1);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .secao li strong {
-      color: var(--texto);
-      font-weight: 600;
-    }
+    /* TABS */
+    .legal-tabs { max-width: var(--max-w); margin: 2.5rem auto 0; padding: 0 1.25rem; display: flex; gap: 0.5rem; }
+    .legal-tab { display: inline-flex; align-items: center; padding: 0.5rem 1rem; border: 1px solid var(--cinza-borda); border-radius: 100px; font-size: 0.8125rem; font-weight: 300; color: var(--texto-leve); transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .legal-tab:hover { color: var(--texto); background: var(--cinza-bg); border-color: transparent; }
+    .legal-tab.ativo { background: var(--texto); color: var(--branco); border-color: var(--texto); font-weight: 400; }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    /* LAYOUT */
+    .legal-layout { max-width: var(--max-w); margin: 3rem auto 0; padding: 0 1.25rem 6rem; display: flex; gap: 4rem; align-items: flex-start; }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(192,200,212,0.4);
+    /* Índice */
+    .legal-index { width: 14rem; flex-shrink: 0; position: sticky; top: calc(var(--header-h) + 2rem); }
+    .legal-index-titulo { font-size: 0.6875rem; font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texto-muito-leve); margin-bottom: 1rem; }
+    .legal-index ol { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+    .legal-index ol li a { display: block; font-size: 0.8125rem; font-weight: 300; color: var(--texto-leve); padding: 0.375rem 0.5rem; border-radius: 0.375rem; line-height: 1.4; transition: color 0.2s, background 0.2s; }
+    .legal-index ol li a:hover { color: var(--texto); background: var(--cinza-bg); }
+
+    /* Conteúdo */
+    .legal-content { flex: 1; min-width: 0; }
+    .legal-intro { font-size: 1rem; font-weight: 300; color: var(--texto-leve); line-height: 1.75; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--cinza-borda); }
+    .legal-secao { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--cinza-borda); scroll-margin-top: calc(var(--header-h) + 2rem); }
+    .legal-secao:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .legal-secao-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .legal-secao-num { font-size: 0.6875rem; font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ciano); flex-shrink: 0; }
+    .legal-secao h2 { font-size: 1rem; font-weight: 400; color: var(--texto); letter-spacing: -0.01em; line-height: 1.4; }
+    .legal-secao p { font-size: 0.9375rem; font-weight: 300; color: var(--texto-leve); line-height: 1.75; margin-bottom: 1rem; }
+    .legal-secao p:last-child { margin-bottom: 0; }
+    .legal-secao strong { font-weight: 500; color: var(--texto); }
+    .legal-secao a { color: var(--azul); text-decoration: underline; text-underline-offset: 3px; }
+
+    .legal-lista { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; }
+    .legal-lista li { font-size: 0.9375rem; font-weight: 300; color: var(--texto-leve); line-height: 1.65; padding: 0.875rem 0; border-bottom: 1px solid var(--cinza-borda); }
+    .legal-lista li:last-child { border-bottom: none; }
+    .legal-lista li strong { display: block; font-weight: 500; color: var(--texto); margin-bottom: 0.25rem; }
+
+    .legal-lista-num { list-style: none; counter-reset: item; margin-top: 0.75rem; }
+    .legal-lista-num li { font-size: 0.9375rem; font-weight: 300; color: var(--texto-leve); line-height: 1.65; padding: 0.875rem 0 0.875rem 2.5rem; border-bottom: 1px solid var(--cinza-borda); position: relative; counter-increment: item; }
+    .legal-lista-num li:last-child { border-bottom: none; }
+    .legal-lista-num li::before { content: counter(item, decimal-leading-zero); position: absolute; left: 0; top: 0.875rem; font-size: 0.6875rem; font-family: 'Inter', monospace; letter-spacing: 0.05em; color: var(--ciano); font-weight: 500; }
+    .legal-lista-num li strong { font-weight: 500; color: var(--texto); }
+
+    /* FOOTER */
+    .site-footer { border-top: 1px solid var(--cinza-borda); padding: 2.5rem 1.25rem; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer-copy { font-size: 0.8125rem; font-weight: 300; color: var(--texto-muito-leve); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8125rem; font-weight: 300; color: var(--texto-muito-leve); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--texto-leve); }
+
+    @media (max-width: 900px) {
+      .legal-layout { flex-direction: column; gap: 2rem; }
+      .legal-index { width: 100%; position: static; }
+      .legal-index ol { flex-direction: row; flex-wrap: wrap; gap: 0.375rem; }
+      .legal-index ol li a { background: var(--cinza-bg); border-radius: 100px; padding: 0.3rem 0.75rem; font-size: 0.75rem; }
     }
-    footer a { color: rgba(192,200,212,0.5); text-decoration: none; }
-    footer a:hover { color: var(--prata); }
-
-    @media (max-width: 640px) {
-      .content { padding: 2rem 1.5rem; border-radius: 10px; }
-      header { padding: 1.2rem 1.5rem; }
+    @media (max-width: 600px) {
+      .breadcrumb { padding-top: 2rem; }
+      .page-hero { padding-top: 1.5rem; }
+      .legal-layout { padding-bottom: 4rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
-    <a href="index.html" class="btn-voltar-header">← Voltar ao site</a>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="index.html" class="header-logo">Clara Ramalho <span class="dot">·</span></a>
+        <div class="header-sep"></div>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="index.html#sobre">Sobre</a>
+          <a href="index.html#servicos">Serviços</a>
+          <a href="index.html#depoimentos">Depoimentos</a>
+          <a href="blog.html">Newsletter</a>
+        </nav>
+      </div>
+      <div class="header-cta">
+        <a href="index.html#contato" class="btn-cta">
+          Agendar conversa
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main>
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html#sobre">Sobre</a>
+    <a href="index.html#servicos">Serviços</a>
+    <a href="index.html#depoimentos">Depoimentos</a>
+    <a href="blog.html">Newsletter</a>
+    <a href="index.html#contato" class="mobile-cta">Agendar conversa →</a>
+  </div>
 
-    <div class="page-hero">
-      <p class="page-label">Legal &amp; Compliance</p>
-      <h1 class="page-title">Política de Privacidade<br />e Proteção de Dados</h1>
-      <p class="page-meta">Última atualização: maio de 2026</p>
-    </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="index.html">Início</a><span>/</span></li>
+      <li><span>Legal</span><span>/</span></li>
+      <li><span>Política de Privacidade</span></li>
+    </ol>
+  </nav>
 
-    <div class="content">
+  <section class="page-hero">
+    <span class="page-categoria">Legal &amp; Compliance</span>
+    <h1 class="page-titulo">Política de Privacidade<br />e Proteção de Dados</h1>
+    <p class="page-meta">Última atualização: maio de 2026</p>
+  </section>
 
-      <div class="secao">
-        <p>Esta Política de Privacidade descreve como são coletados, utilizados e protegidos os dados pessoais de usuários e clientes ao acessarem este site e utilizarem os serviços de consultoria financeira prestados por <strong>Clara Ramalho</strong>, profissional devidamente habilitada perante a Comissão de Valores Mobiliários (CVM) e certificada pela ANBIMA.</p>
-      </div>
+  <div class="legal-tabs">
+    <a href="politica-de-privacidade.html" class="legal-tab ativo">Política de Privacidade</a>
+    <a href="termos-de-uso.html" class="legal-tab">Termos de Uso</a>
+  </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">01</span> Compromisso com a Proteção de Dados</h2>
+  <div class="legal-layout">
+
+    <aside class="legal-index" aria-label="Índice">
+      <p class="legal-index-titulo">Nesta página</p>
+      <ol>
+        <li><a href="#compromisso">Compromisso com a Proteção</a></li>
+        <li><a href="#dados">Dados Coletados</a></li>
+        <li><a href="#bases">Bases Legais</a></li>
+        <li><a href="#compartilhamento">Compartilhamento</a></li>
+        <li><a href="#retencao">Retenção e Prazos</a></li>
+        <li><a href="#direitos">Direitos dos Titulares</a></li>
+        <li><a href="#seguranca">Segurança da Informação</a></li>
+        <li><a href="#contato">Canal de Contato</a></li>
+      </ol>
+    </aside>
+
+    <main class="legal-content">
+
+      <p class="legal-intro">Esta Política de Privacidade descreve como são coletados, utilizados e protegidos os dados pessoais de usuários e clientes ao acessarem este site e utilizarem os serviços de consultoria financeira prestados por <strong>Clara Ramalho</strong>, profissional devidamente habilitada perante a Comissão de Valores Mobiliários (CVM) e certificada pela ANBIMA.</p>
+
+      <div class="legal-secao" id="compromisso">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">01</span>
+          <h2>Compromisso com a Proteção de Dados</h2>
+        </div>
         <p>O tratamento de dados pessoais é realizado em estrita observância à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD) e às normas setoriais editadas pela CVM, especialmente no que tange aos deveres de transparência, segurança e prestação de contas.</p>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">02</span> Dados Coletados e Finalidade</h2>
+      <div class="legal-secao" id="dados">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">02</span>
+          <h2>Dados Coletados e Finalidade</h2>
+        </div>
         <p>A coleta de dados é limitada ao mínimo necessário para a prestação dos serviços e o cumprimento de obrigações legais:</p>
-        <ul>
-          <li><strong>Dados de Identificação e Contato</strong> — nome e e-mail, utilizados para responder a solicitações e enviar comunicações pertinentes.</li>
-          <li><strong>Dados de Perfil de Investidor (Suitability)</strong> — informações sobre situação financeira, objetivos de investimento e conhecimento técnico, essenciais para o cumprimento da Resolução CVM nº 30, garantindo que as recomendações sejam adequadas ao perfil da pessoa atendida.</li>
-          <li><strong>Dados de Navegação</strong> — coletados de forma anonimizada para análise de desempenho do site, sem uso de cookies de rastreamento ou identificação pessoal.</li>
+        <ul class="legal-lista">
+          <li><strong>Dados de Identificação e Contato</strong>Nome e e-mail, utilizados para responder a solicitações e enviar comunicações pertinentes.</li>
+          <li><strong>Dados de Perfil de Investidor (Suitability)</strong>Informações sobre situação financeira, objetivos de investimento e conhecimento técnico, essenciais para o cumprimento da Resolução CVM nº 30, garantindo que as recomendações sejam adequadas ao perfil da pessoa atendida.</li>
+          <li><strong>Dados de Navegação</strong>Coletados de forma anonimizada para análise de desempenho do site, sem uso de cookies de rastreamento ou identificação pessoal.</li>
         </ul>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">03</span> Bases Legais para o Tratamento</h2>
+      <div class="legal-secao" id="bases">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">03</span>
+          <h2>Bases Legais para o Tratamento</h2>
+        </div>
         <p>O tratamento dos dados fundamenta-se nas seguintes hipóteses legais:</p>
-        <ol>
+        <ol class="legal-lista-num">
           <li><strong>Execução de Contrato</strong> — para a prestação dos serviços de consultoria financeira contratados.</li>
           <li><strong>Cumprimento de Obrigação Legal ou Regulatória</strong> — para atendimento às normas de Compliance, Prevenção à Lavagem de Dinheiro (PLD) e manutenção de registros exigidos pela CVM.</li>
           <li><strong>Legítimo Interesse</strong> — para aprimoramento dos serviços e segurança dos sistemas.</li>
@@ -291,24 +289,33 @@
         </ol>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">04</span> Compartilhamento de Informações</h2>
+      <div class="legal-secao" id="compartilhamento">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">04</span>
+          <h2>Compartilhamento de Informações</h2>
+        </div>
         <p>Os dados pessoais não são comercializados. O compartilhamento ocorre apenas com terceiros estritamente necessários:</p>
-        <ul>
+        <ul class="legal-lista">
           <li>Provedores de serviços de tecnologia (armazenamento em nuvem e segurança cibernética).</li>
           <li>Órgãos reguladores e fiscalizadores (CVM, ANBIMA, Banco Central), mediante requisição legal ou dever de reporte.</li>
         </ul>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">05</span> Retenção de Dados e Prazos Regulatórios</h2>
+      <div class="legal-secao" id="retencao">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">05</span>
+          <h2>Retenção de Dados e Prazos Regulatórios</h2>
+        </div>
         <p>As informações serão conservadas pelo período necessário para atingir as finalidades descritas. Em conformidade com a regulamentação da CVM, dados relativos à prestação de serviços de consultoria de valores mobiliários devem ser mantidos por, no mínimo, <strong>5 (cinco) anos</strong>, ou prazo superior por determinação expressa do regulador.</p>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">06</span> Direitos dos Titulares de Dados</h2>
+      <div class="legal-secao" id="direitos">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">06</span>
+          <h2>Direitos dos Titulares de Dados</h2>
+        </div>
         <p>Em conformidade com a LGPD, é garantido o direito de solicitar, a qualquer momento:</p>
-        <ul>
+        <ul class="legal-lista">
           <li>A confirmação da existência de tratamento e o acesso aos dados.</li>
           <li>A correção de dados incompletos ou inexatos.</li>
           <li>A anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade.</li>
@@ -316,26 +323,56 @@
         </ul>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">07</span> Segurança da Informação</h2>
+      <div class="legal-secao" id="seguranca">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">07</span>
+          <h2>Segurança da Informação</h2>
+        </div>
         <p>São adotadas medidas técnicas e organizacionais adequadas para proteger os dados pessoais contra acessos não autorizados, perda, alteração ou qualquer forma de tratamento inadequado, alinhadas às melhores práticas do mercado financeiro.</p>
       </div>
 
-      <div class="secao">
-        <h2 class="secao-titulo"><span class="secao-num">08</span> Canal de Contato</h2>
+      <div class="legal-secao" id="contato">
+        <div class="legal-secao-header">
+          <span class="legal-secao-num">08</span>
+          <h2>Canal de Contato</h2>
+        </div>
         <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta Política, entre em contato através do e-mail: <a href="mailto:contato@clararamalho.com.br">contato@clararamalho.com.br</a>.</p>
       </div>
 
-    </div>
-  </main>
+    </main>
+  </div>
 
-  <footer>
-    <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ</p>
-    <p style="margin-top:0.3rem;">
-      <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp;
-      <a href="termos-de-uso.html">Termos de Uso</a>
-    </p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+      <nav class="footer-links">
+        <a href="index.html">Site</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </nav>
+    </div>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 
 </body>
 </html>
