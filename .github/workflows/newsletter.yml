@@ -1,7 +1,7 @@
 # .github/workflows/newsletter.yml
 #
 # Disparo MANUAL da newsletter via GitHub Actions.
-# Para enviar: Actions → Disparar Newsletter → Run workflow
+# Para enviar: Actions → Disparar Newsletter → Run workflow → informe o slug
 #
 # Secrets necessários no GitHub (Settings → Secrets → Actions):
 #   RESEND_API_KEY      → chave da API do Resend
@@ -11,6 +11,10 @@ name: Disparar Newsletter
 
 on:
   workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Slug do post (ex: educacao-financeira-2026)'
+        required: true
 
 jobs:
   newsletter:
@@ -19,8 +23,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2  # precisa do commit anterior para comparar
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,16 +32,17 @@ jobs:
       - name: Instalar dependências
         run: npm install gray-matter marked
 
-      - name: Detectar posts novos com `edicao`
+      - name: Definir post pelo slug informado
         id: detect
         run: |
-          # Lista arquivos .md adicionados neste push
-          ADDED=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'posts/*.md')
-          echo "Posts adicionados: $ADDED"
-          echo "files=$ADDED" >> $GITHUB_OUTPUT
+          FILE="posts/${{ github.event.inputs.slug }}.md"
+          if [ ! -f "$FILE" ]; then
+            echo "Arquivo não encontrado: $FILE"
+            exit 1
+          fi
+          echo "files=$FILE" >> $GITHUB_OUTPUT
 
       - name: Enviar newsletter
-        if: steps.detect.outputs.files != ''
         env:
           RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
           RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
