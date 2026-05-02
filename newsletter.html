@@ -23,6 +23,13 @@
       --moment-dark-2:  #0F1A45;
       --moment-accent:  #00C0C8;
       --moment-mute:    rgba(255,255,255,0.45);
+      --ease-out:       cubic-bezier(.22,.61,.36,1);
+      --ease-overshoot: cubic-bezier(.6,.6,0,1);
+    }
+
+    #newsletter {
+      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+      padding: 5rem 1.25rem;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -463,7 +470,7 @@
 </section>
 
 <!-- ==================== NEWSLETTER ==================== -->
-<section id="newsletter" data-navbar-theme="dark" style="background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%); padding: 5rem 1.25rem;">
+<section id="newsletter" data-navbar-theme="dark">
   <div class="container" style="max-width: var(--max); margin: 0 auto;">
     <div class="nl-box">
       <div class="nl-box-txt">
