@@ -1,3 +1,5 @@
+@import url('./tokens.css');
+
 .site-main-header {
   position: sticky;
   top: 0;
@@ -149,7 +151,7 @@
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  background: var(--ciano-light, rgba(0,180,216,0.1));
+  background: var(--ciano-light);
   border-radius: calc(var(--radius, 0.625rem) - 2px);
   display: flex;
   align-items: center;
@@ -158,7 +160,7 @@
 .site-nav-dropdown-icon svg {
   width: 15px;
   height: 15px;
-  stroke: var(--ciano, #00B4D8);
+  stroke: var(--ciano);
   fill: none;
   stroke-width: 1.6;
   stroke-linecap: round;

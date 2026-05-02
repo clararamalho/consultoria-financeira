@@ -1,19 +1,6 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('./assets/tokens.css');
 
-:root {
-  --white:     #FFFFFF;
-  --off-white: #F7F8FC;
-  --surface-2: #EDEEF5;
-  --border:    rgba(26,42,108,0.1);
-  --border-2:  rgba(26,42,108,0.06);
-  --ink:       #1A2A6C;
-  --ink-2:     #5A6785;
-  --ink-3:     #9AA3B8;
-  --ciano:     #00B4D8;
-  --radius:    0.625rem;
-  --max-w:     720px;
-  --nav-h:     56px;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
