@@ -6,204 +6,182 @@
   <title>Descadastro · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="Descadastro da newsletter de Clara Ramalho — consultoria financeira independente." />
   <meta name="robots" content="noindex, nofollow" />
-
+  <meta property="og:title" content="Newsletter · Clara Ramalho Consultoria Financeira" />
+  <meta property="og:description" content="Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação." />
+  <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://clararamalho.com.br/descadastrar.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Clara Ramalho · Consultoria Financeira" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Newsletter · Clara Ramalho Consultoria Financeira" />
+  <meta name="twitter:description" content="Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação." />
+  <meta name="twitter:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --azul:        #0B1929;
-      --azul-medio:  #112236;
-      --accent:      #1A3A5C;
-      --prata:       #C0C8D4;
-      --prata-clara: #E8EDF2;
-      --branco:      #FFFFFF;
-      --texto-leve:  #6B7A8D;
+      --white:       #FFFFFF;
+      --off-white:   #F7F8FC;
+      --surface-2:   #EDEEF5;
+      --border:      rgba(26,42,108,0.1);
+      --border-2:    rgba(26,42,108,0.06);
+      --ink:         #1A2A6C;
+      --ink-2:       #5A6785;
+      --ink-3:       #9AA3B8;
+      --ciano:       #00B4D8;
+      --ciano-light: rgba(0,180,216,0.1);
+      --green:       #22C55E;
+      --green-light: rgba(34,197,94,0.1);
+      --red:         #DC2626;
+      --red-light:   rgba(220,38,38,0.1);
+      --radius:      0.625rem;
+      --nav-h:       56px;
     }
-
-    html, body {
-      min-height: 100%;
-      background: var(--prata-clara);
-      font-family: 'Outfit', sans-serif;
-      color: var(--azul);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
-    /* ── HEADER ── */
     header {
-      padding: 1.25rem 2rem;
-      background: var(--azul);
+      height: var(--nav-h);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
+      padding: 0 1.25rem;
     }
     .logo {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--branco);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
       text-decoration: none;
-      letter-spacing: 0.01em;
+      letter-spacing: -0.01em;
     }
-    .logo span {
-      font-weight: 300;
-      color: var(--prata);
-    }
-
-    /* ── MAIN / CARD ── */
     main {
-      min-height: calc(100vh - 120px);
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.5rem;
+      padding: 2rem 1.25rem;
     }
-
     .card {
-      background: var(--branco);
-      border-radius: 12px;
-      padding: 3.5rem 3rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
       max-width: 480px;
       width: 100%;
-      box-shadow: 0 4px 32px rgba(11,25,41,0.10);
       text-align: center;
+      box-shadow: 0 30px 60px -20px rgba(26,42,108,0.08), 0 10px 30px -10px rgba(26,42,108,0.05);
     }
-
-    /* ── ESTADOS ── */
     .estado { display: none; }
     .estado.ativo { display: block; }
-
-    /* Loading */
     .spinner {
       width: 40px; height: 40px;
-      border: 3px solid var(--prata-clara);
-      border-top-color: var(--accent);
+      border: 2px solid var(--surface-2);
+      border-top-color: var(--ciano);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.5rem;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     #estado-loading p {
-      color: var(--texto-leve);
       font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-2);
     }
-
-    /* Sucesso / Erro — ícone */
     .icone {
       width: 56px; height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.75rem;
     }
-    #estado-sucesso .icone {
-      background: rgba(11,25,41,0.07);
-    }
-    #estado-sucesso .icone svg {
-      width: 26px; height: 26px;
-      stroke: var(--accent);
-      stroke-width: 2.5;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    #estado-erro .icone {
-      background: rgba(180,40,40,0.08);
-    }
-    #estado-erro .icone svg {
-      width: 26px; height: 26px;
-      stroke: #B42828;
-      stroke-width: 2.5;
-      fill: none;
-      stroke-linecap: round;
-    }
-
-    /* Títulos */
+    #estado-sucesso .icone { background: var(--green-light); }
+    #estado-sucesso .icone svg { stroke: var(--green); width: 24px; height: 24px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    #estado-erro .icone { background: var(--red-light); }
+    #estado-erro .icone svg { stroke: var(--red); width: 24px; height: 24px; fill: none; stroke-width: 2.2; stroke-linecap: round; }
     .card h1 {
-      font-family: 'Lora', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--azul);
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      color: var(--ink);
       margin-bottom: 0.75rem;
-      line-height: 1.3;
+      line-height: 1.25;
+      text-wrap: balance;
     }
     .card p {
       font-size: 0.9rem;
-      color: var(--texto-leve);
-      line-height: 1.7;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.75;
       margin-bottom: 2rem;
     }
-
-    /* Botões */
     .btn-voltar {
-      display: inline-block;
-      background: var(--azul);
-      color: var(--branco);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
-    .btn-voltar:hover {
-      background: var(--accent);
-      transform: translateY(-1px);
-    }
+    .btn-voltar:hover { background: var(--surface-2); border-color: transparent; }
+    .btn-voltar svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 0.75; stroke-linecap: square; }
     .btn-secundario {
       display: inline-block;
-      color: var(--accent);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
+      color: var(--ciano);
       font-size: 0.9rem;
+      font-weight: 400;
       text-decoration: none;
-      border-bottom: 1px solid var(--prata);
+      border-bottom: 1px solid rgba(0,180,216,0.3);
       padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
+      transition: border-color 0.3s ease;
     }
-    .btn-secundario:hover {
-      color: var(--azul);
-      border-color: var(--azul);
-    }
-
-    /* ── FOOTER ── */
+    .btn-secundario:hover { border-bottom-color: var(--ciano); }
     footer {
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 1.25rem;
+      border-top: 1px solid var(--border-2);
       text-align: center;
       font-size: 0.75rem;
-      color: rgba(192,200,212,0.5);
-      background: var(--azul);
+      font-weight: 300;
+      color: var(--ink-3);
     }
-    footer a {
-      color: rgba(192,200,212,0.6);
-      text-decoration: none;
-    }
-    footer a:hover { color: var(--prata); }
-
+    footer a { color: var(--ink-3); text-decoration: none; }
+    footer a:hover { color: var(--ink-2); }
     @media (max-width: 520px) {
-      .card { padding: 2.5rem 1.5rem; border-radius: 10px; }
+      .card { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo">Clara Ramalho <span>· Consultoria Financeira</span></a>
+    <a href="index.html" class="logo">Clara Ramalho · Consultoria Financeira</a>
   </header>
 
   <main>
     <div class="card">
 
-      <!-- Loading -->
       <div class="estado ativo" id="estado-loading">
         <div class="spinner"></div>
         <p>Processando seu pedido...</p>
       </div>
 
-      <!-- Sucesso -->
       <div class="estado" id="estado-sucesso">
         <div class="icone">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -213,10 +191,12 @@
           Seu e-mail foi removido da nossa lista com sucesso.<br />
           Se mudar de ideia, fique à vontade para se cadastrar novamente.
         </p>
-        <a href="index.html" class="btn-voltar">Voltar para o site →</a>
+        <a href="index.html" class="btn-voltar">
+          Voltar para o site
+          <svg viewBox="0 0 14 14"><path d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </a>
       </div>
 
-      <!-- Erro -->
       <div class="estado" id="estado-erro">
         <div class="icone">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
