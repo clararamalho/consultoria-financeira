@@ -71,40 +71,7 @@
       display: flex;
       align-items: center;
       padding: 0 1.25rem;
-      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.3s;
-    }
-    header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
-
-    /* ── HEADER DARK MODE (seção newsletter) — inspirado no Moment navbar-theme ── */
-    header[data-theme="dark"] {
-      background: rgba(26,42,108,0.92);
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
-    header[data-theme="dark"].scrolled {
-      box-shadow: 0 1px 20px rgba(0,0,0,0.25);
-    }
-    header[data-theme="dark"] .logo {
-      color: rgba(255,255,255,0.9);
-      border-right-color: rgba(255,255,255,0.12);
-    }
-    header[data-theme="dark"] nav a {
-      color: rgba(255,255,255,0.55);
-    }
-    header[data-theme="dark"] nav a:hover {
-      color: rgba(255,255,255,0.95);
-      background: rgba(255,255,255,0.08);
-    }
-    header[data-theme="dark"] .nav-cta {
-      color: rgba(255,255,255,0.9) !important;
-      background: rgba(255,255,255,0.08) !important;
-      border-color: rgba(255,255,255,0.15) !important;
-    }
-    header[data-theme="dark"] .nav-cta:hover {
-      background: rgba(255,255,255,0.14) !important;
-      border-color: transparent !important;
-    }
-    header[data-theme="dark"] .hamburger span {
-      background: rgba(255,255,255,0.85);
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
     .header-inner {
       width: 100%;
@@ -1270,11 +1237,10 @@
     .nav-dropdown-btn[aria-expanded="true"] svg {
       transform: rotate(180deg);
     }
-    header[data-theme="dark"] .nav-dropdown-btn { color: rgba(255,255,255,0.55); }
-    header[data-theme="dark"] .nav-dropdown-btn:hover,
-    header[data-theme="dark"] .nav-dropdown-btn[aria-expanded="true"] {
-      color: rgba(255,255,255,0.95);
-      background: rgba(255,255,255,0.08);
+    .nav-dropdown-btn:hover,
+    .nav-dropdown-btn[aria-expanded="true"] {
+      color: var(--ink);
+      background: var(--surface-2);
     }
 
     .nav-dropdown-panel {
@@ -1299,12 +1265,6 @@
       transform: translateY(0) scale(1);
       pointer-events: auto;
     }
-    header[data-theme="dark"] .nav-dropdown-panel {
-      background: #1e2d6e;
-      border-color: rgba(255,255,255,0.12);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 12px 32px rgba(0,0,0,0.25);
-    }
-
     /* ponte invisível: cobre o gap entre botão e painel */
     .nav-dropdown-panel::before {
       content: '';
@@ -1327,11 +1287,6 @@
       transition: left 0.22s cubic-bezier(.22,.61,.36,1);
       pointer-events: none;
     }
-    header[data-theme="dark"] .nav-dropdown-nub {
-      background: #1e2d6e;
-      border-color: rgba(255,255,255,0.12);
-    }
-
     .nav-dropdown-item {
       display: flex;
       align-items: center;
@@ -1349,7 +1304,6 @@
       transition: background 0.18s ease;
     }
     .nav-dropdown-item:hover { background: var(--surface-2); }
-    header[data-theme="dark"] .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); }
 
     .nav-dropdown-icon {
       width: 34px; height: 34px;
@@ -1363,8 +1317,6 @@
       stroke: var(--ciano); fill: none;
       stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
     }
-    header[data-theme="dark"] .nav-dropdown-icon { background: rgba(0,180,216,0.15); }
-
     .nav-dropdown-text { display: flex; flex-direction: column; gap: 0.1rem; }
     .nav-dropdown-title {
       font-size: 0.84rem; font-weight: 400;
@@ -1374,8 +1326,6 @@
       font-size: 0.74rem; font-weight: 300;
       color: var(--ink-2); line-height: 1.45;
     }
-    header[data-theme="dark"] .nav-dropdown-title { color: rgba(255,255,255,0.9); }
-    header[data-theme="dark"] .nav-dropdown-desc  { color: rgba(255,255,255,0.45); }
   </style>
 </head>
 <body>
@@ -2320,43 +2270,8 @@
     window.addEventListener('resize', () => { if (isOpen) positionPanel(); }, { passive: true });
   })();
 
-  // ── NAVBAR THEME (inspirado no Moment index.astro_astro_type) ──
-  // Muda o data-theme do header conforme a seção visível na linha do navbar
-  (function() {
-    const hdr = document.getElementById('hdr');
-    if (!hdr) return;
-
-    function initNavbarTheme() {
-      const navH = hdr.offsetHeight || 56;
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const theme = entry.target.getAttribute('data-navbar-theme');
-            if (theme) hdr.setAttribute('data-theme', theme);
-          }
-        });
-      }, {
-        threshold: 0,
-        // Dispara exatamente quando a seção cruza a linha inferior do navbar
-        rootMargin: `-${navH}px 0px -100% 0px`
-      });
-
-      document.querySelectorAll('[data-navbar-theme]').forEach(el => observer.observe(el));
-    }
-
-    // Garante que o offsetHeight do header já está disponível
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initNavbarTheme);
-    } else {
-      initNavbarTheme();
-    }
-  })();
-
-
-  // header scroll
+  // voltar ao topo
   window.addEventListener('scroll', () => {
-    document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 10);
     document.getElementById('top-btn').classList.toggle('on', window.scrollY > 400);
   }, { passive: true });
 
