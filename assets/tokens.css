@@ -34,4 +34,9 @@
   --radius:         0.625rem;
   --max:            1220px;
   --nav-h:          56px;
+
+  --moment-dark-1:  #1A2A6C;
+  --moment-dark-2:  #0F1A45;
+  --moment-accent:  #00C0C8;
+  --moment-mute:    rgba(255,255,255,0.45);
 }
