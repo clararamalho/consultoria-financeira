@@ -155,42 +155,63 @@
       .busca-wrap { width: 100%; }
     }
   </style>
+  <link rel="stylesheet" href="assets/site-nav.css" />
+  <script defer src="assets/site-nav.js"></script>
 </head>
 <body>
 
-<div class="mob-ov" id="mobNav">
-  <button class="mob-cls" id="mobClose">✕</button>
-  <a href="index.html">Início</a>
-  <a href="index.html#sobre">Sobre</a>
-  <a href="index.html#servicos">Serviços</a>
-  <a href="index.html#depoimentos">Depoimentos</a>
-  <a href="blog.html">Newsletter</a>
-  <a href="index.html#contato">Contato</a>
-</div>
-
-<header id="hdrMain">
-  <div class="hdr-inner">
-    <div class="hdr-left">
-      <a href="index.html" class="hdr-logo">Clara Ramalho</a>
-      <nav class="hdr-nav">
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#servicos">Serviços</a>
-        <a href="index.html#depoimentos">Depoimentos</a>
-        <a href="blog.html" class="active">Newsletter</a>
+<header class="site-main-header" id="siteNavHeader">
+  <div class="site-nav-inner">
+    <div class="site-nav-left">
+      <a href="index.html" class="site-nav-logo">Clara Ramalho</a>
+      <nav class="site-nav-menu" id="siteNavMenu" role="menubar">
+        <button class="site-nav-dropdown-btn" id="siteNavServicesBtn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="siteNavServicesPanel">
+          Serviços
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
+        </button>
+        <div class="site-nav-dropdown-panel" id="siteNavServicesPanel" role="menu" aria-hidden="true">
+          <div class="site-nav-dropdown-nub" id="siteNavServicesNub"></div>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-educar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Educação Financeira</span><span class="site-nav-dropdown-desc">Autonomia para decidir com confiança</span></span>
+          </a>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-planejar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Planejamento Financeiro</span><span class="site-nav-dropdown-desc">Plano personalizado para seus objetivos</span></span>
+          </a>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-investir">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Estratégias de Investimentos</span><span class="site-nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span></span>
+          </a>
+        </div>
+        <a href="index.html#depoimentos" role="menuitem">Depoimentos</a>
+        <a href="index.html#newsletter" role="menuitem">Newsletter</a>
+        <a href="blog.html" role="menuitem" class="active">Blog</a>
+        <a href="sobre.html" role="menuitem">Sobre</a>
       </nav>
     </div>
-    <div class="hdr-right">
-      <a href="index.html#contato" class="hdr-cta">
-        Agendar conversa
-        <span class="hdr-cta-arrow">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+    <div class="site-nav-right">
+      <a class="site-nav-cta" href="index.html#contato">
+        Entre em contato
+        <span class="site-nav-cta-arrow">
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
         </span>
       </a>
-      <button class="hdr-hbg" id="hdrHbg" aria-label="Menu"><span></span><span></span></button>
+      <button class="site-nav-hamburger" id="siteNavHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<div class="site-mobile-overlay" id="siteMobileOverlay">
+  <button class="site-mobile-close" id="siteMobileClose">✕</button>
+  <a href="index.html#servicos">Serviços</a>
+  <a href="index.html#depoimentos">Depoimentos</a>
+  <a href="index.html#newsletter">Newsletter</a>
+  <a href="blog.html">Blog</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="index.html#contato">Contato</a>
+</div>
 
 <div class="blog-hero">
   <div class="blog-hero-inner">
@@ -259,13 +280,6 @@
 </button>
 
 <script>
-  // header
-  const hdr = document.getElementById('hdrMain');
-  const mob = document.getElementById('mobNav');
-  document.getElementById('hdrHbg').addEventListener('click', () => mob.classList.add('open'));
-  document.getElementById('mobClose').addEventListener('click', () => mob.classList.remove('open'));
-  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
-  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
   window.addEventListener('scroll', () => {
     document.getElementById('voltarTopo').classList.toggle('visivel', window.scrollY > 400);
   }, { passive: true });
