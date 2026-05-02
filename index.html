@@ -1343,6 +1343,8 @@
       width: 100%;
       text-align: left;
       font-family: 'Inter', sans-serif;
+      color: inherit;
+      text-decoration: none;
       transition: background 0.18s ease;
     }
     .nav-dropdown-item:hover { background: var(--surface-2); }
@@ -1401,37 +1403,7 @@
         <div class="nav-dropdown-panel" id="navServicosPanel" role="menu" aria-hidden="true">
           <div class="nav-dropdown-nub" id="navServicosNub"></div>
 
-          <button class="nav-dropdown-item" role="menuitem" onclick="fecharDropdown(); abrirModal('planejamento')">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Planejamento Financeiro</span>
-              <span class="nav-dropdown-desc">Plano personalizado para seus objetivos</span>
-            </span>
-          </button>
-
-          <button class="nav-dropdown-item" role="menuitem" onclick="fecharDropdown(); abrirModal('patrimonial')">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Organização Patrimonial</span>
-              <span class="nav-dropdown-desc">Estruture e proteja o que você construiu</span>
-            </span>
-          </button>
-
-          <button class="nav-dropdown-item" role="menuitem" onclick="fecharDropdown(); abrirModal('investimentos')">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Estratégia de Investimentos</span>
-              <span class="nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span>
-            </span>
-          </button>
-
-          <button class="nav-dropdown-item" role="menuitem" onclick="fecharDropdown(); abrirModal('educacao')">
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-educar" onclick="fecharDropdown(); irParaServico('educar'); return false;">
             <span class="nav-dropdown-icon">
               <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
             </span>
@@ -1439,7 +1411,27 @@
               <span class="nav-dropdown-title">Educação Financeira</span>
               <span class="nav-dropdown-desc">Autonomia para decidir com confiança</span>
             </span>
-          </button>
+          </a>
+
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-planejar" onclick="fecharDropdown(); irParaServico('planejar'); return false;">
+            <span class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </span>
+            <span class="nav-dropdown-text">
+              <span class="nav-dropdown-title">Planejamento Financeiro</span>
+              <span class="nav-dropdown-desc">Plano personalizado para seus objetivos</span>
+            </span>
+          </a>
+
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-investir" onclick="fecharDropdown(); irParaServico('investir'); return false;">
+            <span class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <span class="nav-dropdown-text">
+              <span class="nav-dropdown-title">Estratégias de Investimentos</span>
+              <span class="nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span>
+            </span>
+          </a>
         </div>
 
         <a href="#depoimentos" role="menuitem">Depoimentos</a>
@@ -2197,30 +2189,27 @@
     let scrollingTo = null;
     let scrollTimer = null;
 
+    function scrollToServico(id) {
+      setActive(id, true);
+      const bloco = document.getElementById('bloco-' + id);
+      if (!bloco) return;
+
+      const hdrH  = document.getElementById('hdr')?.offsetHeight || 56;
+      const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
+      const offset = hdrH + tabsH + 8;
+      const blocoTop = bloco.getBoundingClientRect().top + window.scrollY;
+
+      scrollingTo = id;
+      clearTimeout(scrollTimer);
+      window.scrollTo({ top: blocoTop - offset, behavior: 'smooth' });
+      scrollTimer = setTimeout(() => { scrollingTo = null; }, 800);
+    }
+
+    window.irParaServico = scrollToServico;
+
     tabs.forEach(btn => {
       btn.addEventListener('click', () => {
-        const id = btn.dataset.tab;
-        setActive(id, true);
-        const bloco = document.getElementById('bloco-' + id);
-        if (!bloco) return;
-
-        // Medições ao vivo no momento do click
-        const hdrH  = document.getElementById('hdr')?.offsetHeight || 56;
-        const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
-        const offset = hdrH + tabsH + 8;
-
-        // offsetTop absoluto do bloco na página (não relativo à viewport)
-        const blocoTop = bloco.getBoundingClientRect().top + window.scrollY;
-        const target   = blocoTop - offset;
-
-        // Bloqueia o observer para não interferir durante o scroll
-        scrollingTo = id;
-        clearTimeout(scrollTimer);
-
-        window.scrollTo({ top: target, behavior: 'smooth' });
-
-        // Libera o observer após o scroll terminar (~700ms é suficiente)
-        scrollTimer = setTimeout(() => { scrollingTo = null; }, 800);
+        scrollToServico(btn.dataset.tab);
       });
     });
 
