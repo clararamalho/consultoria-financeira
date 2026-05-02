@@ -128,18 +128,274 @@
     #voltarTopo.visivel { opacity: 1; visibility: visible; transform: translateY(0); }
     #voltarTopo svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+    /* ── NEWSLETTER (from index) ── */
+    :root { --ease-out: cubic-bezier(.22,.61,.36,1); --ease-overshoot: cubic-bezier(.6,.6,0,1); }
+    .nl-box-new {
+      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+      border-radius: var(--radius);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .nl-box-txt-new h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .nl-box-txt-new p { font-size: 0.85rem; font-weight: 300; color: var(--moment-mute); }
+    .nl-form-new { display: flex; flex-direction: column; gap: 0.6rem; }
+    .nl-form-new input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 0.8rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-form-new input::placeholder { color: rgba(255,255,255,0.3); }
+    .nl-form-new input:focus { border-color: rgba(164,249,218,0.5); }
+    .nl-form-new button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      background: var(--moment-accent);
+      color: var(--moment-dark-1);
+      border: none;
+      padding: 0.8rem;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+    }
+    .nl-form-new button::after {
+      content: "→";
+      transition: transform 0.35s var(--ease-out);
+    }
+    .nl-form-new button:hover { background: var(--white); transform: translateY(-1px); }
+    .nl-form-new button:hover::after { transform: translateX(3px); }
+    .nl-form-new button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
+    .nl-lgpd-new { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.6; }
+    .nl-lgpd-new a { color: rgba(164,249,218,0.75); text-decoration: underline; }
+    #nlSucessoBlog-new { display: none; text-align: center; }
+    #nlSucessoBlog-new .check { font-size: 2rem; margin-bottom: 0.75rem; }
+    #nlSucessoBlog-new h3 { font-size: 0.95rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
+    #nlSucessoBlog-new p { font-size: 0.82rem; color: var(--moment-mute); }
+
+    /* ── CONTATO (from index) ── */
+    #contato-new {
+      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 5rem 1.25rem;
+    }
+    #contato-new .container { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; }
+    .contato-radial-new {
+      position: absolute;
+      right: -8rem;
+      top: 50%;
+      width: min(760px, 82vw);
+      height: min(760px, 82vw);
+      transform: translateY(-50%);
+      color: var(--moment-accent);
+      opacity: 0.38;
+      pointer-events: none;
+    }
+    #contato-new .s-label-new { color: var(--moment-accent); display: inline-block; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-family: monospace; margin-bottom: 1rem; }
+    #contato-new .s-title-new {
+      color: var(--white);
+      max-width: 560px;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.03em;
+      text-wrap: balance; margin-bottom: 0.75rem;
+    }
+    .contato-grid-new {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+      gap: 4rem;
+      align-items: center;
+      min-height: 360px;
+    }
+    .contato-subtitle-new {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--moment-mute);
+      margin-top: 1rem;
+      max-width: 460px;
+      line-height: 1.8;
+    }
+    .contato-links-new {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.15rem;
+    }
+    .contato-main-link-new {
+      color: var(--moment-accent);
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1.2;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+    .contato-main-link-new::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: currentColor;
+      transform-origin: left;
+      transform: scaleX(0.35);
+      transition: transform 0.45s var(--ease-out);
+    }
+    .contato-main-link-new:hover::after { transform: scaleX(1); }
+    .contato-secondary-new {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      text-decoration: none;
+      color: var(--moment-mute);
+      transition: color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+    }
+    .contato-secondary-new:hover { color: var(--white); transform: translateX(2px); }
+    .contato-secondary-new svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* ── FOOTER (from index) ── */
+    footer-new {
+      background: var(--white);
+      border-top: 1px solid var(--border-2);
+      padding: 5rem 1.25rem 3.75rem;
+      color: var(--ink);
+    }
+    .footer-inner-new { max-width: var(--max); margin: 0 auto; }
+    .footer-top-new {
+      display: grid;
+      grid-template-columns: minmax(160px, 220px) 1fr;
+      gap: 7.5rem;
+      align-items: start;
+    }
+    .footer-brand-new {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+    .footer-cols-new {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+    .fc-title-new {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    .footer-cols-new ul { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .footer-cols-new ul li a {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-out);
+    }
+    .footer-cols-new ul li a:hover { color: var(--ink); }
+    .footer-regulatory-new {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-2);
+      display: grid;
+      gap: 1.5rem;
+    }
+    .footer-disclaimer-new {
+      max-width: 980px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-disclaimer-title-new {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--ink-3); margin-bottom: 0.7rem;
+    }
+    .footer-disclaimer-new p {
+      font-size: 0.68rem; font-weight: 300;
+      color: var(--ink-3); line-height: 1.75; margin-bottom: 0.7rem;
+    }
+    .footer-disclaimer-new p strong { color: var(--ink-2); font-weight: 600; }
+    .footer-avisos-new { list-style: none; counter-reset: av; display: flex; flex-direction: column; gap: 0.25rem; }
+    .footer-avisos-new li {
+      counter-increment: av; font-size: 0.66rem; font-weight: 300;
+      color: var(--ink-3); padding-left: 1.3rem; position: relative; line-height: 1.7;
+    }
+    .footer-avisos-new li::before { content: counter(av) "."; position: absolute; left: 0; color: var(--ink-3); }
+    .footer-avisos-new li strong { color: var(--ink-2); font-weight: 600; }
+    .footer-selos-new {
+      display: flex; justify-content: flex-start; align-items: center;
+      gap: 1.5rem;
+    }
+    .footer-selo-new { height: 46px; width: auto; opacity: 0.62; transition: opacity 0.2s; }
+    .footer-selo-new:hover { opacity: 0.9; }
+    .footer-bottom-new {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── VOLTAR AO TOPO ── */
+    #top-btn-new {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      width: 40px; height: 40px;
+      background: var(--ink); border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; visibility: hidden; transform: translateY(10px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      z-index: 300;
+    }
+    #top-btn-new.on { opacity: 1; visibility: visible; transform: translateY(0); }
+    #top-btn-new svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     @media (max-width: 860px) {
       .hdr-nav { display: none; }
       .hdr-hbg { display: flex; }
       .post-destaque { flex-direction: column; min-height: auto; }
       .post-destaque-img { width: 100%; height: 180px; padding: 0.75rem 0.75rem 0; }
       .post-destaque-body { padding: 1.8rem; }
-      .nl-box { grid-template-columns: 1fr; gap: 2rem; }
+      .nl-box-new { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+      .contato-grid-new { grid-template-columns: 1fr; gap: 2rem; min-height: auto; }
+    }
+    @media (max-width: 680px) {
+      .footer-cols-new { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .posts-grid { grid-template-columns: 1fr; }
       .blog-controls-inner { flex-direction: column; align-items: flex-start; }
       .busca-wrap { width: 100%; }
+      .footer-cols-new { grid-template-columns: 1fr; }
+      .footer-top-new { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
   <link rel="stylesheet" href="assets/site-nav.css" />
@@ -226,46 +482,157 @@
   </div>
 </section>
 
-<section class="nl-section">
-  <div class="nl-box">
-    <div class="nl-box-txt">
-      <h2>Receba quinzenalmente<br />no seu e-mail.</h2>
-      <p>Cadastre-se e receba conteúdo direto na sua caixa de entrada. Cancele quando quiser.</p>
-    </div>
-    <div>
-      <div id="nlFormBlog">
-        <div class="nl-form">
-          <label for="nl-email-blog" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">E-mail</label>
-          <input type="email" id="nl-email-blog" placeholder="seu@email.com" autocomplete="email" />
-          <button onclick="cadastrarBlog()">Quero receber</button>
-        </div>
-        <p class="nl-lgpd-blog" style="margin-top:0.6rem;">
-          Ao se cadastrar, você concorda com nossa
-          <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.
-          Cancele a qualquer momento.
-        </p>
+<!-- ==================== NEWSLETTER ==================== -->
+<section id="newsletter-new" data-navbar-theme="dark" style="background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%); padding: 5rem 1.25rem;">
+  <div class="container" style="max-width: var(--max); margin: 0 auto;">
+    <div class="nl-box-new">
+      <div class="nl-box-txt-new">
+        <h3>Receba quinzenalmente.</h3>
+        <p>Cadastre-se e receba conteúdo direto no seu e-mail. Cancele quando quiser.</p>
       </div>
-      <div class="nl-sucesso-blog" id="nlSucessoBlog"></div>
+      <div>
+        <div id="nlFormBlog">
+          <div class="nl-form-new">
+            <input type="email" id="nl-email-blog" placeholder="seu@email.com" autocomplete="email" />
+            <button onclick="cadastrarBlog()">Quero receber</button>
+          </div>
+          <p class="nl-lgpd-new" style="margin-top:.6rem;">Ao se cadastrar, você concorda com nossa <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>. Cancele a qualquer momento.</p>
+        </div>
+        <div id="nlSucessoBlog-new">
+          <div class="check">✓</div>
+          <h3>Cadastro confirmado!</h3>
+          <p>Você receberá nossa próxima edição em breve.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
-  <p style="margin-top:0.3rem;">
-    <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp;
-    <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> &nbsp;·&nbsp;
-    <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
-  </p>
+<!-- ==================== CONTATO ==================== -->
+<section id="contato-new" data-navbar-theme="dark">
+  <svg class="contato-radial-new" viewBox="0 0 640 640" aria-hidden="true">
+    <defs>
+      <radialGradient id="contatoFade-new" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.44" />
+        <stop offset="72%" stop-color="currentColor" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <g stroke="url(#contatoFade-new)" stroke-width="1.1" fill="none">
+      <line x1="320" y1="320" x2="320" y2="18" />
+      <line x1="320" y1="320" x2="431" y2="41" />
+      <line x1="320" y1="320" x2="524" y2="96" />
+      <line x1="320" y1="320" x2="597" y2="188" />
+      <line x1="320" y1="320" x2="622" y2="320" />
+      <line x1="320" y1="320" x2="597" y2="452" />
+      <line x1="320" y1="320" x2="524" y2="544" />
+      <line x1="320" y1="320" x2="431" y2="599" />
+      <line x1="320" y1="320" x2="320" y2="622" />
+      <line x1="320" y1="320" x2="209" y2="599" />
+      <line x1="320" y1="320" x2="116" y2="544" />
+      <line x1="320" y1="320" x2="43" y2="452" />
+      <line x1="320" y1="320" x2="18" y2="320" />
+      <line x1="320" y1="320" x2="43" y2="188" />
+      <line x1="320" y1="320" x2="116" y2="96" />
+      <line x1="320" y1="320" x2="209" y2="41" />
+    </g>
+  </svg>
+  <div class="container">
+    <div class="contato-grid-new">
+      <div>
+        <span class="s-label-new">Contato</span>
+        <h2 class="s-title-new">Vamos conversar sobre o seu futuro.</h2>
+        <p class="contato-subtitle-new">A primeira conversa é sem compromisso.</p>
+      </div>
+      <div class="contato-links-new">
+        <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="contato-main-link-new">Falar no WhatsApp →</a>
+        <a href="mailto:contato@clararamalho.com.br" class="contato-secondary-new">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contato@clararamalho.com.br
+        </a>
+        <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" class="contato-secondary-new">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer-new">
+  <div class="footer-inner-new">
+    <div class="footer-top-new">
+      <a href="index.html" class="footer-brand-new">Clara Ramalho</a>
+      <div class="footer-cols-new">
+        <div>
+          <h4 class="fc-title-new">Empresa</h4>
+          <ul>
+            <li><a href="index.html">Sobre</a></li>
+            <li><a href="#contato-new">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="fc-title-new">Soluções</h4>
+          <ul>
+            <li><a href="index.html#bloco-planejar">Planejamento Financeiro</a></li>
+            <li><a href="index.html#bloco-investir">Estratégia de Investimentos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="fc-title-new">Conteúdo</h4>
+          <ul>
+            <li><a href="index.html#newsletter">Newsletter</a></li>
+            <li><a href="newsletter.html">Todos os posts</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="fc-title-new">Conectar</h4>
+          <ul>
+            <li><a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="index.html">Mapa do site</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-regulatory-new">
+      <div class="footer-selos-new">
+        <picture>
+          <source srcset="assets/selo-cvm.webp" type="image/webp" />
+          <img src="assets/selo-cvm.png" alt="CVM" class="footer-selo-new" width="171" height="91" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="assets/selo-anbima-cea.webp" type="image/webp" />
+          <img src="assets/selo-anbima-cea.jpg" alt="ANBIMA CEA" class="footer-selo-new" width="91" height="91" loading="lazy" />
+        </picture>
+      </div>
+
+      <div class="footer-disclaimer-new">
+        <p class="footer-disclaimer-title-new">Disclaimer e Informações Legais</p>
+        <p><strong>Clara Ramalho</strong> — Consultora de Investimentos Independente habilitada pela Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19/2021. Certificação: Especialista em Investimentos ANBIMA (CEA).</p>
+        <p class="footer-disclaimer-title-new" style="margin-top:1rem;">Avisos Importantes</p>
+        <ol class="footer-avisos-new">
+          <li><strong>Risco de Mercado:</strong> Investimentos em valores mobiliários envolvem riscos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.</li>
+          <li><strong>Caráter Informativo:</strong> O conteúdo deste site possui caráter exclusivamente educativo e informativo. Não constitui recomendação direta de compra ou venda de ativos financeiros, nem garantia de resultados.</li>
+          <li><strong>Independência:</strong> A consultoria é exercida de forma isenta, buscando a melhor estratégia para o perfil e objetivos de cada cliente, sem vínculo de exclusividade com instituições financeiras que comprometa a imparcialidade das análises.</li>
+          <li><strong>Impostos e Taxas:</strong> As projeções e simulações podem não considerar custos operacionais, taxas e impostos específicos, que variam de acordo com a situação individual de cada investidor.</li>
+        </ol>
+      </div>
+      <p class="footer-bottom-new">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+    </div>
+  </div>
 </footer>
 
-<button id="voltarTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<button id="top-btn-new" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
 <script>
   window.addEventListener('scroll', () => {
-    document.getElementById('voltarTopo').classList.toggle('visivel', window.scrollY > 400);
+    const btn = document.getElementById('top-btn-new');
+    if (window.scrollY > 400) btn.classList.add('on');
+    else btn.classList.remove('on');
   }, { passive: true });
 
   // posts
@@ -392,7 +759,7 @@
 
   async function cadastrarBlog() {
     const email = document.getElementById('nl-email-blog').value.trim();
-    const btn   = document.querySelector('.nl-form button');
+    const btn   = document.querySelector('.nl-form-new button');
     if (!email) { alert('Por favor, informe seu e-mail.'); return; }
     btn.disabled = true; btn.textContent = 'Cadastrando...';
     try {
@@ -403,9 +770,9 @@
       const data = await res.json();
       if (data.ok) {
         document.getElementById('nlFormBlog').style.display    = 'none';
-        document.getElementById('nlSucessoBlog').style.display = 'block';
-        document.getElementById('nlSucessoBlog').innerHTML =
-          '✓ Verifique seu e-mail para confirmar o cadastro!<br><span style="font-size:0.8rem;opacity:0.6;">Não encontrou? Verifique a caixa de spam.</span>';
+        document.getElementById('nlSucessoBlog-new').style.display = 'block';
+        document.getElementById('nlSucessoBlog-new').innerHTML =
+          '<div class="check">✓</div><h3>Cadastro confirmado!</h3><p>Você receberá nossa próxima edição em breve.</p>';
       } else {
         alert(data.error || 'Ocorreu um erro. Tente novamente.');
         btn.disabled = false; btn.textContent = 'Quero receber';
