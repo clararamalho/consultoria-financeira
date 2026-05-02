@@ -19,12 +19,6 @@
     var isOpen = false;
     var closeTimer = null;
 
-    if (header) {
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('scrolled', window.scrollY > 10);
-      }, { passive: true });
-    }
-
     function positionPanel() {
       if (!btn || !panel || !nav || !nub) return;
       var btnRect = btn.getBoundingClientRect();

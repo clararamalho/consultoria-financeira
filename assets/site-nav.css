@@ -12,9 +12,7 @@
   display: flex;
   align-items: center;
   padding: 0 1.25rem;
-  transition: box-shadow 0.3s ease;
 }
-.site-main-header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
 .site-nav-inner {
   width: 100%;
   max-width: var(--max, 1220px);
