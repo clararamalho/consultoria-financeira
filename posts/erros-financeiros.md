@@ -2,7 +2,7 @@
 titulo: "5 erros financeiros mais comuns — e como evitá-los"
 resumo: "Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais."
 data: "2026-04-01"
-categoria: "Planejamento"
+categoria: "Planejamento Financeiro"
 categoria_id: "planejamento"
 ---
 

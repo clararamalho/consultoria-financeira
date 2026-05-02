@@ -2,8 +2,8 @@
 titulo: "Copom cortou os juros hoje — o que isso significa para você?"
 resumo: "A Selic caiu de 14,75% para 14,5% ao ano. A decisão foi unânime, mas o comunicado acendeu um alerta: pode ter pausa à frente."
 data: "2026-04-30"
-categoria: "Economia"
-categoria_id: "economia"
+categoria: "Dados & Mercado"
+categoria_id: "dados-mercado"
 edicao: 1
 ---
 
