@@ -362,84 +362,6 @@
       max-width: 600px;
     }
 
-    /* ── SOBRE ── */
-    #sobre { background: var(--off-white); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-    .sobre-texto p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--ink-2);
-      line-height: 1.85;
-      margin-bottom: 1.1rem;
-    }
-    .credenciais {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 2rem;
-    }
-    .badge {
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--ink-2);
-      border: 1px solid var(--border);
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-      background: var(--white);
-    }
-    .sobre-foto-wrap { position: relative; }
-    .sobre-foto-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -8px -8px 8px 8px;
-      border: 1px solid var(--ciano);
-      opacity: 0.15;
-      border-radius: 14px;
-      pointer-events: none;
-    }
-    .sobre-foto {
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 10px;
-      display: block;
-      border: 1px solid var(--border);
-    }
-    .sobre-stats {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--white);
-      margin-top: 1.25rem;
-      max-width: 320px;
-      overflow: hidden;
-    }
-    .sobre-stat {
-      flex: 1;
-      padding: 1rem 0.75rem;
-      text-align: center;
-      border-right: 1px solid var(--border-2);
-    }
-    .sobre-stat:last-child { border-right: none; }
-    .sobre-stat .n {
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: var(--ink);
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-    .sobre-stat .n em { font-style: normal; color: var(--ciano); font-size: 0.8em; }
-    .sobre-stat p { font-size: 0.65rem; color: var(--ink-3); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.3; }
-
     /* ── SERVIÇOS ── */
     #servicos {
       background: var(--white);
@@ -1075,8 +997,6 @@
       .hamburger { display: flex; }
       #hero { padding: 7rem 1.25rem 8rem; }
       .stats-row { gap: 2.5rem; }
-      .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .sobre-foto-wrap { display: flex; flex-direction: column; align-items: center; }
       .dep-card { width: calc(100vw - 2.5rem); max-width: 100%; }
       .nl-grid { grid-template-columns: 1fr 1fr; }
       .nl-card:last-child { display: none; }
@@ -1305,17 +1225,17 @@
         <a href="#depoimentos" role="menuitem">Depoimentos</a>
         <a href="#newsletter" role="menuitem">Newsletter</a>
         <a href="blog.html" role="menuitem">Blog</a>
-        <a href="#sobre" role="menuitem">Sobre</a>
+        <a href="sobre.html" role="menuitem">Sobre</a>
       </nav>
     </div>
     <div class="header-right">
-      <a href="#contato" class="nav-cta">
-        Agendar conversa
+      <button class="nav-cta" onclick="abrirModal('contato')">
+        Entre em contato
         <span class="nav-cta-arrow">
           <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
           <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
         </span>
-      </a>
+      </button>
       <button class="hamburger" id="hbg" aria-label="Menu">
         <span></span><span></span>
       </button>
@@ -1329,8 +1249,8 @@
   <a href="#depoimentos">Depoimentos</a>
   <a href="#newsletter">Newsletter</a>
   <a href="blog.html">Blog</a>
-  <a href="#sobre">Sobre</a>
-  <a href="#contato">Contato</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="#" onclick="document.getElementById('mob').classList.remove('open'); abrirModal('contato'); return false;">Contato</a>
 </div>
 
 <!-- ==================== HERO ==================== -->
@@ -1417,46 +1337,6 @@
     <div class="stat fi-anim d3">
       <div class="stat-num">CEA</div>
       <p class="stat-label">certificação ANBIMA · registrada CVM</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SOBRE ==================== -->
-<section id="sobre" data-navbar-theme="light">
-  <div class="container">
-    <span class="s-label fi-anim">Sobre mim</span>
-    <h2 class="s-title fi-anim d1">Uma consultoria<br />feita para você.</h2>
-    <div class="sobre-grid">
-      <div class="sobre-texto">
-        <p class="fi-anim d1" data-content="sobre_p1">Sou Clara Ramalho, consultora financeira certificada com foco em planejamento patrimonial e educação financeira para pessoas físicas e famílias.</p>
-        <p class="fi-anim d2" data-content="sobre_p2">Minha abordagem é independente — sem vínculo com bancos ou distribuidoras — o que garante recomendações alinhadas exclusivamente aos seus objetivos.</p>
-        <p class="fi-anim d3" data-content="sobre_p3">Acredito que boas decisões financeiras começam por compreensão. Por isso, trabalho lado a lado com cada cliente para construir um plano que faça sentido na prática.</p>
-        <div class="credenciais fi-anim d4" id="sobreCredenciais">
-          <span class="badge">CEA — ANBIMA</span>
-          <span class="badge">Registrada CVM</span>
-          <span class="badge">Consultora Independente</span>
-        </div>
-      </div>
-      <div class="sobre-foto-wrap fi-anim d2">
-        <picture>
-          <source srcset="assets/perfil_26.webp" type="image/webp" />
-          <img src="assets/perfil_26.png" alt="Clara Ramalho, consultora financeira independente" class="sobre-foto" loading="lazy" width="320" />
-        </picture>
-        <div class="sobre-stats">
-          <div class="sobre-stat">
-            <div class="n">12<em>+</em></div>
-            <p>anos de experiência</p>
-          </div>
-          <div class="sobre-stat">
-            <div class="n">127<em>+</em></div>
-            <p>clientes atendidos</p>
-          </div>
-          <div class="sobre-stat">
-            <div class="n">100<em>%</em></div>
-            <p>independente</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1783,7 +1663,7 @@
         <ul>
           <li><a href="#hero">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -1840,6 +1720,27 @@
 </button>
 
 <!-- ==================== MODAIS ==================== -->
+<div class="modal-overlay" id="modal-contato">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('contato')">✕</button>
+    <p class="modal-titulo">Entre em contato</p>
+    <p class="modal-sub">Preencha o formulário e retorno em breve.</p>
+    <div id="form-contato">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ct-nome">Nome</label><input type="text" id="ct-nome" placeholder="Seu nome" /></div>
+        <div class="fi"><label for="ct-sob">Sobrenome</label><input type="text" id="ct-sob" placeholder="Seu sobrenome" /></div>
+        <div class="fi"><label for="ct-email">E-mail</label><input type="email" id="ct-email" placeholder="seu@email.com" /></div>
+        <div class="fi"><label for="ct-tel">Telefone</label><input type="tel" id="ct-tel" placeholder="(00) 00000-0000" /></div>
+      </div>
+      <hr class="fdiv" />
+      <div class="fi full" style="grid-column:1/-1"><label for="ct-msg">Mensagem</label><textarea id="ct-msg" placeholder="Como posso te ajudar?" style="min-height:100px;"></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('contato')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-contato"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="modal-planejamento">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
@@ -2244,25 +2145,29 @@
   });
 
   const PRE = { planejamento: 'pf', patrimonial: 'op', investimentos: 'ei', educacao: 'ef' };
-  const TIT = { planejamento: 'Planejamento Financeiro', patrimonial: 'Organização Patrimonial', investimentos: 'Estratégia de Investimentos', educacao: 'Educação Financeira' };
+  const TIT = { contato: 'Contato', planejamento: 'Planejamento Financeiro', patrimonial: 'Organização Patrimonial', investimentos: 'Estratégia de Investimentos', educacao: 'Educação Financeira' };
   const QTD = { planejamento: 10, patrimonial: 8, investimentos: 8, educacao: 8 };
 
   async function enviarFormulario(tipo) {
-    const p = PRE[tipo];
-    const nome = document.getElementById(p + '-nome').value.trim();
-    const email = document.getElementById(p + '-email').value.trim();
-    if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); return; }
-    const sob = document.getElementById(p + '-sob').value.trim();
-    const tel = document.getElementById(p + '-tel').value.trim();
-    const respostas = {};
-    for (let i = 1; i <= QTD[tipo]; i++) {
-      const el = document.getElementById(p + '-q' + i);
-      if (el) respostas['q' + i] = el.value.trim();
-    }
     const btn = document.querySelector('#form-' + tipo + ' .btn-enviar');
     btn.disabled = true; btn.textContent = 'Enviando...';
+    let payload;
+    if (tipo === 'contato') {
+      const nome  = document.getElementById('ct-nome').value.trim();
+      const email = document.getElementById('ct-email').value.trim();
+      if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); btn.disabled = false; btn.textContent = 'Enviar'; return; }
+      payload = { tipo: TIT[tipo], nome, sobrenome: document.getElementById('ct-sob').value.trim(), email, telefone: document.getElementById('ct-tel').value.trim(), respostas: { mensagem: document.getElementById('ct-msg').value.trim() } };
+    } else {
+      const p = PRE[tipo];
+      const nome  = document.getElementById(p + '-nome').value.trim();
+      const email = document.getElementById(p + '-email').value.trim();
+      if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); btn.disabled = false; btn.textContent = 'Enviar'; return; }
+      const respostas = {};
+      for (let i = 1; i <= QTD[tipo]; i++) { const el = document.getElementById(p + '-q' + i); if (el) respostas['q' + i] = el.value.trim(); }
+      payload = { tipo: TIT[tipo], nome, sobrenome: document.getElementById(p + '-sob').value.trim(), email, telefone: document.getElementById(p + '-tel').value.trim(), respostas };
+    }
     try {
-      const r = await fetch(WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ tipo: TIT[tipo], nome, sobrenome: sob, email, telefone: tel, respostas }) });
+      const r = await fetch(WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (r.ok) { document.getElementById('form-' + tipo).style.display = 'none'; document.getElementById('ok-' + tipo).style.display = 'block'; }
       else throw new Error();
     } catch { alert('Erro ao enviar. Tente novamente.'); btn.disabled = false; btn.textContent = 'Enviar'; }
