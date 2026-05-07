@@ -1,0 +1,38 @@
+name: Gerar Índice de Busca
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'posts/**'
+
+jobs:
+  gerar-indice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Executar gerador de índice
+        run: python3 scripts/gerar_search_index.py
+
+      - name: Configurar Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Commit e push
+        run: |
+          if git diff --quiet posts/search-index.json; then
+            echo "Nenhuma mudança no search-index.json"
+          else
+            git add posts/search-index.json
+            git commit -m "chore: atualiza search-index.json [skip ci]"
+            git push
+          fi

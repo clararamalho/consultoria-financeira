@@ -68,7 +68,7 @@ Na prática, a Selic em 14,5% ainda é muito alta — o que significa:
 - **Quem pensa em financiamento imobiliário** pode aguardar — se o ciclo de
   cortes continuar, as condições tendem a melhorar ao longo de 2026
 
-A regra geral: com a Selic ainda em dois dígitos altos, não faz sentido correr
+A regra geral é: com a Selic ainda em dois dígitos altos, não faz sentido correr
 riscos desnecessários em busca de rentabilidade. A renda fixa de qualidade
 segue sendo a base de qualquer carteira bem estruturada.
 

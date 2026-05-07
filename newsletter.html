@@ -628,6 +628,7 @@
   const REPO_RAW = 'https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main';
   const NEWSLETTER_WORKER_URL = 'https://newsletter-cadastro.m-clarard.workers.dev';
   let todosPosts = [];
+  let searchIndex = {};
 
   function formatarData(d) {
     if (!d) return '';
@@ -642,8 +643,22 @@
       todosPosts = await res.json();
       construirFiltros();
       renderizarPosts(todosPosts);
+      carregarSearchIndex();
     } catch {
       document.getElementById('postsLoading').textContent = 'Não foi possível carregar os posts.';
+    }
+  }
+
+  async function carregarSearchIndex() {
+    try {
+      const res = await fetch(`${REPO_RAW}/posts/search-index.json`);
+      if (!res.ok) throw new Error('erro');
+      const dados = await res.json();
+      dados.forEach(item => {
+        searchIndex[item.slug] = item.conteudo;
+      });
+    } catch {
+      // Degrada silenciosamente — busca continua funcionando sem conteúdo
     }
   }
 
@@ -728,11 +743,16 @@
 
   function buscar(termo) {
     const t = termo.trim().toLowerCase();
-    const filtrados = todosPosts.filter(p =>
-      p.titulo.toLowerCase().includes(t) ||
-      (p.resumo || '').toLowerCase().includes(t) ||
-      (p.categoria || '').toLowerCase().includes(t)
-    );
+    const filtrados = todosPosts.filter(p => {
+      const emMetadados =
+        p.titulo.toLowerCase().includes(t) ||
+        (p.resumo || '').toLowerCase().includes(t) ||
+        (p.categoria || '').toLowerCase().includes(t);
+
+      const emConteudo = searchIndex[p.slug] && searchIndex[p.slug].toLowerCase().includes(t);
+
+      return emMetadados || emConteudo;
+    });
     document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
     document.querySelector('.filtro-btn').classList.add('ativo');
     if (t && filtrados.length === 0) {
