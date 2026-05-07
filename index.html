@@ -233,26 +233,26 @@
 <!-- ==================== STATS ==================== -->
 <section id="stats" data-navbar-theme="light">
   <p class="stats-label" data-content="stats_label">Experiência comprovada</p>
-  <div class="stats-row container" id="statsRow">
-    <div class="stat fi-anim">
-      <div class="stat-num">12<sup>+</sup></div>
-      <p class="stat-label">anos de experiência</p>
-    </div>
-    <div class="stat fi-anim d1">
-      <div class="stat-num">100<sup>%</sup></div>
-      <p class="stat-label">independente de bancos e corretoras</p>
-    </div>
-    <div class="stat fi-anim d2">
-      <div class="stat-num">CEA</div>
-      <p class="stat-label">Certificação ANBIMA</p>
-    </div>
-    <div class="stat fi-anim d3">
-      <div class="stat-num">CVM</div>
-      <p class="stat-label">Consultora habilitada</p>
-    </div>
-  </div>
-</section>
-
+    <div class="stats-row container" id="statsRow">
+        <div class="stat fi-anim">
+              <div class="stat-num">12<sup>+</sup></div>
+                    <p class="stat-label">anos de experiência</p>
+                        </div>
+                            <div class="stat fi-anim d1">
+                                  <div class="stat-num">100<sup>%</sup></div>
+                                        <p class="stat-label">independente de bancos e corretoras</p>
+                                            </div>
+                                                <div class="stat fi-anim d2">
+                                                      <div class="stat-num">CEA</div>
+                                                            <p class="stat-label">Certificação ANBIMA</p>
+                                                                </div>
+                                                                    <div class="stat fi-anim d3">
+                                                                          <div class="stat-num">CVM</div>
+                                                                                <p class="stat-label">Consultora habilitada</p>
+                                                                                    </div>
+                                                                                      </div>
+                                                                                      </section>
+                                                                                      -->>
 <!-- ==================== SERVIÇOS ==================== -->
 <section id="servicos" data-navbar-theme="light">
 
@@ -955,16 +955,8 @@ document.addEventListener('DOMContentLoaded', function() {
   window.initDepCarousel();
 
   // Fade in animation
-  function checkFiAnim() {
-    document.querySelectorAll('.fi-anim:not(.vis)').forEach(function(el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 60) {
-        el.classList.add('vis');
-      }
-    });
-  }
-  window.addEventListener('scroll', checkFiAnim, { passive: true });
-  checkFiAnim();
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fi-anim').forEach(el => io.observe(el));
 
   // Serviços — hover para ativar card
   const cards = document.querySelectorAll('.card');
