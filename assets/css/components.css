@@ -634,8 +634,8 @@
       font-size: 0.68rem;
       font-weight: 300;
       color: var(--ink-3);
-      font-family: 'Inter', sans-serif;
-      letter-spacing: -0.005em;
+      font-family: monospace;
+      letter-spacing: 0.05em;
     }
     .footer-legal a {
       color: var(--ink-3);
@@ -647,10 +647,10 @@
       font-size: 0.68rem;
       font-weight: 300;
       color: var(--ink-3);
-      font-family: 'Inter', sans-serif;
-      letter-spacing: -0.005em;
+      font-family: monospace;
+      letter-spacing: 0.05em;
     }
-    .footer-bottom p { font-family: 'Inter', sans-serif; }
+    .footer-bottom p { font-family: monospace; }
 
     /* ── MODAIS ── */
     .modal-overlay {

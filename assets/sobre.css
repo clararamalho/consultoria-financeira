@@ -287,8 +287,8 @@ footer {
   font-size: 0.72rem;
   font-weight: 300;
   color: var(--ink-3);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: -0.005em;
+  font-family: monospace;
+  letter-spacing: 0.05em;
 }
 
 .footer-legal a {
@@ -303,13 +303,13 @@ footer {
   font-size: 0.72rem;
   font-weight: 300;
   color: var(--ink-3);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: -0.005em;
+  font-family: monospace;
+  letter-spacing: 0.05em;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-2);
 }
 
-.footer-bottom p { font-family: 'Inter', sans-serif; }
+.footer-bottom p { font-family: monospace; }
 
 @media (max-width: 680px) {
   .page-hero {
