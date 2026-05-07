@@ -351,18 +351,12 @@
     }
 
     .sidebar-avatar {
-      width: 2.25rem;
-      height: 2.25rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
-      background: var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: white;
+      border: 2px solid var(--ciano);
+      object-fit: cover;
       flex-shrink: 0;
-      letter-spacing: -0.01em;
     }
 
     .sidebar-autora-info .nome {
@@ -1008,13 +1002,13 @@
       <aside class="post-sidebar" aria-label="Informações do post">
         <div class="sidebar-card">
           <div class="sidebar-autora">
-            <div class="sidebar-avatar">CR</div>
+            <img src="assets/perfil_26.webp" alt="Clara Ramalho" class="sidebar-avatar" />
             <div class="sidebar-autora-info">
               <p class="nome">Clara Ramalho</p>
               <p class="cargo">Consultora Financeira</p>
             </div>
           </div>
-          <p class="sidebar-bio">Consultoria financeira independente para pessoas físicas — planejamento, investimentos e organização patrimonial com clareza e sem jargão.</p>
+          <p class="sidebar-bio">Consultora financeira independente. Ajudo pessoas e famílias a organizar o patrimônio e planejar o futuro com clareza e sem conflito de interesse.</p>
           <button class="sidebar-cta" onclick="abrirModalContato()">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
             Entre em contato
