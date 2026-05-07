@@ -855,8 +855,6 @@
       font-weight: 300;
     }
     .contato-grid {
-      max-width: var(--max);
-      margin: 0 auto;
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
       gap: 4rem;
@@ -971,6 +969,11 @@
       .sidebar-card { max-width: 32rem; }
     }
 
+    @media (max-width: 860px) {
+      .contato-grid { grid-template-columns: 1fr; gap: 3rem; min-height: 0; }
+      .contato-radial { right: -14rem; opacity: 0.28; }
+    }
+
     @media (max-width: 600px) {
       .breadcrumb { padding-top: 2rem; }
       .post-hero { padding-top: 1.5rem; }
@@ -979,6 +982,11 @@
       .post-nav-item.next { text-align: left; }
       .modal { padding: 1.5rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 540px) {
+      .contato-links { gap: 1rem; }
+      .contato-main-link { font-size: 1.05rem; }
     }
   </style>
   <link rel="stylesheet" href="assets/site-nav.css" />
