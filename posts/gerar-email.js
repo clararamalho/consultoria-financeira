@@ -24,17 +24,19 @@ const mdRaw = fs.readFileSync(input, "utf-8");
 
 // ── Lê o frontmatter (--- ... ---) ────────────────────────────────────────
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { meta: {}, body: raw };
+  // Normaliza quebras de linha Windows (CRLF) para Unix (LF)
+  const normalized = raw.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { meta: {}, body: normalized };
 
   const meta = {};
   match[1].split("\n").forEach((line) => {
-    const [key, ...rest] = line.split(":");
-    if (key) {
-      // Remove aspas ao redor do valor se existirem
-      let val = rest.join(":").trim().replace(/^"|"$/g, "");
-      meta[key.trim()] = val;
-    }
+    const colonIdx = line.indexOf(":");
+    if (colonIdx === -1) return;
+    const key = line.slice(0, colonIdx).trim();
+    const val = line.slice(colonIdx + 1).trim().replace(/^"|"$/g, "");
+    if (key) meta[key] = val;
   });
 
   return { meta, body: match[2] };
@@ -59,7 +61,7 @@ function formatarData(raw) {
 const data = formatarData(meta.data);
 
 // ── Converte o corpo Markdown para HTML ───────────────────────────────────
-marked.setOptions({ breaks: true });
+marked.setOptions({ breaks: false });
 
 const tokens = marked.lexer(body.trim());
 let corpoHtml = "";
@@ -129,14 +131,7 @@ const html = `<!DOCTYPE html>
 <title>${titulo} · Clara Ramalho</title>
 <style>
   body { background:#F7F8FC; margin:0; padding:40px 16px; font-family:Arial,Helvetica,sans-serif; }
-  @media (prefers-color-scheme: dark) {
-    body  { background:#0F1A45 !important; }
-    table { background:#1A2A6C !important; border-color:rgba(255,255,255,0.08) !important; }
-    h1,h2,h3 { color:#FFFFFF !important; }
-    p  { color:rgba(255,255,255,0.75) !important; }
-    a  { color:#00C0C8 !important; }
-  }
-  @media screen and (max-width:480px) {
+@media screen and (max-width:480px) {
     table { width:100% !important; border-radius:0 !important; }
     h1 { font-size:22px !important; }
     p  { font-size:14px !important; }
@@ -153,11 +148,21 @@ const html = `<!DOCTYPE html>
 
   <!-- HEADER -->
   <tr>
-    <td style="padding:28px 40px 22px;border-bottom:1px solid rgba(26,42,108,0.07);text-align:center;">
-      <span style="display:block;font-size:10px;font-weight:400;color:#9AA3B8;letter-spacing:0.12em;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;">Newsletter ${edicao}</span>
-      <span style="display:block;font-size:11px;font-weight:400;color:#9AA3B8;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;font-family:Arial,Helvetica,sans-serif;">${titulo}</span>
+    <td style="padding:28px 40px 22px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+            <span style="display:block;font-size:10px;font-weight:400;color:#9AA3B8;letter-spacing:0.12em;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;">Clara Ramalho, CEA · Consultoria Independente</span>
+          </td>
+          <td align="right" style="vertical-align:top;">
+            <span style="font-size:10px;font-weight:400;color:#9AA3B8;letter-spacing:0.12em;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;">Newsletter ${edicao}</span>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
+  <!-- HEADER DEGRADÊ -->
+  <tr><td style="height:3px;background:linear-gradient(90deg,#1A2A6C 0%,#00C0C8 100%);"></td></tr>
 
   <!-- DATA -->
   <tr>
@@ -193,14 +198,6 @@ const html = `<!DOCTYPE html>
     </td>
   </tr>
 
-  ${resumo ? `
-  <!-- RESUMO -->
-  <tr>
-    <td style="padding:0 40px 0;">
-      <p style="margin:0;font-size:13px;font-weight:300;line-height:1.7;color:#9AA3B8;font-style:italic;font-family:Arial,Helvetica,sans-serif;border-left:2px solid #00C0C8;padding-left:12px;">${resumo}</p>
-    </td>
-  </tr>` : ""}
-
   <!-- CORPO -->
   <tr>
     <td style="padding:28px 40px 0;">
@@ -213,14 +210,19 @@ const html = `<!DOCTYPE html>
 
   <!-- FOOTER -->
   <tr>
-    <td style="padding:24px 40px;border-top:1px solid rgba(26,42,108,0.07);background:#F7F8FC;">
-      <p style="margin:0 0 6px;font-size:11px;font-weight:300;color:#9AA3B8;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
-        Você está recebendo este e-mail por ser assinante da newsletter de Clara Ramalho.
+    <td style="padding:28px 40px 24px;border-top:1px solid rgba(26,42,108,0.07);background:#F7F8FC;">
+      <p style="margin:0 0 16px;font-size:10px;font-weight:300;color:#9AA3B8;line-height:1.7;font-family:Arial,Helvetica,sans-serif;text-align:justify;">
+        Clara Ramalho é aderente ao código ANBIMA de regulação e melhores práticas para atividade de consultoria financeira. Os instrumentos financeiros discutidos, apresentados ou oferecidos neste material podem não ser adequados para todos os investidores. Esta comunicação não leva em consideração os objetivos de investimento, situação financeira ou necessidades específicas de qualquer investidor, não devendo servir como única fonte de informações no processo decisório do investidor que, antes de decidir, deverá realizar uma avaliação minuciosa do produto e respectivos riscos face a seus objetivos pessoais e à sua tolerância a risco (Suitability), preferencialmente por meio de profissional qualificado. Investimentos nos mercados financeiros e de capitais estão sujeitos a riscos de perda superior ao valor total do capital investido. O conteúdo apresentado não se trata de recomendação, indicação e/ou aconselhamento de investimento, sendo única e exclusiva responsabilidade do investidor a tomada de decisão. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.
       </p>
-      <p style="margin:0;font-size:11px;font-weight:300;color:#9AA3B8;font-family:Arial,Helvetica,sans-serif;">
-        <a href="https://clararamalho.com.br/descadastrar.html" style="color:#9AA3B8;text-decoration:underline;text-underline-offset:2px;">Cancelar inscrição</a>
-        &nbsp;·&nbsp;
+      <hr style="border:none;border-top:1px solid rgba(26,42,108,0.08);margin:0 0 16px;" />
+      <p style="margin:0 0 4px;font-size:10px;font-weight:300;color:#9AA3B8;text-align:center;font-family:Arial,Helvetica,sans-serif;">© 2026 Clara Ramalho · Consultoria Financeira Independente · Rio de Janeiro, RJ</p>
+      <p style="margin:0 0 12px;font-size:10px;font-weight:300;color:#9AA3B8;text-align:center;font-family:Arial,Helvetica,sans-serif;">
         <a href="https://clararamalho.com.br" style="color:#9AA3B8;text-decoration:none;">clararamalho.com.br</a>
+      </p>
+      <p style="margin:0;font-size:10px;font-weight:300;color:#9AA3B8;text-align:center;font-family:Arial,Helvetica,sans-serif;">
+        <a href="https://clararamalho.com.br/descadastrar.html" style="color:#9AA3B8;text-decoration:underline;text-underline-offset:2px;">Descadastrar</a>
+        &nbsp;·&nbsp;
+        <a href="https://clararamalho.com.br/politica-de-privacidade.html" style="color:#9AA3B8;text-decoration:underline;text-underline-offset:2px;">Política de Privacidade</a>
       </p>
     </td>
   </tr>
