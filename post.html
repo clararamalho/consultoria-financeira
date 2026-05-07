@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="pageTitle">Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
+    <meta property="og:image" content="" id="og-image-meta" />
   <meta property="og:title" content="" id="ogTitle" />
   <meta property="og:description" content="" id="ogDesc" />
   <meta property="og:type" content="article" />
@@ -13,7 +14,7 @@
   <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://clararamalho.com.br/post" />
+  <link rel="canonical" href="https://novo.clararamalho.com.br/post" />
   <style>
     @font-face {
       font-family: 'Inter';
@@ -896,6 +897,16 @@
   <script defer src="assets/site-nav.js"></script>
   <script type="application/ld+json" id="postLdJson">
 {}
+  </script>
+  <script>
+    // Populate og:image dynamically from post image
+    document.addEventListener("DOMContentLoaded", function() {
+      var img = document.querySelector("article img, .post-hero img, .post-cover img");
+      if (img) {
+        var meta = document.getElementById("og-image-meta");
+        if (meta) meta.setAttribute("content", img.src);
+      }
+    });
   </script>
 </head>
 <body>
