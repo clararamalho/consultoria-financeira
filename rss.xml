@@ -2,9 +2,9 @@
 <rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Clara Ramalho · Consultoria Financeira</title>
-    <link>https://novo.clararamalho.com.br/newsletter.html</link>
+    <link>https://clararamalho.com.br/newsletter.html</link>
     <description>Estudos e análises de finanças pessoais, investimentos e planejamento financeiro.</description>
     <language>pt-BR</language>
-    <atom:link href="https://novo.clararamalho.com.br/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://clararamalho.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   </channel>
 </rss>
