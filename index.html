@@ -955,8 +955,16 @@ document.addEventListener('DOMContentLoaded', function() {
   window.initDepCarousel();
 
   // Fade in animation
-  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.1 });
-  document.querySelectorAll('.fi-anim').forEach(el => io.observe(el));
+  function checkFiAnim() {
+    document.querySelectorAll('.fi-anim:not(.vis)').forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('vis');
+      }
+    });
+  }
+  window.addEventListener('scroll', checkFiAnim, { passive: true });
+  checkFiAnim();
 
   // Serviços — hover para ativar card
   const cards = document.querySelectorAll('.card');
