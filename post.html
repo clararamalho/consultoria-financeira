@@ -19,6 +19,8 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
   <style>
     /* ── RESET & BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -674,87 +676,6 @@
       line-height: 1.6;
     }
 
-    /* ── CONTATO ── */
-    #contato {
-      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    #contato .container { position: relative; z-index: 1; }
-    .contato-radial {
-      position: absolute;
-      right: -8rem;
-      top: 50%;
-      width: min(760px, 82vw);
-      height: min(760px, 82vw);
-      transform: translateY(-50%);
-      color: var(--moment-accent);
-      opacity: 0.38;
-      pointer-events: none;
-    }
-    #contato .s-label { color: var(--moment-accent); }
-    #contato .s-title {
-      color: var(--white);
-      max-width: 560px;
-    }
-    .contato-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
-      gap: 4rem;
-      align-items: center;
-      min-height: 360px;
-    }
-    .contato-subtitle {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--moment-mute);
-      margin-top: 1rem;
-      max-width: 460px;
-      line-height: 1.8;
-    }
-    .contato-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.15rem;
-    }
-    .contato-main-link {
-      color: var(--moment-accent);
-      font-size: 1.2rem;
-      font-weight: 400;
-      text-decoration: none;
-      line-height: 1.2;
-      position: relative;
-      padding-bottom: 0.25rem;
-    }
-    .contato-main-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: currentColor;
-      transform-origin: left;
-      transform: scaleX(0.35);
-      transition: transform 0.45s var(--ease-out);
-    }
-    .contato-main-link:hover::after { transform: scaleX(1); }
-    .contato-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      font-weight: 300;
-      text-decoration: none;
-      color: var(--moment-mute);
-      transition: color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
-    }
-    .contato-secondary:hover { color: var(--white); transform: translateX(2px); }
-    .contato-secondary svg { width: 15px; height: 15px; flex-shrink: 0; }
-
     /* ── FOOTER ── */
     .site-footer {
       border-top: 1px solid var(--border);
@@ -816,11 +737,6 @@
       .sidebar-card { max-width: 32rem; }
     }
 
-    @media (max-width: 860px) {
-      .contato-grid { grid-template-columns: 1fr; gap: 3rem; min-height: 0; }
-      .contato-radial { right: -14rem; opacity: 0.28; }
-    }
-
     @media (max-width: 600px) {
       .breadcrumb { padding-top: 2rem; }
       .post-hero { padding-top: 1.5rem; }
@@ -829,11 +745,6 @@
       .post-nav-item.next { text-align: left; }
       .modal { padding: 1.5rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 540px) {
-      .contato-links { gap: 1rem; }
-      .contato-main-link { font-size: 1.05rem; }
     }
   </style>
   <link rel="stylesheet" href="assets/site-nav.css" />
@@ -1093,11 +1004,11 @@
     <div class="container">
       <div class="contato-grid">
         <div>
-          <span class="s-label">Contato</span>
-          <h2 class="s-title">Vamos conversar sobre o seu futuro.</h2>
-          <p class="contato-subtitle">A primeira conversa é sem compromisso.</p>
+          <span class="s-label fi-anim">Contato</span>
+          <h2 class="s-title fi-anim d1">Vamos conversar sobre o seu futuro.</h2>
+          <p class="contato-subtitle fi-anim d2">A primeira conversa é sem compromisso.</p>
         </div>
-        <div class="contato-links">
+        <div class="contato-links fi-anim d3">
           <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="contato-main-link">Falar no WhatsApp →</a>
           <a href="mailto:contato@clararamalho.com.br" class="contato-secondary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
