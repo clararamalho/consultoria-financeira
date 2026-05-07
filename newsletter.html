@@ -78,11 +78,6 @@
   </style>
   <link rel="stylesheet" href="assets/tokens.css" />
   <style>
-    :root {
-      --ease-out:       cubic-bezier(.22,.61,.36,1);
-      --ease-overshoot: cubic-bezier(.6,.6,0,1);
-    }
-
     #newsletter {
       padding: 5rem 1.25rem;
     }
@@ -94,13 +89,11 @@
     /* HEADER */
     header {
       position: sticky; top: 0; left: 0; right: 0; height: var(--nav-h);
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: var(--white-92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border); z-index: 100;
       display: flex; align-items: center; padding: 0 1.25rem; transition: box-shadow 0.3s;
     }
-    header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
-    .hdr-left { display: flex; align-items: center; gap: 0.15rem; }
-    .hdr-right { display: flex; align-items: center; gap: 0.75rem; }
+    header.scrolled { box-shadow: 0 1px 20px var(--border-2); }
     .mob-cls { position: absolute; top: 1rem; right: 1.25rem; font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer; }
 
     /* HERO */
@@ -121,7 +114,7 @@
     .filtros { display: inline-flex; align-items: center; gap: 0.25rem; position: relative; background: var(--off-white); border: 1px solid var(--border); border-radius: 100px; padding: 0.25rem; flex-wrap: nowrap; }
     .filtro-btn { position: relative; z-index: 1; font-size: 0.84rem; font-weight: 300; color: var(--ink-3); background: none; border: none; padding: 0.4rem 1.1rem; border-radius: 100px; cursor: pointer; font-family: 'Inter', sans-serif; transition: color 0.25s ease; white-space: nowrap; }
     .filtro-btn:hover:not(.ativo) { color: var(--ink-2); }
-    .filtro-btn.ativo { color: var(--ink); font-weight: 400; background: var(--white); border: 1px solid var(--border); box-shadow: 0 1px 6px rgba(26,42,108,0.06); }
+    .filtro-btn.ativo { color: var(--ink); font-weight: 400; background: var(--white); border: 1px solid var(--border); box-shadow: 0 1px 6px var(--border-2); }
 
     /* POSTS */
     .posts-section { padding: 3rem 1.25rem 6rem; }
@@ -130,7 +123,7 @@
 
     /* destaque */
     .post-destaque { display: flex; flex-direction: row; border: 1px solid var(--border); border-radius: var(--radius); background: var(--white); overflow: hidden; margin-bottom: 1.25rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px var(--shadow-card); transition: box-shadow 0.4s; min-height: 320px; }
-    .post-destaque:hover { box-shadow: 0 30px 60px -20px rgba(26,42,108,0.1), 0 8px 24px -8px rgba(26,42,108,0.06); }
+    .post-destaque:hover { box-shadow: 0 30px 60px -20px var(--border), 0 8px 24px -8px var(--border-2); }
     .post-destaque-body { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; padding: 2.5rem 2.8rem; flex: 1; }
     .post-cat { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-family: monospace; margin-bottom: 1rem; display: block; }
     .post-destaque-body h2 { font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 300; color: var(--ink); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; }

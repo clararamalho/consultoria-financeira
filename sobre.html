@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cloud.umami.is https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <title>Sobre · Clara Ramalho Consultoria Financeira</title>
+  <meta name="description" content="Conheça Clara Ramalho, consultora de investimentos independente habilitada pela CVM, com certificação ANBIMA CEA." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Sobre Clara Ramalho · Consultoria Financeira" />
+  <meta property="og:description" content="Conheça Clara Ramalho, consultora de investimentos independente habilitada pela CVM." />
+  <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://clararamalho.com.br/sobre.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-300.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-300italic.woff2') format('woff2');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-500italic.woff2') format('woff2');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('assets/fonts/inter-v20-latin-600italic.woff2') format('woff2');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HERO ── */
+    .page-hero {
+      text-align: center;
+      padding: 5rem 1.25rem 4rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .page-categoria {
+      display: inline-block;
+      font-size: 0.68rem; font-family: monospace;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--ink-3); margin-bottom: 1.5rem;
+    }
+    .page-titulo {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.03em; color: var(--ink);
+      text-wrap: balance; margin-bottom: 0.75rem;
+    }
+    .page-subtitulo {
+      font-size: 1rem; font-weight: 300;
+      color: var(--ink-2); line-height: 1.7;
+      max-width: 600px; margin: 0 auto;
+    }
+
+    /* ── SECTIONS ── */
+    .page-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 6rem;
+    }
+
+    .page-section {
+      margin-bottom: 5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .page-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-titulo {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-texto {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .section-texto strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .cred-card {
+      padding: 1.75rem;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cred-label {
+      font-size: 0.72rem;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ciano);
+      font-weight: 500;
+    }
+
+    .cred-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .cred-desc {
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s;
+      font-weight: 400;
+    }
+
+    .contact-link:hover {
+      background: var(--surface-2);
+      border-color: var(--ciano);
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border-2);
+      padding: 4rem 1.25rem 3rem;
+      color: var(--ink);
+    }
+
+    .footer-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(160px, 220px) 1fr;
+      gap: 6rem;
+      align-items: start;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border-2);
+    }
+
+    .footer-brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--ink);
+    }
+
+    .footer-regulatory {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .footer-selos {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-selo {
+      height: 40px;
+      width: auto;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-selo:hover {
+      opacity: 0.9;
+    }
+
+    .footer-disclaimer {
+      max-width: 900px;
+    }
+
+    .footer-disclaimer-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-disclaimer p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-disclaimer p strong {
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+
+    .footer-avisos {
+      list-style: none;
+      counter-reset: av;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-avisos li {
+      counter-increment: av;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .footer-avisos li::before {
+      content: counter(av) ".";
+      position: absolute;
+      left: 0;
+      color: var(--ink-3);
+    }
+
+    .footer-avisos li strong {
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-2);
+    }
+
+    @media (max-width: 680px) {
+      .page-hero {
+        padding: 3rem 1.25rem 2rem;
+      }
+      .credentials-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-cols {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-content {
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      .page-section {
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
+      }
+      .footer-cols {
+        grid-template-columns: 1fr;
+      }
+      .contact-link {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/site-nav.css" />
+  <script defer src="assets/site-nav.js"></script>
+</head>
+<body>
+
+<header class="site-main-header" id="siteNavHeader">
+  <div class="site-nav-inner">
+    <div class="site-nav-left">
+      <a href="index.html" class="site-nav-logo">Clara Ramalho</a>
+      <nav class="site-nav-menu" id="siteNavMenu" role="menubar">
+        <button class="site-nav-dropdown-btn" id="siteNavServicesBtn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="siteNavServicesPanel">
+          Serviços
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
+        </button>
+        <div class="site-nav-dropdown-panel" id="siteNavServicesPanel" role="menu" aria-hidden="true">
+          <div class="site-nav-dropdown-nub" id="siteNavServicesNub"></div>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-educar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Educação Financeira</span><span class="site-nav-dropdown-desc">Autonomia para decidir com confiança</span></span>
+          </a>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-planejar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Planejamento Financeiro</span><span class="site-nav-dropdown-desc">Plano personalizado para seus objetivos</span></span>
+          </a>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-investir">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Estratégias de Investimentos</span><span class="site-nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span></span>
+          </a>
+        </div>
+        <a href="newsletter.html" role="menuitem">Newsletter</a>
+        <a href="sobre.html" role="menuitem" class="active">Sobre</a>
+      </nav>
+    </div>
+    <div class="site-nav-right">
+      <a class="site-nav-cta" href="index.html#contato">
+        Entre em contato
+        <span class="site-nav-cta-arrow">
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </span>
+      </a>
+      <button class="site-nav-hamburger" id="siteNavHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="site-mobile-overlay" id="siteMobileOverlay">
+  <button class="site-mobile-close" id="siteMobileClose">✕</button>
+  <a href="index.html">Início</a>
+  <a href="index.html#servicos">Serviços</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="index.html#contato">Contato</a>
+</div>
+
+<section class="page-hero">
+  <span class="page-categoria">Sobre</span>
+  <h1 class="page-titulo">Sobre mim</h1>
+  <p class="page-subtitulo">Consultora de Investimentos Independente habilitada pela CVM</p>
+</section>
+
+<div class="page-content">
+
+  <!-- APRESENTAÇÃO -->
+  <section class="page-section">
+    <h2 class="section-titulo">Trajetória e Propósito</h2>
+    <!-- CONTEÚDO A PREENCHER -->
+    <p class="section-texto">
+      Esta seção contém a apresentação pessoal, trajetória profissional e propósito da consultora.
+      Substitua este texto com uma narrativa clara sobre formação, experiência, e por que escolheu a consultoria financeira independente.
+    </p>
+  </section>
+
+  <!-- CREDENCIAIS -->
+  <section class="page-section">
+    <h2 class="section-titulo">Credenciais e Habilitações</h2>
+    <p class="section-texto">
+      Habilitada e certificada para oferecer consultoria financeira de forma independente e imparcial.
+    </p>
+    <div class="credentials-grid">
+      <div class="cred-card">
+        <span class="cred-label">CVM</span>
+        <p class="cred-title">Consultora Independente</p>
+        <p class="cred-desc">Habilitada pela Comissão de Valores Mobiliários conforme Resolução CVM nº 19/2021</p>
+      </div>
+      <div class="cred-card">
+        <span class="cred-label">ANBIMA</span>
+        <p class="cred-title">Especialista em Investimentos</p>
+        <p class="cred-desc">Certificação ANBIMA CEA — Especialista em Investimentos, com foco em estratégias patrimoniais</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="page-section">
+    <h2 class="section-titulo">Vamos conversar</h2>
+    <p class="section-texto">
+      A primeira conversa é sem compromisso. Fale comigo por qualquer um dos canais abaixo.
+    </p>
+    <div class="contact-links">
+      <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z"/><path d="M9 18h6"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="mailto:contato@clararamalho.com.br" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+        contato@clararamalho.com.br
+      </a>
+      <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="none"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" class="footer-brand">Clara Ramalho</a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Soluções</h4>
+          <ul>
+            <li><a href="index.html#bloco-planejar">Planejamento Financeiro</a></li>
+            <li><a href="index.html#bloco-investir">Estratégia de Investimentos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Conteúdo</h4>
+          <ul>
+            <li><a href="index.html#newsletter">Newsletter</a></li>
+            <li><a href="newsletter.html">Todos os posts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-regulatory">
+      <div class="footer-selos">
+        <picture>
+          <source srcset="assets/selo-cvm.webp" type="image/webp" />
+          <img src="assets/selo-cvm.png" alt="CVM" class="footer-selo" width="171" height="91" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="assets/selo-anbima-cea.webp" type="image/webp" />
+          <img src="assets/selo-anbima-cea.jpg" alt="ANBIMA CEA" class="footer-selo" width="91" height="91" loading="lazy" />
+        </picture>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p class="footer-disclaimer-title">Disclaimer e Informações Legais</p>
+        <p><strong>Clara Ramalho</strong> — Consultora de Investimentos Independente habilitada pela Comissão de Valores Mobiliários (CVM) conforme a Resolução CVM nº 19/2021. Certificação: Especialista em Investimentos ANBIMA (CEA).</p>
+        <p class="footer-disclaimer-title" style="margin-top:1rem;">Avisos Importantes</p>
+        <ol class="footer-avisos">
+          <li><strong>Risco de Mercado:</strong> Investimentos em valores mobiliários envolvem riscos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura.</li>
+          <li><strong>Caráter Informativo:</strong> O conteúdo deste site possui caráter exclusivamente educativo e informativo. Não constitui recomendação direta de compra ou venda de ativos financeiros, nem garantia de resultados.</li>
+          <li><strong>Independência:</strong> A consultoria é exercida de forma isenta, buscando a melhor estratégia para o perfil e objetivos de cada cliente, sem vínculo de exclusividade com instituições financeiras que comprometa a imparcialidade das análises.</li>
+          <li><strong>Impostos e Taxas:</strong> As projeções e simulações podem não considerar custos operacionais, taxas e impostos específicos, que variam de acordo com a situação individual de cada investidor.</li>
+        </ol>
+      </div>
+      <p class="footer-bottom">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
