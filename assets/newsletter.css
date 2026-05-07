@@ -290,14 +290,27 @@ footer {
 }
 .footer-selo { height: 46px; width: auto; opacity: 0.62; transition: opacity 0.2s; }
 .footer-selo:hover { opacity: 0.9; }
+.footer-legal {
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--ink-3);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.005em;
+}
+.footer-legal a {
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+.footer-legal a:hover { color: var(--ink); }
 .footer-bottom {
   font-size: 0.68rem;
   font-weight: 300;
   color: var(--ink-3);
-  font-family: monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.005em;
 }
+.footer-bottom p { font-family: 'Inter', sans-serif; }
 
 /* ── VOLTAR AO TOPO ── */
 #top-btn {

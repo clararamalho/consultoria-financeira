@@ -283,16 +283,33 @@ footer {
   font-weight: 600;
 }
 
+.footer-legal {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--ink-3);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.005em;
+}
+
+.footer-legal a {
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-legal a:hover { color: var(--ink); }
+
 .footer-bottom {
   font-size: 0.72rem;
   font-weight: 300;
   color: var(--ink-3);
-  font-family: monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.005em;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-2);
 }
+
+.footer-bottom p { font-family: 'Inter', sans-serif; }
 
 @media (max-width: 680px) {
   .page-hero {
