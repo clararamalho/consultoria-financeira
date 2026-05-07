@@ -45,4 +45,9 @@
   --shadow-ink:     rgba(26,42,108,0.2);
   --ciano-focus:    rgba(164,249,218,0.5);
   --content-legal:  720px;
+
+  --ease-out:       cubic-bezier(.22,.61,.36,1);
+  --ease-overshoot: cubic-bezier(.6,.6,0,1);
+  --error:          #DC2626;
+  --error-light:    #FEE2E2;
 }
