@@ -80,10 +80,10 @@
     .busca-input { width: 100%; padding: 0.5rem 0.9rem 0.5rem 2.2rem; font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 300; color: var(--ink); background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); outline: none; transition: border-color 0.2s; }
     .busca-input:focus { border-color: var(--ciano); }
     .busca-input::placeholder { color: var(--ink-3); }
-    .filtros { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .filtro-btn { font-size: 0.75rem; font-weight: 300; padding: 0.3rem 0.85rem; border-radius: 100px; border: 1px solid var(--border); background: var(--white); color: var(--ink-2); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-    .filtro-btn:hover { color: var(--ink); background: var(--off-white); }
-    .filtro-btn.ativo { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .filtros { display: inline-flex; align-items: center; gap: 0.25rem; position: relative; background: var(--off-white); border: 1px solid var(--border); border-radius: 100px; padding: 0.25rem; flex-wrap: nowrap; }
+    .filtro-btn { position: relative; z-index: 1; font-size: 0.84rem; font-weight: 300; color: var(--ink-3); background: none; border: none; padding: 0.4rem 1.1rem; border-radius: 100px; cursor: pointer; font-family: 'Inter', sans-serif; transition: color 0.25s ease; white-space: nowrap; }
+    .filtro-btn:hover:not(.ativo) { color: var(--ink-2); }
+    .filtro-btn.ativo { color: var(--ink); font-weight: 400; background: var(--white); border: 1px solid var(--border); box-shadow: 0 1px 6px rgba(26,42,108,0.06); }
 
     /* POSTS */
     .posts-section { padding: 3rem 1.25rem 6rem; }
