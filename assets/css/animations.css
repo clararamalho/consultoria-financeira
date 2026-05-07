@@ -1,0 +1,21 @@
+    /* ── FADE IN ── */
+    .fi-anim { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fi-anim.vis { opacity: 1; transform: translateY(0); }
+    .fi-anim.d1 { transition-delay: 0.08s; }
+    .fi-anim.d2 { transition-delay: 0.16s; }
+    .fi-anim.d3 { transition-delay: 0.24s; }
+    .fi-anim.d4 { transition-delay: 0.32s; }
+
+    /* ── MOBILE NAV ── */
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0;
+      background: var(--white); z-index: 500;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a { font-size: 1.5rem; font-weight: 300; color: var(--ink); text-decoration: none; }
+    .mobile-close {
+      position: absolute; top: 1rem; right: 1.25rem;
+      font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer;
+    }
+
