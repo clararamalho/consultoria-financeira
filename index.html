@@ -1763,34 +1763,10 @@
     <h2 class="s-title fi-anim d1" data-content="newsletter_titulo">Conteúdo para quem quer<br />entender o próprio dinheiro.</h2>
     <p style="font-size:.9rem;font-weight:300;color:var(--ink-2);margin-top:.5rem;" class="fi-anim d2">Quinzenal. Sem enrolação.</p>
 
-    <div class="nl-grid fi-anim d2" id="nlGrid">
-      <div class="nl-card" data-floating-card>
-        <div class="nl-card-meta"><span class="nl-tag">Endividamento</span><span class="nl-data">30 abr 2026</span></div>
-        <h3>80% das famílias brasileiras estão endividadas — e os juros altos explicam boa parte disso</h3>
-        <p>O endividamento das famílias atingiu nível recorde em março de 2026. Entenda as causas, quem é mais afetado e o que fazer para sair desse ciclo.</p>
-        <a href="post.html?slug=endividamento-do-brasileiro" class="nl-link">Ler mais <span class="nl-link-arrow" aria-hidden="true"><svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></span></a>
-      </div>
-      <div class="nl-card" data-floating-card>
-        <div class="nl-card-meta"><span class="nl-tag">Investimentos</span><span class="nl-data">15 abr 2026</span></div>
-        <h3>Renda fixa ou variável? Como pensar essa decisão sem ansiedade</h3>
-        <p>A escolha entre renda fixa e variável depende de objetivos, prazo e perfil. Veja como pensar essa decisão sem pressão.</p>
-        <a href="post.html?slug=renda-fixa-ou-variavel" class="nl-link">Ler mais <span class="nl-link-arrow" aria-hidden="true"><svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></span></a>
-      </div>
-      <div class="nl-card" data-floating-card>
-        <div class="nl-card-meta"><span class="nl-tag">Planejamento</span><span class="nl-data">01 abr 2026</span></div>
-        <h3>5 erros financeiros mais comuns — e como evitá-los</h3>
-        <p>Pequenos hábitos que parecem inofensivos podem comprometer anos de construção patrimonial. Conheça os principais.</p>
-        <a href="post.html?slug=erros-financeiros" class="nl-link">Ler mais <span class="nl-link-arrow" aria-hidden="true"><svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></span></a>
-      </div>
-    </div>
-
-    <div class="nl-ver-mais fi-anim">
-      <a href="newsletter.html">Ver todos os posts →</a>
-    </div>
 
     <div class="nl-box fi-anim d1">
       <div class="nl-box-txt">
-        <h3>Receba quinzenalmente.</h3>
+        <h3>Assine minha newsletter.</h3>
         <p>Cadastre-se e receba conteúdo direto no seu e-mail. Cancele quando quiser.</p>
       </div>
       <div>
@@ -2637,22 +2613,6 @@
       }
     }
 
-    // 12. Newsletter posts
-    if (Array.isArray(data.newsletter_posts)) {
-      var grid = document.getElementById('nlGrid');
-      if (grid) {
-        var arrow = '<span class="nl-link-arrow" aria-hidden="true"><svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg></span>';
-        grid.innerHTML = data.newsletter_posts.map(function (p) {
-          return '<div class="nl-card" data-floating-card>' +
-            '<div class="nl-card-meta"><span class="nl-tag">' + p.tag + '</span><span class="nl-data">' + p.data + '</span></div>' +
-            '<h3>' + p.titulo + '</h3>' +
-            '<p>' + p.resumo + '</p>' +
-            '<a href="post.html?slug=' + p.slug + '" class="nl-link">Ler mais ' + arrow + '</a>' +
-            '</div>';
-        }).join('');
-        if (window.initFloatingCards) window.initFloatingCards(grid);
-      }
-    }
   }
 
   // ── REINIT CARROSSEL ───────────────────────────────────────────────
