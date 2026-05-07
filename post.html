@@ -822,6 +822,84 @@
       line-height: 1.6;
     }
 
+    /* ── CONTATO ── */
+    #contato {
+      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    #contato .container { position: relative; z-index: 1; }
+    .contato-radial {
+      position: absolute;
+      right: -8rem;
+      top: 50%;
+      width: min(760px, 82vw);
+      height: min(760px, 82vw);
+      transform: translateY(-50%);
+      color: var(--moment-accent);
+      opacity: 0.38;
+      pointer-events: none;
+    }
+    #contato .s-label { color: var(--moment-accent); }
+    #contato .s-title { color: var(--white); max-width: 560px; }
+    .contato-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+      gap: 4rem;
+      align-items: center;
+      min-height: 360px;
+    }
+    .contato-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--moment-mute);
+      margin-top: 1rem;
+      max-width: 460px;
+      line-height: 1.8;
+    }
+    .contato-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.15rem;
+    }
+    .contato-main-link {
+      color: var(--moment-accent);
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1.2;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+    .contato-main-link::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 1px;
+      background: currentColor;
+      transform-origin: left;
+      transform: scaleX(0.35);
+      transition: transform 0.45s cubic-bezier(.22,.61,.36,1);
+    }
+    .contato-main-link:hover::after { transform: scaleX(1); }
+    .contato-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      text-decoration: none;
+      color: var(--moment-mute);
+      transition: color 0.35s, transform 0.35s;
+    }
+    .contato-secondary:hover { color: var(--white); transform: translateX(2px); }
+    .contato-secondary svg { width: 15px; height: 15px; flex-shrink: 0; }
+
     /* ── FOOTER ── */
     .site-footer {
       border-top: 1px solid var(--border);
@@ -1102,6 +1180,57 @@
       </div>
     </div>
   </div>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <svg class="contato-radial" viewBox="0 0 640 640" aria-hidden="true">
+      <defs>
+        <radialGradient id="contatoFade" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="currentColor" stop-opacity="0.44" />
+          <stop offset="72%" stop-color="currentColor" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <g stroke="url(#contatoFade)" stroke-width="1.1" fill="none">
+        <line x1="320" y1="320" x2="320" y2="18" />
+        <line x1="320" y1="320" x2="431" y2="41" />
+        <line x1="320" y1="320" x2="524" y2="96" />
+        <line x1="320" y1="320" x2="597" y2="188" />
+        <line x1="320" y1="320" x2="622" y2="320" />
+        <line x1="320" y1="320" x2="597" y2="452" />
+        <line x1="320" y1="320" x2="524" y2="544" />
+        <line x1="320" y1="320" x2="431" y2="599" />
+        <line x1="320" y1="320" x2="320" y2="622" />
+        <line x1="320" y1="320" x2="209" y2="599" />
+        <line x1="320" y1="320" x2="116" y2="544" />
+        <line x1="320" y1="320" x2="43" y2="452" />
+        <line x1="320" y1="320" x2="18" y2="320" />
+        <line x1="320" y1="320" x2="43" y2="188" />
+        <line x1="320" y1="320" x2="116" y2="96" />
+        <line x1="320" y1="320" x2="209" y2="41" />
+      </g>
+    </svg>
+    <div class="container">
+      <div class="contato-grid">
+        <div>
+          <span class="s-label">Contato</span>
+          <h2 class="s-title">Vamos conversar sobre o seu futuro.</h2>
+          <p class="contato-subtitle">A primeira conversa é sem compromisso.</p>
+        </div>
+        <div class="contato-links">
+          <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="contato-main-link">Falar no WhatsApp →</a>
+          <a href="mailto:contato@clararamalho.com.br" class="contato-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@clararamalho.com.br
+          </a>
+          <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" class="contato-secondary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
