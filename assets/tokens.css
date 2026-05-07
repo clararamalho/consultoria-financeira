@@ -51,4 +51,13 @@
   --ease-overshoot: cubic-bezier(.6,.6,0,1);
   --error:          #DC2626;
   --error-light:    #FEE2E2;
+
+  /* MOMENT OVERLAYS — usados na seção escura da newsletter */
+  --moment-overlay-06:  rgba(255,255,255,0.06);
+  --moment-overlay-05:  rgba(255,255,255,0.05);
+  --moment-overlay-15:  rgba(255,255,255,0.15);
+  --moment-overlay-30:  rgba(255,255,255,0.30);
+  --moment-overlay-38:  rgba(255,255,255,0.38);
+  /* SUPERFÍCIES */
+  --white-95:           rgba(255,255,255,0.95);
 }

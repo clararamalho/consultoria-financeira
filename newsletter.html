@@ -104,7 +104,7 @@
     .blog-hero-sub { font-size: 0.9rem; font-weight: 300; color: var(--ink-2); margin-top: 0.6rem; line-height: 1.7; }
 
     /* CONTROLS */
-    .blog-controls { position: sticky; top: var(--nav-h); z-index: 90; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-2); padding: 0.75rem 1.25rem; }
+    .blog-controls { position: sticky; top: var(--nav-h); z-index: 90; background: var(--white-95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-2); padding: 0.75rem 1.25rem; }
     .blog-controls-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
     .busca-wrap { position: relative; flex: 1; min-width: 180px; }
     .busca-icone { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: var(--ink-3); fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
@@ -169,8 +169,8 @@
     .nl-box-txt p { font-size: 0.85rem; font-weight: 300; color: var(--moment-mute); }
     .nl-form { display: flex; flex-direction: column; gap: 0.6rem; }
     .nl-form input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: var(--moment-overlay-05);
+      border: 1px solid var(--moment-overlay-15);
       border-radius: var(--radius);
       padding: 0.8rem 1rem;
       font-family: 'Inter', sans-serif;
@@ -180,7 +180,7 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .nl-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .nl-form input::placeholder { color: var(--moment-overlay-30); }
     .nl-form input:focus { border-color: var(--ciano-focus); }
     .nl-form button {
       display: inline-flex;
@@ -205,7 +205,7 @@
     .nl-form button:hover { background: var(--white); transform: translateY(-1px); }
     .nl-form button:hover::after { transform: translateX(3px); }
     .nl-form button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
-    .nl-lgpd { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.6; }
+    .nl-lgpd { font-size: 0.68rem; font-weight: 300; color: var(--moment-overlay-38); line-height: 1.6; }
     .nl-lgpd a { color: var(--ciano-focus); text-decoration: underline; }
     #nlSucesso { display: none; text-align: center; }
     #nlSucesso .check { font-size: 2rem; margin-bottom: 0.75rem; }
@@ -218,7 +218,7 @@
       color: var(--white);
       position: relative;
       overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid var(--moment-overlay-06);
     }
     #contato .container { position: relative; z-index: 1; }
     .contato-radial {
