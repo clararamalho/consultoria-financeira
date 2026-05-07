@@ -1465,16 +1465,16 @@
       <p class="stat-label">anos de experiência</p>
     </div>
     <div class="stat fi-anim d1">
-      <div class="stat-num">127<sup>+</sup></div>
-      <p class="stat-label">Estratégias desenvolvidas</p>
+      <div class="stat-num">100<sup>%</sup></div>
+      <p class="stat-label">independente de bancos e corretoras</p>
     </div>
     <div class="stat fi-anim d2">
-      <div class="stat-num">100<sup>%</sup></div>
-      <p class="stat-label">independente de bancos e distribuidoras</p>
+      <div class="stat-num">CEA</div>
+      <p class="stat-label">Certificação ANBIMA</p>
     </div>
     <div class="stat fi-anim d3">
-      <div class="stat-num">CEA</div>
-      <p class="stat-label">certificação ANBIMA · registrada CVM</p>
+      <div class="stat-num">CVM</div>
+      <p class="stat-label">Consultora habilitada</p>
     </div>
   </div>
 </section>
@@ -2492,20 +2492,6 @@
         el.innerHTML = String(data[key]).split('\\n').join('<br>');
       }
     });
-
-    // 2. Stats
-    if (Array.isArray(data.stats)) {
-      var row = document.getElementById('statsRow');
-      if (row) {
-        var delays = ['', 'd1', 'd2', 'd3'];
-        row.innerHTML = data.stats.map(function (s, i) {
-          return '<div class="stat fi-anim ' + (delays[i] || '') + '">' +
-            '<div class="stat-num">' + s.num + '<sup>' + (s.sup || '') + '</sup></div>' +
-            '<p class="stat-label">' + s.label + '</p>' +
-            '</div>';
-        }).join('');
-      }
-    }
 
     // 3. Sobre — credenciais
     if (Array.isArray(data.sobre_credenciais)) {
