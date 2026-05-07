@@ -1041,6 +1041,9 @@
   </style>
   <link rel="stylesheet" href="assets/site-nav.css" />
   <script defer src="assets/site-nav.js"></script>
+  <script type="application/ld+json" id="postLdJson">
+{}
+  </script>
 </head>
 <body>
 
@@ -1392,6 +1395,26 @@
 
       // Conteúdo
       document.getElementById('postContent').innerHTML = marked.parse(conteudo);
+
+      // Preencher BlogPosting ld+json
+      const datePublished = meta.data ? `${meta.data}T00:00:00Z` : new Date().toISOString();
+      const ldJson = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": meta.titulo || "Post",
+        "description": meta.resumo || "",
+        "datePublished": datePublished,
+        "author": {
+          "@type": "Person",
+          "name": "Clara Ramalho"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Clara Ramalho Consultoria Financeira"
+        },
+        "url": window.location.href
+      };
+      document.getElementById('postLdJson').innerHTML = JSON.stringify(ldJson);
 
       // Interceptar links de contato
       document.querySelectorAll('.post-content a').forEach(a => {
