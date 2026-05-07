@@ -189,7 +189,7 @@
       overflow: hidden;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
-    #contato .container { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+    #contato .container { position: relative; z-index: 1; }
     .contato-radial {
       position: absolute;
       right: -8rem;
@@ -207,8 +207,6 @@
       max-width: 560px;
     }
     .contato-grid {
-      max-width: var(--max);
-      margin: 0 auto;
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
       gap: 4rem;
@@ -373,6 +371,7 @@
       .post-destaque-body { padding: 1.8rem; }
       .nl-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
       .contato-grid { grid-template-columns: 1fr; gap: 3rem; min-height: 0; }
+      .contato-radial { right: -14rem; opacity: 0.28; }
     }
     @media (max-width: 680px) {
       .footer-cols { grid-template-columns: repeat(2, 1fr); }
