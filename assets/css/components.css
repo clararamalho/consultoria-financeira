@@ -327,6 +327,70 @@
       align-items: center;
       overflow: hidden;
     }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .step-card {
+      background: var(--off-white);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.35s var(--ease-out);
+    }
+    .step-card:hover {
+      background: var(--white);
+      border-color: var(--border);
+      box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.12);
+    }
+    .step-card-index {
+      min-width: 3rem;
+      min-height: 3rem;
+      padding: 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .step-card-content h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+    .step-card-content p {
+      margin: 0.5rem 0 0;
+      color: var(--ink-2);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .section-copy {
+      max-width: 44rem;
+      margin: 0.75rem 0 0;
+      color: var(--ink-2);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    @media (max-width: 860px) {
+      .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 540px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .step-card { flex-direction: row; }
+    }
     .nl-link-arrow svg {
       width: 14px; height: 14px;
       stroke: currentColor; fill: none;
