@@ -139,6 +139,14 @@ a { color: inherit; text-decoration: none; }
   stroke-width: 1.5;
 }
 
+/* ── CONTATO ── */
+#contato {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--white);
