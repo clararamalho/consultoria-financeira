@@ -426,3 +426,11 @@ section { padding: 5rem 1.25rem; }
 .servico-cta-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
 .servico-cta:hover .servico-cta-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
 .servico-cta:hover .servico-cta-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
+
+/* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

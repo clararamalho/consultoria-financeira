@@ -284,3 +284,22 @@
   }
   .site-nav-cta { display: none; }
 }
+
+/* ── ACESSIBILIDADE: FOCUS VISIBLE ── */
+.site-nav-logo:focus-visible,
+.site-nav-menu a:focus-visible,
+.site-nav-dropdown-btn:focus-visible,
+.site-nav-cta:focus-visible,
+.site-nav-hamburger:focus-visible,
+.site-mobile-close:focus-visible {
+  outline: 2px solid var(--ciano, #A4F9DA);
+  outline-offset: 2px;
+}
+
+/* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

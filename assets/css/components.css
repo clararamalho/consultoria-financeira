@@ -671,3 +671,10 @@
       font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer;
     }
 
+    /* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }

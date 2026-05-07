@@ -164,3 +164,11 @@
       font-size: 0.74rem; font-weight: 300;
       color: var(--ink-2); line-height: 1.45;
     }
+
+    /* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }

@@ -6,6 +6,18 @@
     .fi-anim.d3 { transition-delay: 0.24s; }
     .fi-anim.d4 { transition-delay: 0.32s; }
 
+    /* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+    @media (prefers-reduced-motion: reduce) {
+      .fi-anim,
+      .fi-anim.vis {
+        transition: none;
+      }
+      .fi-anim.vis {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* ── MOBILE NAV ── */
     .mobile-overlay {
       display: none; position: fixed; inset: 0;
