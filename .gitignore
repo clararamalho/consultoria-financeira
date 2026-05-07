@@ -21,3 +21,6 @@ Gemfile.lock
 INSTRUCOES_REDESIGN.md
 # Cloudflare Worker — variáveis locais
 dia-das-maes-worker/.dev.vars
+dia-das-maes-worker/dev.vars
+# Cloudflare Worker — Dia das Mães
+dia-das-maes-worker/
