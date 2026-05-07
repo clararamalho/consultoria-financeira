@@ -39,4 +39,10 @@
   --moment-dark-2:  #111827;
   --moment-accent:  #00C0C8;
   --moment-mute:    rgba(255,255,255,0.45);
+
+  --shadow-card:    rgba(0,0,0,0.04);
+  --shadow-nav:     rgba(26,42,108,0.08);
+  --shadow-ink:     rgba(26,42,108,0.2);
+  --ciano-focus:    rgba(164,249,218,0.5);
+  --content-legal:  720px;
 }

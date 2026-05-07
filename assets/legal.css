@@ -1,0 +1,118 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: var(--ink-2);
+  background: var(--white);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── HERO ── */
+.page-hero {
+  text-align: center;
+  padding: 4rem 1.25rem 2rem;
+  max-width: var(--content-legal);
+  margin: 0 auto;
+}
+.page-categoria {
+  display: inline-block;
+  font-size: 0.68rem; font-family: monospace;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); margin-bottom: 1rem;
+}
+.page-titulo {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 300; line-height: 1.15;
+  letter-spacing: -0.03em; color: var(--ink);
+  text-wrap: balance; margin-bottom: 0.75rem;
+}
+.page-meta {
+  font-size: 0.72rem; font-family: monospace;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3);
+}
+
+/* ── TABS pill — centralizado ── */
+.legal-tabs {
+  display: flex; justify-content: center;
+  padding: 0 1.25rem; margin-bottom: 3.5rem;
+}
+.legal-tabs-inner {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: 100px; padding: 0.25rem;
+}
+.legal-tab {
+  display: inline-flex; align-items: center;
+  padding: 0.4rem 1.1rem; border-radius: 100px;
+  font-size: 0.82rem; font-weight: 300; color: var(--ink-3);
+  transition: color 0.25s ease; white-space: nowrap;
+}
+.legal-tab:hover { color: var(--ink-2); }
+.legal-tab.ativo {
+  color: var(--ink); font-weight: 400;
+  background: var(--white); border: 1px solid var(--border);
+  box-shadow: 0 1px 6px var(--border-2);
+}
+
+/* ── CONTEÚDO ── */
+.legal-body {
+  max-width: var(--content-legal);
+  margin: 0 auto;
+  padding: 0 1.25rem 6rem;
+}
+.legal-intro {
+  font-size: 0.95rem; color: var(--ink-2); line-height: 1.85;
+  margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-2);
+}
+.legal-intro strong { color: var(--ink); font-weight: 500; }
+
+.legal-secao { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-2); }
+.legal-secao:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.legal-secao-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem; }
+.legal-secao-num {
+  font-size: 0.65rem; font-family: monospace;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--ciano); flex-shrink: 0;
+}
+.legal-secao h2 { font-size: 0.95rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; }
+
+.legal-secao p { font-size: 0.9rem; color: var(--ink-2); line-height: 1.85; margin-bottom: 0.85rem; }
+.legal-secao p:last-child { margin-bottom: 0; }
+.legal-secao strong { color: var(--ink); font-weight: 500; }
+.legal-secao a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+.legal-secao ul, .legal-secao ol {
+  margin: 0.75rem 0 0.85rem; list-style: none;
+  display: flex; flex-direction: column; gap: 0;
+}
+.legal-secao ul li, .legal-secao ol li {
+  font-size: 0.9rem; color: var(--ink-2); line-height: 1.75;
+  padding: 0.75rem 0; border-bottom: 1px solid var(--border-2);
+}
+.legal-secao ul li:last-child, .legal-secao ol li:last-child { border-bottom: none; }
+.legal-secao ol { counter-reset: item; }
+.legal-secao ol li { padding-left: 2rem; position: relative; counter-increment: item; }
+.legal-secao ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute; left: 0; top: 0.8rem;
+  font-size: 0.65rem; font-family: monospace; letter-spacing: 0.08em; color: var(--ciano); font-weight: 500;
+}
+
+/* ── FOOTER ── */
+.site-footer { border-top: 1px solid var(--border-2); padding: 2rem 1.25rem; }
+.footer-inner {
+  max-width: var(--content-legal); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.footer-copy { font-size: 0.75rem; font-weight: 300; color: var(--ink-3); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.75rem; font-weight: 300; color: var(--ink-3); transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink-2); }
+
+@media (max-width: 500px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}

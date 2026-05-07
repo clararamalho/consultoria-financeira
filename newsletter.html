@@ -79,10 +79,6 @@
   <link rel="stylesheet" href="assets/tokens.css" />
   <style>
     :root {
-      --moment-dark-1:  #1A2A6C;
-      --moment-dark-2:  #0F1A45;
-      --moment-accent:  #00C0C8;
-      --moment-mute:    rgba(255,255,255,0.45);
       --ease-out:       cubic-bezier(.22,.61,.36,1);
       --ease-overshoot: cubic-bezier(.6,.6,0,1);
     }
@@ -103,26 +99,14 @@
       display: flex; align-items: center; padding: 0 1.25rem; transition: box-shadow 0.3s;
     }
     header.scrolled { box-shadow: 0 1px 20px rgba(26,42,108,0.06); }
-    .hdr-inner { width: 100%; max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .hdr-left { display: flex; align-items: center; gap: 0.15rem; }
-    .hdr-logo { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding-right: 1.25rem; border-right: 1px solid var(--border); margin-right: 0.5rem; white-space: nowrap; }
-    .hdr-nav { display: flex; align-items: center; gap: 0.15rem; }
-    .hdr-nav a { font-size: 0.85rem; font-weight: 300; color: var(--ink-2); text-decoration: none; padding: 0.35rem 0.9rem; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
-    .hdr-nav a:hover, .hdr-nav a.active { color: var(--ink); background: var(--off-white); }
     .hdr-right { display: flex; align-items: center; gap: 0.75rem; }
-    .hdr-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 300; color: var(--ink); border: 1px solid var(--border); padding: 0.35rem 0.9rem; border-radius: var(--radius); background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.03); text-decoration: none; transition: background 0.2s, border-color 0.2s; overflow: hidden; }
-    .hdr-cta:hover { background: var(--off-white); border-color: transparent; }
     .hdr-cta-arrow { display: flex; overflow: hidden; width: 14px; height: 14px; position: relative; }
     .hdr-cta-arrow svg { position: absolute; width: 14px; height: 14px; transition: transform 0.3s, opacity 0.3s; }
     .hdr-cta-arrow svg:nth-child(1) { transform: translateX(0); opacity: 1; }
     .hdr-cta-arrow svg:nth-child(2) { transform: translateX(-100%); opacity: 0; }
     .hdr-cta:hover .hdr-cta-arrow svg:nth-child(1) { transform: translateX(100%); opacity: 0; }
     .hdr-cta:hover .hdr-cta-arrow svg:nth-child(2) { transform: translateX(0); opacity: 1; }
-    .hdr-hbg { display: none; flex-direction: column; gap: 4.5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hdr-hbg span { width: 20px; height: 1.5px; background: var(--ink); display: block; }
-    .mob-ov { display: none; position: fixed; inset: 0; background: var(--white); z-index: 500; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-    .mob-ov.open { display: flex; }
-    .mob-ov a { font-size: 1.5rem; font-weight: 300; color: var(--ink); text-decoration: none; }
     .mob-cls { position: absolute; top: 1rem; right: 1.25rem; font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer; }
 
     /* HERO */
@@ -531,7 +515,7 @@
 </section>
 
 <!-- ==================== NEWSLETTER ==================== -->
-<section id="newsletter" style="padding: 5rem 1.25rem;">
+<section id="newsletter">
   <div class="container" style="max-width: var(--max); margin: 0 auto;">
     <div class="nl-box">
       <div class="nl-box-txt">
