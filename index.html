@@ -11,8 +11,6 @@
   <meta name="description" content="Consultoria financeira independente para pessoas físicas. Planejamento, investimentos e organização patrimonial com clareza e sem jargão. Atendimento nacional." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clararamalho.com.br/" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
   <meta property="og:title" content="Clara Ramalho · Consultoria Financeira" />
   <meta property="og:description" content="Consultoria financeira independente para pessoas físicas. Planejamento, investimentos e organização patrimonial com clareza e sem jargão." />
   <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
@@ -80,8 +78,12 @@
     }
   </style>
   <link rel="stylesheet" href="assets/tokens.css" />
-  <link rel="stylesheet" href="assets/css/index.css" />
-  <link rel="stylesheet" href="assets/site-nav.css" />
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,59 +114,88 @@
 </head>
 <body>
 
-<a href="#main" class="skip-link">Pular para o conteúdo</a>
+<!-- ==================== HEADER ==================== -->
+<header id="hdr" data-theme="light">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="#hero" class="logo">Clara Ramalho</a>
+      <nav id="mainNav" role="menubar">
 
-<header class="site-main-header" id="siteNavHeader">
-  <div class="site-nav-inner">
-    <div class="site-nav-left">
-      <a href="index.html" class="site-nav-logo">Clara Ramalho</a>
-      <nav class="site-nav-menu" id="siteNavMenu" role="menubar">
-        <button class="site-nav-dropdown-btn" id="siteNavServicesBtn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="siteNavServicesPanel">
+        <!-- Serviços com dropdown -->
+        <button
+          class="nav-dropdown-btn"
+          id="navServicosBtn"
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="navServicosPanel"
+        >
           Serviços
           <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
         </button>
-        <div class="site-nav-dropdown-panel" id="siteNavServicesPanel" role="menu" aria-hidden="true">
-          <div class="site-nav-dropdown-nub" id="siteNavServicesNub"></div>
-          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-educar">
-            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></span>
-            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Educação Financeira</span><span class="site-nav-dropdown-desc">Autonomia para decidir com confiança</span></span>
+
+        <!-- Painel dropdown de serviços -->
+        <div class="nav-dropdown-panel" id="navServicosPanel" role="menu" aria-hidden="true">
+          <div class="nav-dropdown-nub" id="navServicosNub"></div>
+
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-educar" onclick="fecharDropdown(); irParaServico('educar'); return false;">
+            <span class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </span>
+            <span class="nav-dropdown-text">
+              <span class="nav-dropdown-title">Educação Financeira</span>
+              <span class="nav-dropdown-desc">Autonomia para decidir com confiança</span>
+            </span>
           </a>
-          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-planejar">
-            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
-            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Planejamento Financeiro</span><span class="site-nav-dropdown-desc">Plano personalizado para seus objetivos</span></span>
+
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-planejar" onclick="fecharDropdown(); irParaServico('planejar'); return false;">
+            <span class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </span>
+            <span class="nav-dropdown-text">
+              <span class="nav-dropdown-title">Planejamento Financeiro</span>
+              <span class="nav-dropdown-desc">Plano personalizado para seus objetivos</span>
+            </span>
           </a>
-          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-investir">
-            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
-            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Estratégias de Investimentos</span><span class="site-nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span></span>
+
+          <a class="nav-dropdown-item" role="menuitem" href="#bloco-investir" onclick="fecharDropdown(); irParaServico('investir'); return false;">
+            <span class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <span class="nav-dropdown-text">
+              <span class="nav-dropdown-title">Estratégias de Investimentos</span>
+              <span class="nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span>
+            </span>
           </a>
         </div>
+
         <a href="newsletter.html" role="menuitem">Newsletter</a>
         <a href="sobre.html" role="menuitem">Sobre</a>
       </nav>
     </div>
-    <div class="site-nav-right">
-      <a class="site-nav-cta" href="index.html#contato">
+    <div class="header-right">
+      <button class="nav-cta" onclick="abrirModal('contato')">
         Entre em contato
-        <span class="site-nav-cta-arrow">
-          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
-          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        <span class="nav-cta-arrow">
+          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
         </span>
-      </a>
-      <button class="site-nav-hamburger" id="siteNavHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+      </button>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
 
-<div class="site-mobile-overlay" id="siteMobileOverlay">
-  <button class="site-mobile-close" id="siteMobileClose">✕</button>
-  <a href="index.html">Início</a>
-  <a href="index.html#servicos">Serviços</a>
+<div class="mobile-overlay" id="mob">
+  <button class="mobile-close" id="mobClose">✕</button>
+  <a href="#servicos">Serviços</a>
   <a href="newsletter.html">Newsletter</a>
   <a href="sobre.html">Sobre</a>
-  <a href="index.html#contato">Contato</a>
+  <a href="#" onclick="document.getElementById('mob').classList.remove('open'); abrirModal('contato'); return false;">Contato</a>
 </div>
 
-<main id="main">
 <!-- ==================== HERO ==================== -->
 <section id="hero" data-navbar-theme="light">
   <div class="hero-lines" aria-hidden="true">
@@ -233,26 +264,26 @@
 <!-- ==================== STATS ==================== -->
 <section id="stats" data-navbar-theme="light">
   <p class="stats-label" data-content="stats_label">Experiência comprovada</p>
-    <div class="stats-row container" id="statsRow">
-        <div class="stat fi-anim">
-              <div class="stat-num">12<sup>+</sup></div>
-                    <p class="stat-label">anos de experiência</p>
-                        </div>
-                            <div class="stat fi-anim d1">
-                                  <div class="stat-num">100<sup>%</sup></div>
-                                        <p class="stat-label">independente de bancos e corretoras</p>
-                                            </div>
-                                                <div class="stat fi-anim d2">
-                                                      <div class="stat-num">CEA</div>
-                                                            <p class="stat-label">Certificação ANBIMA</p>
-                                                                </div>
-                                                                    <div class="stat fi-anim d3">
-                                                                          <div class="stat-num">CVM</div>
-                                                                                <p class="stat-label">Consultora habilitada</p>
-                                                                                    </div>
-                                                                                      </div>
-                                                                                      </section>
-                                                                                      -->>
+  <div class="stats-row container" id="statsRow">
+    <div class="stat fi-anim">
+      <div class="stat-num">12<sup>+</sup></div>
+      <p class="stat-label">anos de experiência</p>
+    </div>
+    <div class="stat fi-anim d1">
+      <div class="stat-num">100<sup>%</sup></div>
+      <p class="stat-label">independente de bancos e corretoras</p>
+    </div>
+    <div class="stat fi-anim d2">
+      <div class="stat-num">CEA</div>
+      <p class="stat-label">Certificação ANBIMA</p>
+    </div>
+    <div class="stat fi-anim d3">
+      <div class="stat-num">CVM</div>
+      <p class="stat-label">Consultora habilitada</p>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== SERVIÇOS ==================== -->
 <section id="servicos" data-navbar-theme="light">
 
@@ -610,7 +641,6 @@
     </div>
   </div>
 </section>
-</main>
 
 <!-- ==================== FOOTER ==================== -->
 <footer>
@@ -817,249 +847,10 @@
   </div>
 </div>
 
-<script defer src="assets/site-nav.js"></script>
-
-<!-- Lógica específica da home (tabs, testimonials, forms) -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Tabs: Lógica de abas sticky com scroll sync
-  (function() {
-    const tabs      = document.querySelectorAll('.tab-btn');
-    const blocos    = ['educar','planejar','investir'].map(id => document.getElementById('bloco-' + id));
-    const indicator = document.getElementById('tabIndicator');
-    const tabsWrap  = document.getElementById('servicosTabs');
-    if (!tabs.length || !indicator || !tabsWrap) return;
-
-    function moveIndicator(btn) {
-      const wrapRect = tabsWrap.getBoundingClientRect();
-      const btnRect  = btn.getBoundingClientRect();
-      indicator.style.left  = (btnRect.left - wrapRect.left - 4) + 'px';
-      indicator.style.width = btnRect.width + 'px';
-    }
-
-    function setActive(tabId, animate) {
-      tabs.forEach(t => {
-        const isActive = t.dataset.tab === tabId;
-        t.classList.toggle('active', isActive);
-        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        if (isActive) {
-          if (!animate) {
-            indicator.style.transition = 'none';
-            requestAnimationFrame(() => {
-              moveIndicator(t);
-              requestAnimationFrame(() => {
-                indicator.style.transition = '';
-              });
-            });
-          } else {
-            moveIndicator(t);
-          }
-        }
-      });
-    }
-
-    setActive('educar', false);
-
-    let scrollingTo = null;
-    let scrollTimer = null;
-
-    window.irParaServico = function scrollToServico(id) {
-      setActive(id, true);
-      const bloco = document.getElementById('bloco-' + id);
-      if (!bloco) return;
-
-      const hdrH  = document.getElementById('siteNavHeader')?.offsetHeight || 56;
-      const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
-      const offset = hdrH + tabsH + 8;
-      const blocoTop = bloco.getBoundingClientRect().top + window.scrollY;
-
-      scrollingTo = id;
-      clearTimeout(scrollTimer);
-      window.scrollTo({ top: blocoTop - offset, behavior: 'smooth' });
-      scrollTimer = setTimeout(() => { scrollingTo = null; }, 800);
-    };
-
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => {
-        window.irParaServico(btn.dataset.tab);
-      });
-    });
-
-    function detectBlocoAtivo() {
-      if (scrollingTo !== null) return;
-
-      const hdrH  = document.getElementById('siteNavHeader')?.offsetHeight || 56;
-      const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
-      const offset = hdrH + tabsH;
-      const linha = offset + 32;
-
-      let ativo = null;
-      blocos.forEach(bloco => {
-        if (!bloco) return;
-        const rect = bloco.getBoundingClientRect();
-        if (rect.top <= linha) {
-          ativo = bloco.id.replace('bloco-', '');
-        }
-      });
-
-      if (ativo) setActive(ativo, true);
-    }
-
-    window.addEventListener('scroll', detectBlocoAtivo, { passive: true });
-    detectBlocoAtivo();
-
-    window.addEventListener('resize', () => {
-      const active = tabsWrap.querySelector('.tab-btn.active');
-      if (active) moveIndicator(active);
-    }, { passive: true });
-  })();
-
-  // Testimonials: Carrossel de depoimentos e fade in animation
-  window.initDepCarousel = function() {
-    const track = document.getElementById('depTrack');
-    if (!track) return;
-    const dots = document.getElementById('depDots');
-    const cards = [...track.querySelectorAll('.dep-card')];
-    const btnP = document.getElementById('depPrev');
-    const btnN = document.getElementById('depNext');
-    if (!dots || !btnP || !btnN || !cards.length) return;
-    let cur = 0;
-    dots.innerHTML = '';
-
-    function render() {
-      const wrap = track.parentElement;
-      const gap = parseFloat(getComputedStyle(track).gap) || 20;
-      const cardW = cards[0].offsetWidth;
-      const center = Math.max(0, (wrap.clientWidth - parseFloat(getComputedStyle(wrap).paddingLeft) - parseFloat(getComputedStyle(wrap).paddingRight) - cardW) / 2);
-      track.style.transform = `translateX(${center - cur * (cardW + gap)}px)`;
-      cards.forEach((c, i) => c.setAttribute('data-active', i === cur ? 'true' : 'false'));
-      btnP.setAttribute('data-active', cur > 0 ? 'true' : 'false');
-      btnN.setAttribute('data-active', cur < cards.length - 1 ? 'true' : 'false');
-      dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('on', i === cur));
-    }
-
-    cards.forEach((_, i) => {
-      const d = document.createElement('span');
-      d.addEventListener('click', () => { cur = i; render(); });
-      dots.appendChild(d);
-    });
-
-    btnP.onclick = () => { if (cur > 0) { cur--; render(); } };
-    btnN.onclick = () => { if (cur < cards.length - 1) { cur++; render(); } };
-    cards.forEach((c, i) => c.addEventListener('click', () => { cur = i; render(); }));
-    if (window.__depCarouselRender) window.removeEventListener('resize', window.__depCarouselRender);
-    window.__depCarouselRender = render;
-    window.addEventListener('resize', render);
-    render();
-  };
-  window.initDepCarousel();
-
-  // Fade in animation
-  function checkFiAnim() {
-    document.querySelectorAll('.fi-anim:not(.vis)').forEach(function(el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 60) {
-        el.classList.add('vis');
-      }
-    });
-  }
-  window.addEventListener('scroll', checkFiAnim, { passive: true });
-  requestAnimationFrame(function() {
-    requestAnimationFrame(checkFiAnim);
-  });
-
-  // Serviços — hover para ativar card
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(c => c.addEventListener('mouseenter', () => {
-    cards.forEach(x => x.setAttribute('data-active', 'false'));
-    c.setAttribute('data-active', 'true');
-  }));
-
-  // Newsletter floating cards
-  window.initFloatingCards = function(root) {
-    (root || document).querySelectorAll('[data-floating-card]').forEach(card => {
-      if (card.dataset.floatingReady === 'true') return;
-      card.dataset.floatingReady = 'true';
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        card.style.setProperty('--rotation-y', `${(x - 0.5) * 9.6}deg`);
-        card.style.setProperty('--rotation-x', `${(0.5 - y) * 9.6}deg`);
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--rotation-x', '0deg');
-        card.style.setProperty('--rotation-y', '0deg');
-      });
-    });
-  };
-  window.initFloatingCards(document);
-
-  // Forms: Modais e formulários
-  const WORKER = 'https://formulario-contato.m-clarard.workers.dev';
-  const NL_WORKER = 'https://newsletter-cadastro.m-clarard.workers.dev';
-
-  window.abrirModal = function(t) {
-    document.getElementById('modal-' + t).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-  window.fecharModal = function(t) {
-    document.getElementById('modal-' + t).classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  document.querySelectorAll('.modal-overlay').forEach(o => {
-    o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; } });
-  });
-
-  const PRE = { planejamento: 'pf', patrimonial: 'op', investimentos: 'ei', educacao: 'ef' };
-  const TIT = { contato: 'Contato', planejamento: 'Planejamento Financeiro', patrimonial: 'Organização Patrimonial', investimentos: 'Estratégia de Investimentos', educacao: 'Educação Financeira' };
-  const QTD = { planejamento: 10, patrimonial: 8, investimentos: 8, educacao: 8 };
-
-  window.enviarFormulario = async function(tipo) {
-    const btn = document.querySelector('#form-' + tipo + ' .btn-enviar');
-    btn.disabled = true; btn.textContent = 'Enviando...';
-    let payload;
-    if (tipo === 'contato') {
-      const nome  = document.getElementById('ct-nome').value.trim();
-      const email = document.getElementById('ct-email').value.trim();
-      if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); btn.disabled = false; btn.textContent = 'Enviar'; return; }
-      payload = { tipo: TIT[tipo], nome, sobrenome: document.getElementById('ct-sob').value.trim(), email, telefone: document.getElementById('ct-tel').value.trim(), respostas: { mensagem: document.getElementById('ct-msg').value.trim() } };
-    } else {
-      const p = PRE[tipo];
-      const nome  = document.getElementById(p + '-nome').value.trim();
-      const email = document.getElementById(p + '-email').value.trim();
-      if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); btn.disabled = false; btn.textContent = 'Enviar'; return; }
-      const respostas = {};
-      for (let i = 1; i <= QTD[tipo]; i++) { const el = document.getElementById(p + '-q' + i); if (el) respostas['q' + i] = el.value.trim(); }
-      payload = { tipo: TIT[tipo], nome, sobrenome: document.getElementById(p + '-sob').value.trim(), email, telefone: document.getElementById(p + '-tel').value.trim(), respostas };
-    }
-    try {
-      const r = await fetch(WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      if (r.ok) { document.getElementById('form-' + tipo).style.display = 'none'; document.getElementById('ok-' + tipo).style.display = 'block'; }
-      else throw new Error();
-    } catch { alert('Erro ao enviar. Tente novamente.'); btn.disabled = false; btn.textContent = 'Enviar'; }
-  };
-
-  window.cadastrarNewsletter = async function() {
-    const email = document.getElementById('nlEmail').value.trim();
-    if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-    const btn = document.querySelector('#nlForm button');
-    btn.disabled = true; btn.textContent = 'Enviando...';
-    try {
-      const r = await fetch(NL_WORKER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
-      if (r.ok) { document.getElementById('nlForm').style.display = 'none'; document.getElementById('nlSucesso').style.display = 'block'; }
-      else throw new Error();
-    } catch { alert('Erro ao cadastrar. Tente novamente.'); btn.disabled = false; btn.textContent = 'Quero receber'; }
-  };
-
-  // Top button: mostrar/esconder ao fazer scroll
-  window.addEventListener('scroll', function() {
-    var btn = document.getElementById('top-btn');
-    if (btn) btn.classList.toggle('on', window.scrollY > 400);
-  }, { passive: true });
-});
-</script>
+<script defer src="assets/js/menu.js"></script>
+<script defer src="assets/js/tabs.js"></script>
+<script defer src="assets/js/testimonials.js"></script>
+<script defer src="assets/js/forms.js"></script>
 </body>
 </html>
 
