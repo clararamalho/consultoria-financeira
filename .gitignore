@@ -19,3 +19,5 @@ Gemfile.lock
 
 # Local redesign instructions
 INSTRUCOES_REDESIGN.md
+# Cloudflare Worker — variáveis locais
+dia-das-maes-worker/.dev.vars
