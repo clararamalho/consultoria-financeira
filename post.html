@@ -3,10 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cloud.umami.is https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
   <title id="pageTitle">Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
   <meta property="og:title" content="" id="ogTitle" />
@@ -73,7 +69,6 @@
       font-display: swap;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <link rel="stylesheet" href="assets/tokens.css" />
@@ -1396,7 +1391,7 @@
       // Sidebar
 
       // Conteúdo
-      document.getElementById('postContent').innerHTML = DOMPurify.sanitize(marked.parse(conteudo));
+      document.getElementById('postContent').innerHTML = marked.parse(conteudo);
 
       // Interceptar links de contato
       document.querySelectorAll('.post-content a').forEach(a => {
@@ -1535,4 +1530,3 @@
 
 </body>
 </html>
-
