@@ -42,7 +42,6 @@
   --moment-mute:    rgba(255,255,255,0.45);
 
   --shadow-card:    rgba(0,0,0,0.04);
-  --shadow-nav:     rgba(26,42,108,0.08);
   --shadow-ink:     rgba(26,42,108,0.2);
   --ciano-focus:    rgba(164,249,218,0.5);
   --content-legal:  720px;
@@ -62,9 +61,5 @@
   --white-95:           rgba(255,255,255,0.95);
 
   /* ── TOKENS ADICIONAIS ── */
-  --gray-700: #374151;
-  --overlay: rgba(0, 0, 0, 0.45);
-  --ink-30: rgba(26, 42, 108, 0.3);
-  --border-3: rgba(26, 42, 108, 0.045);
   --shadow-nav: rgba(26, 42, 108, 0.15);
 }
