@@ -60,4 +60,11 @@
   --moment-overlay-38:  rgba(255,255,255,0.38);
   /* SUPERFÍCIES */
   --white-95:           rgba(255,255,255,0.95);
+
+  /* ── TOKENS ADICIONAIS ── */
+  --gray-700: #374151;
+  --overlay: rgba(0, 0, 0, 0.45);
+  --ink-30: rgba(26, 42, 108, 0.3);
+  --border-3: rgba(26, 42, 108, 0.045);
+  --shadow-nav: rgba(26, 42, 108, 0.15);
 }

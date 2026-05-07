@@ -4,11 +4,6 @@
 /* ── RESET E BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --ease-out:       cubic-bezier(.22,.61,.36,1);
-  --ease-overshoot: cubic-bezier(.6,.6,0,1);
-}
-
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', sans-serif;
@@ -112,7 +107,7 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
   padding: 0.35rem 0.9rem !important;
   border-radius: var(--radius);
   background: var(--white) !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 8px var(--shadow-card);
   transition: background 0.2s, border-color 0.2s !important;
   overflow: hidden;
   cursor: pointer;
@@ -382,7 +377,7 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
   padding: 0.65rem 1.2rem;
   border-radius: var(--radius);
   background: var(--white);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 8px var(--shadow-card);
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   transition: background 0.2s, border-color 0.2s;
@@ -495,7 +490,7 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
   border-color: var(--border);
   opacity: 1;
   color: var(--ink);
-  box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 10px -2px var(--shadow-card);
 }
 .dep-btn[data-active="true"]:hover { transform: translateY(-1.5px); }
 .dep-btn[data-active="false"] { pointer-events: none; }
@@ -539,7 +534,7 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
 }
 .dep-card[data-active="true"] {
   opacity: 1;
-  box-shadow: 0 50px 90px -30px rgba(0,0,0,0.06), 0 30px 50px -40px rgba(0,0,0,0.06);
+  box-shadow: 0 50px 90px -30px var(--shadow-card), 0 30px 50px -40px var(--shadow-card);
   z-index: 10;
 }
 .dep-card[data-active="false"] { cursor: pointer; }
@@ -928,7 +923,7 @@ footer {
   max-width: 620px; width: 100%;
   max-height: 88vh; overflow-y: auto;
   position: relative;
-  box-shadow: 0 40px 80px rgba(26,42,108,0.15);
+  box-shadow: 0 40px 80px var(--shadow-nav);
 }
 .modal-close {
   position: absolute; top: 1rem; right: 1rem;
@@ -1035,4 +1030,23 @@ footer {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* ── ACESSIBILIDADE: SKIP TO CONTENT ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
 }
