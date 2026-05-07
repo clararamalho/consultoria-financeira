@@ -635,11 +635,14 @@
       font-weight: 300;
       color: var(--ink-3);
       font-family: monospace;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .footer-legal a {
       color: var(--ink-3);
       text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       transition: color 0.3s var(--ease-out);
     }
     .footer-legal a:hover { color: var(--ink); }
@@ -648,9 +651,10 @@
       font-weight: 300;
       color: var(--ink-3);
       font-family: monospace;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .footer-bottom p { font-family: monospace; }
+    .footer-bottom p { font-family: monospace; text-transform: uppercase; letter-spacing: 0.05em; }
 
     /* ── MODAIS ── */
     .modal-overlay {
