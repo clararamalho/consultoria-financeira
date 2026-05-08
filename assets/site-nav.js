@@ -86,12 +86,45 @@
       }, { passive: true });
     }
 
+    function setupMobileFocusTrap() {
+      if (!mobile) return;
+      var focusableElements = mobile.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      var firstElement = focusableElements[0];
+      var lastElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstElement) return;
+
+      setTimeout(function () { firstElement.focus(); }, 50);
+
+      mobile.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeMobile();
+        } else if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+        }
+      });
+    }
+
     if (hamburger && mobile) {
       hamburger.addEventListener('click', function () {
         var open = mobile.classList.toggle('open');
         hamburger.classList.toggle('open', open);
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.style.overflow = open ? 'hidden' : '';
+        document.body.style.touchAction = open ? 'none' : '';
+        if (open) setupMobileFocusTrap();
       });
     }
 
@@ -103,6 +136,7 @@
         hamburger.setAttribute('aria-expanded', 'false');
       }
       document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
 
     if (mobileClose) {
@@ -111,6 +145,25 @@
     if (mobile) {
       mobile.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', closeMobile);
+      });
+    }
+
+    var mobileServicesBtn = document.getElementById('siteMobileServicesBtn');
+    var mobileServicesPanel = document.getElementById('siteMobileServicesPanel');
+
+    if (mobileServicesBtn && mobileServicesPanel) {
+      mobileServicesBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = mobileServicesPanel.classList.toggle('open');
+        mobileServicesBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileServicesPanel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileServicesPanel.classList.remove('open');
+          mobileServicesBtn.setAttribute('aria-expanded', 'false');
+          closeMobile();
+        });
       });
     }
   });

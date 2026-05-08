@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2A6C" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -22,12 +23,22 @@
   <link rel="stylesheet" href="assets/fonts.css" />
   <link rel="stylesheet" href="assets/tokens.css" />
   <link rel="stylesheet" href="assets/footer.css" />
+  <link rel="stylesheet" href="assets/site-nav.css" />
 
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    @media (max-width: 860px) {
+      .modal input,
+      .modal textarea,
+      .modal select {
+        font-size: 16px !important;
+      }
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,85 +70,62 @@
 <body>
 
 <!-- ==================== HEADER ==================== -->
-<header id="hdr" data-theme="light">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="#hero" class="logo">Clara Ramalho</a>
-      <nav id="mainNav" role="menubar">
-
-        <!-- Serviços com dropdown -->
-        <button
-          class="nav-dropdown-btn"
-          id="navServicosBtn"
-          role="menuitem"
-          aria-haspopup="true"
-          aria-expanded="false"
-          aria-controls="navServicosPanel"
-        >
+<header class="site-main-header" id="siteNavHeader">
+  <div class="site-nav-inner">
+    <div class="site-nav-left">
+      <a href="index.html" class="site-nav-logo">Clara Ramalho</a>
+      <nav class="site-nav-menu" id="siteNavMenu" role="menubar">
+        <button class="site-nav-dropdown-btn" id="siteNavServicesBtn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="siteNavServicesPanel">
           Serviços
           <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
         </button>
-
-        <!-- Painel dropdown de serviços -->
-        <div class="nav-dropdown-panel" id="navServicosPanel" role="menu" aria-hidden="true">
-          <div class="nav-dropdown-nub" id="navServicosNub"></div>
-
-          <a class="nav-dropdown-item" role="menuitem" href="#bloco-educar" onclick="fecharDropdown(); irParaServico('educar'); return false;">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Educação Financeira</span>
-              <span class="nav-dropdown-desc">Autonomia para decidir com confiança</span>
-            </span>
+        <div class="site-nav-dropdown-panel" id="siteNavServicesPanel" role="menu" aria-hidden="true">
+          <div class="site-nav-dropdown-nub" id="siteNavServicesNub"></div>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-educar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Educação Financeira</span><span class="site-nav-dropdown-desc">Autonomia para decidir com confiança</span></span>
           </a>
-
-          <a class="nav-dropdown-item" role="menuitem" href="#bloco-planejar" onclick="fecharDropdown(); irParaServico('planejar'); return false;">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Planejamento Financeiro</span>
-              <span class="nav-dropdown-desc">Plano personalizado para seus objetivos</span>
-            </span>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-planejar">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Planejamento Financeiro</span><span class="site-nav-dropdown-desc">Plano personalizado para seus objetivos</span></span>
           </a>
-
-          <a class="nav-dropdown-item" role="menuitem" href="#bloco-investir" onclick="fecharDropdown(); irParaServico('investir'); return false;">
-            <span class="nav-dropdown-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </span>
-            <span class="nav-dropdown-text">
-              <span class="nav-dropdown-title">Estratégias de Investimentos</span>
-              <span class="nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span>
-            </span>
+          <a class="site-nav-dropdown-item" role="menuitem" href="index.html#bloco-investir">
+            <span class="site-nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.6 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.6-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+            <span class="site-nav-dropdown-text"><span class="site-nav-dropdown-title">Estratégias de Investimentos</span><span class="site-nav-dropdown-desc">Alocação alinhada ao seu perfil e objetivos</span></span>
           </a>
         </div>
-
         <a href="newsletter.html" role="menuitem">Newsletter</a>
         <a href="sobre.html" role="menuitem">Sobre</a>
       </nav>
     </div>
-    <div class="header-right">
-      <button class="nav-cta" onclick="abrirModal('contato')">
+    <div class="site-nav-right">
+      <a class="site-nav-cta" href="index.html#contato">
         Entre em contato
-        <span class="nav-cta-arrow">
-          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
-          <svg viewBox="0 0 14 14" stroke="currentColor"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        <span class="site-nav-cta-arrow">
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+          <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".75" d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
         </span>
-      </button>
-      <button class="hamburger" id="hbg" aria-label="Menu">
-        <span></span><span></span>
-      </button>
+      </a>
+      <button class="site-nav-hamburger" id="siteNavHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<div class="mobile-overlay" id="mob">
-  <button class="mobile-close" id="mobClose">✕</button>
-  <a href="#servicos">Serviços</a>
+<div class="site-mobile-overlay" id="siteMobileOverlay">
+  <button class="site-mobile-close" id="siteMobileClose">✕</button>
+  <a href="index.html">Início</a>
+  <button class="site-mobile-services-btn" id="siteMobileServicesBtn" aria-expanded="false" aria-controls="siteMobileServicesPanel">
+    Serviços
+    <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
+  </button>
+  <div class="site-mobile-services-panel" id="siteMobileServicesPanel">
+    <a href="index.html#bloco-educar">Educação Financeira</a>
+    <a href="index.html#bloco-planejar">Planejamento Financeiro</a>
+    <a href="index.html#bloco-investir">Estratégias de Investimentos</a>
+  </div>
   <a href="newsletter.html">Newsletter</a>
   <a href="sobre.html">Sobre</a>
-  <a href="#" onclick="document.getElementById('mob').classList.remove('open'); abrirModal('contato'); return false;">Contato</a>
+  <a href="index.html#contato">Contato</a>
 </div>
 
 <!-- ==================== HERO ==================== -->
@@ -634,18 +622,18 @@
 </button>
 
 <!-- ==================== MODAIS ==================== -->
-<div class="modal-overlay" id="modal-contato">
+<div class="modal-overlay" id="modal-contato" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-contato">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('contato')">✕</button>
-    <p class="modal-titulo">Entre em contato</p>
+    <p id="titulo-modal-contato" class="modal-titulo">Entre em contato</p>
     <p class="modal-sub">Preencha o formulário e retorno em breve.</p>
     <div id="form-contato">
       <p class="fsl">Dados de contato</p>
       <div class="fg">
-        <div class="fi"><label for="ct-nome">Nome</label><input type="text" id="ct-nome" placeholder="Seu nome" /></div>
-        <div class="fi"><label for="ct-sob">Sobrenome</label><input type="text" id="ct-sob" placeholder="Seu sobrenome" /></div>
-        <div class="fi"><label for="ct-email">E-mail</label><input type="email" id="ct-email" placeholder="seu@email.com" /></div>
-        <div class="fi"><label for="ct-tel">Telefone</label><input type="tel" id="ct-tel" placeholder="(00) 00000-0000" /></div>
+        <div class="fi"><label for="ct-nome">Nome</label><input type="text" id="ct-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ct-sob">Sobrenome</label><input type="text" id="ct-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ct-email">E-mail</label><input type="email" id="ct-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ct-tel">Telefone</label><input type="tel" id="ct-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
       </div>
       <hr class="fdiv" />
       <div class="fi full" style="grid-column:1/-1"><label for="ct-msg">Mensagem</label><textarea id="ct-msg" placeholder="Como posso te ajudar?" style="min-height:100px;"></textarea></div>
@@ -655,18 +643,18 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-planejamento">
+<div class="modal-overlay" id="modal-planejamento" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-planejamento">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
-    <p class="modal-titulo">Planejamento Financeiro</p>
+    <p id="titulo-modal-planejamento" class="modal-titulo">Planejamento Financeiro</p>
     <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
     <div id="form-planejamento">
       <p class="fsl">Dados de contato</p>
       <div class="fg">
-        <div class="fi"><label for="pf-nome">Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" /></div>
-        <div class="fi"><label for="pf-sob">Sobrenome</label><input type="text" id="pf-sob" placeholder="Seu sobrenome" /></div>
-        <div class="fi"><label for="pf-email">E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" /></div>
-        <div class="fi"><label for="pf-tel">Telefone</label><input type="tel" id="pf-tel" placeholder="(00) 00000-0000" /></div>
+        <div class="fi"><label for="pf-nome">Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="pf-sob">Sobrenome</label><input type="text" id="pf-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="pf-email">E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="pf-tel">Telefone</label><input type="tel" id="pf-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
       </div>
       <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
       <div class="fi full"><label for="pf-q1">1. Qual é a sua idade e qual é a sua ocupação atual?</label><textarea id="pf-q1" placeholder="Sua resposta..."></textarea></div>
@@ -685,18 +673,18 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-patrimonial">
+<div class="modal-overlay" id="modal-patrimonial" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-patrimonial">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('patrimonial')">✕</button>
-    <p class="modal-titulo">Organização Patrimonial</p>
+    <p id="titulo-modal-patrimonial" class="modal-titulo">Organização Patrimonial</p>
     <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
     <div id="form-patrimonial">
       <p class="fsl">Dados de contato</p>
       <div class="fg">
-        <div class="fi"><label for="op-nome">Nome</label><input type="text" id="op-nome" placeholder="Seu nome" /></div>
-        <div class="fi"><label for="op-sob">Sobrenome</label><input type="text" id="op-sob" placeholder="Seu sobrenome" /></div>
-        <div class="fi"><label for="op-email">E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" /></div>
-        <div class="fi"><label for="op-tel">Telefone</label><input type="tel" id="op-tel" placeholder="(00) 00000-0000" /></div>
+        <div class="fi"><label for="op-nome">Nome</label><input type="text" id="op-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="op-sob">Sobrenome</label><input type="text" id="op-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="op-email">E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="op-tel">Telefone</label><input type="tel" id="op-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
       </div>
       <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
       <div class="fi full"><label for="op-q1">1. Quais tipos de bens você possui atualmente? (imóveis, veículos, investimentos, participações em empresas)</label><textarea id="op-q1" placeholder="Sua resposta..."></textarea></div>
@@ -713,18 +701,18 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-investimentos">
+<div class="modal-overlay" id="modal-investimentos" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-investimentos">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('investimentos')">✕</button>
-    <p class="modal-titulo">Estratégia de Investimentos</p>
+    <p id="titulo-modal-investimentos" class="modal-titulo">Estratégia de Investimentos</p>
     <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
     <div id="form-investimentos">
       <p class="fsl">Dados de contato</p>
       <div class="fg">
-        <div class="fi"><label for="ei-nome">Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" /></div>
-        <div class="fi"><label for="ei-sob">Sobrenome</label><input type="text" id="ei-sob" placeholder="Seu sobrenome" /></div>
-        <div class="fi"><label for="ei-email">E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" /></div>
-        <div class="fi"><label for="ei-tel">Telefone</label><input type="tel" id="ei-tel" placeholder="(00) 00000-0000" /></div>
+        <div class="fi"><label for="ei-nome">Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ei-sob">Sobrenome</label><input type="text" id="ei-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ei-email">E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ei-tel">Telefone</label><input type="tel" id="ei-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
       </div>
       <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
       <div class="fi full"><label for="ei-q1">1. Qual é o valor aproximado que você tem disponível para investir?</label><textarea id="ei-q1" placeholder="Sua resposta..."></textarea></div>
@@ -741,18 +729,18 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-educacao">
+<div class="modal-overlay" id="modal-educacao" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-educacao">
   <div class="modal">
     <button class="modal-close" onclick="fecharModal('educacao')">✕</button>
-    <p class="modal-titulo">Educação Financeira</p>
+    <p id="titulo-modal-educacao" class="modal-titulo">Educação Financeira</p>
     <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
     <div id="form-educacao">
       <p class="fsl">Dados de contato</p>
       <div class="fg">
-        <div class="fi"><label for="ef-nome">Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" /></div>
-        <div class="fi"><label for="ef-sob">Sobrenome</label><input type="text" id="ef-sob" placeholder="Seu sobrenome" /></div>
-        <div class="fi"><label for="ef-email">E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" /></div>
-        <div class="fi"><label for="ef-tel">Telefone</label><input type="tel" id="ef-tel" placeholder="(00) 00000-0000" /></div>
+        <div class="fi"><label for="ef-nome">Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ef-sob">Sobrenome</label><input type="text" id="ef-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ef-email">E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ef-tel">Telefone</label><input type="tel" id="ef-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
       </div>
       <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
       <div class="fi full"><label for="ef-q1">1. Como você descreveria sua relação atual com o dinheiro?</label><textarea id="ef-q1" placeholder="Sua resposta..."></textarea></div>
@@ -769,7 +757,7 @@
   </div>
 </div>
 
-<script defer src="assets/js/menu.js"></script>
+<script defer src="assets/site-nav.js"></script>
 <script defer src="assets/js/tabs.js"></script>
 <script defer src="assets/js/testimonials.js"></script>
 <script defer src="assets/js/forms.js"></script>

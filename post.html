@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2A6C" />
   <title id="pageTitle">Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
     <meta property="og:image" content="" id="og-image-meta" />
@@ -254,6 +255,74 @@
     }
     .sidebar-cta:hover { background: var(--off-white); border-color: var(--border); }
     .sidebar-cta svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    /* CTA Sticky Mobile */
+    .post-sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      z-index: 400;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+    }
+
+    .post-sticky-cta.visible {
+      display: flex;
+    }
+
+    .post-sticky-inner {
+      max-width: var(--max, 1220px);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .post-sticky-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      flex: 1;
+    }
+
+    .post-sticky-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--ciano);
+      border-radius: var(--radius);
+      background: var(--ciano);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: opacity 0.2s, background 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .post-sticky-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .post-sticky-cta {
+        transition: none;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .post-sticky-cta {
+        display: none !important;
+      }
+    }
 
     /* Conteúdo principal */
     .post-main {
@@ -710,6 +779,13 @@
       .sidebar-card { max-width: 32rem; }
     }
 
+    @media (max-width: 768px) {
+      .post-layout { gap: 1.5rem; }
+      .post-sidebar { width: 100%; }
+      .sidebar-card { max-width: 100%; padding: 1.25rem; }
+      .post-hero { padding-top: 1rem; }
+    }
+
     @media (max-width: 600px) {
       .breadcrumb { padding-top: 2rem; }
       .post-hero { padding-top: 1.5rem; }
@@ -784,10 +860,25 @@
   <div class="site-mobile-overlay" id="siteMobileOverlay">
     <button class="site-mobile-close" id="siteMobileClose">✕</button>
     <a href="index.html">Início</a>
-    <a href="index.html#servicos">Serviços</a>
+    <button class="site-mobile-services-btn" id="siteMobileServicesBtn" aria-expanded="false" aria-controls="siteMobileServicesPanel">
+      Serviços
+      <svg viewBox="0 0 14 14"><path stroke-linecap="square" stroke-width=".8" d="M11.459 4.813 7.084 9.188 2.709 4.811"/></svg>
+    </button>
+    <div class="site-mobile-services-panel" id="siteMobileServicesPanel">
+      <a href="index.html#bloco-educar">Educação Financeira</a>
+      <a href="index.html#bloco-planejar">Planejamento Financeiro</a>
+      <a href="index.html#bloco-investir">Estratégias de Investimentos</a>
+    </div>
     <a href="newsletter.html">Newsletter</a>
     <a href="sobre.html">Sobre</a>
     <a href="index.html#contato">Contato</a>
+  </div>
+
+  <div class="post-sticky-cta" id="postStickyCta">
+    <div class="post-sticky-inner">
+      <span class="post-sticky-text">Quer conversar sobre o assunto?</span>
+      <button class="post-sticky-btn" onclick="abrirModalContato()">Agendar</button>
+    </div>
   </div>
 
   <!-- LOADING -->
@@ -844,7 +935,7 @@
       <aside class="post-sidebar" aria-label="Informações do post">
         <div class="sidebar-card">
           <div class="sidebar-autora">
-            <img src="assets/perfil_26.webp" alt="Clara Ramalho" class="sidebar-avatar" />
+            <img src="assets/perfil_26.webp" alt="Clara Ramalho" class="sidebar-avatar" width="80" height="80" loading="lazy" />
             <div class="sidebar-autora-info">
               <p class="nome">Clara Ramalho</p>
               <p class="cargo">Consultora Financeira</p>
@@ -1241,6 +1332,30 @@
         } else { alert(data.error || 'Ocorreu um erro. Tente novamente.'); btn.disabled = false; btn.textContent = 'Quero receber'; }
       } catch { alert('Erro de conexão. Tente novamente.'); btn.disabled = false; btn.textContent = 'Quero receber'; }
     }
+
+    // ── CTA STICKY SCROLL ──
+    (function() {
+      var stickyCta = document.getElementById('postStickyCta');
+      if (!stickyCta) return;
+
+      var postContent = document.getElementById('postContent');
+      if (!postContent) return;
+
+      function checkScroll() {
+        var contentHeight = postContent.offsetHeight;
+        var contentTop = postContent.getBoundingClientRect().top;
+        var scrolled = Math.abs(contentTop) / contentHeight;
+
+        if (scrolled > 0.3) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      checkScroll();
+    })();
   </script>
 
 </body>

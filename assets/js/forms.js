@@ -3,9 +3,41 @@
 const WORKER = 'https://formulario-contato.m-clarard.workers.dev';
 const NL_WORKER = 'https://newsletter-cadastro.m-clarard.workers.dev';
 
+function setupFocusTrap(modalType) {
+  const modal = document.getElementById('modal-' + modalType);
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  if (!firstElement) return;
+
+  setTimeout(() => firstElement.focus(), 0);
+
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      fecharModal(modalType);
+    } else if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    }
+  });
+}
+
 function abrirModal(t) {
   document.getElementById('modal-' + t).classList.add('open');
   document.body.style.overflow = 'hidden';
+  setupFocusTrap(t);
 }
 function fecharModal(t) {
   document.getElementById('modal-' + t).classList.remove('open');
