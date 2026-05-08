@@ -6,28 +6,17 @@
   <meta name="theme-color" content="#1A2A6C" />
   <title id="pageTitle">Post · Clara Ramalho Consultoria Financeira</title>
   <meta name="description" content="" id="metaDesc" />
-    <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" id="og-image-meta" />
+  <link rel="canonical" href="https://clararamalho.com.br/post.html" id="canonicalLink" />
+  <meta property="og:image" content="https://clararamalho.com.br/assets/og-cover.jpg" id="og-image-meta" />
   <meta property="og:title" content="Newsletter · Clara Ramalho Consultoria Financeira" id="ogTitle" />
   <meta property="og:description" content="" id="ogDesc" />
+  <meta property="og:url" content="https://clararamalho.com.br/post.html" id="ogUrl" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Clara Ramalho · Consultoria Financeira" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <script>
-    (function () {
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var slug = params.get('slug');
-        var base = 'https://clararamalho.com.br/post.html';
-        var href = slug ? base + '?slug=' + encodeURIComponent(slug) : base;
-        document.write('<link rel="canonical" href="' + href + '">');
-      } catch (e) {
-        document.write('<link rel="canonical" href="https://clararamalho.com.br/post.html">');
-      }
-    })();
-  </script>
   <link rel="stylesheet" href="assets/fonts.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
@@ -1176,6 +1165,16 @@
       if (meta.resumo) {
         document.getElementById('metaDesc').content = meta.resumo;
         document.getElementById('ogDesc').content   = meta.resumo;
+      }
+      // Atualizar canonical e og:url com slug
+      const slugUrl = slug ? `https://clararamalho.com.br/post.html?slug=${encodeURIComponent(slug)}` : 'https://clararamalho.com.br/post.html';
+      const canonicalLink = document.getElementById('canonicalLink');
+      if (canonicalLink) {
+        canonicalLink.href = slugUrl;
+      }
+      const ogUrlMeta = document.getElementById('ogUrl');
+      if (ogUrlMeta) {
+        ogUrlMeta.content = slugUrl;
       }
 
       // Hero
