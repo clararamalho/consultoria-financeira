@@ -102,20 +102,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.65rem; font-family: monospace; letter-spacing: 0.08em; color: var(--ciano); font-weight: 500;
 }
 
-/* ── FOOTER ── */
-.site-footer { border-top: 1px solid var(--border-2); padding: 2rem 1.25rem; }
-.footer-inner {
-  max-width: var(--content-legal); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-}
-.footer-copy { font-size: 0.75rem; font-weight: 300; color: var(--ink-3); }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-size: 0.75rem; font-weight: 300; color: var(--ink-3); transition: color 0.2s; }
-.footer-links a:hover { color: var(--ink-2); }
-
-@media (max-width: 500px) {
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-}
 /* ── ACESSIBILIDADE: FOCUS VISIBLE ── */
 .legal-tab:focus-visible,
 .legal-secao a:focus-visible,

@@ -214,13 +214,13 @@ header.scrolled { box-shadow: 0 1px 20px var(--border-2); }
 .contato-secondary svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* ── FOOTER ── */
-footer {
+.site-footer-full {
   background: var(--white);
   border-top: 1px solid var(--border-2);
   padding: 5rem 1.25rem 3.75rem;
   color: var(--ink);
 }
-.footer-inner { max-width: var(--max); margin: 0 auto; }
+.site-footer-full .footer-inner { max-width: var(--max); margin: 0 auto; }
 .footer-top {
   display: grid;
   grid-template-columns: minmax(160px, 220px) 1fr;

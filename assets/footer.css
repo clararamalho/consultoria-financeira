@@ -1,0 +1,51 @@
+/* ── FOOTER PADRÃO DO SITE ── */
+.site-footer {
+  border-top: 1px solid var(--border-2);
+  padding: 2rem 1.25rem;
+}
+
+.footer-inner {
+  max-width: var(--content-legal, 720px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--ink-3);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--ink-2);
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid var(--ciano, #00C0C8);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 500px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
