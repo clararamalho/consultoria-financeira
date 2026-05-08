@@ -243,7 +243,10 @@
           Não encontramos um cadastro associado a este link.<br />
           É possível que o descadastro já tenha sido realizado anteriormente.
         </p>
-        <a href="politica-de-privacidade.html" class="btn-secundario">Política de Privacidade →</a>
+        <a href="/" class="btn-voltar">
+          Voltar para a página inicial
+          <svg viewBox="0 0 14 14"><path d="M7.875 2.625 12.25 7m0 0-4.375 4.375M12.25 7H1.75"/></svg>
+        </a>
       </div>
 
     </div>
@@ -267,7 +270,7 @@
       const token  = params.get('token');
 
       if (!token) {
-        mostrarErro('Token ausente na URL.');
+        mostrarErro('Link inválido ou expirado. Acesse novamente pelo link enviado ao seu e-mail ou volte para a página inicial.');
         return;
       }
 
