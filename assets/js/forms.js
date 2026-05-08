@@ -2,6 +2,7 @@
 
 const WORKER = 'https://formulario-contato.m-clarard.workers.dev';
 const NL_WORKER = 'https://newsletter-cadastro.m-clarard.workers.dev';
+let modalTriggers = {};
 
 function setupFocusTrap(modalType) {
   const modal = document.getElementById('modal-' + modalType);
@@ -35,6 +36,7 @@ function setupFocusTrap(modalType) {
 }
 
 function abrirModal(t) {
+  modalTriggers[t] = document.activeElement;
   document.getElementById('modal-' + t).classList.add('open');
   document.body.style.overflow = 'hidden';
   setupFocusTrap(t);
@@ -42,9 +44,18 @@ function abrirModal(t) {
 function fecharModal(t) {
   document.getElementById('modal-' + t).classList.remove('open');
   document.body.style.overflow = '';
+  const trigger = modalTriggers[t];
+  if (trigger && typeof trigger.focus === 'function' && document.contains(trigger)) {
+    trigger.focus();
+  }
 }
 document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; } });
+  o.addEventListener('click', e => {
+    if (e.target === o) {
+      const modalType = o.id.replace('modal-', '');
+      fecharModal(modalType);
+    }
+  });
 });
 
 const PRE = { planejamento: 'pf', patrimonial: 'op', investimentos: 'ei', educacao: 'ef' };
