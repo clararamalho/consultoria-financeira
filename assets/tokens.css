@@ -57,6 +57,10 @@
   --moment-overlay-15:  rgba(255,255,255,0.15);
   --moment-overlay-30:  rgba(255,255,255,0.30);
   --moment-overlay-38:  rgba(255,255,255,0.38);
+  --moment-accent-50:   rgba(164,249,218,0.5);
+  --moment-accent-75:   rgba(164,249,218,0.75);
+  --modal-overlay:      rgba(10,16,50,0.6);
+  --ink-hover:          #243580;
   /* SUPERFÍCIES */
   --white-95:           rgba(255,255,255,0.95);
 

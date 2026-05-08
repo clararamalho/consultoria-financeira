@@ -3,7 +3,7 @@ header {
   position: sticky;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  background: rgba(255,255,255,0.92);
+  background: var(--white-92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -290,7 +290,7 @@ section { padding: 5rem 1.25rem; }
   position: sticky;
   top: var(--nav-h);
   z-index: 90;
-  background: rgba(255,255,255,0.92);
+  background: var(--white-92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-2);
@@ -316,7 +316,7 @@ section { padding: 5rem 1.25rem; }
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 100px;
-  box-shadow: 0 1px 6px rgba(26,42,108,0.06);
+  box-shadow: 0 1px 6px var(--shadow-card);
   transition: left 0.3s cubic-bezier(.22,.61,.36,1), width 0.3s cubic-bezier(.22,.61,.36,1);
   pointer-events: none;
 }

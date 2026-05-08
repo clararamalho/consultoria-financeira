@@ -429,8 +429,8 @@
     .nl-box-txt p { font-size: 0.85rem; font-weight: 300; color: var(--moment-mute); }
     .nl-form { display: flex; flex-direction: column; gap: 0.6rem; }
     .nl-form input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: var(--moment-overlay-05);
+      border: 1px solid var(--moment-overlay-15);
       border-radius: var(--radius);
       padding: 0.8rem 1rem;
       font-family: 'Inter', sans-serif;
@@ -440,8 +440,8 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .nl-form input::placeholder { color: rgba(255,255,255,0.3); }
-    .nl-form input:focus { border-color: rgba(164,249,218,0.5); }
+    .nl-form input::placeholder { color: var(--moment-overlay-30); }
+    .nl-form input:focus { border-color: var(--moment-accent-50); }
     .nl-form button {
       display: inline-flex;
       align-items: center;
@@ -465,8 +465,8 @@
     .nl-form button:hover { background: var(--white); transform: translateY(-1px); }
     .nl-form button:hover::after { transform: translateX(3px); }
     .nl-form button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
-    .nl-lgpd { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.6; }
-    .nl-lgpd a { color: rgba(164,249,218,0.75); text-decoration: underline; }
+    .nl-lgpd { font-size: 0.68rem; font-weight: 300; color: var(--moment-overlay-38); line-height: 1.6; }
+    .nl-lgpd a { color: var(--moment-accent-75); text-decoration: underline; }
     #nlSucesso { display: none; text-align: center; }
     #nlSucesso .check { font-size: 2rem; margin-bottom: 0.75rem; }
     #nlSucesso h3 { font-size: 0.95rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
@@ -478,7 +478,7 @@
       color: var(--white);
       position: relative;
       overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid var(--moment-overlay-06);
     }
     #contato .container { position: relative; z-index: 1; }
     .contato-radial {
@@ -659,7 +659,7 @@
     .modal-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(10,16,50,0.6);
+      background: var(--modal-overlay);
       z-index: 1000;
       align-items: center; justify-content: center;
       padding: 1.5rem;
@@ -674,7 +674,7 @@
       max-width: 620px; width: 100%;
       max-height: 88vh; overflow-y: auto;
       position: relative;
-      box-shadow: 0 40px 80px rgba(26,42,108,0.15);
+      box-shadow: 0 40px 80px var(--shadow-nav);
     }
     .modal-close {
       position: absolute; top: 1rem; right: 1rem;
@@ -708,7 +708,7 @@
       font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 400;
       cursor: pointer; margin-top: 0.75rem; transition: background 0.2s;
     }
-    .btn-enviar:hover { background: #243580; }
+    .btn-enviar:hover { background: var(--ink-hover); }
     .btn-enviar:disabled { opacity: 0.4; cursor: not-allowed; }
     .form-ok { display: none; text-align: center; padding: 1.5rem 0; }
     .form-ok .ico { font-size: 2rem; margin-bottom: 0.75rem; }
@@ -725,7 +725,7 @@
       opacity: 0; visibility: hidden; transform: translateY(10px);
       transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
       z-index: 300;
-      box-shadow: 0 4px 16px rgba(26,42,108,0.2);
+      box-shadow: 0 4px 16px var(--shadow-nav);
     }
     #top-btn.on { opacity: 1; visibility: visible; transform: translateY(0); }
     #top-btn svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
