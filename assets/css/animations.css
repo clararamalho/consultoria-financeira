@@ -31,3 +31,10 @@
       font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer;
     }
 
+/* ── ONDAS HERO ── */
+@keyframes waveFloat {
+  0%   { transform: translateY(0px) scaleY(1); }
+  50%  { transform: translateY(-18px) scaleY(1.03); }
+  100% { transform: translateY(8px) scaleY(0.97); }
+}
+
