@@ -78,9 +78,9 @@
   /* SUPERFÍCIES */
   --white-95:           rgba(255,255,255,0.95);
 
-  /* Header */
-  --nav-bg: rgba(26, 29, 34, 0.92);
-  --nav-border: rgba(255,255,255,0.06);
+  /* Header - Light mode */
+  --nav-bg: #FFFFFF;
+  --nav-border: rgba(26,42,108,0.10);
 }
 
 /* DARK MODE */
@@ -98,7 +98,7 @@
   --surface: #22262c;
   --surface-2: #2c3036;
 
-  /* Header em dark mode */
-  --nav-bg: rgba(26,29,34,0.95);
+  /* Header - Dark mode */
+  --nav-bg: #111827;
   --nav-border: rgba(255,255,255,0.08);
 }
