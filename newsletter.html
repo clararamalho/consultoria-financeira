@@ -169,42 +169,51 @@
   </div>
 </section>
 
-<section class="contato" id="contato" aria-labelledby="contato-titulo">
+<!-- ==================== CONTATO ==================== -->
+<section id="contato" data-navbar-theme="dark">
+  <svg class="contato-radial" viewBox="0 0 640 640" aria-hidden="true">
+    <defs>
+      <radialGradient id="contatoFade" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.44" />
+        <stop offset="72%" stop-color="currentColor" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <g stroke="url(#contatoFade)" stroke-width="1.1" fill="none">
+      <line x1="320" y1="320" x2="320" y2="18" />
+      <line x1="320" y1="320" x2="431" y2="41" />
+      <line x1="320" y1="320" x2="524" y2="96" />
+      <line x1="320" y1="320" x2="597" y2="188" />
+      <line x1="320" y1="320" x2="622" y2="320" />
+      <line x1="320" y1="320" x2="597" y2="452" />
+      <line x1="320" y1="320" x2="524" y2="544" />
+      <line x1="320" y1="320" x2="431" y2="599" />
+      <line x1="320" y1="320" x2="320" y2="622" />
+      <line x1="320" y1="320" x2="209" y2="599" />
+      <line x1="320" y1="320" x2="116" y2="544" />
+      <line x1="320" y1="320" x2="43" y2="452" />
+      <line x1="320" y1="320" x2="18" y2="320" />
+      <line x1="320" y1="320" x2="43" y2="188" />
+      <line x1="320" y1="320" x2="116" y2="96" />
+      <line x1="320" y1="320" x2="209" y2="41" />
+    </g>
+  </svg>
   <div class="container">
-    <div class="contato-shell">
-      <div class="contato-copy">
-        <p class="contato-eyebrow">Contato</p>
-        <h2 id="contato-titulo">Vamos conversar sobre o seu futuro.</h2>
-        <p class="contato-lead">
-          A primeira conversa é sem compromisso.
-        </p>
-
-        <div class="contato-actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar no WhatsApp →
-          </a>
-        </div>
+    <div class="contato-grid">
+      <div>
+        <span class="s-label fi-anim">Contato</span>
+        <h2 class="s-title fi-anim d1">Vamos conversar sobre o seu futuro.</h2>
+        <p class="contato-subtitle fi-anim d2">A primeira conversa é sem compromisso.</p>
       </div>
-
-      <div class="contato-canais" aria-label="Canais de contato">
-        <a class="contato-canal" href="mailto:contato@clararamalho.com.br">
-          <span class="contato-canal-label">E-mail</span>
-          <span class="contato-canal-value">contato@clararamalho.com.br</span>
+      <div class="contato-links fi-anim d3">
+        <a href="https://wa.me/message/F43YFQWOBPS2H1?text=Olá! Gostaria de informações sobre consultoria." target="_blank" rel="noopener" class="contato-main-link">Falar no WhatsApp →</a>
+        <a href="mailto:contato@clararamalho.com.br" class="contato-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contato@clararamalho.com.br
         </a>
-
-        <a
-          class="contato-canal"
-          href="https://linkedin.com/in/clararamalho"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="contato-canal-label">LinkedIn</span>
-          <span class="contato-canal-value">linkedin.com/in/clararamalho</span>
+        <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" class="contato-secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
         </a>
       </div>
     </div>
