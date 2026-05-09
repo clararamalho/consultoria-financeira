@@ -214,6 +214,17 @@
   /* Header - Light mode */
   --nav-bg: #FFFFFF;
   --nav-border: rgba(26,42,108,0.10);
+
+  /* Dark sections on light pages */
+  --dark-bg:            #0A1032;
+  --dark-text:          #F0F3F4;
+  --dark-text-2:        #b5bcc3;
+  --dark-text-3:        #8a8f95;
+  --dark-surface:       #111827;
+  --dark-surface-2:     #1a2a3f;
+  --dark-border:        rgba(255,255,255,0.10);
+  --dark-border-2:      rgba(255,255,255,0.06);
+  --dark-orange:        #00C0C8;
 }
 
 /* DARK MODE */
@@ -234,6 +245,64 @@
   /* Header - Dark mode */
   --nav-bg: #111827;
   --nav-border: rgba(255,255,255,0.08);
+
+  /* Dark sections remain dark but with adjusted text contrast for dark mode pages */
+  --dark-bg:            #111827;
+  --dark-text:          #F0F3F4;
+  --dark-text-2:        #b5bcc3;
+  --dark-text-3:        #8a8f95;
+  --dark-surface:       #22262c;
+  --dark-surface-2:     #2c3036;
+  --dark-border:        rgba(255,255,255,0.10);
+  --dark-border-2:      rgba(255,255,255,0.06);
+  --dark-orange:        #00C0C8;
+
+  /* White/light opacity overlays - redefine for dark mode */
+  --white-92:           rgba(34,38,46,0.92);
+  --white-95:           rgba(34,38,46,0.95);
+  --off-white:          #22262c;
+
+  /* Accent colors stay the same in dark mode */
+  --ciano:              #00C0C8;
+  --ciano-light:        rgba(0,192,200,0.10);
+  --ciano-focus:        rgba(164,249,218,0.5);
+  --magenta:            #C41E6E;
+  --magenta-light:      rgba(196,30,110,0.08);
+  --green:              #22C55E;
+  --green-light:        rgba(34,197,94,0.10);
+  --green-dark:         #1A4D3A;
+  --amber:              #F59E0B;
+  --amber-light:        rgba(245,158,11,0.10);
+
+  /* Dark mode ink colors (already defined above as --text-primary/secondary/muted) */
+  --ink:                #F0F3F4;
+  --ink-2:              #b5bcc3;
+  --ink-3:              #8a8f95;
+  --ink-hover:          #FFFFFF;
+
+  /* Shadows for dark mode */
+  --shadow-card:        rgba(0,0,0,0.3);
+  --shadow-ink:         rgba(0,0,0,0.4);
+
+  /* Error states */
+  --error:              #FF6B6B;
+  --error-light:        rgba(255,107,107,0.15);
+
+  /* Moment overlay values for dark mode - inverted or adjusted */
+  --moment-overlay-06:  rgba(26,42,108,0.06);
+  --moment-overlay-05:  rgba(26,42,108,0.05);
+  --moment-overlay-15:  rgba(26,42,108,0.15);
+  --moment-overlay-30:  rgba(26,42,108,0.30);
+  --moment-overlay-38:  rgba(26,42,108,0.38);
+
+  /* Moment styling stays consistent */
+  --moment-dark-1:      #0A1032;
+  --moment-dark-2:      #111827;
+  --moment-accent:      #00C0C8;
+  --moment-mute:        #b5bcc3;
+  --moment-accent-50:   rgba(164,249,218,0.5);
+  --moment-accent-75:   rgba(164,249,218,0.75);
+  --modal-overlay:      rgba(10,16,50,0.8);
 }
 
 /* ─── RESET & BASE ─── */
