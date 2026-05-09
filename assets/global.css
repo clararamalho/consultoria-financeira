@@ -977,6 +977,7 @@ body::before {
 
 /* ─── SITE FOOTER ─── */
 .site-footer {
+  background: var(--footer-bg);
   border-top: 1px solid var(--border);
   padding: 2rem 2rem;
 }
@@ -994,7 +995,7 @@ body::before {
 .footer-copy {
   font-size: 0.75rem;
   font-weight: 300;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .footer-links {
@@ -1005,13 +1006,13 @@ body::before {
 .footer-links a {
   font-size: 0.75rem;
   font-weight: 300;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-links a:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .footer-links a:focus-visible {
