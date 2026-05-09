@@ -1,4 +1,4 @@
-.site-main-header {
+  .site-main-header {
   position: sticky;
   top: 0;
   left: 0;
@@ -17,7 +17,7 @@
   width: 100%;
   max-width: var(--max, 1220px);
   margin: 0 auto;
-  display: flex;
+  display: flex;      
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
@@ -389,3 +389,14 @@
 .skip-link:focus {
   top: 1rem;
 }
+/* ── SCROLL: header com sombra ao rolar ── */
+.site-main-header.scrolled {
+  border-bottom-color: var(--border, rgba(26,42,108,0.15));
+  box-shadow: 0 2px 16px rgba(26,42,108,0.08);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── HAMBURGER: animação de X com 3 spans ── */
+.site-nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.site-nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.site-nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
