@@ -148,42 +148,43 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
 }
 
 .blob-orange {
-  width: 55vw;
-  height: 55vw;
-  background: radial-gradient(circle, #F98513 0%, #c45e00 60%, transparent 100%);
-  bottom: -15%;
-  left: -10%;
-  animation: blobDrift1 14s ease-in-out infinite alternate;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle at 40% 60%, #F98513 0%, #c45e00 40%, transparent 75%);
+  bottom: -30%;
+  left: -15%;
+  opacity: 0.9;
+  animation: blobBreath1 10s ease-in-out infinite alternate;
 }
 
 .blob-amber {
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(circle, #DAD1C8 0%, #a89880 60%, transparent 100%);
-  bottom: 5%;
-  left: 20%;
-  opacity: 0.35;
-  animation: blobDrift2 18s ease-in-out infinite alternate;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle at 50% 50%, #e07a20 0%, #8b4a00 50%, transparent 80%);
+  bottom: 10%;
+  left: 25%;
+  opacity: 0.45;
+  animation: blobBreath2 14s ease-in-out infinite alternate;
 }
 
 .blob-blue {
-  width: 50vw;
-  height: 50vw;
-  background: radial-gradient(circle, #223382 0%, #111144 70%, transparent 100%);
-  top: -20%;
-  right: -10%;
-  opacity: 0.9;
-  animation: blobDrift3 16s ease-in-out infinite alternate;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle at 60% 40%, #1a2a7a 0%, #111144 55%, transparent 80%);
+  top: -25%;
+  right: -15%;
+  opacity: 1;
+  animation: blobBreath3 12s ease-in-out infinite alternate;
 }
 
 .blob-purple {
-  width: 35vw;
-  height: 35vw;
-  background: radial-gradient(circle, #3a2a7a 0%, #1a1050 60%, transparent 100%);
-  top: 10%;
-  right: 20%;
-  opacity: 0.6;
-  animation: blobDrift2 20s ease-in-out infinite alternate-reverse;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, #0d1855 0%, transparent 70%);
+  top: 20%;
+  right: 25%;
+  opacity: 0.7;
+  animation: blobBreath2 18s ease-in-out infinite alternate-reverse;
 }
 
 .hero-content { position: relative; z-index: 1; }
