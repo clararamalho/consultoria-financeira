@@ -12,3 +12,5 @@ posts/*.html
 .DS_Store
 Thumbs.db
 .vscode/settings.json
+.gemini/
+gha-creds-*.json
