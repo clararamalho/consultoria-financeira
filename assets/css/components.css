@@ -65,12 +65,27 @@
 
     /* ── DEPOIMENTOS — refinado moment.com ── */
     #depoimentos {
-      background: var(--off-white);
-      border-top: 1px solid var(--border-2);
-      border-bottom: 1px solid var(--border-2);
+      background: var(--dark-bg);
+      border-top-color: var(--dark-border-2);
+      border-bottom-color: var(--dark-border-2);
       padding: 6rem 1.25rem 7rem;
       overflow: hidden;
     }
+    .dep-header h2 { color: var(--dark-text); }
+    .dep-card {
+      background: var(--dark-surface);
+      border-color: var(--dark-border);
+    }
+    .dep-card-header { background: var(--dark-surface-2); }
+    .dep-name { color: var(--dark-text); }
+    .dep-role { color: var(--dark-text-3); }
+    .dep-text { color: var(--dark-text-2); }
+    .dep-btn {
+      background: var(--dark-surface);
+      border-color: var(--dark-border);
+      color: var(--dark-text);
+    }
+    .dep-btn:hover { background: var(--dark-orange-2); border-color: var(--dark-orange); color: var(--dark-orange); }
     .dep-header {
       display: flex;
       align-items: flex-end;
@@ -258,7 +273,13 @@
     }
 
     /* ── NEWSLETTER ── */
-    #newsletter { background: var(--white); }
+    #newsletter { background: var(--dark-bg); }
+    .nl-card {
+      background: var(--dark-surface);
+      border-color: var(--dark-border);
+    }
+    .nl-card h3 { color: var(--dark-text); }
+    .nl-card p { color: var(--dark-text-2); }
     .nl-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -334,8 +355,8 @@
       margin: 2.5rem 0 3rem;
     }
     .step-card {
-      background: var(--off-white);
-      border: 1px solid transparent;
+      background: var(--dark-surface);
+      border-color: var(--dark-border);
       border-radius: var(--radius);
       padding: 1.5rem;
       display: flex;
@@ -344,10 +365,16 @@
       transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.35s var(--ease-out);
     }
     .step-card:hover {
-      background: var(--white);
-      border-color: var(--border);
+      background: var(--dark-surface);
+      border-color: var(--dark-border);
       box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.12);
     }
+    .step-card-index {
+      background: var(--dark-orange-2);
+      color: var(--dark-orange);
+    }
+    .step-card h3 { color: var(--dark-text); }
+    .step-card p { color: var(--dark-text-2); }
     .step-card-index {
       min-width: 3rem;
       min-height: 3rem;
@@ -474,7 +501,7 @@
 
     /* ── CONTATO ── */
     #contato {
-      background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+      background: var(--dark-bg);
       color: var(--white);
       position: relative;
       overflow: hidden;
@@ -555,11 +582,18 @@
 
     /* ── FOOTER ── */
     .site-footer-full {
-      background: var(--white);
-      border-top: 1px solid var(--border-2);
+      background: var(--dark-surface-2);
+      border-top-color: var(--dark-border);
       padding: 5rem 1.25rem 3.75rem;
-      color: var(--ink);
+      color: var(--dark-text-2);
     }
+    .site-footer {
+      background: var(--dark-surface-2);
+      border-top-color: var(--dark-border);
+    }
+    .footer-copy { color: var(--dark-text-3); }
+    .footer-links a { color: var(--dark-text-3); }
+    .footer-links a:hover { color: var(--dark-orange); }
     .site-footer-full .footer-inner { max-width: var(--max); margin: 0 auto; }
     .footer-top {
       display: grid;

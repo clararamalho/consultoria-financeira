@@ -267,9 +267,13 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
 /* ── STATS ── */
 #stats {
   padding: 4rem 1.25rem 5rem;
-  border-top: 1px solid var(--border-2);
-  background: var(--white);
+  border-top: 1px solid var(--dark-border-2);
+  background: var(--dark-bg);
 }
+.stats-label { color: var(--dark-text-3); }
+.stat-num { color: var(--dark-text); }
+.stat-label { color: var(--dark-text-2); }
+.stat::after { background: var(--dark-border); }
 .stats-label {
   font-size: 0.68rem;
   font-weight: 400;
@@ -341,10 +345,19 @@ section { padding: 5rem 1.25rem; }
 
 /* ── SERVIÇOS ── */
 #servicos {
-  background: var(--white);
+  background: var(--dark-bg);
   padding: 0;
   padding-bottom: 6rem;
 }
+.servicos-header h2 { color: var(--dark-text); }
+.servicos-header p { color: var(--dark-text-2); }
+.servico-bloco { border-bottom-color: var(--dark-border-2); }
+.servico-bloco h3 { color: var(--dark-text); }
+.servico-bloco p { color: var(--dark-text-2); }
+.servico-bloco-tag { color: var(--dark-text-3); }
+.servicos-tabs-wrap { background: var(--dark-bg); border-bottom-color: var(--dark-border); }
+.tab-btn { color: var(--dark-text-2); }
+.tab-btn.active { color: var(--dark-orange); border-bottom-color: var(--dark-orange); }
 .servicos-header {
   padding: 5rem 1.25rem 0;
 }

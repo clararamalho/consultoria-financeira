@@ -4,15 +4,21 @@
   left: 0;
   right: 0;
   height: var(--nav-h, 56px);
-  background: rgba(255,255,255,0.92);
+  background: rgba(17, 17, 68, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border, rgba(26,42,108,0.1));
+  border-bottom: 1px solid var(--dark-border);
   z-index: 100;
   display: flex;
   align-items: center;
   padding: 0 1.25rem;
 }
+.site-nav-logo { color: var(--dark-text); border-right-color: var(--dark-border); }
+.site-nav-menu a { color: var(--dark-text-2); }
+.site-nav-menu a:hover { color: var(--dark-text); }
+.site-nav-dropdown { background: var(--dark-surface); border-color: var(--dark-border); }
+.site-nav-dropdown-item { color: var(--dark-text-2); }
+.site-nav-dropdown-item:hover { background: var(--dark-orange-2); color: var(--dark-text); }
 .site-nav-inner {
   width: 100%;
   max-width: var(--max, 1220px);
