@@ -81,6 +81,9 @@
   /* Header - Light mode */
   --nav-bg: #FFFFFF;
   --nav-border: rgba(26,42,108,0.10);
+
+  /* Footer - Light mode */
+  --footer-bg: #FFFFFF;
 }
 
 /* DARK MODE */
@@ -101,4 +104,7 @@
   /* Header - Dark mode */
   --nav-bg: #111827;
   --nav-border: rgba(255,255,255,0.08);
+
+  /* Footer - Dark mode: use light mode's blue instead of gray */
+  --footer-bg: #1a2a3f;
 }
