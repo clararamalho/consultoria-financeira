@@ -461,7 +461,7 @@ body::before {
 }
 
 .site-nav-theme-btn[aria-checked="true"] .theme-icon-sun {
-  color: #FFA500;
+  color: #FFD700;
 }
 
 @media (max-width: 860px) {

@@ -69,7 +69,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .site-nav-theme-btn[aria-checked="true"] .theme-icon-sun {
-  color: #FFA500;
+  color: #FFD700;
 }
 @media (max-width: 860px) {
   .site-nav-theme-btn { display: none !important; }
