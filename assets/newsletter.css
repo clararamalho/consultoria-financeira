@@ -395,12 +395,4 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
-  .contato-links {
-    gap: 1rem;
-  }
-
-  .contato-main-link {
-    font-size: 1.05rem;
-  }
 }
