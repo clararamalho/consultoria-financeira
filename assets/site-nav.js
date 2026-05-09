@@ -236,9 +236,8 @@
         }
       });
     }
-  });
-})();
-// ── SCROLL: adiciona classe .scrolled ao header ──
+
+    // ── SCROLL: adiciona classe .scrolled ao header ──
     if (header) {
       function onScroll() {
         if (window.scrollY > 10) {
@@ -250,3 +249,5 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     }
+  });
+})();
