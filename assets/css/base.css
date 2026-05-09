@@ -5,11 +5,13 @@
   --ease-out:       cubic-bezier(.22,.61,.36,1);
   --ease-overshoot: cubic-bezier(.6,.6,0,1);
 }
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 72px;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+body {
+  font-family: Inter, sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;   /* ← REMOVER essa linha */
 }
 body {
   font-family: 'Inter', sans-serif;
