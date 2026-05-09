@@ -798,6 +798,10 @@
     /* Garante consistência de fonte e alinhamento na sessão contato */
     #contato { padding-left: 0; padding-right: 0; }
     #contato .s-title { font-weight: 300 !important; }
+
+    @media (max-width: 860px) {
+      .contato-grid { grid-template-columns: 1fr !important; gap: 3rem; }
+    }
   </style>
   <script defer src="assets/site-nav.js"></script>
   <script defer src="assets/js/testimonials.js"></script>
