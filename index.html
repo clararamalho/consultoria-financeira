@@ -127,45 +127,20 @@
 <main id="main">
 <!-- ==================== HERO ==================== -->
 <section id="hero" data-navbar-theme="light">
-  <div class="hero-bg-wave" aria-hidden="true">
-    <svg class="wave-svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="wg1" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#F98513" stop-opacity="0.9"/>
-          <stop offset="50%" stop-color="#9BACD8" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#223382" stop-opacity="0.8"/>
-        </linearGradient>
-        <linearGradient id="wg2" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#223382" stop-opacity="0.6"/>
-          <stop offset="60%" stop-color="#F98513" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#9BACD8" stop-opacity="0.4"/>
-        </linearGradient>
-      </defs>
-      <!-- Feixe de linhas onduladas — grupo 1 (laranja→azul) -->
-      <g class="wave-group wg-a" stroke="url(#wg1)" stroke-width="1" fill="none" opacity="0.7">
-        <path class="wl" d="M-100,520 C200,480 400,200 600,160 S1000,80 1540,20"/>
-        <path class="wl" d="M-100,540 C200,495 400,215 600,175 S1000,95 1540,35"/>
-        <path class="wl" d="M-100,560 C200,510 400,230 600,190 S1000,110 1540,50"/>
-        <path class="wl" d="M-100,580 C200,525 400,245 600,205 S1000,125 1540,65"/>
-        <path class="wl" d="M-100,600 C200,540 400,260 600,220 S1000,140 1540,80"/>
-        <path class="wl" d="M-100,620 C200,555 400,275 600,235 S1000,155 1540,95"/>
-        <path class="wl" d="M-100,640 C200,570 400,290 600,250 S1000,170 1540,110"/>
-        <path class="wl" d="M-100,660 C200,585 400,305 600,265 S1000,185 1540,125"/>
-        <path class="wl" d="M-100,680 C200,600 400,320 600,280 S1000,200 1540,140"/>
-        <path class="wl" d="M-100,700 C200,615 400,335 600,295 S1000,215 1540,155"/>
-      </g>
-      <!-- Feixe de linhas onduladas — grupo 2 (azul→laranja, offset) -->
-      <g class="wave-group wg-b" stroke="url(#wg2)" stroke-width="1" fill="none" opacity="0.5">
-        <path class="wl" d="M-100,500 C250,460 450,180 650,140 S1050,60 1540,0"/>
-        <path class="wl" d="M-100,518 C250,474 450,194 650,154 S1050,74 1540,14"/>
-        <path class="wl" d="M-100,536 C250,488 450,208 650,168 S1050,88 1540,28"/>
-        <path class="wl" d="M-100,554 C250,502 450,222 650,182 S1050,102 1540,42"/>
-        <path class="wl" d="M-100,572 C250,516 450,236 650,196 S1050,116 1540,56"/>
-        <path class="wl" d="M-100,590 C250,530 450,250 650,210 S1050,130 1540,70"/>
-        <path class="wl" d="M-100,608 C250,544 450,264 650,224 S1050,144 1540,84"/>
-        <path class="wl" d="M-100,626 C250,558 450,278 650,238 S1050,158 1540,98"/>
-      </g>
+  <div class="hero-mesh" aria-hidden="true">
+    <svg class="hero-grain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <filter id="grain-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feBlend in="SourceGraphic" mode="overlay" result="blend"/>
+        <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain-filter)" opacity="0.08"/>
     </svg>
+    <div class="mesh-blob blob-orange"></div>
+    <div class="mesh-blob blob-amber"></div>
+    <div class="mesh-blob blob-blue"></div>
+    <div class="mesh-blob blob-purple"></div>
   </div>
   <div class="hero-content">
     <p class="hero-tag" data-content="hero_tag">Consultoria Financeira Independente</p>
