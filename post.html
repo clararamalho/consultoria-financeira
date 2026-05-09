@@ -91,7 +91,7 @@
     .breadcrumb {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 3rem 1.25rem 0;
+      padding: 3rem 2rem 0;
     }
     .breadcrumb ol {
       display: flex;
@@ -119,7 +119,7 @@
     .post-hero {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 2.5rem 1.25rem 0;
+      padding: 2.5rem 2rem 0;
     }
 
     .post-categoria {
@@ -178,7 +178,7 @@
     .post-layout {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 3rem 1.25rem 6rem;
+      padding: 3rem 2rem 6rem;
       display: flex;
       gap: 3.5rem;
       align-items: flex-start;
@@ -795,9 +795,9 @@
       .modal { padding: 1.5rem; }
     }
 
-    /* Ajuste de alinhamento da sessão contato */
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
-    #contato .container { padding: 0 1.25rem; }
+    /* Garante consistência de fonte e alinhamento na sessão contato */
+    #contato { padding-left: 0; padding-right: 0; }
+    #contato .s-title { font-weight: 300 !important; }
   </style>
   <script defer src="assets/site-nav.js"></script>
   <script defer src="assets/js/testimonials.js"></script>
@@ -1107,6 +1107,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
