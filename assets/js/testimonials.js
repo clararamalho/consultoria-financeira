@@ -37,6 +37,19 @@ window.initDepCarousel = function() {
   window.__depCarouselRender = render;
   window.addEventListener('resize', render);
   render();
+
+    // ── SWIPE (touch mobile) ──
+    let touchStartX = 0;
+    track.addEventListener('touchstart', function(e) {
+          touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+          const diff = touchStartX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) {
+                  if (diff > 0 && cur < cards.length - 1) { cur++; render(); }
+                  else if (diff < 0 && cur > 0) { cur--; render(); }
+          }
+    }, { passive: true });
 };
 window.initDepCarousel();
 
