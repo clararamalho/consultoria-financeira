@@ -460,19 +460,8 @@ body::before {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.theme-icon-moon {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.8);
-}
-
 .site-nav-theme-btn[aria-checked="true"] .theme-icon-sun {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.8);
-}
-
-.site-nav-theme-btn[aria-checked="true"] .theme-icon-moon {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
+  color: #FFA500;
 }
 
 @media (max-width: 860px) {
@@ -988,7 +977,7 @@ body::before {
 
 /* ─── SITE FOOTER ─── */
 .site-footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--border);
   padding: 2rem 2rem;
 }
 

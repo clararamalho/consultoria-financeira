@@ -30,8 +30,8 @@
     body {
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      color: var(--ink);
-      background: var(--white);
+      color: var(--text-primary);
+      background: var(--bg-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -242,14 +242,14 @@
       border-radius: var(--radius);
       font-size: 0.8125rem;
       font-weight: 300;
-      color: var(--ink);
-      background: var(--white);
+      color: var(--text-primary);
+      background: var(--surface);
       cursor: pointer;
       transition: background 0.2s, border-color 0.2s;
       width: 100%;
       justify-content: center;
     }
-    .sidebar-cta:hover { background: var(--off-white); border-color: var(--border); }
+    .sidebar-cta:hover { background: var(--surface-2); border-color: var(--border); }
     .sidebar-cta svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 
     /* CTA Sticky Mobile */
@@ -259,7 +259,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--white);
+      background: var(--bg-primary);
       border-top: 1px solid var(--border);
       padding: 0.75rem 1.25rem;
       z-index: 400;
@@ -295,7 +295,7 @@
       border: 1px solid var(--ciano);
       border-radius: var(--radius);
       background: var(--ciano);
-      color: var(--white);
+      color: var(--bg-primary);
       font-size: 0.85rem;
       font-weight: 400;
       cursor: pointer;
@@ -352,7 +352,7 @@
     .post-content p {
       font-size: 1.0rem;
       font-weight: 300;
-      color: var(--gray-700);
+      color: var(--text-primary);
       margin-bottom: 1.5rem;
       line-height: 1.75;
     }
@@ -360,13 +360,13 @@
     .post-content p:first-child { margin-top: 0; }
 
     .post-content a {
-      color: var(--ink);
+      color: var(--text-primary);
       text-decoration: underline;
       text-underline-offset: 3px;
-      text-decoration-color: var(--ink-30);
+      text-decoration-color: var(--ciano);
       transition: text-decoration-color 0.2s;
     }
-    .post-content a:hover { text-decoration-color: var(--ink); }
+    .post-content a:hover { text-decoration-color: var(--ciano); }
 
     .post-content blockquote {
       border-top: 1px solid var(--border);

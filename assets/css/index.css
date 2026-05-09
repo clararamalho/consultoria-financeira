@@ -7,8 +7,8 @@
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--white);
-  color: var(--ink);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
@@ -656,7 +656,7 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
 }
 
 /* ── NEWSLETTER ── */
-#newsletter { background: var(--white); }
+#newsletter { background: var(--bg-primary); }
 .nl-box {
   background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
   border-radius: var(--radius);
@@ -808,10 +808,10 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
 
 /* ── FOOTER ── */
 footer {
-  background: var(--white);
-  border-top: 1px solid var(--border-2);
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
   padding: 5rem 1.25rem 3.75rem;
-  color: var(--ink);
+  color: var(--text-primary);
 }
 .footer-inner { max-width: var(--max); margin: 0 auto; }
 .footer-top {
@@ -936,14 +936,14 @@ footer {
 }
 .modal-overlay.open { display: flex; }
 .modal {
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   padding: 2rem;
   max-width: 620px; width: 100%;
   max-height: 88vh; overflow-y: auto;
   position: relative;
-  box-shadow: 0 40px 80px var(--shadow-nav);
+  box-shadow: 0 40px 80px var(--shadow-ink);
 }
 .modal-close {
   position: absolute; top: 1rem; right: 1rem;
@@ -972,12 +972,12 @@ footer {
 .fi textarea { min-height: 72px; }
 .fdiv { border: none; border-top: 1px solid var(--border-2); margin: 1.25rem 0 0.75rem; }
 .btn-enviar {
-  width: 100%; background: var(--ink); color: var(--white);
+  width: 100%; background: var(--text-primary); color: var(--bg-primary);
   border: none; padding: 0.85rem; border-radius: var(--radius);
   font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 400;
   cursor: pointer; margin-top: 0.75rem; transition: background 0.2s;
 }
-.btn-enviar:hover { background: var(--ink-hover); }
+.btn-enviar:hover { background: var(--text-secondary); }
 .btn-enviar:disabled { opacity: 0.4; cursor: not-allowed; }
 .form-ok { display: none; text-align: center; padding: 1.5rem 0; }
 .form-ok .ico { font-size: 2rem; margin-bottom: 0.75rem; }
@@ -1034,7 +1034,7 @@ footer {
 /* ── MOBILE NAV ── */
 .mobile-overlay {
   display: none; position: fixed; inset: 0;
-  background: var(--white); z-index: 500;
+  background: var(--bg-primary); z-index: 500;
   flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
 }
 .mobile-overlay.open { display: flex; }
@@ -1057,8 +1057,8 @@ footer {
   position: absolute;
   top: -100%;
   left: 1rem;
-  background: var(--ink);
-  color: var(--white);
+  background: var(--text-primary);
+  color: var(--bg-primary);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
   font-size: 0.85rem;

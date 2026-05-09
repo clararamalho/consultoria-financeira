@@ -72,7 +72,7 @@
       top: calc(100% + 1.3rem);
       left: var(--panel-left, 0px);
       z-index: 200;
-      background: var(--white);
+      background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 12px 32px rgba(26,42,108,0.08);
@@ -103,7 +103,7 @@
       top: -5px;
       left: var(--nub-x, 40px);
       width: 10px; height: 10px;
-      background: var(--white);
+      background: var(--bg-secondary);
       border-top: 1px solid var(--border);
       border-left: 1px solid var(--border);
       transform: rotate(45deg);

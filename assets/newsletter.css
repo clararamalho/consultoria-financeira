@@ -3,7 +3,7 @@
 /* ── BLOG HERO ── */
 .blog-hero {
   padding: 3rem 1.25rem 2.5rem;
-  border-bottom: 1px solid var(--border-2);
+  border-bottom: 1px solid var(--border);
 }
 
 .blog-hero-inner {
@@ -134,9 +134,9 @@
 }
 
 .filtro-btn.ativo {
-  color: var(--ink);
+  color: var(--text-primary);
   font-weight: 400;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: 0 1px 6px var(--border-2);
 }
@@ -168,7 +168,7 @@
   flex-direction: row;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--white);
+  background: var(--surface);
   overflow: hidden;
   margin-bottom: 1.25rem;
   text-decoration: none;
@@ -281,7 +281,7 @@
 }
 
 .post-card {
-  background: var(--white);
+  background: var(--surface);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -293,7 +293,7 @@
 }
 
 .post-card:hover {
-  background: var(--off-white);
+  background: var(--surface-2);
   box-shadow: 0 4px 16px var(--shadow-card);
 }
 

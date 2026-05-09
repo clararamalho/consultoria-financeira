@@ -71,9 +71,9 @@
 }
 
 .legal-tab.ativo {
-  color: var(--ink);
+  color: var(--text-primary);
   font-weight: 400;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: 0 1px 6px var(--border-2);
 }
