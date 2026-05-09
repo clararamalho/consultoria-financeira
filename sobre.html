@@ -23,6 +23,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
   <link rel="stylesheet" href="assets/fonts.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/tokens.css" />
   <link rel="stylesheet" href="assets/footer.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -82,6 +83,19 @@
 
 <div class="site-mobile-overlay" id="siteMobileOverlay">
   <button class="site-mobile-close" id="siteMobileClose">✕</button>
+  
+  <!-- Dark Mode Toggle -->
+  <div class="site-mobile-theme-toggle">
+    <hr class="site-mobile-divider">
+    <button class="theme-toggle-btn" id="themeToggleBtn" role="switch" aria-checked="false" aria-label="Alternar modo escuro">
+      <span class="theme-toggle-switch">
+        <span class="theme-toggle-knob"></span>
+      </span>
+      <span class="theme-toggle-label">Modo Escuro</span>
+    </button>
+    <hr class="site-mobile-divider">
+  </div>
+  
   <a href="index.html">Início</a>
   <button class="site-mobile-services-btn" id="siteMobileServicesBtn" aria-expanded="false" aria-controls="siteMobileServicesPanel">
     Serviços
@@ -112,6 +126,29 @@
     <p class="section-texto">
       Sou consultora de investimentos independente, habilitada pela CVM conforme Resolução nº 19/2021, e certificada ANBIMA CEA. Meu propósito é oferecer estratégias de investimento personalizadas e educação financeira clara, ajudando você a tomar decisões alinhadas aos seus objetivos com autonomia e confiança.
     </p>
+  </section>
+
+  <!-- QUEM SOU EU -->
+  <section class="page-section">
+    <h2 class="section-titulo">Quem sou eu</h2>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-photo">
+          <img src="assets/clara-ramalho.jpg" alt="Clara Ramalho" loading="lazy" />
+        </div>
+        <div class="founder-content">
+          <h3 class="founder-name">Clara Ramalho</h3>
+          <p class="founder-title">Consultora de Investimentos Independente</p>
+          <p class="founder-bio">Especialista em planejamento financeiro e estratégias de investimento, certificada CEA pela ANBIMA e habilitada pela CVM. Ajudando pessoas e famílias a organizarem seu patrimônio com clareza e autonomia.</p>
+          <div class="founder-links">
+            <a href="https://linkedin.com/in/clararamalho" target="_blank" rel="noopener" aria-label="LinkedIn de Clara Ramalho">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CREDENCIAIS -->

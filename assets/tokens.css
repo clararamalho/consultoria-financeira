@@ -1,4 +1,18 @@
 :root {
+  /* CORES BASE - LIGHT MODE */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F8FC;
+  --bg-tertiary: #EDEEF5;
+  --text-primary: #1A2A6C;
+  --text-secondary: #5A6785;
+  --text-muted: #9AA3B8;
+  --border: rgba(26,42,108,0.10);
+  --border-2: rgba(26,42,108,0.06);
+  --accent: #1A2A6C;
+  --accent-light: rgba(26,42,108,0.08);
+  --surface: #FFFFFF;
+  --surface-2: #EDEEF5;
+
   /* MARCA */
   --ink:            #1A2A6C;
   --ink-2:          #5A6785;
@@ -33,7 +47,7 @@
 
   /* ESTRUTURA */
   --radius:         0.625rem;
-  --max:            1220px;
+  --max:            1200px;
   --nav-h:          56px;
 
   --moment-dark-1:  #0A1032;
@@ -64,19 +78,27 @@
   /* SUPERFÍCIES */
   --white-95:           rgba(255,255,255,0.95);
 
-  /* ── TOKENS ADICIONAIS ── */
-  --shadow-nav: rgba(26, 42, 108, 0.15);
+  /* Header */
+  --nav-bg: rgba(26, 29, 34, 0.92);
+  --nav-border: rgba(255,255,255,0.06);
+}
 
-  /* PALETA DARK — tema escuro global */
-  --dark-bg:        #111144;
-  --dark-surface:   #1a1a5a;
-  --dark-surface-2: #16164d;
-  --dark-border:    rgba(155, 172, 216, 0.12);
-  --dark-border-2:  rgba(155, 172, 216, 0.07);
-  --dark-text:      #F4F1EC;
-  --dark-text-2:    rgba(244, 241, 236, 0.65);
-  --dark-text-3:    rgba(155, 172, 216, 0.7);
-  --dark-orange:    #F98513;
-  --dark-orange-2:  rgba(249, 133, 19, 0.15);
-  --dark-blue:      #9BACD8;
+/* DARK MODE */
+[data-theme="dark"] {
+  --bg-primary: #1a1d22;
+  --bg-secondary: #22262c;
+  --bg-tertiary: #2c3036;
+  --text-primary: #F0F3F4;
+  --text-secondary: #b5bcc3;
+  --text-muted: #8a8f95;
+  --border: rgba(113,120,128,0.20);
+  --border-2: rgba(113,120,128,0.10);
+  --accent: #717880;
+  --accent-light: rgba(113,120,128,0.15);
+  --surface: #22262c;
+  --surface-2: #2c3036;
+
+  /* Header em dark mode */
+  --nav-bg: rgba(26,29,34,0.95);
+  --nav-border: rgba(255,255,255,0.08);
 }

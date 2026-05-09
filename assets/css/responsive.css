@@ -1,8 +1,12 @@
     /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-content { text-align: center; }
+    }
     @media (max-width: 860px) {
       nav { display: none; }
       .hamburger { display: flex; }
-      #hero { padding: 7rem 1.25rem 8rem; }
+      #hero { padding: 8rem 2rem; }
       .stats-row { gap: 2.5rem; }
 
       .nl-grid { grid-template-columns: 1fr 1fr; }

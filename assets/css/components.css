@@ -1,7 +1,7 @@
     /* ── MOCKUPS VISUAIS ── */
     .servico-mockup {
-      background: var(--off-white);
-      border: 1px solid var(--border-2);
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-border-2);
       border-radius: 14px;
       padding: 1.5rem;
       display: flex;
@@ -15,13 +15,13 @@
       font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink-3);
+      color: var(--dark-text-3);
       font-family: monospace;
     }
     /* mockup cards internos */
     .mock-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-border);
       border-radius: var(--radius);
       padding: 0.85rem 1rem;
       display: flex;
@@ -38,8 +38,8 @@
       flex-shrink: 0;
     }
     .mock-icon svg { width: 14px; height: 14px; stroke: var(--ciano); fill: none; stroke-width: 1.8; stroke-linecap: round; }
-    .mock-card-title { font-size: 0.8rem; font-weight: 400; color: var(--ink); }
-    .mock-card-sub { font-size: 0.7rem; font-weight: 300; color: var(--ink-3); margin-top: 0.1rem; }
+    .mock-card-title { font-size: 0.8rem; font-weight: 400; color: var(--dark-text); }
+    .mock-card-sub { font-size: 0.7rem; font-weight: 300; color: var(--dark-text-3); margin-top: 0.1rem; }
     .mock-pill {
       font-size: 0.65rem;
       font-weight: 400;
@@ -52,10 +52,10 @@
     /* barra de progresso */
     .mock-bar-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
     .mock-bar-row { display: flex; align-items: center; gap: 0.75rem; }
-    .mock-bar-label { font-size: 0.72rem; font-weight: 300; color: var(--ink-2); width: 80px; flex-shrink: 0; }
-    .mock-bar-track { flex: 1; height: 5px; background: var(--surface-2); border-radius: 100px; overflow: hidden; }
+    .mock-bar-label { font-size: 0.72rem; font-weight: 300; color: var(--dark-text-2); width: 80px; flex-shrink: 0; }
+    .mock-bar-track { height: 5px; background: var(--dark-surface-2); border-radius: 100px; overflow: hidden; }
     .mock-bar-fill { height: 100%; border-radius: 100px; background: var(--ciano); }
-    .mock-bar-val { font-size: 0.7rem; font-weight: 400; color: var(--ink-2); width: 32px; text-align: right; }
+    .mock-bar-val { font-size: 0.7rem; font-weight: 400; color: var(--dark-text-2); width: 32px; text-align: right; }
 
     /* responsive serviços */
     @media (max-width: 860px) {
@@ -82,7 +82,7 @@
     .nl-card {
       --rotation-x: 0deg;
       --rotation-y: 0deg;
-      background: var(--off-white);
+      background: var(--dark-surface);
       border: 1px solid transparent;
       border-radius: var(--radius);
       padding: 1.6rem;
@@ -95,8 +95,8 @@
       transition: background 0.5s var(--ease-out), border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out), transform 0.5s var(--ease-out);
     }
     .nl-card:hover {
-      background: var(--white);
-      border-color: var(--border);
+      background: var(--dark-surface-2);
+      border-color: var(--dark-border);
       box-shadow: 0 8px 20px -6px rgba(0,0,0,0.06);
       transform: perspective(900px) rotateX(var(--rotation-x)) rotateY(var(--rotation-y)) scale(1.012);
     }
@@ -108,23 +108,23 @@
       text-transform: uppercase;
       padding: 0.3125rem 0.625rem;
       border-radius: 0.625rem;
-      background: var(--surface-2);
-      color: var(--ink);
+      background: var(--dark-surface-2);
+      color: var(--dark-text);
       font-family: monospace;
     }
-    .nl-data { font-size: 0.72rem; color: var(--ink-3); }
+    .nl-data { font-size: 0.72rem; color: var(--dark-text-3); }
     .nl-card h3 {
       font-size: 0.9rem;
       font-weight: 400;
-      color: var(--ink);
+      color: var(--dark-text);
       line-height: 1.45;
       letter-spacing: -0.01em;
     }
-    .nl-card p { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.65; flex: 1; }
+    .nl-card p { font-size: 0.82rem; font-weight: 300; color: var(--dark-text-2); line-height: 1.65; flex: 1; }
     .nl-link {
       font-size: 0.78rem;
       font-weight: 400;
-      color: var(--ink-2);
+      color: var(--dark-text-2);
       text-decoration: none;
       margin-top: 0.25rem;
       display: inline-flex;
@@ -132,7 +132,7 @@
       gap: 0.3rem;
       transition: color 0.35s var(--ease-out);
     }
-    .nl-link:hover { color: var(--ink); }
+    .nl-link:hover { color: var(--dark-text); }
     .nl-link-arrow {
       width: 14px; height: 14px;
       display: inline-flex;
@@ -146,9 +146,9 @@
       margin: 2.5rem 0 3rem;
     }
     .step-card {
-      background: var(--dark-surface);
-      border-color: var(--dark-border);
-      border-radius: var(--radius);
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
       padding: 1.5rem;
       display: flex;
       align-items: flex-start;
@@ -156,23 +156,23 @@
       transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.35s var(--ease-out);
     }
     .step-card:hover {
-      background: var(--dark-surface);
-      border-color: var(--dark-border);
+      background: var(--bg-tertiary);
+      border-color: rgba(255,255,255,0.12);
       box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.12);
     }
     .step-card-index {
-      background: var(--dark-orange-2);
-      color: var(--dark-orange);
+      background: var(--accent-dark);
+      color: var(--accent-light);
     }
-    .step-card h3 { color: var(--dark-text); }
-    .step-card p { color: var(--dark-text-2); }
+    .step-card h3 { color: var(--text-primary); }
+    .step-card p { color: var(--text-secondary); }
     .step-card-index {
       min-width: 3rem;
       min-height: 3rem;
       padding: 0.75rem;
       border-radius: 999px;
-      background: var(--surface-2);
-      color: var(--ink);
+      background: var(--dark-surface-2);
+      color: var(--dark-text);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -186,10 +186,11 @@
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: -0.02em;
+      color: var(--dark-text);
     }
     .step-card-content p {
       margin: 0.5rem 0 0;
-      color: var(--ink-2);
+      color: var(--dark-text-2);
       font-size: 0.92rem;
       font-weight: 300;
       line-height: 1.75;
@@ -197,7 +198,7 @@
     .section-copy {
       max-width: 44rem;
       margin: 0.75rem 0 0;
-      color: var(--ink-2);
+      color: var(--dark-text-2);
       font-size: 0.95rem;
       line-height: 1.75;
       font-weight: 300;
@@ -583,3 +584,167 @@
         animation: none !important;
       }
     }
+
+/* ── BOTÕES REFERÊNCIA ── */
+.btn-primary {
+  background: var(--accent-dark);
+  border: 1px solid var(--accent);
+  color: var(--text-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: rgba(113, 120, 128, 0.1);
+  color: var(--text-white);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: none;
+  border: none;
+  color: var(--accent-light);
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  color: var(--text-white);
+}
+
+/* ── QUEM SOU EU / FOUNDERS ── */
+.founders-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 420px;
+  margin: 4rem auto 0;
+}
+.founder-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.founder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.founder-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 3px solid var(--accent);
+}
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.founder-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+.founder-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.founder-bio {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+.founder-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.founder-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--accent-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.founder-links a:hover {
+  color: var(--text-white);
+}
+.founder-links svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 2rem auto 0;
+  }
+  .founder-card {
+    padding: 1.5rem;
+  }
+  .founder-photo {
+    width: 100px;
+    height: 100px;
+  }
+}

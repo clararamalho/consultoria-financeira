@@ -1,7 +1,7 @@
 /* ── FOOTER PADRÃO DO SITE ── */
 .site-footer {
-  border-top: 1px solid var(--border-2);
-  padding: 2rem 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 2rem;
 }
 
 .footer-inner {
@@ -17,7 +17,7 @@
 .footer-copy {
   font-size: 0.75rem;
   font-weight: 300;
-  color: var(--ink-3);
+  color: var(--text-muted);
 }
 
 .footer-links {
@@ -28,13 +28,13 @@
 .footer-links a {
   font-size: 0.75rem;
   font-weight: 300;
-  color: var(--ink-3);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-links a:hover {
-  color: var(--ink-2);
+  color: var(--text-secondary);
 }
 
 .footer-links a:focus-visible {

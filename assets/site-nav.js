@@ -166,6 +166,76 @@
         });
       });
     }
+
+    // ── THEME TOGGLE ──
+    var themeToggleBtn = document.getElementById('themeToggleBtn');
+    var themeToggleDesktopBtn = document.getElementById('themeToggleDesktopBtn');
+    var html = document.documentElement;
+
+    function getSystemTheme() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function getStoredTheme() {
+      return localStorage.getItem('theme');
+    }
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      }
+      if (themeToggleDesktopBtn) {
+        themeToggleDesktopBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      }
+    }
+
+    function initTheme() {
+      var stored = getStoredTheme();
+      var theme = stored || getSystemTheme();
+      setTheme(theme);
+    }
+
+    function toggleTheme() {
+      var current = html.getAttribute('data-theme') || 'light';
+      var newTheme = current === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', toggleTheme);
+
+      themeToggleBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    }
+
+    if (themeToggleDesktopBtn) {
+      themeToggleDesktopBtn.addEventListener('click', toggleTheme);
+
+      themeToggleDesktopBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    }
+
+    // Initialize theme on load
+    initTheme();
+
+    // Listen for system theme changes if no stored preference
+    if (!getStoredTheme()) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        if (!getStoredTheme()) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
   });
 })();
 // ── SCROLL: adiciona classe .scrolled ao header ──
