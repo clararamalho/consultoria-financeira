@@ -192,3 +192,126 @@
     text-align: center;
   }
 }
+
+/* — CONTATO — */
+#contato {
+  background: linear-gradient(180deg, var(--moment-dark-1) 0%, var(--moment-dark-2) 50%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--moment-overlay-06);
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+  gap: 4rem;
+  align-items: center;
+  min-height: 360px;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.contato-radial {
+  position: absolute;
+  right: -8rem;
+  top: 50%;
+  width: min(760px, 82vw);
+  height: min(760px, 82vw);
+  transform: translateY(-50%);
+  color: var(--moment-accent);
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+@media (max-width: 860px) {
+  .contato-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .contato-grid {
+    min-height: auto;
+  }
+}
+
+/* — CONTATO: utilitários de tipografia e links — */
+.s-label {
+  font-size: 0.68rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.s-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+#contato .s-label { color: var(--moment-accent); }
+#contato .s-title { color: var(--white); max-width: 560px; }
+#contato .container { position: relative; z-index: 1; }
+
+.contato-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--moment-mute);
+  margin-top: 1rem;
+  max-width: 460px;
+  line-height: 1.8;
+}
+
+.contato-main-link {
+  color: var(--moment-accent);
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.contato-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: var(--moment-mute);
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+.contato-secondary:hover {
+  color: var(--white);
+  transform: translateX(2px);
+}
+.contato-secondary svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* fade-in animation */
+.fi-anim {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fi-anim.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
