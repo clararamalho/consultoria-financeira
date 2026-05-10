@@ -17,6 +17,7 @@
   <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
   <link rel="stylesheet" href="assets/global.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -1143,24 +1144,45 @@
 
     // ── INICIALIZAÇÃO ──
     async function iniciar() {
+      const pathsIndex = [
+        'posts/index.json',
+        './posts/index.json',
+        '/posts/index.json',
+        `${REPO_RAW}/posts/index.json`
+      ];
+      
+      const pathsMd = [
+        `posts/${slug}.md`,
+        `./posts/${slug}.md`,
+        `/posts/${slug}.md`,
+        `${REPO_RAW}/posts/${slug}.md`
+      ];
+
       try {
-        let [resPosts, resMd] = await Promise.all([
-          fetch('posts/index.json'),
-          fetch(`posts/${slug}.md`)
-        ]);
+        let resPosts, resMd;
         
-        if (!resPosts.ok) {
-           resPosts = await fetch('https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main/posts/index.json');
+        for (const p of pathsIndex) {
+          try {
+            resPosts = await fetch(p);
+            if (resPosts.ok) break;
+          } catch(e) {}
         }
-        if (!resMd.ok) {
-           resMd = await fetch(`https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main/posts/${slug}.md`);
+        
+        for (const p of pathsMd) {
+          try {
+            resMd = await fetch(p);
+            if (resMd.ok) break;
+          } catch(e) {}
         }
 
-        if (!resMd.ok) throw new Error('not found');
-        todosOsPosts = resPosts.ok ? await resPosts.json() : [];
+        if (!resMd || !resMd.ok) throw new Error('not found');
+        todosOsPosts = (resPosts && resPosts.ok) ? await resPosts.json() : [];
         renderizarPost(await resMd.text());
         renderizarNav();
-      } catch { mostrarErro(); }
+      } catch (e) { 
+        console.error("Erro Post:", e);
+        mostrarErro(); 
+      }
     }
 
     // ── PARSERS ──

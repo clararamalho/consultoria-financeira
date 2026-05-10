@@ -12,18 +12,25 @@
   }
 
   async function carregarPosts() {
-    try {
-      // Tentar fetch relativo primeiro (mais confiável para ambiente atual)
-      let res = await fetch('posts/index.json');
-      
-      // Se falhar ou estivermos em ambiente de arquivo local, tentar CDN como fallback
-      if (!res.ok) {
-        console.warn("Relative fetch falhou, tentando CDN...");
-        res = await fetch(`${REPO_RAW}/posts/index.json`);
+    const caminhos = [
+      'posts/index.json',
+      './posts/index.json',
+      '/posts/index.json',
+      `${REPO_RAW}/posts/index.json`
+    ];
+
+    let res;
+    for (const path of caminhos) {
+      try {
+        res = await fetch(path);
+        if (res.ok) break;
+      } catch (e) {
+        console.warn(`Falha ao tentar: ${path}`);
       }
-      
-      if (!res.ok) throw new Error('Falha ao baixar index.json');
-      
+    }
+
+    try {
+      if (!res || !res.ok) throw new Error('Falha ao baixar index.json');
       todosPosts = await res.json();
       construirFiltros();
       renderizarPosts(todosPosts);
@@ -36,16 +43,23 @@
   }
 
   async function carregarSearchIndex() {
-    try {
-      let res = await fetch('posts/search-index.json');
-      if (!res.ok) {
-        res = await fetch(`${REPO_RAW}/posts/search-index.json`);
-      }
-      if (res.ok) {
-        const dados = await res.json();
-        dados.forEach(item => { searchIndex[item.slug] = item.conteudo; });
-      }
-    } catch (e) { }
+    const caminhos = [
+      'posts/search-index.json',
+      './posts/search-index.json',
+      '/posts/search-index.json',
+      `${REPO_RAW}/posts/search-index.json`
+    ];
+
+    for (const path of caminhos) {
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          const dados = await res.json();
+          dados.forEach(item => { searchIndex[item.slug] = item.conteudo; });
+          return;
+        }
+      } catch (e) { }
+    }
   }
 
   function construirFiltros() {
