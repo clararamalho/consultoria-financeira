@@ -13,8 +13,17 @@
 
   async function carregarPosts() {
     try {
-      const res = await fetch(`${REPO_RAW}/posts/index.json`);
+      // Tentar fetch relativo primeiro (mais confiável para ambiente atual)
+      let res = await fetch('posts/index.json');
+      
+      // Se falhar ou estivermos em ambiente de arquivo local, tentar CDN como fallback
+      if (!res.ok) {
+        console.warn("Relative fetch falhou, tentando CDN...");
+        res = await fetch(`${REPO_RAW}/posts/index.json`);
+      }
+      
       if (!res.ok) throw new Error('Falha ao baixar index.json');
+      
       todosPosts = await res.json();
       construirFiltros();
       renderizarPosts(todosPosts);
@@ -28,7 +37,10 @@
 
   async function carregarSearchIndex() {
     try {
-      const res = await fetch(`${REPO_RAW}/posts/search-index.json`);
+      let res = await fetch('posts/search-index.json');
+      if (!res.ok) {
+        res = await fetch(`${REPO_RAW}/posts/search-index.json`);
+      }
       if (res.ok) {
         const dados = await res.json();
         dados.forEach(item => { searchIndex[item.slug] = item.conteudo; });
