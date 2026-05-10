@@ -1144,10 +1144,18 @@
     // ── INICIALIZAÇÃO ──
     async function iniciar() {
       try {
-        const [resPosts, resMd] = await Promise.all([
-          fetch(`${REPO_RAW}/posts/index.json`),
-          fetch(`${REPO_RAW}/posts/${slug}.md`)
+        let [resPosts, resMd] = await Promise.all([
+          fetch('posts/index.json'),
+          fetch(`posts/${slug}.md`)
         ]);
+        
+        if (!resPosts.ok) {
+           resPosts = await fetch('https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main/posts/index.json');
+        }
+        if (!resMd.ok) {
+           resMd = await fetch(`https://cdn.jsdelivr.net/gh/clararamalho/consultoria-financeira@main/posts/${slug}.md`);
+        }
+
         if (!resMd.ok) throw new Error('not found');
         todosOsPosts = resPosts.ok ? await resPosts.json() : [];
         renderizarPost(await resMd.text());

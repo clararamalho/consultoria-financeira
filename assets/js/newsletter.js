@@ -13,7 +13,7 @@
 
   async function carregarPosts() {
     try {
-      const res = await fetch(`${REPO_RAW}/posts/index.json`);
+      const res = await fetch('posts/index.json');
       if (!res.ok) throw new Error('Falha ao baixar index.json');
       todosPosts = await res.json();
       construirFiltros();
@@ -28,7 +28,7 @@
 
   async function carregarSearchIndex() {
     try {
-      const res = await fetch(`${REPO_RAW}/posts/search-index.json`);
+      const res = await fetch('posts/search-index.json');
       if (res.ok) {
         const dados = await res.json();
         dados.forEach(item => { searchIndex[item.slug] = item.conteudo; });
