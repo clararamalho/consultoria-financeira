@@ -110,7 +110,11 @@
             "url": window.location.href
         };
         const ldJsonEl = document.getElementById('postLdJson');
+<<<<<<< HEAD
         if (ldJsonEl) ldJsonEl.textContent = JSON.stringify(ldJson);
+=======
+        if (ldJsonEl) ldJsonEl.innerHTML = JSON.stringify(ldJson);
+>>>>>>> de336706b88292b1755914c02ce939cd79591300
 
         // Interceptar links de contato
         document.querySelectorAll('.post-content a').forEach(a => {
