@@ -17,7 +17,7 @@
   <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
+  <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: https:; connect-src 'self' https: wss:;\" />
   <link rel="stylesheet" href="assets/global.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -1144,18 +1144,17 @@
 
     // ── INICIALIZAÇÃO ──
     async function iniciar() {
+      const t = Date.now();
       const pathsIndex = [
-        'posts/index.json',
-        './posts/index.json',
-        '/posts/index.json',
-        `${REPO_RAW}/posts/index.json`
+        `posts/index.json?v=${t}`,
+        `./posts/index.json?v=${t}`,
+        `${REPO_RAW}/posts/index.json?v=${t}`
       ];
       
       const pathsMd = [
-        `posts/${slug}.md`,
-        `./posts/${slug}.md`,
-        `/posts/${slug}.md`,
-        `${REPO_RAW}/posts/${slug}.md`
+        `posts/${slug}.md?v=${t}`,
+        `./posts/${slug}.md?v=${t}`,
+        `${REPO_RAW}/posts/${slug}.md?v=${t}`
       ];
 
       try {
@@ -1165,22 +1164,22 @@
           try {
             resPosts = await fetch(p);
             if (resPosts.ok) break;
-          } catch(e) {}
+          } catch(e) { console.warn("Fetch fail:", p); }
         }
         
         for (const p of pathsMd) {
           try {
             resMd = await fetch(p);
             if (resMd.ok) break;
-          } catch(e) {}
+          } catch(e) { console.warn("Fetch fail:", p); }
         }
 
-        if (!resMd || !resMd.ok) throw new Error('not found');
+        if (!resMd || !resMd.ok) throw new Error('Post file not found on any path');
         todosOsPosts = (resPosts && resPosts.ok) ? await resPosts.json() : [];
         renderizarPost(await resMd.text());
         renderizarNav();
       } catch (e) { 
-        console.error("Erro Post:", e);
+        console.error("Erro Crítico Post:", e);
         mostrarErro(); 
       }
     }
@@ -1441,3 +1440,4 @@
 
 </body>
 </html>
+
