@@ -1233,7 +1233,7 @@
         },
         "url": window.location.href
       };
-      document.getElementById('postLdJson').innerHTML = JSON.stringify(ldJson);
+      document.getElementById('postLdJson').textContent = JSON.stringify(ldJson);
 
       // Interceptar links de contato
       document.querySelectorAll('.post-content a').forEach(a => {
