@@ -62,7 +62,7 @@ def gerar_rss():
     # Metadados do canal
     SubElement(channel, "title").text = "Clara Ramalho · Consultoria Financeira"
     SubElement(channel, "link").text = "https://clararamalho.com.br/"
-    SubElement(channel, "description").text = "Educação financeira, análise de mercado e planejamento. Quinzenal, sem enrolação."
+    SubElement(channel, "description").text = "Educação financeira, análise de mercado e planejamento."
     SubElement(channel, "language").text = "pt-br"
     SubElement(channel, "copyright").text = "© 2026 Clara Ramalho. Todos os direitos reservados."
     SubElement(channel, "lastBuildDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
