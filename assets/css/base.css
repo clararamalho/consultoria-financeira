@@ -1,10 +1,16 @@
-/* Reset e base */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-:root {
-  --ease-out:       cubic-bezier(.22,.61,.36,1);
-  --ease-overshoot: cubic-bezier(.6,.6,0,1);
+/* ─── RESET & BASE ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg-primary);
@@ -19,19 +25,21 @@ a {
   text-decoration: none;
 }
 
-/* ── HEADINGS ── */
+/* ─── HEADINGS ─── */
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
+
 h2 {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
+
 h3 {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 600;
@@ -39,7 +47,7 @@ h3 {
   letter-spacing: -0.01em;
 }
 
-/* ── ACESSIBILIDADE: FOCUS VISIBLE ── */
+/* ─── ACCESSIBILITY: FOCUS VISIBLE ─── */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
@@ -53,7 +61,7 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-/* ── GRAIN GLOBAL ── */
+/* ─── GRAIN GLOBAL ─── */
 body::before {
   content: '';
   position: fixed;
@@ -64,4 +72,35 @@ body::before {
   z-index: 9999;
   opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ─── SKIP TO CONTENT ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ─── CONTAINER ─── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 540px) {
+  .container { padding: 0 1.25rem; }
 }

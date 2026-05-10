@@ -23,12 +23,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
   <link rel="stylesheet" href="assets/global.css" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/sobre.css" />
-  <link rel="stylesheet" href="assets/css/animations.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/sobre.css" />
   <style>
     /* Garante consistência de fonte na sessão contato */
     #contato .s-title { font-weight: 300 !important; }
@@ -40,6 +35,8 @@
 
 <a href="#main" class="skip-link">Pular para o conteúdo</a>
 
+<!-- HEADER_START -->
+<!-- ==================== HEADER ==================== -->
 <header class="site-main-header" id="siteNavHeader">
   <div class="site-nav-inner">
     <div class="site-nav-left">
@@ -65,7 +62,7 @@
           </a>
         </div>
         <a href="newsletter.html" role="menuitem">Newsletter</a>
-        <a href="sobre.html" role="menuitem" class="active">Sobre</a>
+        <a href="sobre.html" role="menuitem">Sobre</a>
       </nav>
     </div>
     <div class="site-nav-right">
@@ -102,7 +99,7 @@
   </div>
   <a href="newsletter.html">Newsletter</a>
   <a href="sobre.html">Sobre</a>
-  <a href="#contato">Contato</a>
+  <a href="index.html#contato">Contato</a>
 
   <div class="site-mobile-theme-toggle">
     <hr class="site-mobile-divider">
@@ -115,6 +112,8 @@
     <hr class="site-mobile-divider">
   </div>
 </div>
+
+<!-- HEADER_END -->
 
 
 <main id="main">
@@ -230,6 +229,8 @@
 </section>
 </main>
 
+<!-- FOOTER_START -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="site-footer">
   <div class="footer-inner">
     <p class="footer-copy">© 2026 Clara Ramalho · Consultoria Financeira · Rio de Janeiro, RJ | Atendimento Nacional</p>
@@ -239,6 +240,148 @@
     </nav>
   </div>
 </footer>
+
+<button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ==================== MODAIS ==================== -->
+<div class="modal-overlay" id="modal-contato" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-contato">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('contato')">✕</button>
+    <p id="titulo-modal-contato" class="modal-titulo">Entre em contato</p>
+    <p class="modal-sub">Preencha o formulário e retorno em breve.</p>
+    <div id="form-contato">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ct-nome">Nome</label><input type="text" id="ct-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ct-sob">Sobrenome</label><input type="text" id="ct-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ct-email">E-mail</label><input type="email" id="ct-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ct-tel">Telefone</label><input type="tel" id="ct-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
+      </div>
+      <hr class="fdiv" />
+      <div class="fi full" style="grid-column:1/-1"><label for="ct-msg">Mensagem</label><textarea id="ct-msg" placeholder="Como posso te ajudar?" style="min-height:100px;"></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('contato')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-contato"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-planejamento" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-planejamento">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('planejamento')">✕</button>
+    <p id="titulo-modal-planejamento" class="modal-titulo">Planejamento Financeiro</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-planejamento">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="pf-nome">Nome</label><input type="text" id="pf-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="pf-sob">Sobrenome</label><input type="text" id="pf-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="pf-email">E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="pf-tel">Telefone</label><input type="tel" id="pf-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="pf-q1">1. Qual é a sua idade e qual é a sua ocupação atual?</label><textarea id="pf-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q2">2. Você tem dependentes financeiros? (filhos, pais, cônjuge)</label><textarea id="pf-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q3">3. Qual é a sua renda mensal aproximada?</label><textarea id="pf-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q4">4. Você sabe quanto gasta por mês? Tem controle das suas despesas?</label><textarea id="pf-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q5">5. Você possui dívidas? Se sim, quais e em qual valor aproximado?</label><textarea id="pf-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q6">6. Você já tem algum investimento ou reserva financeira?</label><textarea id="pf-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q7">7. Quais são seus principais objetivos financeiros nos próximos 2 anos? E nos próximos 10 anos?</label><textarea id="pf-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q8">8. Você está planejando alguma grande compra ou mudança de vida em breve? (imóvel, casamento, filhos, aposentadoria)</label><textarea id="pf-q8" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q9">9. Como você se sente em relação a riscos financeiros? Prefere segurança ou aceita alguma variação em busca de retorno maior?</label><textarea id="pf-q9" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="pf-q10">10. Você já tentou organizar suas finanças antes? O que funcionou ou não funcionou?</label><textarea id="pf-q10" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('planejamento')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-planejamento"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-patrimonial" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-patrimonial">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('patrimonial')">✕</button>
+    <p id="titulo-modal-patrimonial" class="modal-titulo">Organização Patrimonial</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-patrimonial">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="op-nome">Nome</label><input type="text" id="op-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="op-sob">Sobrenome</label><input type="text" id="op-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="op-email">E-mail</label><input type="email" id="op-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="op-tel">Telefone</label><input type="tel" id="op-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="op-q1">1. Quais tipos de bens você possui atualmente? (imóveis, veículos, investimentos, participações em empresas)</label><textarea id="op-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q2">2. Esses bens estão registrados em seu nome, de terceiros ou de pessoa jurídica?</label><textarea id="op-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q3">3. Você é casado(a)? Se sim, qual o regime de bens?</label><textarea id="op-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q4">4. Você tem herdeiros ou dependentes que devem ser considerados no planejamento?</label><textarea id="op-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q5">5. Existe algum planejamento de transmissão de patrimônio (testamento, doação, holding)?</label><textarea id="op-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q6">6. Você tem alguma preocupação específica com a proteção do seu patrimônio?</label><textarea id="op-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q7">7. Há alguma situação fiscal ou tributária relevante que você gostaria de otimizar?</label><textarea id="op-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="op-q8">8. Há alguma disputa, pendência jurídica ou dívida vinculada a algum bem?</label><textarea id="op-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('patrimonial')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-patrimonial"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-investimentos" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-investimentos">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('investimentos')">✕</button>
+    <p id="titulo-modal-investimentos" class="modal-titulo">Estratégia de Investimentos</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-investimentos">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ei-nome">Nome</label><input type="text" id="ei-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ei-sob">Sobrenome</label><input type="text" id="ei-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ei-email">E-mail</label><input type="email" id="ei-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ei-tel">Telefone</label><input type="tel" id="ei-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="ei-q1">1. Qual é o valor aproximado que você tem disponível para investir?</label><textarea id="ei-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q2">2. Você já investe? Se sim, em quais produtos? (poupança, CDB, ações, fundos)</label><textarea id="ei-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q3">3. Qual é o seu objetivo com os investimentos? (reserva, renda passiva, aposentadoria, crescimento de patrimônio)</label><textarea id="ei-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q4">4. Em quanto tempo pretende utilizar esse dinheiro?</label><textarea id="ei-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q5">5. Se seus investimentos caíssem 20% em um mês, qual seria sua reação?</label><textarea id="ei-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q6">6. Você tem reserva de emergência separada dos investimentos?</label><textarea id="ei-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q7">7. Já teve experiências negativas com investimentos? O que aconteceu?</label><textarea id="ei-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ei-q8">8. Você investe sozinho ou já teve assessoria anteriormente?</label><textarea id="ei-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('investimentos')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-investimentos"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-educacao" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-educacao">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('educacao')">✕</button>
+    <p id="titulo-modal-educacao" class="modal-titulo">Educação Financeira</p>
+    <p class="modal-sub">Preencha o formulário abaixo para darmos início ao seu diagnóstico.</p>
+    <div id="form-educacao">
+      <p class="fsl">Dados de contato</p>
+      <div class="fg">
+        <div class="fi"><label for="ef-nome">Nome</label><input type="text" id="ef-nome" placeholder="Seu nome" autocomplete="given-name" /></div>
+        <div class="fi"><label for="ef-sob">Sobrenome</label><input type="text" id="ef-sob" placeholder="Seu sobrenome" autocomplete="family-name" /></div>
+        <div class="fi"><label for="ef-email">E-mail</label><input type="email" id="ef-email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="fi"><label for="ef-tel">Telefone</label><input type="tel" id="ef-tel" placeholder="(00) 00000-0000" autocomplete="tel" /></div>
+      </div>
+      <hr class="fdiv" /><p class="fsl">Diagnóstico inicial</p>
+      <div class="fi full"><label for="ef-q1">1. Como você descreveria sua relação atual com o dinheiro?</label><textarea id="ef-q1" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q2">2. Você tem o hábito de guardar parte da sua renda mensalmente?</label><textarea id="ef-q2" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q3">3. Quais são os principais desafios financeiros que você enfrenta hoje?</label><textarea id="ef-q3" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q4">4. Você já fez algum curso ou leu livros sobre finanças? O que achou?</label><textarea id="ef-q4" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q5">5. O que te motivou a buscar educação financeira agora?</label><textarea id="ef-q5" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q6">6. Você prefere aprender de forma individual ou em grupo?</label><textarea id="ef-q6" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q7">7. Qual é o seu nível de conhecimento sobre investimentos? (iniciante, intermediário, avançado)</label><textarea id="ef-q7" placeholder="Sua resposta..."></textarea></div>
+      <div class="fi full"><label for="ef-q8">8. Você tem algum objetivo financeiro específico que quer alcançar com mais conhecimento?</label><textarea id="ef-q8" placeholder="Sua resposta..."></textarea></div>
+      <button class="btn-enviar" onclick="enviarFormulario('educacao')">Enviar</button>
+    </div>
+    <div class="form-ok" id="ok-educacao"><div class="ico">✅</div><h3>Mensagem enviada!</h3><p>Obrigada pelo seu contato. Retornarei em breve.</p></div>
+  </div>
+</div>
+
+<!-- FOOTER_END -->
 
 </body>
 </html>

@@ -1,46 +1,14 @@
-    /* ── FADE IN ── */
-    .fi-anim { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .fi-anim.vis { opacity: 1; transform: translateY(0); }
-    .fi-anim.d1 { transition-delay: 0.08s; }
-    .fi-anim.d2 { transition-delay: 0.16s; }
-    .fi-anim.d3 { transition-delay: 0.24s; }
-    .fi-anim.d4 { transition-delay: 0.32s; }
+/* ─── ANIMATIONS ─── */
 
-    /* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
-    @media (prefers-reduced-motion: reduce) {
-      .fi-anim,
-      .fi-anim.vis {
-        transition: none;
-      }
-      .fi-anim.vis {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ── MOBILE NAV ── */
-    .mobile-overlay {
-      display: none; position: fixed; inset: 0;
-      background: var(--white); z-index: 500;
-      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
-    }
-    .mobile-overlay.open { display: flex; }
-    .mobile-overlay a { font-size: 1.5rem; font-weight: 300; color: var(--ink); text-decoration: none; }
-    .mobile-close {
-      position: absolute; top: 1rem; right: 1.25rem;
-      font-size: 1.5rem; color: var(--ink-2); background: none; border: none; cursor: pointer;
-    }
-
-/* ── MESH BLOBS HERO — respiração diagonal ── */
 @keyframes blobBreath1 {
   0%   { transform: scale(1) translate(0, 0); }
-  50%  { transform: scale(1.08) translate(2vw, -3vh); }
-  100% { transform: scale(0.96) translate(-1vw, 2vh); }
+  50%  { transform: scale(1.12) translate(-5vw, 5vh); }
+  100% { transform: scale(0.92) translate(5vw, -5vh); }
 }
 
 @keyframes blobBreath2 {
   0%   { transform: scale(1) translate(0, 0); }
-  50%  { transform: scale(1.12) translate(-2vw, 2vh); }
+  50%  { transform: scale(1.08) translate(4vw, 3vh); }
   100% { transform: scale(0.94) translate(2vw, -2vh); }
 }
 
@@ -50,3 +18,10 @@
   100% { transform: scale(0.98) translate(2vw, -3vh); }
 }
 
+/* ── ACESSIBILIDADE: PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
