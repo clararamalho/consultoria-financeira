@@ -22,14 +22,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://clararamalho.com.br/assets/og-cover.jpg" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="645309d9-1add-4b4c-9d0a-738a3a38b8c2"></script>
-  <link rel="stylesheet" href="assets/global.css" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/animations.css" />
-  <link rel="stylesheet" href="assets/css/index.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/fonts.css" />
+  <link rel="stylesheet" href="assets/index.page.css" />
   <style>
     @media (max-width: 860px) {
       .modal input,
@@ -155,21 +149,39 @@
 <main id="main">
 <!-- ==================== HERO ==================== -->
 <section id="hero" data-navbar-theme="dark">
-  <div class="hero-mesh" aria-hidden="true">
-    <svg class="hero-grain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-      <filter id="grain-filter">
-        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-        <feColorMatrix type="saturate" values="0"/>
-        <feBlend in="SourceGraphic" mode="overlay" result="blend"/>
-        <feComposite in="blend" in2="SourceGraphic" operator="in"/>
-      </filter>
-      <rect width="100%" height="100%" filter="url(#grain-filter)" opacity="0.08"/>
-    </svg>
-    <div class="mesh-blob blob-orange"></div>
-    <div class="mesh-blob blob-amber"></div>
-    <div class="mesh-blob blob-blue"></div>
-    <div class="mesh-blob blob-purple"></div>
-  </div>
+  <svg class="hero-sunburst" viewBox="0 0 1440 800" aria-hidden="true"
+       xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+       preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="heroFade" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.35" />
+        <stop offset="65%" stop-color="currentColor" stop-opacity="0.08" />
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <g stroke="url(#heroFade)" stroke-width="1" fill="none">
+      <line x1="720" y1="400" x2="720" y2="0" />
+      <line x1="720" y1="400" x2="900" y2="0" />
+      <line x1="720" y1="400" x2="1080" y2="30" />
+      <line x1="720" y1="400" x2="1230" y2="110" />
+      <line x1="720" y1="400" x2="1380" y2="240" />
+      <line x1="720" y1="400" x2="1440" y2="400" />
+      <line x1="720" y1="400" x2="1380" y2="560" />
+      <line x1="720" y1="400" x2="1230" y2="690" />
+      <line x1="720" y1="400" x2="1080" y2="770" />
+      <line x1="720" y1="400" x2="900" y2="800" />
+      <line x1="720" y1="400" x2="720" y2="800" />
+      <line x1="720" y1="400" x2="540" y2="800" />
+      <line x1="720" y1="400" x2="360" y2="770" />
+      <line x1="720" y1="400" x2="210" y2="690" />
+      <line x1="720" y1="400" x2="60" y2="560" />
+      <line x1="720" y1="400" x2="0" y2="400" />
+      <line x1="720" y1="400" x2="60" y2="240" />
+      <line x1="720" y1="400" x2="210" y2="110" />
+      <line x1="720" y1="400" x2="360" y2="30" />
+      <line x1="720" y1="400" x2="540" y2="0" />
+    </g>
+  </svg>
   <div class="hero-content">
     <p class="hero-tag" data-content="hero_tag">Consultoria Financeira Independente</p>
     <h1 data-content="hero_titulo">Segurança para as suas decisões financeiras.</h1>
