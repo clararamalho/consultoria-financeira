@@ -1576,7 +1576,7 @@ section { padding: 5rem 1.25rem; }
   padding: 0;
   padding-bottom: 6rem;
 }
-.servicos-header h2 { color: var(--dark-text); }
+.servicos-header .s-title { color: var(--dark-text); }
 .servicos-header p { color: var(--dark-text-2); }
 .servico-bloco { border-bottom-color: var(--dark-border-2); }
 .servico-bloco h3 { color: var(--dark-text); }
@@ -3782,6 +3782,10 @@ footer {
 [data-theme="light"] .hero-tag { color: var(--ink-2); }
 [data-theme="light"] #hero p { color: var(--ink-2); }
 [data-theme="light"] .hero-sunburst { color: var(--ink-3); }
+
+/* ── SERVIÇOS LIGHT MODE — cores via tokens ── */
+[data-theme="light"] .servicos-header .s-title { color: var(--ink); }
+[data-theme="light"] .servicos-header .s-label { color: var(--ink-3); }
 
 /* ── HERO DARK MODE — cores via tokens ── */
 #hero h1 { color: var(--white); }
