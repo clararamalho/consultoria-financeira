@@ -201,11 +201,11 @@
   <p class="stats-label" data-content="stats_label">Experiência comprovada</p>
   <div class="stats-row container" id="statsRow">
     <div class="stat fi-anim">
-      <div class="stat-num">12<sup>+</sup></div>
+      <div class="stat-num" data-count="12" data-suffix="+">0<sup>+</sup></div>
       <p class="stat-label">anos de experiência</p>
     </div>
     <div class="stat fi-anim d1">
-      <div class="stat-num">100<sup>%</sup></div>
+      <div class="stat-num" data-count="100" data-suffix="%">0<sup>%</sup></div>
       <p class="stat-label">independente de bancos e corretoras</p>
     </div>
     <div class="stat fi-anim d2">
@@ -657,6 +657,47 @@
 <script defer src="assets/js/tabs.js"></script>
 <script defer src="assets/js/testimonials.js"></script>
 <script defer src="assets/js/forms.js"></script>
+<script>
+(function () {
+  function animateCount(el) {
+    var target = parseInt(el.dataset.count, 10);
+    var sup = el.querySelector('sup');
+    var duration = 1200;
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(ease * target);
+      el.childNodes[0].nodeValue = current;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.childNodes[0].nodeValue = target;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var statsRow = document.getElementById('statsRow');
+  if (!statsRow) return;
+
+  var observed = false;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !observed) {
+        observed = true;
+        observer.disconnect();
+        statsRow.querySelectorAll('[data-count]').forEach(animateCount);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(statsRow);
+})();
+</script>
 </body>
 </html>
 
