@@ -203,6 +203,7 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
 }
 
 #hero h1 {
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 300;
   color: #F4F1EC;
@@ -298,6 +299,7 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
   position: relative;
 }
 .stat-num {
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.5rem);
   font-weight: 300;
   color: var(--ink);
