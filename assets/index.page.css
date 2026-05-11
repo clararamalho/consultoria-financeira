@@ -3004,8 +3004,8 @@ nav#mainNav a:hover { color: var(--ink); background: var(--surface-2); }
   text-transform: uppercase; letter-spacing: 0.12em;
   color: rgba(255,255,255,0.75); margin-bottom: 1.25rem;
 }
-.hero-tag::before { content: "— "; }
-.hero-tag::after { content: " —"; }
+.hero-tag::before { content: ""; }
+.hero-tag::after { content: ""; }
 
 [data-theme="light"] .hero-tag {
   color: #0F1A45;
@@ -3987,25 +3987,15 @@ footer {
 
 /* Light mode */
 [data-theme="light"] #hero {
-  background: linear-gradient(135deg,
-    #F0F4FF 0%,
-    #E8F7F8 50%,
-    #FFFFFF 100%
-  );
+  background: var(--bg-secondary);
 }
 
 [data-theme="light"] #hero::before {
-  background: radial-gradient(circle,
-    rgba(0, 192, 200, 0.12) 0%,
-    transparent 70%
-  );
+  display: none;
 }
 
 [data-theme="light"] #hero::after {
-  background: radial-gradient(circle,
-    rgba(196, 30, 110, 0.07) 0%,
-    transparent 70%
-  );
+  display: none;
 }
 
 /* Garantir que o conteúdo fique acima dos blobs */
@@ -4062,4 +4052,20 @@ footer {
   #hero::after {
     display: none;
   }
+}
+
+[data-theme="light"] .hero-sunburst {
+  color: rgba(180, 180, 180, 0.6);
+}
+
+/* ── LIGHT MODE — fundo unificado #F7F8FC ── */
+[data-theme="light"] .site-main-header,
+[data-theme="light"] #hero,
+[data-theme="light"] #stats,
+[data-theme="light"] #servicos,
+[data-theme="light"] #quem-sou-eu,
+[data-theme="light"] #como-funciona,
+[data-theme="light"] .servicos-tabs-wrap,
+[data-theme="light"] .site-footer {
+  background: var(--bg-secondary);
 }
