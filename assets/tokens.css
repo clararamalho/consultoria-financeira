@@ -50,10 +50,10 @@
   --max:            1200px;
   --nav-h:          56px;
 
-  --moment-dark-1:  #0A1032;
+  --moment-dark-1:  #0D1424;
   --moment-dark-2:  #111827;
   --moment-accent:  #00C0C8;
-  --moment-mute:    rgba(255,255,255,0.45);
+  --moment-mute:    rgba(255, 255, 255, 0.55);
 
   --shadow-card:    rgba(0,0,0,0.04);
   --shadow-ink:     rgba(26,42,108,0.2);
