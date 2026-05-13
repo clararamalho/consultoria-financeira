@@ -418,6 +418,20 @@
   --modal-overlay:      rgba(10,16,50,0.8);
 }
 
+
+/* servicos dark mode override */
+[data-theme="dark"] #servicos { background: var(--dark-bg); }
+[data-theme="dark"] #servicos .servico-mockup {
+  background: var(--dark-surface-2);
+  border-color: var(--dark-border);
+}
+[data-theme="dark"] #servicos .mock-card {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+}
+[data-theme="dark"] #servicos .mock-card-title { color: var(--dark-text); }
+[data-theme="dark"] #servicos .mock-bar-track { background: var(--dark-surface); }
+
 /* ─── RESET & BASE ─── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -614,7 +628,7 @@ body::before {
   border: none;
   background: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .site-nav-dropdown-btn:hover,
@@ -862,6 +876,7 @@ body::before {
 }
 
 .site-mobile-overlay a {
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--text-primary);
@@ -881,6 +896,7 @@ body::before {
 
 .site-mobile-services-btn {
   width: 100%;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--text-primary);
@@ -890,9 +906,9 @@ body::before {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
-  text-align: left;
+  text-align: center;
 }
 
 .site-mobile-services-btn svg {
@@ -1579,12 +1595,27 @@ section { padding: 5rem 1.25rem; }
 .servicos-header .s-title { color: var(--dark-text); }
 .servicos-header p { color: var(--dark-text-2); }
 .servico-bloco { border-bottom-color: var(--dark-border-2); }
-.servico-bloco h3 { color: var(--dark-text); }
+.servico-bloco h3 { color: var(--ink); }
+[data-theme="dark"] .servico-bloco h3 { color: var(--dark-text); }
 .servico-bloco p { color: var(--dark-text-2); }
 .servico-bloco-tag { color: var(--dark-text-3); }
-.servicos-tabs-wrap { background: var(--dark-bg); border-bottom-color: var(--dark-border); }
-.tab-btn { color: var(--dark-text-2); }
-.tab-btn.active { color: var(--dark-orange); border-bottom-color: var(--dark-orange); }
+[data-theme="dark"] .servicos-tabs-wrap {
+  background: var(--moment-dark-2);
+  border-bottom-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="dark"] #servicos .servicos-tabs {
+  background: var(--footer-bg);
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] #servicos .tab-indicator {
+  background: var(--moment-dark-2);
+  border-color: var(--dark-border);
+}
+[data-theme="dark"] .tab-indicator { background: var(--dark-surface); border-color: var(--dark-border); }
 .servicos-header {
   padding: 5rem 1.25rem 0;
 }
@@ -1594,9 +1625,7 @@ section { padding: 5rem 1.25rem; }
   position: sticky;
   top: var(--nav-h);
   z-index: 90;
-  background: var(--white-92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-2);
   display: flex;
   justify-content: center;
@@ -1635,12 +1664,24 @@ section { padding: 5rem 1.25rem; }
   padding: 0.4rem 1.1rem;
   border-radius: 100px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   transition: color 0.25s ease;
   white-space: nowrap;
 }
 .tab-btn.active { color: var(--ink); font-weight: 400; }
 .tab-btn:hover:not(.active) { color: var(--ink-2); }
+[data-theme="dark"] #servicos .tab-btn {
+  color: var(--dark-text-2);
+}
+
+[data-theme="dark"] #servicos .tab-btn.active {
+  color: var(--white);
+  font-weight: 400;
+}
+
+[data-theme="dark"] #servicos .tab-btn:hover:not(.active) {
+  color: var(--dark-text);
+}
 
 /* ── BLOCOS DE SERVIÇO ── */
 .servico-bloco {
@@ -1665,7 +1706,7 @@ section { padding: 5rem 1.25rem; }
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ciano);
   font-family: monospace;
 }
 .servico-titulo {
@@ -1692,32 +1733,40 @@ section { padding: 5rem 1.25rem; }
 .servico-badge {
   font-size: 0.7rem;
   font-weight: 400;
-  color: var(--ink-2);
-  border: 1px solid var(--border);
+  color: var(--dark-text-2);
+  border: 1px solid var(--dark-border);
   padding: 0.25rem 0.7rem;
   border-radius: 100px;
-  background: var(--white);
+  background: var(--moment-overlay-15);
+}
+[data-theme="dark"] .servico-badge {
+  background: var(--dark-surface-2);
+  border-color: var(--dark-border);
+  color: var(--dark-text-2);
 }
 .servico-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.6rem;
   font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--ink);
-  border: 1px solid var(--border);
-  padding: 0.65rem 1.2rem;
-  border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 100px;
+  background: #F98513;
+  box-shadow: 0 4px 24px rgba(249, 133, 19, 0.45);
+  text-decoration: none;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   overflow: hidden;
   width: fit-content;
   margin-top: 0.5rem;
 }
-.servico-cta:hover { background: var(--surface-2); border-color: transparent; }
+.servico-cta:hover { background: var(--dark-surface-2); box-shadow: 0 4px 24px rgba(249, 133, 19, 0.25); transform: translateY(-2px); }
+
 .servico-cta-arrow {
   display: flex; overflow: hidden;
   width: 14px; height: 14px; position: relative;
@@ -3529,7 +3578,6 @@ footer {
   .footer-cols { grid-template-columns: 1fr; }
   .hamburger { display: flex; }
   nav#mainNav { display: none; }
-  .servicos-tabs-wrap { position: relative; top: auto; }
 }
 
 @media (max-width: 540px) {
@@ -3722,10 +3770,13 @@ footer {
 [data-theme="light"] .site-main-header,
 [data-theme="light"] #hero,
 [data-theme="light"] #stats,
-[data-theme="light"] #servicos,
 [data-theme="light"] #quem-sou-eu,
-[data-theme="light"] #como-funciona,
-[data-theme="light"] .servicos-tabs-wrap,
+[data-theme="light"] #como-funciona {
+  background: var(--bg-secondary);
+}
+[data-theme="light"] #servicos {
+  background: var(--bg-secondary);
+}
 [data-theme="light"] .site-footer {
   background: var(--bg-secondary);
 }
