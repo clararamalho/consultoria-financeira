@@ -203,6 +203,7 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
 }
 
 #hero h1 {
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 300;
   color: #F4F1EC;
@@ -298,6 +299,7 @@ nav a:hover { color: var(--ink); background: var(--surface-2); }
   position: relative;
 }
 .stat-num {
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.5rem);
   font-weight: 300;
   color: var(--ink);
@@ -367,7 +369,7 @@ section { padding: 5rem 1.25rem; }
   position: sticky;
   top: var(--nav-h);
   z-index: 90;
-  background: var(--white-92);
+  background: var(--moment-dark-1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-2);
@@ -375,6 +377,9 @@ section { padding: 5rem 1.25rem; }
   justify-content: center;
   padding: 0.75rem 1.25rem;
   margin-top: 3rem;
+}
+[data-theme="dark"] .servicos-tabs-wrap {
+  background: var(--moment-dark-2);
 }
 .servicos-tabs {
   display: inline-flex;

@@ -45,8 +45,10 @@
     const bloco = document.getElementById('bloco-' + id);
     if (!bloco) return;
 
-    const hdrH  = document.getElementById('hdr')?.offsetHeight || 56;
-    const tabsH = document.querySelector('.servicos-tabs-wrap')?.offsetHeight || 48;
+    const hdrH   = document.getElementById('hdr')?.offsetHeight || 56;
+    const wrap   = document.querySelector('.servicos-tabs-wrap');
+    const isSticky = wrap && getComputedStyle(wrap).position === 'sticky';
+    const tabsH  = isSticky ? (wrap?.offsetHeight || 48) : 0;
     const offset = hdrH + tabsH + 8;
     const blocoTop = bloco.getBoundingClientRect().top + window.scrollY;
 
